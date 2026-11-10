@@ -10,9 +10,13 @@
 * C:       retrieve(0) + plan(1) + answer(1) + repair(0)*  = 2 次（闸门是规则，不打 LLM）
 * A_gates: retrieve(0) + answer(1) + repair(0)*            = 1 次（同上，只多了闸门）
 
-``A_gates`` 只用于 B6 消融（T04）：回答与闸门都在，但没有 plan 节点。
+``A_gates`` 是**默认档**（``/ask``、``/stream``、UI 均默认它）：单次生成 + 五道闸，
+比 C 少一次 plan 调用。B6 消融里它同时是多 Agent 的对照项。
 它回答的问题是「五道闸门的收益是否依赖多 Agent 的规划」——若 A_gates 与 C 的
 grounded 接近，说明闸门本身有效；若明显更差，说明 plan 提供的那一跳确实有用。
+
+业务实现（拼 prompt / 生成 / 校验 / 修复）全部在 :mod:`app.__007__agents.__003__pipeline`，
+同步 ``/ask`` 与流式 ``/stream`` 共用，本文件只负责把它们连成图。
 """
 
 from __future__ import annotations
@@ -24,66 +28,29 @@ from typing import Any
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 
-from app.__007__agents.__000__state import QAState, normalize_tier  # noqa: E402
-from app.__007__agents.__001__gates import run_gates  # noqa: E402
-from common import prompt_guard  # noqa: E402
-from common.llm import get_llm, llm_probe  # noqa: E402
-from common.logging_utils import get_logger  # noqa: E402
-
-log = get_logger("agents")
-
-PLAN_SYSTEM = "你是劳动法检索规划器。只根据给定概念与候选法条，用两三句话写出本案的推理链路（先看哪条、再看哪条、为什么）。不要编造条号。"
-ANSWER_SYSTEM = (
-    "你是劳动法咨询助手。只能使用提供的法条作答，不得引用未提供的法条，不得编造条号。"
-    "回答分两部分：1) 结论（2-3 句）；2) 依据（逐行以「- 」开头，写出条号、法名与该条原文的关键片段）。"
+from app.__007__agents.__000__state import QAState  # noqa: E402
+from app.__007__agents.__003__pipeline import (  # noqa: E402
+    ANSWER_SYSTEM,  # noqa: F401  （兼容旧导入）
+    MAX_ATTEMPTS,
+    PLAN_SYSTEM,  # noqa: F401
+    after_check,
+    answer_sync,
+    check_gates,
+    deterministic_answer,
+    fmt_items,
+    is_refused,
+    plan_state,
+    repair_state,
 )
+from common.llm import llm_probe  # noqa: E402
 
-MAX_ATTEMPTS = 2
+# 兼容旧名字（测试与外部脚本仍在引用）
+_fmt_items = fmt_items
+_deterministic_answer = deterministic_answer
 
 
 def llm_enabled() -> bool:
     return llm_probe()
-
-
-def _fmt_items(items: list[dict]) -> str:
-    """拼接层（唯一的 prompt 组装点）：检索条文进 prompt 前必须过数据边界。
-
-    ``ENABLE_PROMPT_GUARD=0`` 时逐字回到旧格式，便于做防护前后的 A/B 对照。
-    """
-    if prompt_guard.guard_enabled():
-        return prompt_guard.guard_block(
-            [
-                {
-                    "article_id": i["citation"],
-                    "source": "corpus",
-                    "law_name": i["law_name"],
-                    "content": i.get("content", "")[:220],
-                }
-                for i in items
-            ]
-        )
-    return "\n".join(f"{i['citation']}（{i['law_name']}）：{i.get('content', '')[:220]}" for i in items)
-
-
-def _note_cites_ok(note: str, items: list[dict]) -> bool:
-    """规划节点是 LLM 写的，可能顺手带出不存在的条号；确定性答案不能把它原样搬进正文。"""
-    from app.__007__agents.__001__gates import cited_patterns
-
-    cats = [i["citation"] for i in items]
-    return all(any(p in c for c in cats) for p in cited_patterns(note))
-
-
-def _deterministic_answer(query: str, retrieval: dict[str, Any], path_note: str = "") -> str:
-    items = retrieval.get("items", [])[:4]
-    if not items:
-        return "没有检索到直接相关的法条，无法给出有依据的结论，建议补充事实或转人工。"
-    head = items[0]
-    lines = [f"结论：根据{head['citation']}（{head['law_name']}），相关行为应按该条规定处理。"]
-    if path_note and _note_cites_ok(path_note, items):
-        lines.append(f"推理链路：{path_note}")
-    lines.append("依据：")
-    lines += [f"- {i['citation']}（{i['law_name']}）：{i.get('content', '')[:160]}" for i in items]
-    return "\n".join(lines)
 
 
 def make_flow(
@@ -99,97 +66,41 @@ def make_flow(
     ask_llm = llm_enabled() if use_llm is None else use_llm
     art_concepts = art_concepts or {}
 
-    # ---------------- 节点 ----------------
+    # ---------------- 节点：只做状态拼装，业务在 pipeline ----------------
     def retrieve(state: QAState) -> dict:
         out = retriever.retrieve(state["query"], mode=state.get("mode", "hybrid")).as_dict()
         return {"retrieval": out, "llm_calls": 0}
 
     def plan(state: QAState) -> dict:
-        ret = state["retrieval"]
-        linked = [c["name"] for c in ret.get("linked", {}).get("concepts", [])]
-        items = ret.get("items", [])[:4]
-        if ask_llm:
-            text = get_llm().try_chat(
-                [
-                    {"role": "system", "content": PLAN_SYSTEM},
-                    {
-                        "role": "user",
-                        "content": f"问题：{state['query']}\n命中概念：{'、'.join(linked) or '无'}\n候选法条：\n{_fmt_items(items)}",
-                    },
-                ],
-                default="",
-                temperature=0.0,
-                max_tokens=220,
-            )
-            if text.strip():
-                return {"path_note": text.strip(), "llm_calls": state.get("llm_calls", 0) + 1}
-        note = f"先看 {items[0]['citation']}" if items else "无候选条文"
-        if len(items) > 1:
-            note += f"，再核 {items[1]['citation']}"
-        return {"path_note": note, "llm_calls": state.get("llm_calls", 0)}
+        res = plan_state(state["query"], state["retrieval"], ask_llm=ask_llm)
+        return {"path_note": res["path_note"], "llm_calls": state.get("llm_calls", 0) + res["llm_calls"]}
 
     def answer(state: QAState) -> dict:
-        ret = state["retrieval"]
-        items = ret.get("items", [])[:4]
-        if ask_llm and items:
-            text = get_llm().try_chat(
-                [
-                    {"role": "system", "content": ANSWER_SYSTEM},
-                    {
-                        "role": "user",
-                        "content": (
-                            f"用户问题：{state['query']}\n推理链路参考：{state.get('path_note', '')}\n\n"
-                            f"可用法条：\n{_fmt_items(items)}\n\n请作答。"
-                        ),
-                    },
-                ],
-                default="",
-                temperature=0.0,
-                max_tokens=480,
-            )
-            if text.strip():
-                return {
-                    "answer": text.strip(),
-                    "citations": [i["citation"] for i in items],
-                    "llm_calls": state.get("llm_calls", 0) + 1,
-                }
+        res = answer_sync(
+            state["query"], state["retrieval"], state.get("path_note", ""), ask_llm=ask_llm
+        )
         return {
-            "answer": _deterministic_answer(state["query"], ret, state.get("path_note", "")),
-            "citations": [i["citation"] for i in items],
-            "llm_calls": state.get("llm_calls", 0),
+            "answer": res["answer"],
+            "citations": res["citations"],
+            "llm_calls": state.get("llm_calls", 0) + res["llm_calls"],
         }
 
     def check(state: QAState) -> dict:
-        checks = run_gates(state.get("answer", ""), state["retrieval"], article_index, art_concepts)
-        return {"checks": checks}
+        return {"checks": check_gates(state.get("answer", ""), state["retrieval"], article_index, art_concepts)}
 
     def repair(state: QAState) -> dict:
-        """闸门失败时的确定性重建：剔除没有图连接/证据的条文，并显式给出原文片段。"""
-        ret = state["retrieval"]
-        gates_ok = {c["gate"]: c["ok"] for c in state.get("checks", [])}
-        items = ret.get("items", [])
-        if not gates_ok.get("path_support", True):
-            linked = {c["id"] for c in ret.get("linked", {}).get("concepts", [])}
-            kept = [i for i in items if art_concepts.get(i["article_id"], set()) & linked]
-            items = kept or items
-        sub = {**ret, "items": items}
-        answer = _deterministic_answer(state["query"], sub, state.get("path_note", ""))
-        if not gates_ok.get("low_conf_handoff", True):
-            answer = "该问题检索证据不足（top1 相似度与图路径覆盖均偏低），无法确定结论，建议补充材料或转人工复核。\n" + answer
-        return {
-            "answer": answer,
-            "answer_pre_repair": state.get("answer_pre_repair") or state.get("answer", ""),
-            "citations": [i["citation"] for i in items[:4]],
-            "attempts": state.get("attempts", 0) + 1,
-            "repaired": True,
-        }
+        return repair_state(
+            query=state["query"],
+            retrieval=state["retrieval"],
+            checks=state.get("checks", []),
+            path_note=state.get("path_note", ""),
+            art_concepts=art_concepts,
+            prior_answer=state.get("answer", ""),
+            attempts=state.get("attempts", 0),
+        )
 
-    def after_check(state: QAState) -> str:
-        if all(c["ok"] for c in state.get("checks", [])):
-            return "done"
-        if state.get("attempts", 0) < MAX_ATTEMPTS:
-            return "repair"
-        return "done"
+    def route_after_check(state: QAState) -> str:
+        return after_check(state.get("checks", []), state.get("attempts", 0))
 
     # ---------------- 建图 ----------------
     g = StateGraph(QAState)
@@ -208,15 +119,27 @@ def make_flow(
         g.add_node("check", check)
         g.add_node("repair", repair)
         g.add_edge("answer", "check")
-        g.add_conditional_edges("check", after_check, {"repair": "repair", "done": END})
+        g.add_conditional_edges("check", route_after_check, {"repair": "repair", "done": END})
         g.add_edge("repair", "check")
     compiled = g.compile()
 
     def run(query: str, mode: str = "hybrid") -> dict:
-        init: QAState = {"query": query, "mode": mode, "attempts": 0, "repaired": False, "citations": [], "checks": []}
+        init: QAState = {
+            "query": query,
+            "mode": mode,
+            "attempts": 0,
+            "repaired": False,
+            "citations": [],
+            "checks": [],
+        }
         out = compiled.invoke(init)
         out.setdefault("answer", "")
-        out["refused"] = "无法确定" in out["answer"] or "无法给出" in out["answer"]
+        out["refused"] = is_refused(out["answer"])
+        # 每次修复都算一个新版本：v1 是初稿，attempts 次修复后当前版本是 1+attempts。
+        # 旧写法固定成 2，遇到「修复后复检仍失败、再修一次」就与流式路径对不上。
+        attempts = int(out.get("attempts", 0))
+        out["answer_version"] = 1 + attempts
+        out["superseded_versions"] = list(range(1, 1 + attempts))
         return dict(out)
 
     def stream_steps(init: dict) -> Any:

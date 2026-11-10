@@ -396,6 +396,7 @@ class LLMClient:
                         continue
                 usage = None
                 emitted = False
+                t_stream = time.perf_counter()
                 try:
                     for chunk in stream:
                         if getattr(chunk, "usage", None) is not None:
@@ -417,13 +418,11 @@ class LLMClient:
                         "degraded_reason": "stream_interrupted" if emitted else "upstream_failed",
                     }
                     raise LLMError(kind, f"流式中断（已输出={emitted}）: {str(exc)[:200]}") from exc
-                if usage is not None:
-                    USAGE.add(
-                        getattr(usage, "prompt_tokens", 0) or 0,
-                        getattr(usage, "completion_tokens", 0) or 0,
-                    )
-                else:
-                    USAGE.add(0, 0)
+                prompt_tokens = getattr(usage, "prompt_tokens", 0) or 0 if usage is not None else 0
+                completion_tokens = getattr(usage, "completion_tokens", 0) or 0 if usage is not None else 0
+                USAGE.add(prompt_tokens, completion_tokens)
+                if _TIMING_HOOK is not None:
+                    _TIMING_HOOK((time.perf_counter() - t_stream) * 1000, prompt_tokens, completion_tokens)
                 self.last_stream = {
                     "model": model,
                     "emitted": emitted,
