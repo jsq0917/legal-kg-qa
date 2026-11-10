@@ -24,6 +24,7 @@
       "concept_articles",
       "scenario_concepts",
       "concept_neighbors",
+      "concept_neighbors",
       "article_cites",
       "concept_scenarios",
       "article_detail"
@@ -59,6 +60,7 @@
       }
     }
   },
+  "stats_diff": {},
   "plans": {
     "concept_articles": {
       "ok": true,
@@ -69,6 +71,10 @@
       "rows": 14
     },
     "concept_neighbors": {
+      "ok": true,
+      "rows": 6
+    },
+    "concept_neighbors#in": {
       "ok": true,
       "rows": 6
     },
@@ -90,7 +96,9 @@
     "manifest_consistent": true,
     "detector_detects_injected_diff": true,
     "detector_detects_injected_edge": true,
+    "backends_stats_match": true,
     "backends_consistent": true,
+    "neo4j_live": true,
     "neo4j_required_met": true
   }
 }

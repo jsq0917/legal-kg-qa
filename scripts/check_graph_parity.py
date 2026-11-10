@@ -39,6 +39,16 @@ PLANS: list[QueryPlan] = [
         "concept_neighbors",
         {"concept_ids": ["labor_relationship", "labor_dispatch"], "relations": ["REQUIRES", "SPECIAL_OF"], "limit": 20},
     ),
+    # 方向也要比：同一概念按入边展开，行内容必须与出边列表一起被校验。
+    QueryPlan(
+        "concept_neighbors",
+        {
+            "concept_ids": ["labor_relationship", "labor_dispatch"],
+            "relations": ["REQUIRES", "SPECIAL_OF"],
+            "direction": "in",
+            "limit": 20,
+        },
+    ),
     QueryPlan("article_cites", {"article_ids": ["lcl#14", "lcl#25", "cc#577"]}),
     QueryPlan("concept_scenarios", {"concept_ids": ["labor_dispatch", "annual_leave"], "limit": 10}),
     QueryPlan("article_detail", {"ids": ["lcl#10", "cc#733", "cc#577"]}),
@@ -84,13 +94,19 @@ def diff_rows(plan_name: str, left: list[dict], right: list[dict]) -> dict[str, 
     }
 
 
+def _plan_key(plan: QueryPlan) -> str:
+    """报告里的键：同名计划按方向区分，避免出边/入边结果互相覆盖。"""
+    direction = plan.params.get("direction")
+    return f"{plan.name}#{direction}" if direction else plan.name
+
+
 def compare_backends(nx_store: NetworkXGraphStore, other: Any) -> dict[str, Any]:
     out: dict[str, Any] = {}
     for plan in PLANS:
         left = nx_store.execute(plan)
         right = other.execute(plan)
         d = diff_rows(plan.name, left, right)
-        out[plan.name] = {"ok": not d, **({"diff": d} if d else {"rows": len(left)})}
+        out[_plan_key(plan)] = {"ok": not d, **({"diff": d} if d else {"rows": len(left)})}
     return out
 
 
@@ -180,8 +196,10 @@ def main() -> None:
         "detector_selftest": selftest_detector(nx_store),
         "injected_edge_selftest": selftest_injected_edge(nx_store, settings.graph_dir),
         "neo4j": {"status": "skipped"},
+        "stats_diff": {},
         "plans": {},
     }
+    stats_diff: dict[str, Any] = report["stats_diff"]
 
     neo4j_ok = False
     try:
@@ -196,7 +214,16 @@ def main() -> None:
             if args.require_neo4j:
                 neo4j_ok = False
         else:
-            report["neo4j"] = {"status": "ok", "graph_build_id": neo.graph_build_id, "stats": {k: neo.stats().get(k) for k in ("nodes", "edges", "labels", "relationships")}}
+            neo_stats = neo.stats()
+            report["neo4j"] = {
+                "status": "ok",
+                "graph_build_id": neo.graph_build_id,
+                "stats": {k: neo_stats.get(k) for k in ("nodes", "edges", "labels", "relationships")},
+            }
+            # 统计层也要比：只有节点/边/标签/关系四项全等，才允许说「同一张图」。
+            for k in ("nodes", "edges", "labels", "relationships"):
+                if nx_stats.get(k) != neo_stats.get(k):
+                    stats_diff[k] = {"networkx": nx_stats.get(k), "neo4j": neo_stats.get(k)}
             report["plans"] = compare_backends(nx_store, neo)
     except Exception as exc:
         report["neo4j"] = {"status": "unavailable", "reason": str(exc)[:200]}
@@ -206,17 +233,28 @@ def main() -> None:
     detector_ok = report["detector_selftest"]["ok"]
     injected_ok = report["injected_edge_selftest"]["ok"]
     plans_ok = all(v["ok"] for v in report["plans"].values()) if report["plans"] else True
-    report["ok"] = not version_diff and detector_ok and injected_ok and plans_ok and (neo4j_ok or not args.require_neo4j)
+    stats_ok = not stats_diff
+    neo4j_live = report["neo4j"].get("status") == "ok"
+    report["ok"] = (
+        not version_diff
+        and detector_ok
+        and injected_ok
+        and stats_ok
+        and plans_ok
+        and (neo4j_ok or not args.require_neo4j)
+    )
     report["checks"] = {
         "manifest_consistent": not version_diff,
         "detector_detects_injected_diff": detector_ok,
         "detector_detects_injected_edge": injected_ok,
+        "backends_stats_match": stats_ok,
         "backends_consistent": plans_ok,
+        "neo4j_live": neo4j_live,
         "neo4j_required_met": neo4j_ok or not args.require_neo4j,
     }
     write_json(Path(args.out), report)
 
-    print(json.dumps({k: report[k] for k in ("graph_build_id", "version_diff", "neo4j", "checks", "ok")}, ensure_ascii=False, indent=1))
+    print(json.dumps({k: report[k] for k in ("graph_build_id", "version_diff", "stats_diff", "neo4j", "checks", "ok")}, ensure_ascii=False, indent=1))
     # 汇总到终端，失败时给出定位信息
     if version_diff:
         log.error("manifest 与实际图不一致: %s", version_diff)
