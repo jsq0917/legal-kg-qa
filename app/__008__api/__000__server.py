@@ -90,6 +90,11 @@ def _require_admin(request: Request, action: str, target: str = "") -> None:
     _audit(action, request, target=target, result="ok")
 
 
+def _admin_ok(request: Request) -> bool:
+    """只读判断管理员身份，不写审计（用于「本人或管理员」这类分支）。"""
+    return bool(ADMIN_TOKEN) and secrets.compare_digest(request.headers.get("X-Admin-Token", ""), ADMIN_TOKEN)
+
+
 # --------------------------------------------------------------------------------
 # 懒加载单例
 # --------------------------------------------------------------------------------
@@ -450,8 +455,12 @@ def demo_off_domain(query: str = Query(default="离婚财产分割怎么办？",
 @app.post("/chat")
 def chat(req: ChatReq, request: Request) -> dict[str, Any]:
     dm = _dialog()
+    cid = _client_id(request)
+    if ADMIN_TOKEN and not cid:
+        # 公开部署（配置了 ADMIN_TOKEN）后必须带客户端标识，否则会话无法归属到人。
+        raise HTTPException(status_code=403, detail="公开部署需要 X-Client-Id")
     sid = req.session_id or dm.new_session()
-    if not dm.store.claim(sid, _client_id(request)):
+    if not dm.store.claim(sid, cid):
         raise HTTPException(status_code=403, detail="该会话归属其他客户端")
     return dm.handle(sid, req.text, mode=req.mode).as_dict()
 
@@ -460,7 +469,7 @@ def chat(req: ChatReq, request: Request) -> dict[str, Any]:
 def chat_history(session_id: str, request: Request) -> dict[str, Any]:
     owner = _dialog().store.owner_of(session_id)
     cid = _client_id(request)
-    if owner and cid and owner != cid:
+    if owner and owner != cid and not _admin_ok(request):
         raise HTTPException(status_code=403, detail="该会话归属其他客户端")
     return {"session_id": session_id, "turns": _dialog().history(session_id)}
 
@@ -478,7 +487,12 @@ def hitl_start(req: HitlStartReq, request: Request) -> dict[str, Any]:
 @app.get("/hitl")
 def hitl_list(request: Request, status: str | None = None) -> dict[str, Any]:
     cid = _client_id(request)
-    pending = [t for t in _hitl().pending() if not (cid and t.get("owner") and t["owner"] != cid)]
+    admin = _admin_ok(request)
+    if ADMIN_TOKEN and not cid and not admin:
+        raise HTTPException(status_code=403, detail="公开部署需要 X-Client-Id 或管理员令牌")
+    pending = _hitl().pending()
+    if not admin:
+        pending = [t for t in pending if not (t.get("owner") and t["owner"] != cid)]
     return {"pending": pending, "status_filter": status, "stats": _hitl().stats()}
 
 

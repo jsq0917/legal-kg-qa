@@ -4,6 +4,7 @@
     "gold_path": "data/gold/gold_140_holdout.jsonl",
     "split_role": "holdout",
     "use_rerank": true,
+    "router_llm": false,
     "top_k": 5,
     "answer_tier": "A_gates"
   },
@@ -49,7 +50,7 @@
     },
     "hybrid_recall@5": {
       "n": 140,
-      "mean": 0.7691,
+      "mean": 0.7714,
       "ci95": [
         null,
         null
@@ -90,18 +91,18 @@
     "text_failed_n": 67,
     "recovered_n": 4,
     "graph_only_candidates": {
-      "total": 533,
-      "necessary": 21,
-      "relevant_not_necessary": 198,
-      "noise": 314,
+      "total": 532,
+      "necessary": 22,
+      "relevant_not_necessary": 197,
+      "noise": 313,
       "questions_with_any": 139
     },
     "necessary_path_rate": {
       "n": 139,
-      "mean": 0.1439,
+      "mean": 0.1511,
       "ci95": [
-        0.0951,
-        0.2118
+        0.101,
+        0.2199
       ]
     },
     "answer_correct": {
@@ -114,7 +115,12 @@
       "source_note": "来自缓存离线 B6 结果，非本次 live 重跑",
       "source": "data/eval_out/ablation_holdout_60.json"
     },
-    "necessary_questions": 20
+    "necessary_questions": 21,
+    "failure_reasons": {
+      "entity_linking_failure": 9,
+      "graph_path_incomplete": 50,
+      "ranking_miss": 7
+    }
   },
   "by_bucket": {
     "cross_law": {
@@ -218,7 +224,12 @@
         "source_note": "来自缓存离线 B6 结果，非本次 live 重跑",
         "source": "data/eval_out/ablation_holdout_60.json"
       },
-      "necessary_questions": 11
+      "necessary_questions": 11,
+      "failure_reasons": {
+        "graph_path_incomplete": 37,
+        "ranking_miss": 5,
+        "entity_linking_failure": 2
+      }
     },
     "entity_linking_failure": {
       "n": 19,
@@ -256,7 +267,7 @@
       },
       "hybrid_recall@5": {
         "n": 19,
-        "mean": 0.7807,
+        "mean": 0.7983,
         "ci95": [
           null,
           null
@@ -297,18 +308,18 @@
       "text_failed_n": 9,
       "recovered_n": 1,
       "graph_only_candidates": {
-        "total": 85,
-        "necessary": 3,
-        "relevant_not_necessary": 7,
-        "noise": 75,
+        "total": 84,
+        "necessary": 4,
+        "relevant_not_necessary": 6,
+        "noise": 74,
         "questions_with_any": 18
       },
       "necessary_path_rate": {
         "n": 18,
-        "mean": 0.1111,
+        "mean": 0.1667,
         "ci95": [
-          0.031,
-          0.328
+          0.0584,
+          0.3922
         ]
       },
       "answer_correct": {
@@ -321,7 +332,10 @@
         "source_note": "来自缓存离线 B6 结果，非本次 live 重跑",
         "source": "data/eval_out/ablation_holdout_60.json"
       },
-      "necessary_questions": 2
+      "necessary_questions": 3,
+      "failure_reasons": {
+        "entity_linking_failure": 9
+      }
     },
     "three_hop": {
       "n": 46,
@@ -359,7 +373,7 @@
       },
       "hybrid_recall@5": {
         "n": 46,
-        "mean": 0.7681,
+        "mean": 0.7754,
         "ci95": [
           null,
           null
@@ -400,18 +414,18 @@
       "text_failed_n": 27,
       "recovered_n": 2,
       "graph_only_candidates": {
-        "total": 173,
-        "necessary": 11,
-        "relevant_not_necessary": 55,
-        "noise": 107,
+        "total": 172,
+        "necessary": 12,
+        "relevant_not_necessary": 54,
+        "noise": 106,
         "questions_with_any": 46
       },
       "necessary_path_rate": {
         "n": 46,
-        "mean": 0.2391,
+        "mean": 0.2609,
         "ci95": [
-          0.1391,
-          0.3794
+          0.156,
+          0.4026
         ]
       },
       "answer_correct": {
@@ -424,7 +438,12 @@
         "source_note": "来自缓存离线 B6 结果，非本次 live 重跑",
         "source": "data/eval_out/ablation_holdout_60.json"
       },
-      "necessary_questions": 11
+      "necessary_questions": 12,
+      "failure_reasons": {
+        "graph_path_incomplete": 24,
+        "ranking_miss": 1,
+        "entity_linking_failure": 2
+      }
     },
     "two_hop": {
       "n": 70,
@@ -527,7 +546,12 @@
         "source_note": "来自缓存离线 B6 结果，非本次 live 重跑",
         "source": "data/eval_out/ablation_holdout_60.json"
       },
-      "necessary_questions": 5
+      "necessary_questions": 5,
+      "failure_reasons": {
+        "entity_linking_failure": 5,
+        "graph_path_incomplete": 9,
+        "ranking_miss": 3
+      }
     }
   },
   "recoveries": [
@@ -670,7 +694,8 @@
       ],
       "path_ok": false,
       "entity_linking_failure": true,
-      "low_confidence": false
+      "low_confidence": false,
+      "failure_reason": "entity_linking_failure"
     },
     {
       "id": "g68",
@@ -694,7 +719,8 @@
       ],
       "path_ok": false,
       "entity_linking_failure": true,
-      "low_confidence": false
+      "low_confidence": false,
+      "failure_reason": "entity_linking_failure"
     },
     {
       "id": "g69",
@@ -718,7 +744,8 @@
       ],
       "path_ok": false,
       "entity_linking_failure": false,
-      "low_confidence": false
+      "low_confidence": false,
+      "failure_reason": "graph_path_incomplete"
     },
     {
       "id": "g72",
@@ -742,7 +769,8 @@
       ],
       "path_ok": false,
       "entity_linking_failure": true,
-      "low_confidence": false
+      "low_confidence": false,
+      "failure_reason": "entity_linking_failure"
     },
     {
       "id": "g78",
@@ -766,7 +794,8 @@
       ],
       "path_ok": false,
       "entity_linking_failure": true,
-      "low_confidence": true
+      "low_confidence": true,
+      "failure_reason": "entity_linking_failure"
     },
     {
       "id": "g80",
@@ -790,7 +819,8 @@
       ],
       "path_ok": false,
       "entity_linking_failure": false,
-      "low_confidence": false
+      "low_confidence": false,
+      "failure_reason": "graph_path_incomplete"
     },
     {
       "id": "g83",
@@ -814,7 +844,8 @@
       ],
       "path_ok": false,
       "entity_linking_failure": false,
-      "low_confidence": false
+      "low_confidence": false,
+      "failure_reason": "graph_path_incomplete"
     },
     {
       "id": "g84",
@@ -838,7 +869,8 @@
       ],
       "path_ok": false,
       "entity_linking_failure": false,
-      "low_confidence": false
+      "low_confidence": false,
+      "failure_reason": "graph_path_incomplete"
     },
     {
       "id": "g85",
@@ -862,7 +894,8 @@
       ],
       "path_ok": false,
       "entity_linking_failure": true,
-      "low_confidence": false
+      "low_confidence": false,
+      "failure_reason": "entity_linking_failure"
     },
     {
       "id": "g88",
@@ -886,7 +919,8 @@
       ],
       "path_ok": false,
       "entity_linking_failure": false,
-      "low_confidence": false
+      "low_confidence": false,
+      "failure_reason": "graph_path_incomplete"
     },
     {
       "id": "g94",
@@ -910,7 +944,8 @@
       ],
       "path_ok": false,
       "entity_linking_failure": false,
-      "low_confidence": false
+      "low_confidence": false,
+      "failure_reason": "graph_path_incomplete"
     },
     {
       "id": "g100",
@@ -934,7 +969,8 @@
       ],
       "path_ok": false,
       "entity_linking_failure": false,
-      "low_confidence": false
+      "low_confidence": false,
+      "failure_reason": "graph_path_incomplete"
     },
     {
       "id": "g103",
@@ -958,7 +994,8 @@
       ],
       "path_ok": true,
       "entity_linking_failure": false,
-      "low_confidence": false
+      "low_confidence": false,
+      "failure_reason": "ranking_miss"
     },
     {
       "id": "g112",
@@ -982,7 +1019,8 @@
       ],
       "path_ok": true,
       "entity_linking_failure": false,
-      "low_confidence": false
+      "low_confidence": false,
+      "failure_reason": "ranking_miss"
     },
     {
       "id": "g114",
@@ -1006,7 +1044,8 @@
       ],
       "path_ok": false,
       "entity_linking_failure": false,
-      "low_confidence": false
+      "low_confidence": false,
+      "failure_reason": "graph_path_incomplete"
     },
     {
       "id": "g116",
@@ -1031,7 +1070,8 @@
       ],
       "path_ok": true,
       "entity_linking_failure": false,
-      "low_confidence": false
+      "low_confidence": false,
+      "failure_reason": "ranking_miss"
     },
     {
       "id": "g126",
@@ -1055,7 +1095,8 @@
       ],
       "path_ok": false,
       "entity_linking_failure": false,
-      "low_confidence": false
+      "low_confidence": false,
+      "failure_reason": "graph_path_incomplete"
     },
     {
       "id": "g131",
@@ -1079,7 +1120,8 @@
       ],
       "path_ok": false,
       "entity_linking_failure": false,
-      "low_confidence": false
+      "low_confidence": false,
+      "failure_reason": "graph_path_incomplete"
     },
     {
       "id": "g132",
@@ -1103,7 +1145,8 @@
       ],
       "path_ok": false,
       "entity_linking_failure": false,
-      "low_confidence": false
+      "low_confidence": false,
+      "failure_reason": "graph_path_incomplete"
     },
     {
       "id": "g135",
@@ -1127,7 +1170,8 @@
       ],
       "path_ok": false,
       "entity_linking_failure": false,
-      "low_confidence": false
+      "low_confidence": false,
+      "failure_reason": "graph_path_incomplete"
     },
     {
       "id": "g136",
@@ -1151,7 +1195,8 @@
       ],
       "path_ok": false,
       "entity_linking_failure": false,
-      "low_confidence": false
+      "low_confidence": false,
+      "failure_reason": "graph_path_incomplete"
     },
     {
       "id": "g137",
@@ -1175,7 +1220,8 @@
       ],
       "path_ok": false,
       "entity_linking_failure": false,
-      "low_confidence": false
+      "low_confidence": false,
+      "failure_reason": "graph_path_incomplete"
     },
     {
       "id": "g138",
@@ -1199,7 +1245,8 @@
       ],
       "path_ok": false,
       "entity_linking_failure": false,
-      "low_confidence": false
+      "low_confidence": false,
+      "failure_reason": "graph_path_incomplete"
     },
     {
       "id": "g143",
@@ -1224,7 +1271,8 @@
       ],
       "path_ok": false,
       "entity_linking_failure": false,
-      "low_confidence": false
+      "low_confidence": false,
+      "failure_reason": "graph_path_incomplete"
     },
     {
       "id": "g144",
@@ -1248,7 +1296,8 @@
       ],
       "path_ok": false,
       "entity_linking_failure": false,
-      "low_confidence": false
+      "low_confidence": false,
+      "failure_reason": "graph_path_incomplete"
     },
     {
       "id": "g145",
@@ -1272,7 +1321,8 @@
       ],
       "path_ok": true,
       "entity_linking_failure": false,
-      "low_confidence": false
+      "low_confidence": false,
+      "failure_reason": "ranking_miss"
     },
     {
       "id": "g146",
@@ -1296,7 +1346,8 @@
       ],
       "path_ok": false,
       "entity_linking_failure": false,
-      "low_confidence": false
+      "low_confidence": false,
+      "failure_reason": "graph_path_incomplete"
     },
     {
       "id": "g147",
@@ -1320,7 +1371,8 @@
       ],
       "path_ok": false,
       "entity_linking_failure": false,
-      "low_confidence": false
+      "low_confidence": false,
+      "failure_reason": "graph_path_incomplete"
     },
     {
       "id": "g149",
@@ -1345,7 +1397,8 @@
       ],
       "path_ok": false,
       "entity_linking_failure": false,
-      "low_confidence": false
+      "low_confidence": false,
+      "failure_reason": "graph_path_incomplete"
     },
     {
       "id": "g154",
@@ -1369,7 +1422,8 @@
       ],
       "path_ok": false,
       "entity_linking_failure": false,
-      "low_confidence": false
+      "low_confidence": false,
+      "failure_reason": "graph_path_incomplete"
     },
     {
       "id": "g155",
@@ -1393,7 +1447,8 @@
       ],
       "path_ok": false,
       "entity_linking_failure": false,
-      "low_confidence": false
+      "low_confidence": false,
+      "failure_reason": "graph_path_incomplete"
     },
     {
       "id": "g156",
@@ -1417,7 +1472,8 @@
       ],
       "path_ok": false,
       "entity_linking_failure": false,
-      "low_confidence": false
+      "low_confidence": false,
+      "failure_reason": "graph_path_incomplete"
     },
     {
       "id": "g158",
@@ -1441,7 +1497,8 @@
       ],
       "path_ok": false,
       "entity_linking_failure": false,
-      "low_confidence": false
+      "low_confidence": false,
+      "failure_reason": "graph_path_incomplete"
     },
     {
       "id": "g159",
@@ -1465,7 +1522,8 @@
       ],
       "path_ok": false,
       "entity_linking_failure": true,
-      "low_confidence": false
+      "low_confidence": false,
+      "failure_reason": "entity_linking_failure"
     },
     {
       "id": "g161",
@@ -1489,7 +1547,8 @@
       ],
       "path_ok": false,
       "entity_linking_failure": false,
-      "low_confidence": false
+      "low_confidence": false,
+      "failure_reason": "graph_path_incomplete"
     },
     {
       "id": "g162",
@@ -1513,7 +1572,8 @@
       ],
       "path_ok": false,
       "entity_linking_failure": false,
-      "low_confidence": false
+      "low_confidence": false,
+      "failure_reason": "graph_path_incomplete"
     },
     {
       "id": "g163",
@@ -1538,7 +1598,8 @@
       ],
       "path_ok": false,
       "entity_linking_failure": false,
-      "low_confidence": false
+      "low_confidence": false,
+      "failure_reason": "graph_path_incomplete"
     },
     {
       "id": "g167",
@@ -1562,7 +1623,8 @@
       ],
       "path_ok": false,
       "entity_linking_failure": false,
-      "low_confidence": false
+      "low_confidence": false,
+      "failure_reason": "graph_path_incomplete"
     },
     {
       "id": "g171",
@@ -1586,7 +1648,8 @@
       ],
       "path_ok": false,
       "entity_linking_failure": false,
-      "low_confidence": false
+      "low_confidence": false,
+      "failure_reason": "graph_path_incomplete"
     },
     {
       "id": "g172",
@@ -1610,21 +1673,21 @@
       ],
       "path_ok": false,
       "entity_linking_failure": false,
-      "low_confidence": false
+      "low_confidence": false,
+      "failure_reason": "graph_path_incomplete"
     },
     {
       "id": "g173",
       "question": "我离职没交接就走了，公司扣着补偿不给，那我还用不用提前三十天说一声才能走，这补偿到底跟交接挂钩吗？",
       "missing_in_hybrid": [
-        "lcl#37",
-        "lcl#46"
+        "lcl#37"
       ],
       "hybrid_top5": [
         "lcl#50",
         "ll#31",
+        "ll#28",
         "lcl#47",
-        "cc#1088",
-        "ll#99"
+        "lcl#46"
       ],
       "text_top5": [
         "lcl#50",
@@ -1635,7 +1698,8 @@
       ],
       "path_ok": false,
       "entity_linking_failure": true,
-      "low_confidence": false
+      "low_confidence": false,
+      "failure_reason": "entity_linking_failure"
     },
     {
       "id": "g174",
@@ -1659,7 +1723,8 @@
       ],
       "path_ok": false,
       "entity_linking_failure": false,
-      "low_confidence": false
+      "low_confidence": false,
+      "failure_reason": "graph_path_incomplete"
     },
     {
       "id": "g175",
@@ -1683,7 +1748,8 @@
       ],
       "path_ok": false,
       "entity_linking_failure": false,
-      "low_confidence": false
+      "low_confidence": false,
+      "failure_reason": "graph_path_incomplete"
     },
     {
       "id": "g176",
@@ -1707,7 +1773,8 @@
       ],
       "path_ok": false,
       "entity_linking_failure": false,
-      "low_confidence": false
+      "low_confidence": false,
+      "failure_reason": "graph_path_incomplete"
     },
     {
       "id": "g177",
@@ -1731,7 +1798,8 @@
       ],
       "path_ok": false,
       "entity_linking_failure": false,
-      "low_confidence": false
+      "low_confidence": false,
+      "failure_reason": "graph_path_incomplete"
     },
     {
       "id": "g178",
@@ -1755,7 +1823,8 @@
       ],
       "path_ok": false,
       "entity_linking_failure": false,
-      "low_confidence": false
+      "low_confidence": false,
+      "failure_reason": "graph_path_incomplete"
     },
     {
       "id": "g179",
@@ -1780,7 +1849,8 @@
       ],
       "path_ok": false,
       "entity_linking_failure": false,
-      "low_confidence": false
+      "low_confidence": false,
+      "failure_reason": "graph_path_incomplete"
     },
     {
       "id": "g180",
@@ -1804,7 +1874,8 @@
       ],
       "path_ok": false,
       "entity_linking_failure": false,
-      "low_confidence": false
+      "low_confidence": false,
+      "failure_reason": "graph_path_incomplete"
     },
     {
       "id": "g181",
@@ -1829,7 +1900,8 @@
       ],
       "path_ok": false,
       "entity_linking_failure": false,
-      "low_confidence": false
+      "low_confidence": false,
+      "failure_reason": "graph_path_incomplete"
     },
     {
       "id": "g182",
@@ -1853,7 +1925,8 @@
       ],
       "path_ok": false,
       "entity_linking_failure": true,
-      "low_confidence": false
+      "low_confidence": false,
+      "failure_reason": "entity_linking_failure"
     },
     {
       "id": "g183",
@@ -1879,7 +1952,8 @@
       ],
       "path_ok": false,
       "entity_linking_failure": false,
-      "low_confidence": false
+      "low_confidence": false,
+      "failure_reason": "graph_path_incomplete"
     },
     {
       "id": "g184",
@@ -1904,7 +1978,8 @@
       ],
       "path_ok": false,
       "entity_linking_failure": false,
-      "low_confidence": false
+      "low_confidence": false,
+      "failure_reason": "graph_path_incomplete"
     },
     {
       "id": "g185",
@@ -1929,7 +2004,8 @@
       ],
       "path_ok": false,
       "entity_linking_failure": false,
-      "low_confidence": false
+      "low_confidence": false,
+      "failure_reason": "graph_path_incomplete"
     },
     {
       "id": "g186",
@@ -1954,7 +2030,8 @@
       ],
       "path_ok": false,
       "entity_linking_failure": false,
-      "low_confidence": false
+      "low_confidence": false,
+      "failure_reason": "graph_path_incomplete"
     },
     {
       "id": "g187",
@@ -1978,7 +2055,8 @@
       ],
       "path_ok": true,
       "entity_linking_failure": false,
-      "low_confidence": false
+      "low_confidence": false,
+      "failure_reason": "ranking_miss"
     },
     {
       "id": "g188",
@@ -2003,7 +2081,8 @@
       ],
       "path_ok": false,
       "entity_linking_failure": false,
-      "low_confidence": false
+      "low_confidence": false,
+      "failure_reason": "graph_path_incomplete"
     },
     {
       "id": "g189",
@@ -2027,7 +2106,8 @@
       ],
       "path_ok": false,
       "entity_linking_failure": false,
-      "low_confidence": false
+      "low_confidence": false,
+      "failure_reason": "graph_path_incomplete"
     },
     {
       "id": "g190",
@@ -2051,7 +2131,8 @@
       ],
       "path_ok": false,
       "entity_linking_failure": false,
-      "low_confidence": false
+      "low_confidence": false,
+      "failure_reason": "graph_path_incomplete"
     },
     {
       "id": "g191",
@@ -2076,7 +2157,8 @@
       ],
       "path_ok": true,
       "entity_linking_failure": false,
-      "low_confidence": false
+      "low_confidence": false,
+      "failure_reason": "ranking_miss"
     },
     {
       "id": "g192",
@@ -2102,7 +2184,8 @@
       ],
       "path_ok": true,
       "entity_linking_failure": false,
-      "low_confidence": false
+      "low_confidence": false,
+      "failure_reason": "ranking_miss"
     },
     {
       "id": "g193",
@@ -2126,7 +2209,8 @@
       ],
       "path_ok": false,
       "entity_linking_failure": true,
-      "low_confidence": false
+      "low_confidence": false,
+      "failure_reason": "entity_linking_failure"
     },
     {
       "id": "g196",
@@ -2150,7 +2234,8 @@
       ],
       "path_ok": false,
       "entity_linking_failure": false,
-      "low_confidence": false
+      "low_confidence": false,
+      "failure_reason": "graph_path_incomplete"
     },
     {
       "id": "g197",
@@ -2176,7 +2261,8 @@
       ],
       "path_ok": false,
       "entity_linking_failure": false,
-      "low_confidence": false
+      "low_confidence": false,
+      "failure_reason": "graph_path_incomplete"
     },
     {
       "id": "g198",
@@ -2200,7 +2286,8 @@
       ],
       "path_ok": false,
       "entity_linking_failure": false,
-      "low_confidence": false
+      "low_confidence": false,
+      "failure_reason": "graph_path_incomplete"
     },
     {
       "id": "g199",
@@ -2210,11 +2297,11 @@
         "ll#58"
       ],
       "hybrid_top5": [
+        "cc#1165",
         "cc#1177",
         "cc#1236",
         "cc#1207",
-        "cc#1198",
-        "cc#1229"
+        "cc#1198"
       ],
       "text_top5": [
         "cc#1165",
@@ -2225,7 +2312,8 @@
       ],
       "path_ok": false,
       "entity_linking_failure": false,
-      "low_confidence": false
+      "low_confidence": false,
+      "failure_reason": "graph_path_incomplete"
     },
     {
       "id": "g200",
@@ -2249,7 +2337,8 @@
       ],
       "path_ok": false,
       "entity_linking_failure": false,
-      "low_confidence": false
+      "low_confidence": false,
+      "failure_reason": "graph_path_incomplete"
     }
   ],
   "graph_only_candidates": [
@@ -2768,12 +2857,8 @@
       "article_id": "cc#76",
       "verdict": "noise",
       "in_gold": false,
-      "graph_coverage": 0.3333,
-      "path": [
-        "sc:non_compete_dispute",
-        "legal_person",
-        "cc#76"
-      ],
+      "graph_coverage": 0.0,
+      "path": [],
       "in_text_candidates": false
     },
     {
@@ -3358,8 +3443,12 @@
       "article_id": "ll#46",
       "verdict": "relevant_not_necessary",
       "in_gold": false,
-      "graph_coverage": 0.0,
-      "path": [],
+      "graph_coverage": 0.3333,
+      "path": [
+        "sc:double_wage_claim",
+        "wage",
+        "ll#46"
+      ],
       "in_text_candidates": false
     },
     {
@@ -3417,11 +3506,8 @@
       "article_id": "ll#46",
       "verdict": "relevant_not_necessary",
       "in_gold": false,
-      "graph_coverage": 0.5,
-      "path": [
-        "wage",
-        "ll#46"
-      ],
+      "graph_coverage": 0.0,
+      "path": [],
       "in_text_candidates": false
     },
     {
@@ -3478,8 +3564,12 @@
       "article_id": "lcl#12",
       "verdict": "relevant_not_necessary",
       "in_gold": false,
-      "graph_coverage": 0.0,
-      "path": [],
+      "graph_coverage": 0.4,
+      "path": [
+        "fixed_term_contract",
+        "labor_contract",
+        "lcl#12"
+      ],
       "in_text_candidates": false
     },
     {
@@ -3637,12 +3727,8 @@
       "article_id": "ll#71",
       "verdict": "relevant_not_necessary",
       "in_gold": false,
-      "graph_coverage": 0.3333,
-      "path": [
-        "sc:work_injury",
-        "social_insurance",
-        "ll#71"
-      ],
+      "graph_coverage": 0.0,
+      "path": [],
       "in_text_candidates": false
     },
     {
@@ -3668,14 +3754,8 @@
       "article_id": "lcl#42",
       "verdict": "relevant_not_necessary",
       "in_gold": false,
-      "graph_coverage": 0.5,
-      "path": [
-        "sc:occupational_disease",
-        "occupational_disease",
-        "occupational_health_check",
-        "work_injury",
-        "lcl#42"
-      ],
+      "graph_coverage": 0.0,
+      "path": [],
       "in_text_candidates": false
     },
     {
@@ -3692,12 +3772,8 @@
       "article_id": "ll#71",
       "verdict": "noise",
       "in_gold": false,
-      "graph_coverage": 0.25,
-      "path": [
-        "sc:occupational_disease",
-        "social_insurance",
-        "ll#71"
-      ],
+      "graph_coverage": 0.0,
+      "path": [],
       "in_text_candidates": false
     },
     {
@@ -3820,8 +3896,12 @@
       "article_id": "cc#76",
       "verdict": "noise",
       "in_gold": false,
-      "graph_coverage": 0.0,
-      "path": [],
+      "graph_coverage": 0.3333,
+      "path": [
+        "sc:working_hours_dispute",
+        "legal_person",
+        "cc#76"
+      ],
       "in_text_candidates": false
     },
     {
@@ -3951,8 +4031,15 @@
       "article_id": "lcl#47",
       "verdict": "noise",
       "in_gold": false,
-      "graph_coverage": 0.0,
-      "path": [],
+      "graph_coverage": 0.6667,
+      "path": [
+        "sc:wage_deduction",
+        "contract_rescission",
+        "contract_rescission_civil",
+        "severance_standard",
+        "wage",
+        "lcl#47"
+      ],
       "in_text_candidates": false
     },
     {
@@ -4394,8 +4481,12 @@
       "article_id": "ll#80",
       "verdict": "relevant_not_necessary",
       "in_gold": false,
-      "graph_coverage": 0.0,
-      "path": [],
+      "graph_coverage": 0.5,
+      "path": [
+        "labor_dispute",
+        "labor_dispute_mediation",
+        "ll#80"
+      ],
       "in_text_candidates": false
     },
     {
@@ -5922,14 +6013,8 @@
       "article_id": "lcl#56",
       "verdict": "relevant_not_necessary",
       "in_gold": false,
-      "graph_coverage": 0.5,
-      "path": [
-        "sc:collective_contract",
-        "collective_contract",
-        "labor_union",
-        "worker",
-        "lcl#56"
-      ],
+      "graph_coverage": 0.0,
+      "path": [],
       "in_text_candidates": false
     },
     {
@@ -6026,14 +6111,8 @@
       "article_id": "lcl#87",
       "verdict": "necessary",
       "in_gold": true,
-      "graph_coverage": 0.3333,
-      "path": [
-        "sc:illegal_dismissal",
-        "damages",
-        "illegal_rescission",
-        "severance",
-        "lcl#87"
-      ],
+      "graph_coverage": 0.0,
+      "path": [],
       "in_text_candidates": false
     },
     {
@@ -6206,11 +6285,8 @@
       "article_id": "cc#76",
       "verdict": "noise",
       "in_gold": false,
-      "graph_coverage": 1.0,
-      "path": [
-        "legal_person",
-        "cc#76"
-      ],
+      "graph_coverage": 0.0,
+      "path": [],
       "in_text_candidates": false
     },
     {
@@ -6218,12 +6294,8 @@
       "article_id": "cc#57",
       "verdict": "noise",
       "in_gold": false,
-      "graph_coverage": 1.0,
-      "path": [
-        "civil_subject",
-        "legal_person",
-        "cc#57"
-      ],
+      "graph_coverage": 0.0,
+      "path": [],
       "in_text_candidates": false
     },
     {
@@ -6255,18 +6327,9 @@
     },
     {
       "id": "g173",
-      "article_id": "cc#1088",
-      "verdict": "noise",
-      "in_gold": false,
-      "graph_coverage": 0.0,
-      "path": [],
-      "in_text_candidates": false
-    },
-    {
-      "id": "g173",
-      "article_id": "ll#99",
-      "verdict": "relevant_not_necessary",
-      "in_gold": false,
+      "article_id": "lcl#46",
+      "verdict": "necessary",
+      "in_gold": true,
       "graph_coverage": 0.0,
       "path": [],
       "in_text_candidates": false
@@ -7328,8 +7391,13 @@
       "article_id": "cc#1165",
       "verdict": "relevant_not_necessary",
       "in_gold": false,
-      "graph_coverage": 0.0,
-      "path": [],
+      "graph_coverage": 0.3333,
+      "path": [
+        "sc:work_injury",
+        "fault_liability",
+        "tort_liability",
+        "cc#1165"
+      ],
       "in_text_candidates": false
     },
     {
@@ -7364,11 +7432,8 @@
       "article_id": "cc#1229",
       "verdict": "relevant_not_necessary",
       "in_gold": false,
-      "graph_coverage": 0.5,
-      "path": [
-        "tort_liability",
-        "cc#1229"
-      ],
+      "graph_coverage": 0.0,
+      "path": [],
       "in_text_candidates": false
     },
     {
@@ -8615,12 +8680,8 @@
           "article_id": "cc#76",
           "verdict": "noise",
           "in_gold": false,
-          "graph_coverage": 0.3333,
-          "path": [
-            "sc:non_compete_dispute",
-            "legal_person",
-            "cc#76"
-          ],
+          "graph_coverage": 0.0,
+          "path": [],
           "in_text_candidates": false
         },
         {
@@ -9851,8 +9912,12 @@
           "article_id": "ll#46",
           "verdict": "relevant_not_necessary",
           "in_gold": false,
-          "graph_coverage": 0.0,
-          "path": [],
+          "graph_coverage": 0.3333,
+          "path": [
+            "sc:double_wage_claim",
+            "wage",
+            "ll#46"
+          ],
           "in_text_candidates": false
         },
         {
@@ -9992,11 +10057,8 @@
           "article_id": "ll#46",
           "verdict": "relevant_not_necessary",
           "in_gold": false,
-          "graph_coverage": 0.5,
-          "path": [
-            "wage",
-            "ll#46"
-          ],
+          "graph_coverage": 0.0,
+          "path": [],
           "in_text_candidates": false
         },
         {
@@ -10093,8 +10155,12 @@
           "article_id": "lcl#12",
           "verdict": "relevant_not_necessary",
           "in_gold": false,
-          "graph_coverage": 0.0,
-          "path": [],
+          "graph_coverage": 0.4,
+          "path": [
+            "fixed_term_contract",
+            "labor_contract",
+            "lcl#12"
+          ],
           "in_text_candidates": false
         }
       ],
@@ -10455,12 +10521,8 @@
           "article_id": "ll#71",
           "verdict": "relevant_not_necessary",
           "in_gold": false,
-          "graph_coverage": 0.3333,
-          "path": [
-            "sc:work_injury",
-            "social_insurance",
-            "ll#71"
-          ],
+          "graph_coverage": 0.0,
+          "path": [],
           "in_text_candidates": false
         },
         {
@@ -10529,14 +10591,8 @@
           "article_id": "lcl#42",
           "verdict": "relevant_not_necessary",
           "in_gold": false,
-          "graph_coverage": 0.5,
-          "path": [
-            "sc:occupational_disease",
-            "occupational_disease",
-            "occupational_health_check",
-            "work_injury",
-            "lcl#42"
-          ],
+          "graph_coverage": 0.0,
+          "path": [],
           "in_text_candidates": false
         },
         {
@@ -10551,12 +10607,8 @@
           "article_id": "ll#71",
           "verdict": "noise",
           "in_gold": false,
-          "graph_coverage": 0.25,
-          "path": [
-            "sc:occupational_disease",
-            "social_insurance",
-            "ll#71"
-          ],
+          "graph_coverage": 0.0,
+          "path": [],
           "in_text_candidates": false
         }
       ],
@@ -10844,8 +10896,12 @@
           "article_id": "cc#76",
           "verdict": "noise",
           "in_gold": false,
-          "graph_coverage": 0.0,
-          "path": [],
+          "graph_coverage": 0.3333,
+          "path": [
+            "sc:working_hours_dispute",
+            "legal_person",
+            "cc#76"
+          ],
           "in_text_candidates": false
         },
         {
@@ -11137,8 +11193,15 @@
           "article_id": "lcl#47",
           "verdict": "noise",
           "in_gold": false,
-          "graph_coverage": 0.0,
-          "path": [],
+          "graph_coverage": 0.6667,
+          "path": [
+            "sc:wage_deduction",
+            "contract_rescission",
+            "contract_rescission_civil",
+            "severance_standard",
+            "wage",
+            "lcl#47"
+          ],
           "in_text_candidates": false
         },
         {
@@ -12155,8 +12218,12 @@
           "article_id": "ll#80",
           "verdict": "relevant_not_necessary",
           "in_gold": false,
-          "graph_coverage": 0.0,
-          "path": [],
+          "graph_coverage": 0.5,
+          "path": [
+            "labor_dispute",
+            "labor_dispute_mediation",
+            "ll#80"
+          ],
           "in_text_candidates": false
         }
       ],
@@ -15376,14 +15443,8 @@
           "article_id": "lcl#56",
           "verdict": "relevant_not_necessary",
           "in_gold": false,
-          "graph_coverage": 0.5,
-          "path": [
-            "sc:collective_contract",
-            "collective_contract",
-            "labor_union",
-            "worker",
-            "lcl#56"
-          ],
+          "graph_coverage": 0.0,
+          "path": [],
           "in_text_candidates": false
         }
       ],
@@ -15602,14 +15663,8 @@
           "article_id": "lcl#87",
           "verdict": "necessary",
           "in_gold": true,
-          "graph_coverage": 0.3333,
-          "path": [
-            "sc:illegal_dismissal",
-            "damages",
-            "illegal_rescission",
-            "severance",
-            "lcl#87"
-          ],
+          "graph_coverage": 0.0,
+          "path": [],
           "in_text_candidates": false
         },
         {
@@ -16013,13 +16068,13 @@
       "hybrid_top5": [
         "lcl#50",
         "ll#31",
+        "ll#28",
         "lcl#47",
-        "cc#1088",
-        "ll#99"
+        "lcl#46"
       ],
       "text_recall@5": 0.3333,
       "graph_recall@5": 0.0,
-      "hybrid_recall@5": 0.3333,
+      "hybrid_recall@5": 0.6667,
       "text_hit@5": false,
       "graph_hit@5": false,
       "hybrid_hit@5": false,
@@ -16034,23 +16089,16 @@
           "article_id": "cc#76",
           "verdict": "noise",
           "in_gold": false,
-          "graph_coverage": 1.0,
-          "path": [
-            "legal_person",
-            "cc#76"
-          ],
+          "graph_coverage": 0.0,
+          "path": [],
           "in_text_candidates": false
         },
         {
           "article_id": "cc#57",
           "verdict": "noise",
           "in_gold": false,
-          "graph_coverage": 1.0,
-          "path": [
-            "civil_subject",
-            "legal_person",
-            "cc#57"
-          ],
+          "graph_coverage": 0.0,
+          "path": [],
           "in_text_candidates": false
         },
         {
@@ -16078,25 +16126,16 @@
           "in_text_candidates": false
         },
         {
-          "article_id": "cc#1088",
-          "verdict": "noise",
-          "in_gold": false,
-          "graph_coverage": 0.0,
-          "path": [],
-          "in_text_candidates": false
-        },
-        {
-          "article_id": "ll#99",
-          "verdict": "relevant_not_necessary",
-          "in_gold": false,
+          "article_id": "lcl#46",
+          "verdict": "necessary",
+          "in_gold": true,
           "graph_coverage": 0.0,
           "path": [],
           "in_text_candidates": false
         }
       ],
       "missing_in_hybrid": [
-        "lcl#37",
-        "lcl#46"
+        "lcl#37"
       ],
       "text_top1_similarity": 0.6068,
       "low_confidence": false,
@@ -18206,8 +18245,13 @@
           "article_id": "cc#1165",
           "verdict": "relevant_not_necessary",
           "in_gold": false,
-          "graph_coverage": 0.0,
-          "path": [],
+          "graph_coverage": 0.3333,
+          "path": [
+            "sc:work_injury",
+            "fault_liability",
+            "tort_liability",
+            "cc#1165"
+          ],
           "in_text_candidates": false
         },
         {
@@ -18253,11 +18297,11 @@
         "cc#105"
       ],
       "hybrid_top5": [
+        "cc#1165",
         "cc#1177",
         "cc#1236",
         "cc#1207",
-        "cc#1198",
-        "cc#1229"
+        "cc#1198"
       ],
       "text_recall@5": 0.0,
       "graph_recall@5": 0.0,
@@ -18284,11 +18328,8 @@
           "article_id": "cc#1229",
           "verdict": "relevant_not_necessary",
           "in_gold": false,
-          "graph_coverage": 0.5,
-          "path": [
-            "tort_liability",
-            "cc#1229"
-          ],
+          "graph_coverage": 0.0,
+          "path": [],
           "in_text_candidates": false
         },
         {

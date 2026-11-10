@@ -13,8 +13,8 @@
 
 ## 事件顺序
 
-``meta`` →（``plan``，B/C）→ ``token``(draft, v1) → ``check`` →（``superseded`` → ``token``(v2) → ``check``）*
-→ ``final`` → ``done``；出错时追加 ``error``。
+``meta`` →（``plan``，B/C）→ ``token``(draft, v1) → ``check`` →（``superseded`` → ``token``(draft, v2) → ``check``）*
+→ ``final`` → ``done``；出错时追加 ``error``。只有 ``final`` 携带的正文才是已通过闸门的终稿。
 """
 
 from __future__ import annotations
@@ -303,7 +303,8 @@ def stream_answer(
                 answer = res["answer"]
                 version += 1
                 for piece in _chunks(answer):
-                    yield sse("token", {"text": piece, "draft": False, "answer_version": version})
+                    # 修复后的正文同样要等下一轮 check 通过才算终稿，这里只能是草稿。
+                    yield sse("token", {"text": piece, "draft": True, "answer_version": version})
 
             refused = is_refused(answer)
             final = {

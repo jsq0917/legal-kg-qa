@@ -33,7 +33,7 @@ from threading import Lock
 from typing import Any
 
 from app.__007__agents.__000__state import normalize_tier
-from common.llm import reset_degradation_hook, set_degradation_hook
+from common.llm import reset_degradation_hook, reset_model_hook, set_degradation_hook, set_model_hook
 from common.path_utils import append_jsonl, read_jsonl
 
 TRACE_DIR = os.getenv("TRACE_DIR", "data/observability")
@@ -231,11 +231,23 @@ def trace_request(
     )
     token = _CURRENT.set(trace)
     hook_token = set_degradation_hook(trace.record_degradation)
+    model_token = set_model_hook(_record_actual_model)
     try:
         yield trace
     finally:
+        reset_model_hook(model_token)
         reset_degradation_hook(hook_token)
         _CURRENT.reset(token)
+
+
+def _record_actual_model(model: str | None, degraded_reason: str | None = None) -> None:
+    """把 trace 里的 ``model`` 换成真正返回内容的模型（而不是配置里的主模型）。"""
+    trace = _CURRENT.get()
+    if trace is None or not model:
+        return
+    trace.model = model
+    if degraded_reason:
+        trace.record_degradation(degraded_reason, f"主模型失败，实际使用 {model}", model)
 
 
 def record_llm_timing(elapsed_ms: float, prompt_tokens: int, completion_tokens: int) -> None:

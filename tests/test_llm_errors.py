@@ -7,7 +7,16 @@ from types import SimpleNamespace
 import pytest
 
 from common import llm as llm_mod
-from common.llm import LLMClient, LLMDisabled, LLMError, classify_error, reset_degradation_hook, set_degradation_hook
+from common.llm import (
+    LLMClient,
+    LLMDisabled,
+    LLMError,
+    classify_error,
+    reset_degradation_hook,
+    reset_model_hook,
+    set_degradation_hook,
+    set_model_hook,
+)
 
 
 class FakeHTTPError(Exception):
@@ -37,6 +46,29 @@ class FakeCompletions:
 class FakeClient:
     def __init__(self, outcomes: list) -> None:
         self.chat = SimpleNamespace(completions=FakeCompletions(outcomes))
+
+
+class FakeStream:
+    """最小可迭代上游流；记录是否被 close，用来验证客户端断开会关连接。"""
+
+    def __init__(self, chunks: list[str]) -> None:
+        self.chunks = chunks
+        self.closed = False
+
+    def __iter__(self):
+        for chunk in self.chunks:
+            yield SimpleNamespace(
+                choices=[SimpleNamespace(delta=SimpleNamespace(content=chunk))],
+                usage=None,
+            )
+
+    def close(self) -> None:
+        self.closed = True
+
+
+class FakeStreamClient:
+    def __init__(self, stream: FakeStream) -> None:
+        self.chat = SimpleNamespace(completions=SimpleNamespace(create=lambda **kwargs: stream))
 
 
 @pytest.fixture
@@ -117,10 +149,37 @@ def test_fallback_model_after_primary_exhausted(monkeypatch, client):
             ("key-primary", "model-b"): FakeClient(["备用答案"]),
         },
     )
-    meta = client.chat_with_meta([{"role": "user", "content": "q"}])
+    seen: list[tuple] = []
+    token = set_model_hook(lambda model, reason: seen.append((model, reason)))
+    try:
+        meta = client.chat_with_meta([{"role": "user", "content": "q"}])
+    finally:
+        reset_model_hook(token)
     assert meta["text"] == "备用答案"
     assert meta["model"] == "model-b"
     assert meta["degraded_reason"] == "fallback_model"
+    # trace 依赖这个钩子把「配置的主模型」改成「实际用了备用模型」，并记下降级原因。
+    assert seen == [("model-b", "fallback_model")]
+
+
+def test_primary_model_success_reports_no_degradation(monkeypatch, client):
+    _install(monkeypatch, {("key-primary", "model-a"): FakeClient(["答案"])})
+    seen: list[tuple] = []
+    token = set_model_hook(lambda model, reason: seen.append((model, reason)))
+    try:
+        client.chat_with_meta([{"role": "user", "content": "q"}])
+    finally:
+        reset_model_hook(token)
+    assert seen == [("model-a", None)]
+
+
+def test_closing_stream_consumer_closes_upstream(monkeypatch, client):
+    stream = FakeStream(["a", "b"])
+    monkeypatch.setattr(LLMClient, "_client", lambda self, key, model: FakeStreamClient(stream))
+    gen = client.chat_stream([{"role": "user", "content": "q"}])
+    assert next(gen) == "a"
+    gen.close()  # 等价于客户端断开
+    assert stream.closed is True
 
 
 def test_no_key_reports_degradation(client):

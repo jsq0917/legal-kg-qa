@@ -250,10 +250,17 @@ def _structural_problems(
     if "final" in names and "check" in names and names.index("check") > names.index("final"):
         problems.append("check 出现在 final 之后")
     first_check = names.index("check") if "check" in names else len(names)
+    checked_ok: set[int] = set()
     for i, (name, data) in enumerate(events):
         if name == "token" and i < first_check and tier in GATED and not data.get("draft"):
             problems.append("闸门之前流出的正文被标记为非草稿")
             break
+        if name == "check" and data.get("grounded"):
+            checked_ok.add(data.get("answer_version"))
+        if name == "token" and tier in GATED and not data.get("draft"):
+            if data.get("answer_version") not in checked_ok:
+                problems.append("未通过校验的正文被标记为非草稿（修复后新版本必须先 check）")
+                break
     if "superseded" in names:
         sup = dict(events)["superseded"]
         after = names[names.index("superseded") + 1 :]

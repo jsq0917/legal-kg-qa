@@ -21,6 +21,10 @@
       "中华人民共和国民法典"
     ]
   },
+  "graph_build_id": "g963749014664",
+  "gold_path": "data/gold/gold_140_holdout.jsonl",
+  "split_role": "holdout",
+  "use_rerank": true,
   "results": {
     "text": {
       "mode": "text",
@@ -30,7 +34,7 @@
       "all@5": 0.5214,
       "path_recall": 0.0,
       "citation_hit": 0.7583,
-      "latency_median_ms": 313.4,
+      "latency_median_ms": 211.6,
       "low_confidence_rate": 0.0429,
       "by_hop": {
         "two_hop": {
@@ -63,7 +67,7 @@
           "citation_hit": 1.0,
           "coverage": 0.0,
           "top1_similarity": 0.6978,
-          "latency_ms": 33099.2,
+          "latency_ms": 20169.0,
           "low_confidence": false,
           "predicted": [
             "lcl#28",
@@ -83,7 +87,7 @@
           "citation_hit": 1.0,
           "coverage": 0.0,
           "top1_similarity": 0.7805,
-          "latency_ms": 244.3,
+          "latency_ms": 200.3,
           "low_confidence": false,
           "predicted": [
             "ll#48",
@@ -103,7 +107,7 @@
           "citation_hit": 1.0,
           "coverage": 0.0,
           "top1_similarity": 0.6904,
-          "latency_ms": 563.5,
+          "latency_ms": 243.5,
           "low_confidence": false,
           "predicted": [
             "lcl#31",
@@ -123,7 +127,7 @@
           "citation_hit": 1.0,
           "coverage": 0.0,
           "top1_similarity": 0.7547,
-          "latency_ms": 482.4,
+          "latency_ms": 213.7,
           "low_confidence": false,
           "predicted": [
             "lcl#30",
@@ -143,7 +147,7 @@
           "citation_hit": 1.0,
           "coverage": 0.0,
           "top1_similarity": 0.6893,
-          "latency_ms": 229.4,
+          "latency_ms": 190.7,
           "low_confidence": false,
           "predicted": [
             "ll#41",
@@ -163,7 +167,7 @@
           "citation_hit": 1.0,
           "coverage": 0.0,
           "top1_similarity": 0.7489,
-          "latency_ms": 629.5,
+          "latency_ms": 245.9,
           "low_confidence": false,
           "predicted": [
             "lcl#19",
@@ -183,7 +187,7 @@
           "citation_hit": 0.5,
           "coverage": 0.0,
           "top1_similarity": 0.6457,
-          "latency_ms": 608.3,
+          "latency_ms": 237.4,
           "low_confidence": false,
           "predicted": [
             "lcl#83",
@@ -203,7 +207,7 @@
           "citation_hit": 0.5,
           "coverage": 0.0,
           "top1_similarity": 0.6667,
-          "latency_ms": 731.3,
+          "latency_ms": 281.4,
           "low_confidence": false,
           "predicted": [
             "lcl#43",
@@ -223,7 +227,7 @@
           "citation_hit": 0.5,
           "coverage": 0.0,
           "top1_similarity": 0.7561,
-          "latency_ms": 599.6,
+          "latency_ms": 236.0,
           "low_confidence": false,
           "predicted": [
             "lcl#19",
@@ -243,7 +247,7 @@
           "citation_hit": 1.0,
           "coverage": 0.0,
           "top1_similarity": 0.702,
-          "latency_ms": 598.3,
+          "latency_ms": 237.2,
           "low_confidence": false,
           "predicted": [
             "lcl#14",
@@ -263,7 +267,7 @@
           "citation_hit": 1.0,
           "coverage": 0.0,
           "top1_similarity": 0.7121,
-          "latency_ms": 603.7,
+          "latency_ms": 237.7,
           "low_confidence": false,
           "predicted": [
             "lcl#13",
@@ -283,7 +287,7 @@
           "citation_hit": 1.0,
           "coverage": 0.0,
           "top1_similarity": 0.6737,
-          "latency_ms": 316.2,
+          "latency_ms": 196.2,
           "low_confidence": false,
           "predicted": [
             "lcl#87",
@@ -296,14 +300,14 @@
         {
           "id": "g73",
           "hop_type": "two_hop",
-          "level": "complex",
+          "level": "medium",
           "recall@5": 1.0,
           "all@5": 1.0,
           "path_recall": 0.0,
           "citation_hit": 1.0,
           "coverage": 0.0,
           "top1_similarity": 0.7094,
-          "latency_ms": 2527.6,
+          "latency_ms": 209.3,
           "low_confidence": false,
           "predicted": [
             "lcl#47",
@@ -323,7 +327,7 @@
           "citation_hit": 1.0,
           "coverage": 0.0,
           "top1_similarity": 0.6964,
-          "latency_ms": 434.7,
+          "latency_ms": 247.9,
           "low_confidence": false,
           "predicted": [
             "ll#20",
@@ -343,7 +347,7 @@
           "citation_hit": 1.0,
           "coverage": 0.0,
           "top1_similarity": 0.7299,
-          "latency_ms": 904.2,
+          "latency_ms": 177.0,
           "low_confidence": false,
           "predicted": [
             "lcl#23",
@@ -356,14 +360,14 @@
         {
           "id": "g76",
           "hop_type": "two_hop",
-          "level": "complex",
+          "level": "medium",
           "recall@5": 1.0,
           "all@5": 1.0,
           "path_recall": 0.0,
           "citation_hit": 1.0,
           "coverage": 0.0,
           "top1_similarity": 0.705,
-          "latency_ms": 1034.7,
+          "latency_ms": 173.2,
           "low_confidence": false,
           "predicted": [
             "lcl#24",
@@ -383,7 +387,7 @@
           "citation_hit": 1.0,
           "coverage": 0.0,
           "top1_similarity": 0.6812,
-          "latency_ms": 493.1,
+          "latency_ms": 190.9,
           "low_confidence": false,
           "predicted": [
             "cc#588",
@@ -403,7 +407,7 @@
           "citation_hit": 0.5,
           "coverage": 0.0,
           "top1_similarity": 0.5929,
-          "latency_ms": 207.5,
+          "latency_ms": 182.4,
           "low_confidence": true,
           "predicted": [
             "cc#201",
@@ -423,7 +427,7 @@
           "citation_hit": 1.0,
           "coverage": 0.0,
           "top1_similarity": 0.6691,
-          "latency_ms": 619.2,
+          "latency_ms": 282.6,
           "low_confidence": false,
           "predicted": [
             "lcl#40",
@@ -436,14 +440,14 @@
         {
           "id": "g80",
           "hop_type": "two_hop",
-          "level": "medium",
+          "level": "complex",
           "recall@5": 0.5,
           "all@5": 0.0,
           "path_recall": 0.0,
           "citation_hit": 0.5,
           "coverage": 0.0,
           "top1_similarity": 0.6992,
-          "latency_ms": 1139.9,
+          "latency_ms": 224.6,
           "low_confidence": false,
           "predicted": [
             "lcl#36",
@@ -463,7 +467,7 @@
           "citation_hit": 1.0,
           "coverage": 0.0,
           "top1_similarity": 0.7403,
-          "latency_ms": 347.1,
+          "latency_ms": 279.7,
           "low_confidence": false,
           "predicted": [
             "lcl#37",
@@ -483,7 +487,7 @@
           "citation_hit": 1.0,
           "coverage": 0.0,
           "top1_similarity": 0.6992,
-          "latency_ms": 1336.8,
+          "latency_ms": 280.2,
           "low_confidence": false,
           "predicted": [
             "lcl#40",
@@ -503,7 +507,7 @@
           "citation_hit": 0.5,
           "coverage": 0.0,
           "top1_similarity": 0.6669,
-          "latency_ms": 350.2,
+          "latency_ms": 282.5,
           "low_confidence": false,
           "predicted": [
             "lcl#37",
@@ -523,7 +527,7 @@
           "citation_hit": 0.5,
           "coverage": 0.0,
           "top1_similarity": 0.6814,
-          "latency_ms": 395.7,
+          "latency_ms": 197.2,
           "low_confidence": false,
           "predicted": [
             "lcl#30",
@@ -543,7 +547,7 @@
           "citation_hit": 0.5,
           "coverage": 0.0,
           "top1_similarity": 0.7072,
-          "latency_ms": 633.8,
+          "latency_ms": 281.1,
           "low_confidence": false,
           "predicted": [
             "ll#31",
@@ -563,7 +567,7 @@
           "citation_hit": 1.0,
           "coverage": 0.0,
           "top1_similarity": 0.6627,
-          "latency_ms": 292.3,
+          "latency_ms": 241.9,
           "low_confidence": false,
           "predicted": [
             "lcl#50",
@@ -583,7 +587,7 @@
           "citation_hit": 1.0,
           "coverage": 0.0,
           "top1_similarity": 0.6938,
-          "latency_ms": 701.6,
+          "latency_ms": 274.8,
           "low_confidence": false,
           "predicted": [
             "ll#27",
@@ -603,7 +607,7 @@
           "citation_hit": 0.5,
           "coverage": 0.0,
           "top1_similarity": 0.6248,
-          "latency_ms": 397.0,
+          "latency_ms": 273.2,
           "low_confidence": false,
           "predicted": [
             "lcl#6",
@@ -623,7 +627,7 @@
           "citation_hit": 1.0,
           "coverage": 0.0,
           "top1_similarity": 0.6768,
-          "latency_ms": 333.1,
+          "latency_ms": 286.6,
           "low_confidence": false,
           "predicted": [
             "lcl#43",
@@ -643,7 +647,7 @@
           "citation_hit": 1.0,
           "coverage": 0.0,
           "top1_similarity": 0.6468,
-          "latency_ms": 280.1,
+          "latency_ms": 238.9,
           "low_confidence": false,
           "predicted": [
             "lcl#87",
@@ -663,7 +667,7 @@
           "citation_hit": 1.0,
           "coverage": 0.0,
           "top1_similarity": 0.6694,
-          "latency_ms": 255.0,
+          "latency_ms": 213.8,
           "low_confidence": false,
           "predicted": [
             "lcl#43",
@@ -676,14 +680,14 @@
         {
           "id": "g92",
           "hop_type": "two_hop",
-          "level": "medium",
+          "level": "complex",
           "recall@5": 1.0,
           "all@5": 1.0,
           "path_recall": 0.0,
           "citation_hit": 1.0,
           "coverage": 0.0,
           "top1_similarity": 0.7813,
-          "latency_ms": 763.4,
+          "latency_ms": 203.4,
           "low_confidence": false,
           "predicted": [
             "lcl#82",
@@ -703,7 +707,7 @@
           "citation_hit": 1.0,
           "coverage": 0.0,
           "top1_similarity": 0.6648,
-          "latency_ms": 979.6,
+          "latency_ms": 216.7,
           "low_confidence": false,
           "predicted": [
             "lcl#47",
@@ -716,14 +720,14 @@
         {
           "id": "g94",
           "hop_type": "two_hop",
-          "level": "complex",
+          "level": "medium",
           "recall@5": 0.5,
           "all@5": 0.0,
           "path_recall": 0.0,
           "citation_hit": 0.5,
           "coverage": 0.0,
           "top1_similarity": 0.6691,
-          "latency_ms": 1107.5,
+          "latency_ms": 198.1,
           "low_confidence": false,
           "predicted": [
             "ll#50",
@@ -736,14 +740,14 @@
         {
           "id": "g95",
           "hop_type": "two_hop",
-          "level": "medium",
+          "level": "complex",
           "recall@5": 0.5,
           "all@5": 0.0,
           "path_recall": 0.0,
           "citation_hit": 0.5,
           "coverage": 0.0,
           "top1_similarity": 0.6962,
-          "latency_ms": 854.1,
+          "latency_ms": 238.0,
           "low_confidence": false,
           "predicted": [
             "cc#584",
@@ -763,7 +767,7 @@
           "citation_hit": 1.0,
           "coverage": 0.0,
           "top1_similarity": 0.7171,
-          "latency_ms": 284.0,
+          "latency_ms": 239.3,
           "low_confidence": false,
           "predicted": [
             "lcl#82",
@@ -783,7 +787,7 @@
           "citation_hit": 0.5,
           "coverage": 0.0,
           "top1_similarity": 0.7054,
-          "latency_ms": 249.0,
+          "latency_ms": 220.6,
           "low_confidence": false,
           "predicted": [
             "lcl#45",
@@ -803,7 +807,7 @@
           "citation_hit": 1.0,
           "coverage": 0.0,
           "top1_similarity": 0.6378,
-          "latency_ms": 231.2,
+          "latency_ms": 196.5,
           "low_confidence": false,
           "predicted": [
             "ll#71",
@@ -823,7 +827,7 @@
           "citation_hit": 1.0,
           "coverage": 0.0,
           "top1_similarity": 0.6206,
-          "latency_ms": 192.5,
+          "latency_ms": 166.7,
           "low_confidence": false,
           "predicted": [
             "ll#100",
@@ -836,14 +840,14 @@
         {
           "id": "g100",
           "hop_type": "two_hop",
-          "level": "complex",
+          "level": "medium",
           "recall@5": 0.5,
           "all@5": 0.0,
           "path_recall": 0.0,
           "citation_hit": 0.5,
           "coverage": 0.0,
           "top1_similarity": 0.681,
-          "latency_ms": 1101.3,
+          "latency_ms": 210.3,
           "low_confidence": false,
           "predicted": [
             "lcl#45",
@@ -856,14 +860,14 @@
         {
           "id": "g101",
           "hop_type": "two_hop",
-          "level": "complex",
+          "level": "medium",
           "recall@5": 1.0,
           "all@5": 1.0,
           "path_recall": 0.0,
           "citation_hit": 1.0,
           "coverage": 0.0,
           "top1_similarity": 0.6321,
-          "latency_ms": 955.9,
+          "latency_ms": 206.7,
           "low_confidence": false,
           "predicted": [
             "ll#57",
@@ -883,7 +887,7 @@
           "citation_hit": 1.0,
           "coverage": 0.0,
           "top1_similarity": 0.7264,
-          "latency_ms": 241.2,
+          "latency_ms": 217.4,
           "low_confidence": false,
           "predicted": [
             "ll#63",
@@ -903,7 +907,7 @@
           "citation_hit": 0.5,
           "coverage": 0.0,
           "top1_similarity": 0.6657,
-          "latency_ms": 1241.3,
+          "latency_ms": 208.7,
           "low_confidence": false,
           "predicted": [
             "ll#58",
@@ -923,7 +927,7 @@
           "citation_hit": 1.0,
           "coverage": 0.0,
           "top1_similarity": 0.676,
-          "latency_ms": 217.9,
+          "latency_ms": 187.6,
           "low_confidence": false,
           "predicted": [
             "ll#36",
@@ -936,14 +940,14 @@
         {
           "id": "g105",
           "hop_type": "two_hop",
-          "level": "medium",
+          "level": "complex",
           "recall@5": 1.0,
           "all@5": 1.0,
           "path_recall": 0.0,
           "citation_hit": 1.0,
           "coverage": 0.0,
           "top1_similarity": 0.6673,
-          "latency_ms": 761.4,
+          "latency_ms": 163.5,
           "low_confidence": false,
           "predicted": [
             "cc#203",
@@ -963,7 +967,7 @@
           "citation_hit": 1.0,
           "coverage": 0.0,
           "top1_similarity": 0.7208,
-          "latency_ms": 212.4,
+          "latency_ms": 185.6,
           "low_confidence": false,
           "predicted": [
             "ll#42",
@@ -983,7 +987,7 @@
           "citation_hit": 1.0,
           "coverage": 0.0,
           "top1_similarity": 0.6336,
-          "latency_ms": 193.2,
+          "latency_ms": 164.1,
           "low_confidence": false,
           "predicted": [
             "ll#38",
@@ -1003,7 +1007,7 @@
           "citation_hit": 1.0,
           "coverage": 0.0,
           "top1_similarity": 0.6835,
-          "latency_ms": 224.1,
+          "latency_ms": 185.3,
           "low_confidence": false,
           "predicted": [
             "ll#37",
@@ -1016,14 +1020,14 @@
         {
           "id": "g109",
           "hop_type": "two_hop",
-          "level": "medium",
+          "level": "complex",
           "recall@5": 1.0,
           "all@5": 1.0,
           "path_recall": 0.0,
           "citation_hit": 1.0,
           "coverage": 0.0,
           "top1_similarity": 0.6725,
-          "latency_ms": 1021.5,
+          "latency_ms": 209.2,
           "low_confidence": false,
           "predicted": [
             "ll#50",
@@ -1043,7 +1047,7 @@
           "citation_hit": 1.0,
           "coverage": 0.0,
           "top1_similarity": 0.7586,
-          "latency_ms": 261.8,
+          "latency_ms": 227.0,
           "low_confidence": false,
           "predicted": [
             "lcl#72",
@@ -1063,7 +1067,7 @@
           "citation_hit": 1.0,
           "coverage": 0.0,
           "top1_similarity": 0.7069,
-          "latency_ms": 265.4,
+          "latency_ms": 227.9,
           "low_confidence": false,
           "predicted": [
             "lcl#69",
@@ -1083,7 +1087,7 @@
           "citation_hit": 0.5,
           "coverage": 0.0,
           "top1_similarity": 0.69,
-          "latency_ms": 207.3,
+          "latency_ms": 172.2,
           "low_confidence": false,
           "predicted": [
             "cc#1191",
@@ -1103,7 +1107,7 @@
           "citation_hit": 1.0,
           "coverage": 0.0,
           "top1_similarity": 0.7532,
-          "latency_ms": 333.1,
+          "latency_ms": 284.7,
           "low_confidence": false,
           "predicted": [
             "ll#20",
@@ -1123,7 +1127,7 @@
           "citation_hit": 0.5,
           "coverage": 0.0,
           "top1_similarity": 0.641,
-          "latency_ms": 215.3,
+          "latency_ms": 195.2,
           "low_confidence": false,
           "predicted": [
             "ll#77",
@@ -1143,7 +1147,7 @@
           "citation_hit": 1.0,
           "coverage": 0.0,
           "top1_similarity": 0.6862,
-          "latency_ms": 307.1,
+          "latency_ms": 270.6,
           "low_confidence": false,
           "predicted": [
             "lcl#51",
@@ -1163,7 +1167,7 @@
           "citation_hit": 0.0,
           "coverage": 0.0,
           "top1_similarity": 0.6681,
-          "latency_ms": 226.6,
+          "latency_ms": 195.9,
           "low_confidence": false,
           "predicted": [
             "ll#45",
@@ -1176,14 +1180,14 @@
         {
           "id": "g117",
           "hop_type": "two_hop",
-          "level": "complex",
+          "level": "medium",
           "recall@5": 1.0,
           "all@5": 1.0,
           "path_recall": 0.0,
           "citation_hit": 1.0,
           "coverage": 0.0,
           "top1_similarity": 0.7129,
-          "latency_ms": 869.4,
+          "latency_ms": 276.3,
           "low_confidence": false,
           "predicted": [
             "lcl#23",
@@ -1203,7 +1207,7 @@
           "citation_hit": 1.0,
           "coverage": 0.0,
           "top1_similarity": 0.7432,
-          "latency_ms": 876.5,
+          "latency_ms": 174.5,
           "low_confidence": false,
           "predicted": [
             "lcl#22",
@@ -1216,14 +1220,14 @@
         {
           "id": "g119",
           "hop_type": "two_hop",
-          "level": "medium",
+          "level": "complex",
           "recall@5": 1.0,
           "all@5": 1.0,
           "path_recall": 0.0,
           "citation_hit": 1.0,
           "coverage": 0.0,
           "top1_similarity": 0.6936,
-          "latency_ms": 727.9,
+          "latency_ms": 198.0,
           "low_confidence": false,
           "predicted": [
             "ll#92",
@@ -1243,7 +1247,7 @@
           "citation_hit": 1.0,
           "coverage": 0.0,
           "top1_similarity": 0.7243,
-          "latency_ms": 151.7,
+          "latency_ms": 140.6,
           "low_confidence": false,
           "predicted": [
             "ll#58",
@@ -1263,7 +1267,7 @@
           "citation_hit": 1.0,
           "coverage": 0.0,
           "top1_similarity": 0.7868,
-          "latency_ms": 185.1,
+          "latency_ms": 178.2,
           "low_confidence": false,
           "predicted": [
             "ll#79",
@@ -1283,7 +1287,7 @@
           "citation_hit": 1.0,
           "coverage": 0.0,
           "top1_similarity": 0.7631,
-          "latency_ms": 775.8,
+          "latency_ms": 193.9,
           "low_confidence": false,
           "predicted": [
             "ll#79",
@@ -1296,14 +1300,14 @@
         {
           "id": "g123",
           "hop_type": "two_hop",
-          "level": "medium",
+          "level": "complex",
           "recall@5": 1.0,
           "all@5": 1.0,
           "path_recall": 0.0,
           "citation_hit": 1.0,
           "coverage": 0.0,
           "top1_similarity": 0.7548,
-          "latency_ms": 958.8,
+          "latency_ms": 272.0,
           "low_confidence": false,
           "predicted": [
             "ll#82",
@@ -1323,7 +1327,7 @@
           "citation_hit": 1.0,
           "coverage": 0.0,
           "top1_similarity": 0.6621,
-          "latency_ms": 238.1,
+          "latency_ms": 205.7,
           "low_confidence": false,
           "predicted": [
             "ll#77",
@@ -1343,7 +1347,7 @@
           "citation_hit": 1.0,
           "coverage": 0.0,
           "top1_similarity": 0.6792,
-          "latency_ms": 266.3,
+          "latency_ms": 238.1,
           "low_confidence": false,
           "predicted": [
             "lcl#50",
@@ -1363,7 +1367,7 @@
           "citation_hit": 0.5,
           "coverage": 0.0,
           "top1_similarity": 0.6311,
-          "latency_ms": 218.5,
+          "latency_ms": 192.7,
           "low_confidence": false,
           "predicted": [
             "cc#201",
@@ -1383,7 +1387,7 @@
           "citation_hit": 1.0,
           "coverage": 0.0,
           "top1_similarity": 0.658,
-          "latency_ms": 208.8,
+          "latency_ms": 189.8,
           "low_confidence": false,
           "predicted": [
             "ll#41",
@@ -1403,7 +1407,7 @@
           "citation_hit": 1.0,
           "coverage": 0.0,
           "top1_similarity": 0.6129,
-          "latency_ms": 203.8,
+          "latency_ms": 184.4,
           "low_confidence": true,
           "predicted": [
             "lcl#31",
@@ -1423,7 +1427,7 @@
           "citation_hit": 1.0,
           "coverage": 0.0,
           "top1_similarity": 0.6807,
-          "latency_ms": 929.5,
+          "latency_ms": 284.4,
           "low_confidence": false,
           "predicted": [
             "lcl#35",
@@ -1443,7 +1447,7 @@
           "citation_hit": 1.0,
           "coverage": 0.0,
           "top1_similarity": 0.669,
-          "latency_ms": 209.5,
+          "latency_ms": 191.9,
           "low_confidence": false,
           "predicted": [
             "ll#100",
@@ -1463,7 +1467,7 @@
           "citation_hit": 0.6667,
           "coverage": 0.0,
           "top1_similarity": 0.6293,
-          "latency_ms": 216.0,
+          "latency_ms": 200.7,
           "low_confidence": false,
           "predicted": [
             "ll#50",
@@ -1483,7 +1487,7 @@
           "citation_hit": 0.6667,
           "coverage": 0.0,
           "top1_similarity": 0.671,
-          "latency_ms": 328.6,
+          "latency_ms": 304.9,
           "low_confidence": false,
           "predicted": [
             "ll#27",
@@ -1503,7 +1507,7 @@
           "citation_hit": 1.0,
           "coverage": 0.0,
           "top1_similarity": 0.629,
-          "latency_ms": 213.4,
+          "latency_ms": 195.3,
           "low_confidence": false,
           "predicted": [
             "lcl#31",
@@ -1523,7 +1527,7 @@
           "citation_hit": 1.0,
           "coverage": 0.0,
           "top1_similarity": 0.7386,
-          "latency_ms": 274.9,
+          "latency_ms": 250.8,
           "low_confidence": false,
           "predicted": [
             "lcl#31",
@@ -1543,7 +1547,7 @@
           "citation_hit": 0.6667,
           "coverage": 0.0,
           "top1_similarity": 0.6727,
-          "latency_ms": 323.2,
+          "latency_ms": 295.0,
           "low_confidence": false,
           "predicted": [
             "lcl#43",
@@ -1563,7 +1567,7 @@
           "citation_hit": 0.5,
           "coverage": 0.0,
           "top1_similarity": 0.6871,
-          "latency_ms": 821.8,
+          "latency_ms": 239.1,
           "low_confidence": false,
           "predicted": [
             "lcl#14",
@@ -1576,14 +1580,14 @@
         {
           "id": "g137",
           "hop_type": "three_hop",
-          "level": "complex",
+          "level": "medium",
           "recall@5": 0.6667,
           "all@5": 0.0,
           "path_recall": 0.0,
           "citation_hit": 0.6667,
           "coverage": 0.0,
           "top1_similarity": 0.7018,
-          "latency_ms": 804.4,
+          "latency_ms": 210.5,
           "low_confidence": false,
           "predicted": [
             "lcl#47",
@@ -1603,7 +1607,7 @@
           "citation_hit": 0.6667,
           "coverage": 0.0,
           "top1_similarity": 0.6733,
-          "latency_ms": 282.7,
+          "latency_ms": 241.6,
           "low_confidence": false,
           "predicted": [
             "lcl#14",
@@ -1623,7 +1627,7 @@
           "citation_hit": 1.0,
           "coverage": 0.0,
           "top1_similarity": 0.7202,
-          "latency_ms": 213.1,
+          "latency_ms": 178.2,
           "low_confidence": false,
           "predicted": [
             "lcl#23",
@@ -1643,7 +1647,7 @@
           "citation_hit": 1.0,
           "coverage": 0.0,
           "top1_similarity": 0.6688,
-          "latency_ms": 231.3,
+          "latency_ms": 194.5,
           "low_confidence": false,
           "predicted": [
             "lcl#23",
@@ -1663,7 +1667,7 @@
           "citation_hit": 1.0,
           "coverage": 0.0,
           "top1_similarity": 0.6815,
-          "latency_ms": 329.1,
+          "latency_ms": 289.4,
           "low_confidence": false,
           "predicted": [
             "ll#31",
@@ -1683,7 +1687,7 @@
           "citation_hit": 1.0,
           "coverage": 0.0,
           "top1_similarity": 0.6143,
-          "latency_ms": 928.1,
+          "latency_ms": 284.3,
           "low_confidence": true,
           "predicted": [
             "lcl#40",
@@ -1703,7 +1707,7 @@
           "citation_hit": 0.3333,
           "coverage": 0.0,
           "top1_similarity": 0.6917,
-          "latency_ms": 222.6,
+          "latency_ms": 196.2,
           "low_confidence": false,
           "predicted": [
             "ll#50",
@@ -1723,7 +1727,7 @@
           "citation_hit": 0.6667,
           "coverage": 0.0,
           "top1_similarity": 0.6715,
-          "latency_ms": 890.3,
+          "latency_ms": 196.0,
           "low_confidence": false,
           "predicted": [
             "ll#73",
@@ -1743,7 +1747,7 @@
           "citation_hit": 0.6667,
           "coverage": 0.0,
           "top1_similarity": 0.6859,
-          "latency_ms": 292.0,
+          "latency_ms": 269.6,
           "low_confidence": false,
           "predicted": [
             "lcl#47",
@@ -1763,7 +1767,7 @@
           "citation_hit": 0.6667,
           "coverage": 0.0,
           "top1_similarity": 0.669,
-          "latency_ms": 313.2,
+          "latency_ms": 287.4,
           "low_confidence": false,
           "predicted": [
             "lcl#41",
@@ -1783,7 +1787,7 @@
           "citation_hit": 1.0,
           "coverage": 0.0,
           "top1_similarity": 0.6358,
-          "latency_ms": 206.3,
+          "latency_ms": 183.2,
           "low_confidence": false,
           "predicted": [
             "lcl#43",
@@ -1803,7 +1807,7 @@
           "citation_hit": 1.0,
           "coverage": 0.0,
           "top1_similarity": 0.6767,
-          "latency_ms": 229.6,
+          "latency_ms": 206.6,
           "low_confidence": false,
           "predicted": [
             "lcl#87",
@@ -1823,7 +1827,7 @@
           "citation_hit": 0.3333,
           "coverage": 0.0,
           "top1_similarity": 0.655,
-          "latency_ms": 248.3,
+          "latency_ms": 223.5,
           "low_confidence": false,
           "predicted": [
             "lcl#47",
@@ -1843,7 +1847,7 @@
           "citation_hit": 0.6667,
           "coverage": 0.0,
           "top1_similarity": 0.663,
-          "latency_ms": 314.2,
+          "latency_ms": 286.5,
           "low_confidence": false,
           "predicted": [
             "lcl#47",
@@ -1863,7 +1867,7 @@
           "citation_hit": 1.0,
           "coverage": 0.0,
           "top1_similarity": 0.7312,
-          "latency_ms": 278.8,
+          "latency_ms": 247.3,
           "low_confidence": false,
           "predicted": [
             "lcl#82",
@@ -1883,7 +1887,7 @@
           "citation_hit": 1.0,
           "coverage": 0.0,
           "top1_similarity": 0.764,
-          "latency_ms": 233.3,
+          "latency_ms": 209.1,
           "low_confidence": false,
           "predicted": [
             "lcl#82",
@@ -1903,7 +1907,7 @@
           "citation_hit": 1.0,
           "coverage": 0.0,
           "top1_similarity": 0.6363,
-          "latency_ms": 869.0,
+          "latency_ms": 250.8,
           "low_confidence": false,
           "predicted": [
             "lcl#50",
@@ -1923,7 +1927,7 @@
           "citation_hit": 0.6667,
           "coverage": 0.0,
           "top1_similarity": 0.6638,
-          "latency_ms": 198.9,
+          "latency_ms": 178.5,
           "low_confidence": false,
           "predicted": [
             "lcl#7",
@@ -1943,7 +1947,7 @@
           "citation_hit": 0.6667,
           "coverage": 0.0,
           "top1_similarity": 0.6426,
-          "latency_ms": 232.5,
+          "latency_ms": 209.8,
           "low_confidence": false,
           "predicted": [
             "ll#75",
@@ -1963,7 +1967,7 @@
           "citation_hit": 0.6667,
           "coverage": 0.0,
           "top1_similarity": 0.6365,
-          "latency_ms": 251.8,
+          "latency_ms": 220.8,
           "low_confidence": false,
           "predicted": [
             "lcl#87",
@@ -1983,7 +1987,7 @@
           "citation_hit": 0.6667,
           "coverage": 0.0,
           "top1_similarity": 0.7149,
-          "latency_ms": 216.9,
+          "latency_ms": 197.0,
           "low_confidence": false,
           "predicted": [
             "ll#45",
@@ -2003,7 +2007,7 @@
           "citation_hit": 1.0,
           "coverage": 0.0,
           "top1_similarity": 0.6876,
-          "latency_ms": 207.0,
+          "latency_ms": 190.0,
           "low_confidence": false,
           "predicted": [
             "lcl#31",
@@ -2023,7 +2027,7 @@
           "citation_hit": 0.6667,
           "coverage": 0.0,
           "top1_similarity": 0.68,
-          "latency_ms": 216.6,
+          "latency_ms": 200.7,
           "low_confidence": false,
           "predicted": [
             "ll#38",
@@ -2043,7 +2047,7 @@
           "citation_hit": 1.0,
           "coverage": 0.0,
           "top1_similarity": 0.7013,
-          "latency_ms": 208.7,
+          "latency_ms": 192.7,
           "low_confidence": false,
           "predicted": [
             "lcl#31",
@@ -2063,7 +2067,7 @@
           "citation_hit": 0.3333,
           "coverage": 0.0,
           "top1_similarity": 0.6807,
-          "latency_ms": 235.5,
+          "latency_ms": 218.0,
           "low_confidence": false,
           "predicted": [
             "ll#50",
@@ -2083,7 +2087,7 @@
           "citation_hit": 0.6667,
           "coverage": 0.0,
           "top1_similarity": 0.7054,
-          "latency_ms": 250.5,
+          "latency_ms": 241.8,
           "low_confidence": false,
           "predicted": [
             "ll#82",
@@ -2103,7 +2107,7 @@
           "citation_hit": 0.3333,
           "coverage": 0.0,
           "top1_similarity": 0.691,
-          "latency_ms": 313.7,
+          "latency_ms": 284.9,
           "low_confidence": false,
           "predicted": [
             "lcl#6",
@@ -2116,14 +2120,14 @@
         {
           "id": "g164",
           "hop_type": "three_hop",
-          "level": "complex",
+          "level": "medium",
           "recall@5": 1.0,
           "all@5": 1.0,
           "path_recall": 0.0,
           "citation_hit": 1.0,
           "coverage": 0.0,
           "top1_similarity": 0.6716,
-          "latency_ms": 883.8,
+          "latency_ms": 258.5,
           "low_confidence": false,
           "predicted": [
             "ll#8",
@@ -2143,7 +2147,7 @@
           "citation_hit": 1.0,
           "coverage": 0.0,
           "top1_similarity": 0.7225,
-          "latency_ms": 221.3,
+          "latency_ms": 201.0,
           "low_confidence": false,
           "predicted": [
             "lcl#24",
@@ -2163,7 +2167,7 @@
           "citation_hit": 1.0,
           "coverage": 0.0,
           "top1_similarity": 0.7129,
-          "latency_ms": 186.3,
+          "latency_ms": 163.2,
           "low_confidence": false,
           "predicted": [
             "lcl#23",
@@ -2176,14 +2180,14 @@
         {
           "id": "g167",
           "hop_type": "three_hop",
-          "level": "complex",
+          "level": "medium",
           "recall@5": 0.5,
           "all@5": 0.0,
           "path_recall": 0.0,
           "citation_hit": 0.5,
           "coverage": 0.0,
           "top1_similarity": 0.6912,
-          "latency_ms": 799.9,
+          "latency_ms": 211.6,
           "low_confidence": false,
           "predicted": [
             "ll#54",
@@ -2203,7 +2207,7 @@
           "citation_hit": 1.0,
           "coverage": 0.0,
           "top1_similarity": 0.7065,
-          "latency_ms": 1094.2,
+          "latency_ms": 180.2,
           "low_confidence": false,
           "predicted": [
             "ll#58",
@@ -2223,7 +2227,7 @@
           "citation_hit": 1.0,
           "coverage": 0.0,
           "top1_similarity": 0.7087,
-          "latency_ms": 231.5,
+          "latency_ms": 211.0,
           "low_confidence": false,
           "predicted": [
             "ll#79",
@@ -2243,7 +2247,7 @@
           "citation_hit": 1.0,
           "coverage": 0.0,
           "top1_similarity": 0.7419,
-          "latency_ms": 781.3,
+          "latency_ms": 212.4,
           "low_confidence": false,
           "predicted": [
             "ll#79",
@@ -2263,7 +2267,7 @@
           "citation_hit": 0.6667,
           "coverage": 0.0,
           "top1_similarity": 0.7058,
-          "latency_ms": 212.1,
+          "latency_ms": 197.9,
           "low_confidence": false,
           "predicted": [
             "ll#79",
@@ -2283,7 +2287,7 @@
           "citation_hit": 0.6667,
           "coverage": 0.0,
           "top1_similarity": 0.6661,
-          "latency_ms": 247.3,
+          "latency_ms": 236.2,
           "low_confidence": false,
           "predicted": [
             "cc#167",
@@ -2296,14 +2300,14 @@
         {
           "id": "g173",
           "hop_type": "three_hop",
-          "level": "complex",
+          "level": "medium",
           "recall@5": 0.3333,
           "all@5": 0.0,
           "path_recall": 0.0,
           "citation_hit": 0.3333,
           "coverage": 0.0,
           "top1_similarity": 0.6068,
-          "latency_ms": 863.5,
+          "latency_ms": 226.6,
           "low_confidence": true,
           "predicted": [
             "lcl#50",
@@ -2323,7 +2327,7 @@
           "citation_hit": 0.6667,
           "coverage": 0.0,
           "top1_similarity": 0.6687,
-          "latency_ms": 880.2,
+          "latency_ms": 207.3,
           "low_confidence": false,
           "predicted": [
             "ll#50",
@@ -2343,7 +2347,7 @@
           "citation_hit": 0.6667,
           "coverage": 0.0,
           "top1_similarity": 0.6233,
-          "latency_ms": 868.8,
+          "latency_ms": 184.7,
           "low_confidence": false,
           "predicted": [
             "ll#82",
@@ -2363,7 +2367,7 @@
           "citation_hit": 0.6667,
           "coverage": 0.0,
           "top1_similarity": 0.6882,
-          "latency_ms": 334.2,
+          "latency_ms": 211.6,
           "low_confidence": false,
           "predicted": [
             "ll#61",
@@ -2383,7 +2387,7 @@
           "citation_hit": 0.3333,
           "coverage": 0.0,
           "top1_similarity": 0.7092,
-          "latency_ms": 328.7,
+          "latency_ms": 247.1,
           "low_confidence": false,
           "predicted": [
             "lcl#19",
@@ -2403,7 +2407,7 @@
           "citation_hit": 0.5,
           "coverage": 0.0,
           "top1_similarity": 0.6491,
-          "latency_ms": 974.5,
+          "latency_ms": 274.0,
           "low_confidence": false,
           "predicted": [
             "lcl#13",
@@ -2423,7 +2427,7 @@
           "citation_hit": 0.3333,
           "coverage": 0.0,
           "top1_similarity": 0.7158,
-          "latency_ms": 332.2,
+          "latency_ms": 248.2,
           "low_confidence": false,
           "predicted": [
             "lcl#69",
@@ -2443,7 +2447,7 @@
           "citation_hit": 0.6667,
           "coverage": 0.0,
           "top1_similarity": 0.728,
-          "latency_ms": 314.2,
+          "latency_ms": 245.2,
           "low_confidence": false,
           "predicted": [
             "lcl#22",
@@ -2463,7 +2467,7 @@
           "citation_hit": 0.3333,
           "coverage": 0.0,
           "top1_similarity": 0.7077,
-          "latency_ms": 309.7,
+          "latency_ms": 223.0,
           "low_confidence": false,
           "predicted": [
             "lcl#23",
@@ -2483,7 +2487,7 @@
           "citation_hit": 0.6667,
           "coverage": 0.0,
           "top1_similarity": 0.6108,
-          "latency_ms": 281.8,
+          "latency_ms": 391.8,
           "low_confidence": true,
           "predicted": [
             "cc#141",
@@ -2503,7 +2507,7 @@
           "citation_hit": 0.0,
           "coverage": 0.0,
           "top1_similarity": 0.7051,
-          "latency_ms": 952.3,
+          "latency_ms": 321.6,
           "low_confidence": false,
           "predicted": [
             "cc#484",
@@ -2523,7 +2527,7 @@
           "citation_hit": 0.3333,
           "coverage": 0.0,
           "top1_similarity": 0.6762,
-          "latency_ms": 322.2,
+          "latency_ms": 258.7,
           "low_confidence": false,
           "predicted": [
             "cc#483",
@@ -2543,7 +2547,7 @@
           "citation_hit": 0.3333,
           "coverage": 0.0,
           "top1_similarity": 0.6461,
-          "latency_ms": 338.7,
+          "latency_ms": 266.9,
           "low_confidence": false,
           "predicted": [
             "cc#533",
@@ -2563,7 +2567,7 @@
           "citation_hit": 0.3333,
           "coverage": 0.0,
           "top1_similarity": 0.6766,
-          "latency_ms": 236.2,
+          "latency_ms": 204.2,
           "low_confidence": false,
           "predicted": [
             "ll#50",
@@ -2583,7 +2587,7 @@
           "citation_hit": 0.6667,
           "coverage": 0.0,
           "top1_similarity": 0.6436,
-          "latency_ms": 248.9,
+          "latency_ms": 180.9,
           "low_confidence": false,
           "predicted": [
             "cc#503",
@@ -2603,7 +2607,7 @@
           "citation_hit": 0.3333,
           "coverage": 0.0,
           "top1_similarity": 0.6786,
-          "latency_ms": 332.3,
+          "latency_ms": 293.2,
           "low_confidence": false,
           "predicted": [
             "ll#26",
@@ -2623,7 +2627,7 @@
           "citation_hit": 0.6667,
           "coverage": 0.0,
           "top1_similarity": 0.6233,
-          "latency_ms": 221.8,
+          "latency_ms": 196.3,
           "low_confidence": false,
           "predicted": [
             "cc#923",
@@ -2643,7 +2647,7 @@
           "citation_hit": 0.6667,
           "coverage": 0.0,
           "top1_similarity": 0.7082,
-          "latency_ms": 313.0,
+          "latency_ms": 229.0,
           "low_confidence": false,
           "predicted": [
             "ll#77",
@@ -2663,7 +2667,7 @@
           "citation_hit": 0.0,
           "coverage": 0.0,
           "top1_similarity": 0.677,
-          "latency_ms": 284.7,
+          "latency_ms": 195.8,
           "low_confidence": false,
           "predicted": [
             "cc#1192",
@@ -2683,7 +2687,7 @@
           "citation_hit": 0.0,
           "coverage": 0.0,
           "top1_similarity": 0.6793,
-          "latency_ms": 225.1,
+          "latency_ms": 177.6,
           "low_confidence": false,
           "predicted": [
             "ll#58",
@@ -2703,7 +2707,7 @@
           "citation_hit": 0.3333,
           "coverage": 0.0,
           "top1_similarity": 0.6457,
-          "latency_ms": 246.8,
+          "latency_ms": 206.5,
           "low_confidence": false,
           "predicted": [
             "cc#584",
@@ -2723,7 +2727,7 @@
           "citation_hit": 1.0,
           "coverage": 0.0,
           "top1_similarity": 0.7402,
-          "latency_ms": 228.8,
+          "latency_ms": 180.9,
           "low_confidence": false,
           "predicted": [
             "cc#588",
@@ -2743,7 +2747,7 @@
           "citation_hit": 1.0,
           "coverage": 0.0,
           "top1_similarity": 0.7235,
-          "latency_ms": 229.5,
+          "latency_ms": 204.2,
           "low_confidence": false,
           "predicted": [
             "lcl#23",
@@ -2763,7 +2767,7 @@
           "citation_hit": 0.5,
           "coverage": 0.0,
           "top1_similarity": 0.6995,
-          "latency_ms": 277.0,
+          "latency_ms": 220.0,
           "low_confidence": false,
           "predicted": [
             "cc#585",
@@ -2783,7 +2787,7 @@
           "citation_hit": 0.3333,
           "coverage": 0.0,
           "top1_similarity": 0.6591,
-          "latency_ms": 335.5,
+          "latency_ms": 283.5,
           "low_confidence": false,
           "predicted": [
             "lcl#23",
@@ -2796,14 +2800,14 @@
         {
           "id": "g198",
           "hop_type": "cross_law",
-          "level": "medium",
+          "level": "complex",
           "recall@5": 0.6667,
           "all@5": 0.0,
           "path_recall": 0.0,
           "citation_hit": 0.6667,
           "coverage": 0.0,
           "top1_similarity": 0.6872,
-          "latency_ms": 908.5,
+          "latency_ms": 175.4,
           "low_confidence": false,
           "predicted": [
             "cc#1186",
@@ -2816,14 +2820,14 @@
         {
           "id": "g199",
           "hop_type": "cross_law",
-          "level": "complex",
+          "level": "medium",
           "recall@5": 0.0,
           "all@5": 0.0,
           "path_recall": 0.0,
           "citation_hit": 0.0,
           "coverage": 0.0,
           "top1_similarity": 0.6128,
-          "latency_ms": 1685.6,
+          "latency_ms": 175.6,
           "low_confidence": true,
           "predicted": [
             "cc#1165",
@@ -2843,7 +2847,7 @@
           "citation_hit": 0.6667,
           "coverage": 0.0,
           "top1_similarity": 0.6754,
-          "latency_ms": 235.4,
+          "latency_ms": 183.0,
           "low_confidence": false,
           "predicted": [
             "cc#1186",
@@ -2859,30 +2863,30 @@
       "mode": "graph",
       "level_override": "router",
       "n": 140,
-      "recall@5": 0.4131,
+      "recall@5": 0.425,
       "all@5": 0.1857,
       "path_recall": 0.619,
-      "citation_hit": 0.4131,
-      "latency_median_ms": 71.7,
+      "citation_hit": 0.425,
+      "latency_median_ms": 96.3,
       "low_confidence_rate": 0.0143,
       "by_hop": {
         "two_hop": {
-          "recall@5": 0.4286,
+          "recall@5": 0.4429,
           "all@5": 0.2429,
           "path_recall": 0.6286,
-          "citation_hit": 0.4286
+          "citation_hit": 0.4429
         },
         "three_hop": {
-          "recall@5": 0.4601,
+          "recall@5": 0.4674,
           "all@5": 0.1957,
           "path_recall": 0.6015,
-          "citation_hit": 0.4601
+          "citation_hit": 0.4674
         },
         "cross_law": {
-          "recall@5": 0.2778,
+          "recall@5": 0.2917,
           "all@5": 0.0,
           "path_recall": 0.625,
-          "citation_hit": 0.2778
+          "citation_hit": 0.2917
         }
       },
       "rows": [
@@ -2896,7 +2900,7 @@
           "citation_hit": 0.5,
           "coverage": 0.6667,
           "top1_similarity": 0.6978,
-          "latency_ms": 56.2,
+          "latency_ms": 156.0,
           "low_confidence": false,
           "predicted": [
             "cc#134",
@@ -2916,7 +2920,7 @@
           "citation_hit": 1.0,
           "coverage": 1.0,
           "top1_similarity": 0.7805,
-          "latency_ms": 58.0,
+          "latency_ms": 138.6,
           "low_confidence": false,
           "predicted": [
             "ll#49",
@@ -2936,7 +2940,7 @@
           "citation_hit": 0.0,
           "coverage": 0.5,
           "top1_similarity": 0.6904,
-          "latency_ms": 49.2,
+          "latency_ms": 130.5,
           "low_confidence": false,
           "predicted": [
             "cc#76",
@@ -2956,7 +2960,7 @@
           "citation_hit": 0.0,
           "coverage": 1.0,
           "top1_similarity": 0.7547,
-          "latency_ms": 51.9,
+          "latency_ms": 100.5,
           "low_confidence": false,
           "predicted": [
             "ll#50",
@@ -2976,14 +2980,14 @@
           "citation_hit": 0.0,
           "coverage": 1.0,
           "top1_similarity": 0.6893,
-          "latency_ms": 75.7,
+          "latency_ms": 63.0,
           "low_confidence": false,
           "predicted": [
             "cc#76",
             "cc#57",
-            "cc#683",
             "cc#103",
-            "cc#105"
+            "cc#105",
+            "cc#58"
           ]
         },
         {
@@ -2996,7 +3000,7 @@
           "citation_hit": 0.5,
           "coverage": 1.0,
           "top1_similarity": 0.7489,
-          "latency_ms": 64.5,
+          "latency_ms": 63.2,
           "low_confidence": false,
           "predicted": [
             "ll#21",
@@ -3016,7 +3020,7 @@
           "citation_hit": 0.0,
           "coverage": 1.0,
           "top1_similarity": 0.6457,
-          "latency_ms": 53.5,
+          "latency_ms": 73.0,
           "low_confidence": false,
           "predicted": [
             "ll#21",
@@ -3036,14 +3040,14 @@
           "citation_hit": 0.5,
           "coverage": 1.0,
           "top1_similarity": 0.6667,
-          "latency_ms": 57.8,
+          "latency_ms": 69.3,
           "low_confidence": false,
           "predicted": [
             "cc#76",
             "lcl#6",
             "cc#57",
-            "cc#83",
-            "lcl#43"
+            "lcl#43",
+            "cc#103"
           ]
         },
         {
@@ -3056,7 +3060,7 @@
           "citation_hit": 0.5,
           "coverage": 1.0,
           "top1_similarity": 0.7561,
-          "latency_ms": 50.8,
+          "latency_ms": 72.4,
           "low_confidence": false,
           "predicted": [
             "ll#21",
@@ -3076,7 +3080,7 @@
           "citation_hit": 1.0,
           "coverage": 1.0,
           "top1_similarity": 0.702,
-          "latency_ms": 48.3,
+          "latency_ms": 129.8,
           "low_confidence": false,
           "predicted": [
             "lcl#14",
@@ -3096,7 +3100,7 @@
           "citation_hit": 1.0,
           "coverage": 1.0,
           "top1_similarity": 0.7121,
-          "latency_ms": 56.5,
+          "latency_ms": 96.6,
           "low_confidence": false,
           "predicted": [
             "lcl#14",
@@ -3116,27 +3120,27 @@
           "citation_hit": 0.0,
           "coverage": 1.0,
           "top1_similarity": 0.6737,
-          "latency_ms": 54.8,
+          "latency_ms": 81.1,
           "low_confidence": false,
           "predicted": [
             "cc#76",
             "cc#584",
             "cc#57",
-            "cc#83",
-            "cc#1187"
+            "cc#1187",
+            "cc#103"
           ]
         },
         {
           "id": "g73",
           "hop_type": "two_hop",
-          "level": "complex",
+          "level": "medium",
           "recall@5": 1.0,
           "all@5": 1.0,
           "path_recall": 0.5,
           "citation_hit": 1.0,
           "coverage": 1.0,
           "top1_similarity": 0.7094,
-          "latency_ms": 548.2,
+          "latency_ms": 125.7,
           "low_confidence": false,
           "predicted": [
             "lcl#47",
@@ -3156,14 +3160,14 @@
           "citation_hit": 0.0,
           "coverage": 1.0,
           "top1_similarity": 0.6964,
-          "latency_ms": 63.0,
+          "latency_ms": 66.6,
           "low_confidence": false,
           "predicted": [
             "cc#76",
             "cc#57",
-            "cc#683",
             "cc#103",
-            "cc#105"
+            "cc#105",
+            "cc#58"
           ]
         },
         {
@@ -3176,7 +3180,7 @@
           "citation_hit": 0.5,
           "coverage": 1.0,
           "top1_similarity": 0.7299,
-          "latency_ms": 698.2,
+          "latency_ms": 114.4,
           "low_confidence": false,
           "predicted": [
             "lcl#23",
@@ -3189,14 +3193,14 @@
         {
           "id": "g76",
           "hop_type": "two_hop",
-          "level": "complex",
+          "level": "medium",
           "recall@5": 0.5,
           "all@5": 0.0,
           "path_recall": 1.0,
           "citation_hit": 0.5,
           "coverage": 1.0,
           "top1_similarity": 0.705,
-          "latency_ms": 939.3,
+          "latency_ms": 100.7,
           "low_confidence": false,
           "predicted": [
             "lcl#23",
@@ -3216,7 +3220,7 @@
           "citation_hit": 0.5,
           "coverage": 0.8,
           "top1_similarity": 0.6812,
-          "latency_ms": 86.7,
+          "latency_ms": 89.4,
           "low_confidence": false,
           "predicted": [
             "lcl#22",
@@ -3236,7 +3240,7 @@
           "citation_hit": 0.0,
           "coverage": 0.0,
           "top1_similarity": 0.5929,
-          "latency_ms": 53.0,
+          "latency_ms": 45.8,
           "low_confidence": true,
           "predicted": []
         },
@@ -3250,14 +3254,14 @@
           "citation_hit": 0.0,
           "coverage": 1.0,
           "top1_similarity": 0.6691,
-          "latency_ms": 84.3,
+          "latency_ms": 67.1,
           "low_confidence": false,
           "predicted": [
             "ll#50",
             "cc#76",
             "cc#57",
             "ll#46",
-            "cc#83"
+            "ll#48"
           ]
         },
         {
@@ -3270,7 +3274,7 @@
           "citation_hit": 0.0,
           "coverage": 1.0,
           "top1_similarity": 0.6992,
-          "latency_ms": 1098.6,
+          "latency_ms": 70.6,
           "low_confidence": false,
           "predicted": [
             "cc#76",
@@ -3290,7 +3294,7 @@
           "citation_hit": 0.0,
           "coverage": 0.6667,
           "top1_similarity": 0.7403,
-          "latency_ms": 100.0,
+          "latency_ms": 78.1,
           "low_confidence": false,
           "predicted": [
             "ll#21",
@@ -3310,7 +3314,7 @@
           "citation_hit": 0.0,
           "coverage": 1.0,
           "top1_similarity": 0.6992,
-          "latency_ms": 674.0,
+          "latency_ms": 82.9,
           "low_confidence": false,
           "predicted": [
             "lcl#47",
@@ -3330,7 +3334,7 @@
           "citation_hit": 0.5,
           "coverage": 0.6667,
           "top1_similarity": 0.6669,
-          "latency_ms": 59.7,
+          "latency_ms": 141.8,
           "low_confidence": false,
           "predicted": [
             "lcl#47",
@@ -3350,7 +3354,7 @@
           "citation_hit": 0.5,
           "coverage": 1.0,
           "top1_similarity": 0.6814,
-          "latency_ms": 60.1,
+          "latency_ms": 99.4,
           "low_confidence": false,
           "predicted": [
             "ll#50",
@@ -3370,34 +3374,34 @@
           "citation_hit": 0.0,
           "coverage": 0.6667,
           "top1_similarity": 0.7072,
-          "latency_ms": 66.2,
+          "latency_ms": 70.2,
           "low_confidence": false,
           "predicted": [
             "cc#76",
             "ll#71",
             "cc#57",
             "ll#73",
-            "cc#683"
+            "cc#103"
           ]
         },
         {
           "id": "g86",
           "hop_type": "two_hop",
           "level": "medium",
-          "recall@5": 0.0,
+          "recall@5": 0.5,
           "all@5": 0.0,
           "path_recall": 1.0,
-          "citation_hit": 0.0,
-          "coverage": 0.6667,
+          "citation_hit": 0.5,
+          "coverage": 1.0,
           "top1_similarity": 0.6627,
-          "latency_ms": 94.7,
+          "latency_ms": 76.4,
           "low_confidence": false,
           "predicted": [
             "cc#76",
             "ll#71",
             "cc#57",
-            "ll#73",
-            "cc#683"
+            "lcl#50",
+            "ll#73"
           ]
         },
         {
@@ -3410,7 +3414,7 @@
           "citation_hit": 0.5,
           "coverage": 0.6667,
           "top1_similarity": 0.6938,
-          "latency_ms": 134.6,
+          "latency_ms": 127.7,
           "low_confidence": false,
           "predicted": [
             "cc#76",
@@ -3430,7 +3434,7 @@
           "citation_hit": 0.5,
           "coverage": 0.6667,
           "top1_similarity": 0.6248,
-          "latency_ms": 93.5,
+          "latency_ms": 128.1,
           "low_confidence": false,
           "predicted": [
             "cc#76",
@@ -3450,7 +3454,7 @@
           "citation_hit": 0.5,
           "coverage": 0.6667,
           "top1_similarity": 0.6768,
-          "latency_ms": 61.3,
+          "latency_ms": 122.6,
           "low_confidence": false,
           "predicted": [
             "cc#76",
@@ -3470,14 +3474,14 @@
           "citation_hit": 0.0,
           "coverage": 1.0,
           "top1_similarity": 0.6468,
-          "latency_ms": 52.1,
+          "latency_ms": 81.9,
           "low_confidence": false,
           "predicted": [
             "cc#76",
             "cc#584",
             "cc#57",
-            "cc#83",
-            "cc#1187"
+            "cc#1187",
+            "cc#103"
           ]
         },
         {
@@ -3490,7 +3494,7 @@
           "citation_hit": 1.0,
           "coverage": 1.0,
           "top1_similarity": 0.6694,
-          "latency_ms": 94.3,
+          "latency_ms": 182.5,
           "low_confidence": false,
           "predicted": [
             "lcl#43",
@@ -3503,14 +3507,14 @@
         {
           "id": "g92",
           "hop_type": "two_hop",
-          "level": "medium",
+          "level": "complex",
           "recall@5": 0.5,
           "all@5": 0.0,
           "path_recall": 1.0,
           "citation_hit": 0.5,
           "coverage": 0.6667,
           "top1_similarity": 0.7813,
-          "latency_ms": 1100.3,
+          "latency_ms": 109.1,
           "low_confidence": false,
           "predicted": [
             "ll#50",
@@ -3530,7 +3534,7 @@
           "citation_hit": 0.5,
           "coverage": 1.0,
           "top1_similarity": 0.6648,
-          "latency_ms": 602.5,
+          "latency_ms": 127.2,
           "low_confidence": false,
           "predicted": [
             "lcl#47",
@@ -3543,14 +3547,14 @@
         {
           "id": "g94",
           "hop_type": "two_hop",
-          "level": "complex",
+          "level": "medium",
           "recall@5": 0.5,
           "all@5": 0.0,
           "path_recall": 1.0,
           "citation_hit": 0.5,
           "coverage": 1.0,
           "top1_similarity": 0.6691,
-          "latency_ms": 666.3,
+          "latency_ms": 79.3,
           "low_confidence": false,
           "predicted": [
             "ll#50",
@@ -3563,14 +3567,14 @@
         {
           "id": "g95",
           "hop_type": "two_hop",
-          "level": "medium",
+          "level": "complex",
           "recall@5": 1.0,
           "all@5": 1.0,
           "path_recall": 1.0,
           "citation_hit": 1.0,
           "coverage": 1.0,
           "top1_similarity": 0.6962,
-          "latency_ms": 836.4,
+          "latency_ms": 89.5,
           "low_confidence": false,
           "predicted": [
             "lcl#22",
@@ -3590,7 +3594,7 @@
           "citation_hit": 0.0,
           "coverage": 0.75,
           "top1_similarity": 0.7171,
-          "latency_ms": 70.6,
+          "latency_ms": 112.7,
           "low_confidence": false,
           "predicted": [
             "ll#50",
@@ -3610,7 +3614,7 @@
           "citation_hit": 0.5,
           "coverage": 1.0,
           "top1_similarity": 0.7054,
-          "latency_ms": 65.7,
+          "latency_ms": 114.3,
           "low_confidence": false,
           "predicted": [
             "ll#73",
@@ -3630,14 +3634,14 @@
           "citation_hit": 0.5,
           "coverage": 1.0,
           "top1_similarity": 0.6378,
-          "latency_ms": 65.7,
+          "latency_ms": 74.2,
           "low_confidence": false,
           "predicted": [
             "ll#73",
             "cc#76",
             "ll#71",
             "cc#57",
-            "cc#683"
+            "cc#103"
           ]
         },
         {
@@ -3650,27 +3654,27 @@
           "citation_hit": 0.5,
           "coverage": 1.0,
           "top1_similarity": 0.6206,
-          "latency_ms": 64.5,
+          "latency_ms": 74.5,
           "low_confidence": false,
           "predicted": [
             "ll#73",
             "cc#76",
             "ll#71",
             "cc#57",
-            "cc#683"
+            "cc#103"
           ]
         },
         {
           "id": "g100",
           "hop_type": "two_hop",
-          "level": "complex",
+          "level": "medium",
           "recall@5": 0.0,
           "all@5": 0.0,
           "path_recall": 0.5,
           "citation_hit": 0.0,
           "coverage": 1.0,
           "top1_similarity": 0.681,
-          "latency_ms": 688.2,
+          "latency_ms": 96.7,
           "low_confidence": false,
           "predicted": [
             "ll#73",
@@ -3683,14 +3687,14 @@
         {
           "id": "g101",
           "hop_type": "two_hop",
-          "level": "complex",
+          "level": "medium",
           "recall@5": 0.5,
           "all@5": 0.0,
           "path_recall": 1.0,
           "citation_hit": 0.5,
           "coverage": 1.0,
           "top1_similarity": 0.6321,
-          "latency_ms": 690.7,
+          "latency_ms": 124.1,
           "low_confidence": false,
           "predicted": [
             "ll#73",
@@ -3710,7 +3714,7 @@
           "citation_hit": 0.0,
           "coverage": 0.6667,
           "top1_similarity": 0.7264,
-          "latency_ms": 53.7,
+          "latency_ms": 90.6,
           "low_confidence": false,
           "predicted": [
             "ll#53",
@@ -3730,7 +3734,7 @@
           "citation_hit": 0.5,
           "coverage": 1.0,
           "top1_similarity": 0.6657,
-          "latency_ms": 813.0,
+          "latency_ms": 149.4,
           "low_confidence": false,
           "predicted": [
             "lcl#52",
@@ -3750,7 +3754,7 @@
           "citation_hit": 0.5,
           "coverage": 1.0,
           "top1_similarity": 0.676,
-          "latency_ms": 52.1,
+          "latency_ms": 147.8,
           "low_confidence": false,
           "predicted": [
             "ll#44",
@@ -3763,14 +3767,14 @@
         {
           "id": "g105",
           "hop_type": "two_hop",
-          "level": "medium",
+          "level": "complex",
           "recall@5": 0.0,
           "all@5": 0.0,
           "path_recall": 0.5,
           "citation_hit": 0.0,
           "coverage": 1.0,
           "top1_similarity": 0.6673,
-          "latency_ms": 603.9,
+          "latency_ms": 115.1,
           "low_confidence": false,
           "predicted": [
             "ll#44",
@@ -3790,7 +3794,7 @@
           "citation_hit": 1.0,
           "coverage": 1.0,
           "top1_similarity": 0.7208,
-          "latency_ms": 55.6,
+          "latency_ms": 97.8,
           "low_confidence": false,
           "predicted": [
             "ll#44",
@@ -3810,7 +3814,7 @@
           "citation_hit": 0.0,
           "coverage": 1.0,
           "top1_similarity": 0.6336,
-          "latency_ms": 50.8,
+          "latency_ms": 94.1,
           "low_confidence": false,
           "predicted": [
             "ll#44",
@@ -3830,27 +3834,27 @@
           "citation_hit": 0.5,
           "coverage": 1.0,
           "top1_similarity": 0.6835,
-          "latency_ms": 53.4,
+          "latency_ms": 86.1,
           "low_confidence": false,
           "predicted": [
             "ll#50",
             "ll#46",
+            "lcl#38",
             "ll#37",
-            "ll#32",
             "lcl#4"
           ]
         },
         {
           "id": "g109",
           "hop_type": "two_hop",
-          "level": "medium",
+          "level": "complex",
           "recall@5": 1.0,
           "all@5": 1.0,
           "path_recall": 0.5,
           "citation_hit": 1.0,
           "coverage": 1.0,
           "top1_similarity": 0.6725,
-          "latency_ms": 706.9,
+          "latency_ms": 110.0,
           "low_confidence": false,
           "predicted": [
             "lcl#47",
@@ -3870,7 +3874,7 @@
           "citation_hit": 0.5,
           "coverage": 1.0,
           "top1_similarity": 0.7586,
-          "latency_ms": 75.4,
+          "latency_ms": 104.4,
           "low_confidence": false,
           "predicted": [
             "lcl#72",
@@ -3890,7 +3894,7 @@
           "citation_hit": 1.0,
           "coverage": 1.0,
           "top1_similarity": 0.7069,
-          "latency_ms": 104.2,
+          "latency_ms": 99.2,
           "low_confidence": false,
           "predicted": [
             "lcl#72",
@@ -3910,14 +3914,14 @@
           "citation_hit": 1.0,
           "coverage": 1.0,
           "top1_similarity": 0.69,
-          "latency_ms": 104.0,
+          "latency_ms": 78.8,
           "low_confidence": false,
           "predicted": [
-            "lcl#59",
             "lcl#58",
-            "lcl#65",
+            "lcl#59",
             "lcl#60",
-            "lcl#57"
+            "lcl#57",
+            "lcl#65"
           ]
         },
         {
@@ -3930,7 +3934,7 @@
           "citation_hit": 0.0,
           "coverage": 1.0,
           "top1_similarity": 0.7532,
-          "latency_ms": 65.1,
+          "latency_ms": 86.4,
           "low_confidence": false,
           "predicted": [
             "lcl#14",
@@ -3950,7 +3954,7 @@
           "citation_hit": 0.0,
           "coverage": 1.0,
           "top1_similarity": 0.641,
-          "latency_ms": 78.6,
+          "latency_ms": 73.7,
           "low_confidence": false,
           "predicted": [
             "cc#76",
@@ -3970,7 +3974,7 @@
           "citation_hit": 0.5,
           "coverage": 0.75,
           "top1_similarity": 0.6862,
-          "latency_ms": 71.9,
+          "latency_ms": 88.5,
           "low_confidence": false,
           "predicted": [
             "lcl#55",
@@ -3990,7 +3994,7 @@
           "citation_hit": 0.0,
           "coverage": 0.75,
           "top1_similarity": 0.6681,
-          "latency_ms": 82.8,
+          "latency_ms": 89.6,
           "low_confidence": false,
           "predicted": [
             "ll#3",
@@ -4003,14 +4007,14 @@
         {
           "id": "g117",
           "hop_type": "two_hop",
-          "level": "complex",
+          "level": "medium",
           "recall@5": 1.0,
           "all@5": 1.0,
           "path_recall": 1.0,
           "citation_hit": 1.0,
           "coverage": 1.0,
           "top1_similarity": 0.7129,
-          "latency_ms": 747.9,
+          "latency_ms": 104.7,
           "low_confidence": false,
           "predicted": [
             "lcl#23",
@@ -4030,7 +4034,7 @@
           "citation_hit": 1.0,
           "coverage": 1.0,
           "top1_similarity": 0.7432,
-          "latency_ms": 555.5,
+          "latency_ms": 112.4,
           "low_confidence": false,
           "predicted": [
             "lcl#22",
@@ -4050,7 +4054,7 @@
           "citation_hit": 0.0,
           "coverage": 0.6667,
           "top1_similarity": 0.6936,
-          "latency_ms": 665.6,
+          "latency_ms": 97.0,
           "low_confidence": false,
           "predicted": [
             "ll#53",
@@ -4070,7 +4074,7 @@
           "citation_hit": 1.0,
           "coverage": 1.0,
           "top1_similarity": 0.7243,
-          "latency_ms": 74.6,
+          "latency_ms": 72.7,
           "low_confidence": false,
           "predicted": [
             "ll#58",
@@ -4090,14 +4094,14 @@
           "citation_hit": 1.0,
           "coverage": 1.0,
           "top1_similarity": 0.7868,
-          "latency_ms": 68.1,
+          "latency_ms": 66.6,
           "low_confidence": false,
           "predicted": [
             "ll#79",
             "ll#82",
+            "ll#77",
             "ll#84",
-            "ll#80",
-            "ll#83"
+            "cc#594"
           ]
         },
         {
@@ -4110,7 +4114,7 @@
           "citation_hit": 1.0,
           "coverage": 1.0,
           "top1_similarity": 0.7631,
-          "latency_ms": 825.7,
+          "latency_ms": 158.0,
           "low_confidence": false,
           "predicted": [
             "ll#79",
@@ -4123,14 +4127,14 @@
         {
           "id": "g123",
           "hop_type": "two_hop",
-          "level": "medium",
+          "level": "complex",
           "recall@5": 1.0,
           "all@5": 1.0,
           "path_recall": 1.0,
           "citation_hit": 1.0,
           "coverage": 1.0,
           "top1_similarity": 0.7548,
-          "latency_ms": 670.1,
+          "latency_ms": 75.5,
           "low_confidence": false,
           "predicted": [
             "ll#79",
@@ -4148,36 +4152,36 @@
           "all@5": 0.0,
           "path_recall": 0.5,
           "citation_hit": 0.0,
-          "coverage": 0.5,
+          "coverage": 1.0,
           "top1_similarity": 0.6621,
-          "latency_ms": 100.7,
+          "latency_ms": 65.6,
           "low_confidence": false,
           "predicted": [
             "cc#76",
+            "ll#79",
             "cc#57",
-            "ll#82",
-            "cc#683",
-            "cc#103"
+            "cc#103",
+            "cc#105"
           ]
         },
         {
           "id": "g125",
           "hop_type": "two_hop",
           "level": "medium",
-          "recall@5": 0.0,
+          "recall@5": 0.5,
           "all@5": 0.0,
           "path_recall": 1.0,
-          "citation_hit": 0.0,
-          "coverage": 0.6667,
+          "citation_hit": 0.5,
+          "coverage": 1.0,
           "top1_similarity": 0.6792,
-          "latency_ms": 91.6,
+          "latency_ms": 74.6,
           "low_confidence": false,
           "predicted": [
             "cc#76",
             "ll#71",
             "cc#57",
-            "ll#73",
-            "cc#683"
+            "lcl#50",
+            "ll#73"
           ]
         },
         {
@@ -4190,14 +4194,14 @@
           "citation_hit": 0.5,
           "coverage": 1.0,
           "top1_similarity": 0.6311,
-          "latency_ms": 64.8,
+          "latency_ms": 65.5,
           "low_confidence": false,
           "predicted": [
             "cc#76",
             "cc#188",
             "cc#57",
-            "cc#536",
-            "cc#683"
+            "cc#103",
+            "cc#105"
           ]
         },
         {
@@ -4210,7 +4214,7 @@
           "citation_hit": 1.0,
           "coverage": 1.0,
           "top1_similarity": 0.658,
-          "latency_ms": 68.0,
+          "latency_ms": 106.6,
           "low_confidence": false,
           "predicted": [
             "ll#44",
@@ -4230,7 +4234,7 @@
           "citation_hit": 0.0,
           "coverage": 1.0,
           "top1_similarity": 0.6129,
-          "latency_ms": 104.3,
+          "latency_ms": 90.5,
           "low_confidence": false,
           "predicted": [
             "ll#50",
@@ -4250,7 +4254,7 @@
           "citation_hit": 0.5,
           "coverage": 0.75,
           "top1_similarity": 0.6807,
-          "latency_ms": 977.6,
+          "latency_ms": 75.8,
           "low_confidence": false,
           "predicted": [
             "lcl#35",
@@ -4270,13 +4274,13 @@
           "citation_hit": 0.0,
           "coverage": 1.0,
           "top1_similarity": 0.669,
-          "latency_ms": 68.2,
+          "latency_ms": 65.0,
           "low_confidence": false,
           "predicted": [
-            "ll#73",
             "ll#71",
             "ll#16",
             "ll#5",
+            "ll#73",
             "cc#163"
           ]
         },
@@ -4290,7 +4294,7 @@
           "citation_hit": 0.3333,
           "coverage": 1.0,
           "top1_similarity": 0.6293,
-          "latency_ms": 69.2,
+          "latency_ms": 71.5,
           "low_confidence": false,
           "predicted": [
             "ll#50",
@@ -4310,7 +4314,7 @@
           "citation_hit": 0.3333,
           "coverage": 0.8,
           "top1_similarity": 0.671,
-          "latency_ms": 60.8,
+          "latency_ms": 81.6,
           "low_confidence": false,
           "predicted": [
             "ll#50",
@@ -4330,7 +4334,7 @@
           "citation_hit": 0.3333,
           "coverage": 0.6667,
           "top1_similarity": 0.629,
-          "latency_ms": 61.5,
+          "latency_ms": 91.1,
           "low_confidence": false,
           "predicted": [
             "ll#42",
@@ -4350,7 +4354,7 @@
           "citation_hit": 0.3333,
           "coverage": 1.0,
           "top1_similarity": 0.7386,
-          "latency_ms": 61.4,
+          "latency_ms": 94.7,
           "low_confidence": false,
           "predicted": [
             "ll#91",
@@ -4370,7 +4374,7 @@
           "citation_hit": 0.6667,
           "coverage": 1.0,
           "top1_similarity": 0.6727,
-          "latency_ms": 56.9,
+          "latency_ms": 136.3,
           "low_confidence": false,
           "predicted": [
             "lcl#43",
@@ -4390,7 +4394,7 @@
           "citation_hit": 1.0,
           "coverage": 0.8,
           "top1_similarity": 0.6871,
-          "latency_ms": 641.3,
+          "latency_ms": 99.8,
           "low_confidence": false,
           "predicted": [
             "lcl#14",
@@ -4403,14 +4407,14 @@
         {
           "id": "g137",
           "hop_type": "three_hop",
-          "level": "complex",
+          "level": "medium",
           "recall@5": 0.6667,
           "all@5": 0.0,
           "path_recall": 0.6667,
           "citation_hit": 0.6667,
           "coverage": 1.0,
           "top1_similarity": 0.7018,
-          "latency_ms": 769.2,
+          "latency_ms": 122.0,
           "low_confidence": false,
           "predicted": [
             "lcl#47",
@@ -4430,7 +4434,7 @@
           "citation_hit": 0.3333,
           "coverage": 1.0,
           "top1_similarity": 0.6733,
-          "latency_ms": 82.1,
+          "latency_ms": 122.7,
           "low_confidence": false,
           "predicted": [
             "lcl#14",
@@ -4450,7 +4454,7 @@
           "citation_hit": 1.0,
           "coverage": 1.0,
           "top1_similarity": 0.7202,
-          "latency_ms": 96.5,
+          "latency_ms": 122.6,
           "low_confidence": false,
           "predicted": [
             "lcl#23",
@@ -4470,7 +4474,7 @@
           "citation_hit": 1.0,
           "coverage": 1.0,
           "top1_similarity": 0.6688,
-          "latency_ms": 76.0,
+          "latency_ms": 108.0,
           "low_confidence": false,
           "predicted": [
             "lcl#23",
@@ -4490,14 +4494,14 @@
           "citation_hit": 0.0,
           "coverage": 1.0,
           "top1_similarity": 0.6815,
-          "latency_ms": 85.7,
+          "latency_ms": 65.3,
           "low_confidence": false,
           "predicted": [
             "cc#76",
             "cc#57",
-            "cc#683",
             "cc#103",
-            "cc#105"
+            "cc#105",
+            "cc#58"
           ]
         },
         {
@@ -4510,14 +4514,14 @@
           "citation_hit": 0.0,
           "coverage": 0.5,
           "top1_similarity": 0.6143,
-          "latency_ms": 567.9,
+          "latency_ms": 82.5,
           "low_confidence": true,
           "predicted": [
             "cc#76",
             "cc#57",
-            "cc#683",
             "cc#103",
-            "cc#105"
+            "cc#105",
+            "cc#58"
           ]
         },
         {
@@ -4530,7 +4534,7 @@
           "citation_hit": 0.3333,
           "coverage": 1.0,
           "top1_similarity": 0.6917,
-          "latency_ms": 77.5,
+          "latency_ms": 112.9,
           "low_confidence": false,
           "predicted": [
             "ll#50",
@@ -4550,14 +4554,14 @@
           "citation_hit": 0.3333,
           "coverage": 1.0,
           "top1_similarity": 0.6715,
-          "latency_ms": 717.0,
+          "latency_ms": 73.1,
           "low_confidence": false,
           "predicted": [
             "ll#73",
             "cc#76",
             "ll#71",
             "cc#57",
-            "cc#683"
+            "cc#103"
           ]
         },
         {
@@ -4570,7 +4574,7 @@
           "citation_hit": 0.6667,
           "coverage": 0.8333,
           "top1_similarity": 0.6859,
-          "latency_ms": 51.8,
+          "latency_ms": 134.8,
           "low_confidence": false,
           "predicted": [
             "lcl#47",
@@ -4590,7 +4594,7 @@
           "citation_hit": 0.3333,
           "coverage": 0.6667,
           "top1_similarity": 0.669,
-          "latency_ms": 53.8,
+          "latency_ms": 123.2,
           "low_confidence": false,
           "predicted": [
             "cc#76",
@@ -4610,7 +4614,7 @@
           "citation_hit": 0.3333,
           "coverage": 0.6667,
           "top1_similarity": 0.6358,
-          "latency_ms": 48.0,
+          "latency_ms": 86.8,
           "low_confidence": false,
           "predicted": [
             "cc#76",
@@ -4630,7 +4634,7 @@
           "citation_hit": 1.0,
           "coverage": 1.0,
           "top1_similarity": 0.6767,
-          "latency_ms": 51.0,
+          "latency_ms": 76.9,
           "low_confidence": false,
           "predicted": [
             "lcl#47",
@@ -4650,7 +4654,7 @@
           "citation_hit": 0.0,
           "coverage": 0.75,
           "top1_similarity": 0.655,
-          "latency_ms": 57.9,
+          "latency_ms": 114.3,
           "low_confidence": false,
           "predicted": [
             "lcl#47",
@@ -4670,7 +4674,7 @@
           "citation_hit": 0.6667,
           "coverage": 0.6667,
           "top1_similarity": 0.663,
-          "latency_ms": 117.2,
+          "latency_ms": 100.9,
           "low_confidence": false,
           "predicted": [
             "cc#76",
@@ -4690,7 +4694,7 @@
           "citation_hit": 0.0,
           "coverage": 0.8,
           "top1_similarity": 0.7312,
-          "latency_ms": 56.9,
+          "latency_ms": 101.9,
           "low_confidence": false,
           "predicted": [
             "ll#50",
@@ -4710,7 +4714,7 @@
           "citation_hit": 0.3333,
           "coverage": 0.75,
           "top1_similarity": 0.764,
-          "latency_ms": 79.9,
+          "latency_ms": 153.9,
           "low_confidence": false,
           "predicted": [
             "ll#50",
@@ -4724,20 +4728,20 @@
           "id": "g153",
           "hop_type": "three_hop",
           "level": "complex",
-          "recall@5": 0.3333,
+          "recall@5": 0.6667,
           "all@5": 0.0,
           "path_recall": 0.6667,
-          "citation_hit": 0.3333,
-          "coverage": 0.6667,
+          "citation_hit": 0.6667,
+          "coverage": 1.0,
           "top1_similarity": 0.6363,
-          "latency_ms": 699.7,
+          "latency_ms": 82.5,
           "low_confidence": false,
           "predicted": [
             "cc#76",
             "ll#71",
             "cc#57",
-            "ll#73",
-            "cc#683"
+            "lcl#50",
+            "ll#73"
           ]
         },
         {
@@ -4750,7 +4754,7 @@
           "citation_hit": 0.6667,
           "coverage": 1.0,
           "top1_similarity": 0.6638,
-          "latency_ms": 86.9,
+          "latency_ms": 96.1,
           "low_confidence": false,
           "predicted": [
             "ll#73",
@@ -4770,7 +4774,7 @@
           "citation_hit": 0.3333,
           "coverage": 0.75,
           "top1_similarity": 0.6426,
-          "latency_ms": 62.9,
+          "latency_ms": 111.7,
           "low_confidence": false,
           "predicted": [
             "ll#73",
@@ -4790,7 +4794,7 @@
           "citation_hit": 0.3333,
           "coverage": 0.75,
           "top1_similarity": 0.6365,
-          "latency_ms": 98.0,
+          "latency_ms": 127.0,
           "low_confidence": false,
           "predicted": [
             "lcl#87",
@@ -4810,7 +4814,7 @@
           "citation_hit": 0.0,
           "coverage": 1.0,
           "top1_similarity": 0.7149,
-          "latency_ms": 74.4,
+          "latency_ms": 101.0,
           "low_confidence": false,
           "predicted": [
             "ll#50",
@@ -4830,7 +4834,7 @@
           "citation_hit": 0.3333,
           "coverage": 0.6667,
           "top1_similarity": 0.6876,
-          "latency_ms": 158.6,
+          "latency_ms": 112.1,
           "low_confidence": false,
           "predicted": [
             "ll#44",
@@ -4850,14 +4854,14 @@
           "citation_hit": 0.0,
           "coverage": 1.0,
           "top1_similarity": 0.68,
-          "latency_ms": 60.3,
+          "latency_ms": 74.8,
           "low_confidence": false,
           "predicted": [
             "ll#50",
             "cc#76",
             "cc#57",
             "ll#46",
-            "cc#83"
+            "ll#48"
           ]
         },
         {
@@ -4870,7 +4874,7 @@
           "citation_hit": 0.3333,
           "coverage": 1.0,
           "top1_similarity": 0.7013,
-          "latency_ms": 56.5,
+          "latency_ms": 109.6,
           "low_confidence": false,
           "predicted": [
             "ll#50",
@@ -4890,7 +4894,7 @@
           "citation_hit": 0.6667,
           "coverage": 1.0,
           "top1_similarity": 0.6807,
-          "latency_ms": 77.0,
+          "latency_ms": 90.7,
           "low_confidence": false,
           "predicted": [
             "ll#50",
@@ -4910,7 +4914,7 @@
           "citation_hit": 1.0,
           "coverage": 1.0,
           "top1_similarity": 0.7054,
-          "latency_ms": 67.8,
+          "latency_ms": 105.7,
           "low_confidence": false,
           "predicted": [
             "lcl#72",
@@ -4930,7 +4934,7 @@
           "citation_hit": 0.3333,
           "coverage": 0.75,
           "top1_similarity": 0.691,
-          "latency_ms": 90.2,
+          "latency_ms": 121.7,
           "low_confidence": false,
           "predicted": [
             "lcl#51",
@@ -4943,14 +4947,14 @@
         {
           "id": "g164",
           "hop_type": "three_hop",
-          "level": "complex",
+          "level": "medium",
           "recall@5": 0.3333,
           "all@5": 0.0,
           "path_recall": 1.0,
           "citation_hit": 0.3333,
           "coverage": 0.8333,
           "top1_similarity": 0.6716,
-          "latency_ms": 646.8,
+          "latency_ms": 92.4,
           "low_confidence": false,
           "predicted": [
             "lcl#51",
@@ -4970,7 +4974,7 @@
           "citation_hit": 0.5,
           "coverage": 1.0,
           "top1_similarity": 0.7225,
-          "latency_ms": 71.5,
+          "latency_ms": 92.8,
           "low_confidence": false,
           "predicted": [
             "lcl#23",
@@ -4990,7 +4994,7 @@
           "citation_hit": 1.0,
           "coverage": 1.0,
           "top1_similarity": 0.7129,
-          "latency_ms": 54.3,
+          "latency_ms": 96.6,
           "low_confidence": false,
           "predicted": [
             "lcl#23",
@@ -5003,14 +5007,14 @@
         {
           "id": "g167",
           "hop_type": "three_hop",
-          "level": "complex",
+          "level": "medium",
           "recall@5": 1.0,
           "all@5": 1.0,
           "path_recall": 0.6667,
           "citation_hit": 1.0,
           "coverage": 1.0,
           "top1_similarity": 0.6912,
-          "latency_ms": 603.3,
+          "latency_ms": 142.7,
           "low_confidence": false,
           "predicted": [
             "ll#54",
@@ -5030,7 +5034,7 @@
           "citation_hit": 0.3333,
           "coverage": 0.6667,
           "top1_similarity": 0.7065,
-          "latency_ms": 788.0,
+          "latency_ms": 70.5,
           "low_confidence": false,
           "predicted": [
             "ll#58",
@@ -5050,7 +5054,7 @@
           "citation_hit": 1.0,
           "coverage": 1.0,
           "top1_similarity": 0.7087,
-          "latency_ms": 112.5,
+          "latency_ms": 55.8,
           "low_confidence": false,
           "predicted": [
             "ll#82",
@@ -5070,14 +5074,14 @@
           "citation_hit": 1.0,
           "coverage": 1.0,
           "top1_similarity": 0.7419,
-          "latency_ms": 639.3,
+          "latency_ms": 66.1,
           "low_confidence": false,
           "predicted": [
             "ll#79",
             "ll#82",
+            "ll#77",
             "ll#84",
-            "ll#80",
-            "ll#83"
+            "cc#594"
           ]
         },
         {
@@ -5090,7 +5094,7 @@
           "citation_hit": 0.6667,
           "coverage": 1.0,
           "top1_similarity": 0.7058,
-          "latency_ms": 118.2,
+          "latency_ms": 118.8,
           "low_confidence": false,
           "predicted": [
             "lcl#72",
@@ -5110,7 +5114,7 @@
           "citation_hit": 0.0,
           "coverage": 0.6667,
           "top1_similarity": 0.6661,
-          "latency_ms": 85.4,
+          "latency_ms": 129.6,
           "low_confidence": false,
           "predicted": [
             "cc#163",
@@ -5123,34 +5127,34 @@
         {
           "id": "g173",
           "hop_type": "three_hop",
-          "level": "complex",
+          "level": "medium",
           "recall@5": 0.0,
           "all@5": 0.0,
           "path_recall": 0.0,
           "citation_hit": 0.0,
           "coverage": 1.0,
           "top1_similarity": 0.6068,
-          "latency_ms": 768.8,
+          "latency_ms": 62.6,
           "low_confidence": false,
           "predicted": [
             "cc#76",
             "cc#57",
-            "cc#683",
             "cc#103",
-            "cc#105"
+            "cc#105",
+            "cc#58"
           ]
         },
         {
           "id": "g174",
           "hop_type": "three_hop",
-          "level": "medium",
+          "level": "complex",
           "recall@5": 0.3333,
           "all@5": 0.0,
           "path_recall": 0.6667,
           "citation_hit": 0.3333,
-          "coverage": 0.75,
+          "coverage": 1.0,
           "top1_similarity": 0.6687,
-          "latency_ms": 638.7,
+          "latency_ms": 80.6,
           "low_confidence": false,
           "predicted": [
             "ll#50",
@@ -5170,7 +5174,7 @@
           "citation_hit": 0.6667,
           "coverage": 1.0,
           "top1_similarity": 0.6233,
-          "latency_ms": 590.6,
+          "latency_ms": 77.6,
           "low_confidence": false,
           "predicted": [
             "ll#79",
@@ -5190,7 +5194,7 @@
           "citation_hit": 0.0,
           "coverage": 0.6667,
           "top1_similarity": 0.6882,
-          "latency_ms": 48.0,
+          "latency_ms": 92.3,
           "low_confidence": false,
           "predicted": [
             "ll#53",
@@ -5204,20 +5208,20 @@
           "id": "g177",
           "hop_type": "cross_law",
           "level": "complex",
-          "recall@5": 0.3333,
+          "recall@5": 0.6667,
           "all@5": 0.0,
           "path_recall": 0.3333,
-          "citation_hit": 0.3333,
+          "citation_hit": 0.6667,
           "coverage": 1.0,
           "top1_similarity": 0.7092,
-          "latency_ms": 47.8,
+          "latency_ms": 69.7,
           "low_confidence": false,
           "predicted": [
+            "lcl#19",
             "lcl#13",
-            "ll#21",
             "lcl#14",
-            "lcl#17",
-            "lcl#46"
+            "ll#21",
+            "lcl#17"
           ]
         },
         {
@@ -5230,7 +5234,7 @@
           "citation_hit": 0.5,
           "coverage": 0.6667,
           "top1_similarity": 0.6491,
-          "latency_ms": 605.4,
+          "latency_ms": 69.3,
           "low_confidence": false,
           "predicted": [
             "lcl#14",
@@ -5250,7 +5254,7 @@
           "citation_hit": 0.3333,
           "coverage": 1.0,
           "top1_similarity": 0.7158,
-          "latency_ms": 46.7,
+          "latency_ms": 135.8,
           "low_confidence": false,
           "predicted": [
             "lcl#72",
@@ -5270,7 +5274,7 @@
           "citation_hit": 0.6667,
           "coverage": 1.0,
           "top1_similarity": 0.728,
-          "latency_ms": 48.3,
+          "latency_ms": 106.0,
           "low_confidence": false,
           "predicted": [
             "lcl#14",
@@ -5290,7 +5294,7 @@
           "citation_hit": 0.3333,
           "coverage": 1.0,
           "top1_similarity": 0.7077,
-          "latency_ms": 45.4,
+          "latency_ms": 146.8,
           "low_confidence": false,
           "predicted": [
             "lcl#22",
@@ -5310,7 +5314,7 @@
           "citation_hit": 0.3333,
           "coverage": 1.0,
           "top1_similarity": 0.6108,
-          "latency_ms": 47.6,
+          "latency_ms": 69.6,
           "low_confidence": false,
           "predicted": [
             "lcl#13",
@@ -5330,7 +5334,7 @@
           "citation_hit": 0.0,
           "coverage": 1.0,
           "top1_similarity": 0.7051,
-          "latency_ms": 664.4,
+          "latency_ms": 63.1,
           "low_confidence": false,
           "predicted": [
             "lcl#16",
@@ -5350,7 +5354,7 @@
           "citation_hit": 0.0,
           "coverage": 1.0,
           "top1_similarity": 0.6762,
-          "latency_ms": 49.3,
+          "latency_ms": 86.1,
           "low_confidence": false,
           "predicted": [
             "lcl#16",
@@ -5370,7 +5374,7 @@
           "citation_hit": 0.6667,
           "coverage": 1.0,
           "top1_similarity": 0.6461,
-          "latency_ms": 50.6,
+          "latency_ms": 120.9,
           "low_confidence": false,
           "predicted": [
             "lcl#13",
@@ -5390,14 +5394,14 @@
           "citation_hit": 0.3333,
           "coverage": 1.0,
           "top1_similarity": 0.6766,
-          "latency_ms": 47.5,
+          "latency_ms": 65.8,
           "low_confidence": false,
           "predicted": [
             "ll#50",
             "ll#46",
             "ll#48",
             "ll#49",
-            "lcl#72"
+            "ll#91"
           ]
         },
         {
@@ -5410,7 +5414,7 @@
           "citation_hit": 0.3333,
           "coverage": 0.8,
           "top1_similarity": 0.6436,
-          "latency_ms": 48.4,
+          "latency_ms": 123.2,
           "low_confidence": false,
           "predicted": [
             "cc#163",
@@ -5430,7 +5434,7 @@
           "citation_hit": 0.0,
           "coverage": 0.5,
           "top1_similarity": 0.6786,
-          "latency_ms": 49.0,
+          "latency_ms": 120.1,
           "low_confidence": false,
           "predicted": [
             "ll#16",
@@ -5450,7 +5454,7 @@
           "citation_hit": 0.0,
           "coverage": 1.0,
           "top1_similarity": 0.6233,
-          "latency_ms": 51.6,
+          "latency_ms": 74.7,
           "low_confidence": false,
           "predicted": [
             "cc#76",
@@ -5470,7 +5474,7 @@
           "citation_hit": 0.3333,
           "coverage": 1.0,
           "top1_similarity": 0.7082,
-          "latency_ms": 54.2,
+          "latency_ms": 104.0,
           "low_confidence": false,
           "predicted": [
             "cc#163",
@@ -5490,7 +5494,7 @@
           "citation_hit": 0.0,
           "coverage": 0.75,
           "top1_similarity": 0.677,
-          "latency_ms": 56.7,
+          "latency_ms": 114.5,
           "low_confidence": false,
           "predicted": [
             "cc#1187",
@@ -5510,7 +5514,7 @@
           "citation_hit": 0.0,
           "coverage": 1.0,
           "top1_similarity": 0.6793,
-          "latency_ms": 49.8,
+          "latency_ms": 86.8,
           "low_confidence": false,
           "predicted": [
             "ll#58",
@@ -5530,7 +5534,7 @@
           "citation_hit": 0.3333,
           "coverage": 0.6667,
           "top1_similarity": 0.6457,
-          "latency_ms": 49.2,
+          "latency_ms": 97.7,
           "low_confidence": false,
           "predicted": [
             "cc#76",
@@ -5550,7 +5554,7 @@
           "citation_hit": 0.5,
           "coverage": 1.0,
           "top1_similarity": 0.7402,
-          "latency_ms": 50.8,
+          "latency_ms": 97.9,
           "low_confidence": false,
           "predicted": [
             "lcl#22",
@@ -5570,7 +5574,7 @@
           "citation_hit": 0.5,
           "coverage": 0.8333,
           "top1_similarity": 0.7235,
-          "latency_ms": 40.8,
+          "latency_ms": 70.4,
           "low_confidence": false,
           "predicted": [
             "lcl#22",
@@ -5590,7 +5594,7 @@
           "citation_hit": 0.5,
           "coverage": 1.0,
           "top1_similarity": 0.6995,
-          "latency_ms": 50.3,
+          "latency_ms": 96.5,
           "low_confidence": false,
           "predicted": [
             "lcl#22",
@@ -5610,7 +5614,7 @@
           "citation_hit": 0.0,
           "coverage": 0.75,
           "top1_similarity": 0.6591,
-          "latency_ms": 50.1,
+          "latency_ms": 103.9,
           "low_confidence": false,
           "predicted": [
             "cc#585",
@@ -5623,14 +5627,14 @@
         {
           "id": "g198",
           "hop_type": "cross_law",
-          "level": "medium",
+          "level": "complex",
           "recall@5": 0.3333,
           "all@5": 0.0,
           "path_recall": 0.6667,
           "citation_hit": 0.3333,
-          "coverage": 0.6667,
+          "coverage": 1.0,
           "top1_similarity": 0.6872,
-          "latency_ms": 611.5,
+          "latency_ms": 98.4,
           "low_confidence": false,
           "predicted": [
             "cc#157",
@@ -5643,21 +5647,21 @@
         {
           "id": "g199",
           "hop_type": "cross_law",
-          "level": "complex",
+          "level": "medium",
           "recall@5": 0.0,
           "all@5": 0.0,
           "path_recall": 0.3333,
           "citation_hit": 0.0,
           "coverage": 1.0,
           "top1_similarity": 0.6128,
-          "latency_ms": 610.1,
+          "latency_ms": 57.1,
           "low_confidence": false,
           "predicted": [
             "cc#76",
             "cc#1229",
             "cc#57",
-            "cc#683",
-            "cc#103"
+            "cc#103",
+            "cc#105"
           ]
         },
         {
@@ -5670,13 +5674,13 @@
           "citation_hit": 0.3333,
           "coverage": 1.0,
           "top1_similarity": 0.6754,
-          "latency_ms": 59.8,
+          "latency_ms": 62.9,
           "low_confidence": false,
           "predicted": [
-            "cc#1166",
             "ll#53",
             "cc#1229",
             "cc#1165",
+            "cc#1166",
             "cc#1189"
           ]
         }
@@ -5686,11 +5690,11 @@
       "mode": "hybrid",
       "level_override": "router",
       "n": 140,
-      "recall@5": 0.7691,
+      "recall@5": 0.7714,
       "all@5": 0.5286,
       "path_recall": 0.619,
-      "citation_hit": 0.7691,
-      "latency_median_ms": 285.3,
+      "citation_hit": 0.7714,
+      "latency_median_ms": 244.6,
       "low_confidence_rate": 0.0143,
       "by_hop": {
         "two_hop": {
@@ -5700,10 +5704,10 @@
           "citation_hit": 0.8714
         },
         "three_hop": {
-          "recall@5": 0.7681,
+          "recall@5": 0.7754,
           "all@5": 0.413,
           "path_recall": 0.6015,
-          "citation_hit": 0.7681
+          "citation_hit": 0.7754
         },
         "cross_law": {
           "recall@5": 0.4722,
@@ -5723,7 +5727,7 @@
           "citation_hit": 1.0,
           "coverage": 1.0,
           "top1_similarity": 0.6978,
-          "latency_ms": 211.6,
+          "latency_ms": 248.6,
           "low_confidence": false,
           "predicted": [
             "lcl#28",
@@ -5743,7 +5747,7 @@
           "citation_hit": 1.0,
           "coverage": 1.0,
           "top1_similarity": 0.7805,
-          "latency_ms": 234.7,
+          "latency_ms": 271.0,
           "low_confidence": false,
           "predicted": [
             "ll#48",
@@ -5763,7 +5767,7 @@
           "citation_hit": 1.0,
           "coverage": 0.5,
           "top1_similarity": 0.6904,
-          "latency_ms": 260.1,
+          "latency_ms": 263.7,
           "low_confidence": false,
           "predicted": [
             "lcl#31",
@@ -5783,7 +5787,7 @@
           "citation_hit": 1.0,
           "coverage": 1.0,
           "top1_similarity": 0.7547,
-          "latency_ms": 249.5,
+          "latency_ms": 269.7,
           "low_confidence": false,
           "predicted": [
             "lcl#30",
@@ -5803,7 +5807,7 @@
           "citation_hit": 1.0,
           "coverage": 1.0,
           "top1_similarity": 0.6893,
-          "latency_ms": 223.5,
+          "latency_ms": 202.5,
           "low_confidence": false,
           "predicted": [
             "ll#41",
@@ -5823,7 +5827,7 @@
           "citation_hit": 1.0,
           "coverage": 1.0,
           "top1_similarity": 0.7489,
-          "latency_ms": 267.7,
+          "latency_ms": 246.6,
           "low_confidence": false,
           "predicted": [
             "lcl#19",
@@ -5843,7 +5847,7 @@
           "citation_hit": 0.5,
           "coverage": 1.0,
           "top1_similarity": 0.6457,
-          "latency_ms": 213.8,
+          "latency_ms": 212.4,
           "low_confidence": false,
           "predicted": [
             "lcl#83",
@@ -5863,7 +5867,7 @@
           "citation_hit": 0.5,
           "coverage": 1.0,
           "top1_similarity": 0.6667,
-          "latency_ms": 327.7,
+          "latency_ms": 272.3,
           "low_confidence": false,
           "predicted": [
             "lcl#43",
@@ -5883,7 +5887,7 @@
           "citation_hit": 0.5,
           "coverage": 1.0,
           "top1_similarity": 0.7561,
-          "latency_ms": 250.3,
+          "latency_ms": 238.1,
           "low_confidence": false,
           "predicted": [
             "lcl#19",
@@ -5903,7 +5907,7 @@
           "citation_hit": 1.0,
           "coverage": 1.0,
           "top1_similarity": 0.702,
-          "latency_ms": 283.4,
+          "latency_ms": 312.9,
           "low_confidence": false,
           "predicted": [
             "lcl#14",
@@ -5923,7 +5927,7 @@
           "citation_hit": 1.0,
           "coverage": 1.0,
           "top1_similarity": 0.7121,
-          "latency_ms": 250.4,
+          "latency_ms": 242.4,
           "low_confidence": false,
           "predicted": [
             "lcl#13",
@@ -5943,7 +5947,7 @@
           "citation_hit": 0.5,
           "coverage": 1.0,
           "top1_similarity": 0.6737,
-          "latency_ms": 207.5,
+          "latency_ms": 197.0,
           "low_confidence": false,
           "predicted": [
             "lcl#87",
@@ -5956,14 +5960,14 @@
         {
           "id": "g73",
           "hop_type": "two_hop",
-          "level": "complex",
+          "level": "medium",
           "recall@5": 1.0,
           "all@5": 1.0,
           "path_recall": 0.5,
           "citation_hit": 1.0,
           "coverage": 1.0,
           "top1_similarity": 0.7094,
-          "latency_ms": 1216.5,
+          "latency_ms": 261.7,
           "low_confidence": false,
           "predicted": [
             "lcl#47",
@@ -5983,7 +5987,7 @@
           "citation_hit": 1.0,
           "coverage": 1.0,
           "top1_similarity": 0.6964,
-          "latency_ms": 262.0,
+          "latency_ms": 235.8,
           "low_confidence": false,
           "predicted": [
             "ll#20",
@@ -6003,7 +6007,7 @@
           "citation_hit": 1.0,
           "coverage": 1.0,
           "top1_similarity": 0.7299,
-          "latency_ms": 766.7,
+          "latency_ms": 246.7,
           "low_confidence": false,
           "predicted": [
             "lcl#23",
@@ -6016,14 +6020,14 @@
         {
           "id": "g76",
           "hop_type": "two_hop",
-          "level": "complex",
+          "level": "medium",
           "recall@5": 1.0,
           "all@5": 1.0,
           "path_recall": 1.0,
           "citation_hit": 1.0,
           "coverage": 1.0,
           "top1_similarity": 0.705,
-          "latency_ms": 903.2,
+          "latency_ms": 205.5,
           "low_confidence": false,
           "predicted": [
             "lcl#24",
@@ -6043,7 +6047,7 @@
           "citation_hit": 1.0,
           "coverage": 0.8,
           "top1_similarity": 0.6812,
-          "latency_ms": 205.4,
+          "latency_ms": 219.9,
           "low_confidence": false,
           "predicted": [
             "cc#588",
@@ -6063,7 +6067,7 @@
           "citation_hit": 0.5,
           "coverage": 0.0,
           "top1_similarity": 0.5929,
-          "latency_ms": 186.6,
+          "latency_ms": 169.2,
           "low_confidence": true,
           "predicted": [
             "cc#201",
@@ -6083,7 +6087,7 @@
           "citation_hit": 1.0,
           "coverage": 1.0,
           "top1_similarity": 0.6691,
-          "latency_ms": 282.8,
+          "latency_ms": 288.0,
           "low_confidence": false,
           "predicted": [
             "lcl#40",
@@ -6096,14 +6100,14 @@
         {
           "id": "g80",
           "hop_type": "two_hop",
-          "level": "medium",
+          "level": "complex",
           "recall@5": 0.5,
           "all@5": 0.0,
           "path_recall": 0.5,
           "citation_hit": 0.5,
           "coverage": 1.0,
           "top1_similarity": 0.6992,
-          "latency_ms": 863.9,
+          "latency_ms": 231.4,
           "low_confidence": false,
           "predicted": [
             "lcl#36",
@@ -6123,7 +6127,7 @@
           "citation_hit": 1.0,
           "coverage": 0.6667,
           "top1_similarity": 0.7403,
-          "latency_ms": 304.9,
+          "latency_ms": 300.8,
           "low_confidence": false,
           "predicted": [
             "lcl#37",
@@ -6143,7 +6147,7 @@
           "citation_hit": 1.0,
           "coverage": 1.0,
           "top1_similarity": 0.6992,
-          "latency_ms": 1130.9,
+          "latency_ms": 276.1,
           "low_confidence": false,
           "predicted": [
             "lcl#40",
@@ -6163,7 +6167,7 @@
           "citation_hit": 0.5,
           "coverage": 0.6667,
           "top1_similarity": 0.6669,
-          "latency_ms": 313.3,
+          "latency_ms": 313.5,
           "low_confidence": false,
           "predicted": [
             "lcl#37",
@@ -6183,7 +6187,7 @@
           "citation_hit": 0.5,
           "coverage": 1.0,
           "top1_similarity": 0.6814,
-          "latency_ms": 216.4,
+          "latency_ms": 226.7,
           "low_confidence": false,
           "predicted": [
             "lcl#30",
@@ -6203,7 +6207,7 @@
           "citation_hit": 0.5,
           "coverage": 0.6667,
           "top1_similarity": 0.7072,
-          "latency_ms": 306.8,
+          "latency_ms": 285.5,
           "low_confidence": false,
           "predicted": [
             "ll#31",
@@ -6221,9 +6225,9 @@
           "all@5": 1.0,
           "path_recall": 1.0,
           "citation_hit": 1.0,
-          "coverage": 0.6667,
+          "coverage": 1.0,
           "top1_similarity": 0.6627,
-          "latency_ms": 273.7,
+          "latency_ms": 248.8,
           "low_confidence": false,
           "predicted": [
             "lcl#50",
@@ -6243,7 +6247,7 @@
           "citation_hit": 1.0,
           "coverage": 0.6667,
           "top1_similarity": 0.6938,
-          "latency_ms": 297.1,
+          "latency_ms": 315.1,
           "low_confidence": false,
           "predicted": [
             "ll#27",
@@ -6263,7 +6267,7 @@
           "citation_hit": 0.5,
           "coverage": 0.6667,
           "top1_similarity": 0.6248,
-          "latency_ms": 296.2,
+          "latency_ms": 340.6,
           "low_confidence": false,
           "predicted": [
             "lcl#6",
@@ -6283,7 +6287,7 @@
           "citation_hit": 1.0,
           "coverage": 0.6667,
           "top1_similarity": 0.6768,
-          "latency_ms": 300.0,
+          "latency_ms": 315.8,
           "low_confidence": false,
           "predicted": [
             "lcl#43",
@@ -6303,7 +6307,7 @@
           "citation_hit": 1.0,
           "coverage": 1.0,
           "top1_similarity": 0.6468,
-          "latency_ms": 229.6,
+          "latency_ms": 213.9,
           "low_confidence": false,
           "predicted": [
             "lcl#87",
@@ -6323,7 +6327,7 @@
           "citation_hit": 1.0,
           "coverage": 1.0,
           "top1_similarity": 0.6694,
-          "latency_ms": 232.2,
+          "latency_ms": 266.1,
           "low_confidence": false,
           "predicted": [
             "lcl#43",
@@ -6336,14 +6340,14 @@
         {
           "id": "g92",
           "hop_type": "two_hop",
-          "level": "medium",
+          "level": "complex",
           "recall@5": 1.0,
           "all@5": 1.0,
           "path_recall": 1.0,
           "citation_hit": 1.0,
           "coverage": 0.6667,
           "top1_similarity": 0.7813,
-          "latency_ms": 1648.9,
+          "latency_ms": 227.7,
           "low_confidence": false,
           "predicted": [
             "lcl#82",
@@ -6363,7 +6367,7 @@
           "citation_hit": 1.0,
           "coverage": 1.0,
           "top1_similarity": 0.6648,
-          "latency_ms": 973.7,
+          "latency_ms": 256.0,
           "low_confidence": false,
           "predicted": [
             "lcl#47",
@@ -6376,14 +6380,14 @@
         {
           "id": "g94",
           "hop_type": "two_hop",
-          "level": "complex",
+          "level": "medium",
           "recall@5": 0.5,
           "all@5": 0.0,
           "path_recall": 1.0,
           "citation_hit": 0.5,
           "coverage": 1.0,
           "top1_similarity": 0.6691,
-          "latency_ms": 860.5,
+          "latency_ms": 202.7,
           "low_confidence": false,
           "predicted": [
             "ll#50",
@@ -6396,14 +6400,14 @@
         {
           "id": "g95",
           "hop_type": "two_hop",
-          "level": "medium",
+          "level": "complex",
           "recall@5": 1.0,
           "all@5": 1.0,
           "path_recall": 1.0,
           "citation_hit": 1.0,
           "coverage": 1.0,
           "top1_similarity": 0.6962,
-          "latency_ms": 944.4,
+          "latency_ms": 270.6,
           "low_confidence": false,
           "predicted": [
             "cc#584",
@@ -6423,7 +6427,7 @@
           "citation_hit": 1.0,
           "coverage": 0.75,
           "top1_similarity": 0.7171,
-          "latency_ms": 277.1,
+          "latency_ms": 295.3,
           "low_confidence": false,
           "predicted": [
             "lcl#82",
@@ -6443,7 +6447,7 @@
           "citation_hit": 1.0,
           "coverage": 1.0,
           "top1_similarity": 0.7054,
-          "latency_ms": 241.3,
+          "latency_ms": 240.0,
           "low_confidence": false,
           "predicted": [
             "lcl#45",
@@ -6463,7 +6467,7 @@
           "citation_hit": 1.0,
           "coverage": 1.0,
           "top1_similarity": 0.6378,
-          "latency_ms": 236.3,
+          "latency_ms": 212.4,
           "low_confidence": false,
           "predicted": [
             "ll#71",
@@ -6483,7 +6487,7 @@
           "citation_hit": 1.0,
           "coverage": 1.0,
           "top1_similarity": 0.6206,
-          "latency_ms": 208.2,
+          "latency_ms": 208.4,
           "low_confidence": false,
           "predicted": [
             "ll#100",
@@ -6496,14 +6500,14 @@
         {
           "id": "g100",
           "hop_type": "two_hop",
-          "level": "complex",
+          "level": "medium",
           "recall@5": 0.5,
           "all@5": 0.0,
           "path_recall": 0.5,
           "citation_hit": 0.5,
           "coverage": 1.0,
           "top1_similarity": 0.681,
-          "latency_ms": 850.1,
+          "latency_ms": 256.3,
           "low_confidence": false,
           "predicted": [
             "lcl#45",
@@ -6516,14 +6520,14 @@
         {
           "id": "g101",
           "hop_type": "two_hop",
-          "level": "complex",
+          "level": "medium",
           "recall@5": 1.0,
           "all@5": 1.0,
           "path_recall": 1.0,
           "citation_hit": 1.0,
           "coverage": 1.0,
           "top1_similarity": 0.6321,
-          "latency_ms": 885.2,
+          "latency_ms": 285.6,
           "low_confidence": false,
           "predicted": [
             "ll#57",
@@ -6543,7 +6547,7 @@
           "citation_hit": 1.0,
           "coverage": 0.6667,
           "top1_similarity": 0.7264,
-          "latency_ms": 245.8,
+          "latency_ms": 260.7,
           "low_confidence": false,
           "predicted": [
             "ll#63",
@@ -6563,7 +6567,7 @@
           "citation_hit": 0.5,
           "coverage": 1.0,
           "top1_similarity": 0.6657,
-          "latency_ms": 1137.3,
+          "latency_ms": 272.1,
           "low_confidence": false,
           "predicted": [
             "ll#58",
@@ -6583,7 +6587,7 @@
           "citation_hit": 1.0,
           "coverage": 1.0,
           "top1_similarity": 0.676,
-          "latency_ms": 221.9,
+          "latency_ms": 238.5,
           "low_confidence": false,
           "predicted": [
             "ll#36",
@@ -6596,14 +6600,14 @@
         {
           "id": "g105",
           "hop_type": "two_hop",
-          "level": "medium",
+          "level": "complex",
           "recall@5": 1.0,
           "all@5": 1.0,
           "path_recall": 0.5,
           "citation_hit": 1.0,
           "coverage": 1.0,
           "top1_similarity": 0.6673,
-          "latency_ms": 831.1,
+          "latency_ms": 194.2,
           "low_confidence": false,
           "predicted": [
             "cc#203",
@@ -6623,7 +6627,7 @@
           "citation_hit": 1.0,
           "coverage": 1.0,
           "top1_similarity": 0.7208,
-          "latency_ms": 232.3,
+          "latency_ms": 228.1,
           "low_confidence": false,
           "predicted": [
             "ll#42",
@@ -6643,7 +6647,7 @@
           "citation_hit": 1.0,
           "coverage": 1.0,
           "top1_similarity": 0.6336,
-          "latency_ms": 186.0,
+          "latency_ms": 207.9,
           "low_confidence": false,
           "predicted": [
             "ll#38",
@@ -6663,7 +6667,7 @@
           "citation_hit": 1.0,
           "coverage": 1.0,
           "top1_similarity": 0.6835,
-          "latency_ms": 231.1,
+          "latency_ms": 232.5,
           "low_confidence": false,
           "predicted": [
             "ll#37",
@@ -6676,14 +6680,14 @@
         {
           "id": "g109",
           "hop_type": "two_hop",
-          "level": "medium",
+          "level": "complex",
           "recall@5": 1.0,
           "all@5": 1.0,
           "path_recall": 0.5,
           "citation_hit": 1.0,
           "coverage": 1.0,
           "top1_similarity": 0.6725,
-          "latency_ms": 791.6,
+          "latency_ms": 276.6,
           "low_confidence": false,
           "predicted": [
             "ll#50",
@@ -6703,7 +6707,7 @@
           "citation_hit": 1.0,
           "coverage": 1.0,
           "top1_similarity": 0.7586,
-          "latency_ms": 267.7,
+          "latency_ms": 294.0,
           "low_confidence": false,
           "predicted": [
             "lcl#72",
@@ -6723,7 +6727,7 @@
           "citation_hit": 1.0,
           "coverage": 1.0,
           "top1_similarity": 0.7069,
-          "latency_ms": 293.1,
+          "latency_ms": 277.0,
           "low_confidence": false,
           "predicted": [
             "lcl#69",
@@ -6743,7 +6747,7 @@
           "citation_hit": 0.5,
           "coverage": 1.0,
           "top1_similarity": 0.69,
-          "latency_ms": 345.9,
+          "latency_ms": 324.3,
           "low_confidence": false,
           "predicted": [
             "cc#1191",
@@ -6763,7 +6767,7 @@
           "citation_hit": 1.0,
           "coverage": 1.0,
           "top1_similarity": 0.7532,
-          "latency_ms": 682.7,
+          "latency_ms": 288.7,
           "low_confidence": false,
           "predicted": [
             "ll#20",
@@ -6783,7 +6787,7 @@
           "citation_hit": 0.5,
           "coverage": 1.0,
           "top1_similarity": 0.641,
-          "latency_ms": 228.0,
+          "latency_ms": 154.6,
           "low_confidence": false,
           "predicted": [
             "ll#77",
@@ -6803,7 +6807,7 @@
           "citation_hit": 1.0,
           "coverage": 1.0,
           "top1_similarity": 0.6862,
-          "latency_ms": 349.7,
+          "latency_ms": 290.0,
           "low_confidence": false,
           "predicted": [
             "lcl#51",
@@ -6823,7 +6827,7 @@
           "citation_hit": 0.0,
           "coverage": 0.75,
           "top1_similarity": 0.6681,
-          "latency_ms": 304.4,
+          "latency_ms": 239.5,
           "low_confidence": false,
           "predicted": [
             "ll#45",
@@ -6836,14 +6840,14 @@
         {
           "id": "g117",
           "hop_type": "two_hop",
-          "level": "complex",
+          "level": "medium",
           "recall@5": 1.0,
           "all@5": 1.0,
           "path_recall": 1.0,
           "citation_hit": 1.0,
           "coverage": 1.0,
           "top1_similarity": 0.7129,
-          "latency_ms": 858.6,
+          "latency_ms": 322.1,
           "low_confidence": false,
           "predicted": [
             "lcl#23",
@@ -6863,7 +6867,7 @@
           "citation_hit": 1.0,
           "coverage": 1.0,
           "top1_similarity": 0.7432,
-          "latency_ms": 754.0,
+          "latency_ms": 229.1,
           "low_confidence": false,
           "predicted": [
             "lcl#22",
@@ -6876,14 +6880,14 @@
         {
           "id": "g119",
           "hop_type": "two_hop",
-          "level": "medium",
+          "level": "complex",
           "recall@5": 1.0,
           "all@5": 1.0,
           "path_recall": 1.0,
           "citation_hit": 1.0,
           "coverage": 0.6667,
           "top1_similarity": 0.6936,
-          "latency_ms": 824.1,
+          "latency_ms": 243.7,
           "low_confidence": false,
           "predicted": [
             "ll#92",
@@ -6903,7 +6907,7 @@
           "citation_hit": 1.0,
           "coverage": 1.0,
           "top1_similarity": 0.7243,
-          "latency_ms": 256.8,
+          "latency_ms": 219.7,
           "low_confidence": false,
           "predicted": [
             "ll#58",
@@ -6923,12 +6927,12 @@
           "citation_hit": 1.0,
           "coverage": 1.0,
           "top1_similarity": 0.7868,
-          "latency_ms": 224.4,
+          "latency_ms": 165.2,
           "low_confidence": false,
           "predicted": [
             "ll#79",
-            "ll#84",
             "ll#77",
+            "ll#84",
             "ll#82",
             "ll#83"
           ]
@@ -6943,7 +6947,7 @@
           "citation_hit": 1.0,
           "coverage": 1.0,
           "top1_similarity": 0.7631,
-          "latency_ms": 804.0,
+          "latency_ms": 225.8,
           "low_confidence": false,
           "predicted": [
             "ll#79",
@@ -6956,14 +6960,14 @@
         {
           "id": "g123",
           "hop_type": "two_hop",
-          "level": "medium",
+          "level": "complex",
           "recall@5": 1.0,
           "all@5": 1.0,
           "path_recall": 1.0,
           "citation_hit": 1.0,
           "coverage": 1.0,
           "top1_similarity": 0.7548,
-          "latency_ms": 1028.0,
+          "latency_ms": 171.6,
           "low_confidence": false,
           "predicted": [
             "ll#82",
@@ -6981,9 +6985,9 @@
           "all@5": 1.0,
           "path_recall": 0.5,
           "citation_hit": 1.0,
-          "coverage": 0.5,
+          "coverage": 1.0,
           "top1_similarity": 0.6621,
-          "latency_ms": 257.3,
+          "latency_ms": 214.3,
           "low_confidence": false,
           "predicted": [
             "ll#77",
@@ -7001,9 +7005,9 @@
           "all@5": 1.0,
           "path_recall": 1.0,
           "citation_hit": 1.0,
-          "coverage": 0.6667,
+          "coverage": 1.0,
           "top1_similarity": 0.6792,
-          "latency_ms": 236.5,
+          "latency_ms": 204.7,
           "low_confidence": false,
           "predicted": [
             "lcl#50",
@@ -7023,7 +7027,7 @@
           "citation_hit": 0.5,
           "coverage": 1.0,
           "top1_similarity": 0.6311,
-          "latency_ms": 215.1,
+          "latency_ms": 189.7,
           "low_confidence": false,
           "predicted": [
             "cc#201",
@@ -7043,7 +7047,7 @@
           "citation_hit": 1.0,
           "coverage": 1.0,
           "top1_similarity": 0.658,
-          "latency_ms": 204.7,
+          "latency_ms": 212.7,
           "low_confidence": false,
           "predicted": [
             "ll#41",
@@ -7063,7 +7067,7 @@
           "citation_hit": 1.0,
           "coverage": 1.0,
           "top1_similarity": 0.6129,
-          "latency_ms": 266.1,
+          "latency_ms": 257.0,
           "low_confidence": false,
           "predicted": [
             "lcl#31",
@@ -7083,7 +7087,7 @@
           "citation_hit": 1.0,
           "coverage": 0.75,
           "top1_similarity": 0.6807,
-          "latency_ms": 1021.2,
+          "latency_ms": 281.5,
           "low_confidence": false,
           "predicted": [
             "lcl#35",
@@ -7103,14 +7107,14 @@
           "citation_hit": 1.0,
           "coverage": 1.0,
           "top1_similarity": 0.669,
-          "latency_ms": 267.3,
+          "latency_ms": 197.2,
           "low_confidence": false,
           "predicted": [
             "ll#100",
             "lcl#7",
+            "ll#72",
             "lcl#5",
-            "ll#16",
-            "ll#72"
+            "ll#16"
           ]
         },
         {
@@ -7123,7 +7127,7 @@
           "citation_hit": 0.6667,
           "coverage": 1.0,
           "top1_similarity": 0.6293,
-          "latency_ms": 253.8,
+          "latency_ms": 218.2,
           "low_confidence": false,
           "predicted": [
             "ll#50",
@@ -7143,7 +7147,7 @@
           "citation_hit": 0.6667,
           "coverage": 0.8,
           "top1_similarity": 0.671,
-          "latency_ms": 403.6,
+          "latency_ms": 305.4,
           "low_confidence": false,
           "predicted": [
             "ll#27",
@@ -7163,7 +7167,7 @@
           "citation_hit": 1.0,
           "coverage": 0.6667,
           "top1_similarity": 0.629,
-          "latency_ms": 309.4,
+          "latency_ms": 235.5,
           "low_confidence": false,
           "predicted": [
             "lcl#31",
@@ -7183,7 +7187,7 @@
           "citation_hit": 1.0,
           "coverage": 1.0,
           "top1_similarity": 0.7386,
-          "latency_ms": 271.6,
+          "latency_ms": 228.5,
           "low_confidence": false,
           "predicted": [
             "lcl#31",
@@ -7203,7 +7207,7 @@
           "citation_hit": 0.6667,
           "coverage": 1.0,
           "top1_similarity": 0.6727,
-          "latency_ms": 352.8,
+          "latency_ms": 333.8,
           "low_confidence": false,
           "predicted": [
             "lcl#43",
@@ -7223,7 +7227,7 @@
           "citation_hit": 0.5,
           "coverage": 1.0,
           "top1_similarity": 0.6871,
-          "latency_ms": 791.2,
+          "latency_ms": 289.9,
           "low_confidence": false,
           "predicted": [
             "lcl#14",
@@ -7236,14 +7240,14 @@
         {
           "id": "g137",
           "hop_type": "three_hop",
-          "level": "complex",
+          "level": "medium",
           "recall@5": 0.6667,
           "all@5": 0.0,
           "path_recall": 0.6667,
           "citation_hit": 0.6667,
           "coverage": 1.0,
           "top1_similarity": 0.7018,
-          "latency_ms": 1270.7,
+          "latency_ms": 265.8,
           "low_confidence": false,
           "predicted": [
             "lcl#47",
@@ -7263,7 +7267,7 @@
           "citation_hit": 0.6667,
           "coverage": 1.0,
           "top1_similarity": 0.6733,
-          "latency_ms": 332.4,
+          "latency_ms": 305.6,
           "low_confidence": false,
           "predicted": [
             "lcl#14",
@@ -7283,7 +7287,7 @@
           "citation_hit": 1.0,
           "coverage": 1.0,
           "top1_similarity": 0.7202,
-          "latency_ms": 231.7,
+          "latency_ms": 220.8,
           "low_confidence": false,
           "predicted": [
             "lcl#23",
@@ -7303,7 +7307,7 @@
           "citation_hit": 1.0,
           "coverage": 1.0,
           "top1_similarity": 0.6688,
-          "latency_ms": 226.3,
+          "latency_ms": 250.1,
           "low_confidence": false,
           "predicted": [
             "lcl#23",
@@ -7323,7 +7327,7 @@
           "citation_hit": 1.0,
           "coverage": 1.0,
           "top1_similarity": 0.6815,
-          "latency_ms": 370.7,
+          "latency_ms": 281.7,
           "low_confidence": false,
           "predicted": [
             "ll#31",
@@ -7343,7 +7347,7 @@
           "citation_hit": 1.0,
           "coverage": 0.5,
           "top1_similarity": 0.6143,
-          "latency_ms": 896.4,
+          "latency_ms": 218.3,
           "low_confidence": true,
           "predicted": [
             "lcl#40",
@@ -7363,7 +7367,7 @@
           "citation_hit": 0.3333,
           "coverage": 1.0,
           "top1_similarity": 0.6917,
-          "latency_ms": 276.7,
+          "latency_ms": 249.8,
           "low_confidence": false,
           "predicted": [
             "ll#50",
@@ -7383,7 +7387,7 @@
           "citation_hit": 0.6667,
           "coverage": 1.0,
           "top1_similarity": 0.6715,
-          "latency_ms": 1109.3,
+          "latency_ms": 196.6,
           "low_confidence": false,
           "predicted": [
             "ll#73",
@@ -7403,7 +7407,7 @@
           "citation_hit": 0.6667,
           "coverage": 0.8333,
           "top1_similarity": 0.6859,
-          "latency_ms": 340.4,
+          "latency_ms": 340.0,
           "low_confidence": false,
           "predicted": [
             "lcl#47",
@@ -7423,7 +7427,7 @@
           "citation_hit": 0.6667,
           "coverage": 0.6667,
           "top1_similarity": 0.669,
-          "latency_ms": 332.3,
+          "latency_ms": 307.7,
           "low_confidence": false,
           "predicted": [
             "lcl#41",
@@ -7443,7 +7447,7 @@
           "citation_hit": 0.6667,
           "coverage": 0.6667,
           "top1_similarity": 0.6358,
-          "latency_ms": 278.3,
+          "latency_ms": 198.3,
           "low_confidence": false,
           "predicted": [
             "lcl#43",
@@ -7463,7 +7467,7 @@
           "citation_hit": 1.0,
           "coverage": 1.0,
           "top1_similarity": 0.6767,
-          "latency_ms": 238.3,
+          "latency_ms": 214.2,
           "low_confidence": false,
           "predicted": [
             "lcl#87",
@@ -7483,7 +7487,7 @@
           "citation_hit": 0.3333,
           "coverage": 0.75,
           "top1_similarity": 0.655,
-          "latency_ms": 359.7,
+          "latency_ms": 253.6,
           "low_confidence": false,
           "predicted": [
             "lcl#47",
@@ -7503,7 +7507,7 @@
           "citation_hit": 1.0,
           "coverage": 0.6667,
           "top1_similarity": 0.663,
-          "latency_ms": 336.7,
+          "latency_ms": 343.7,
           "low_confidence": false,
           "predicted": [
             "lcl#47",
@@ -7523,7 +7527,7 @@
           "citation_hit": 1.0,
           "coverage": 0.8,
           "top1_similarity": 0.7312,
-          "latency_ms": 340.9,
+          "latency_ms": 281.1,
           "low_confidence": false,
           "predicted": [
             "lcl#82",
@@ -7543,7 +7547,7 @@
           "citation_hit": 1.0,
           "coverage": 0.75,
           "top1_similarity": 0.764,
-          "latency_ms": 245.4,
+          "latency_ms": 236.4,
           "low_confidence": false,
           "predicted": [
             "lcl#82",
@@ -7561,9 +7565,9 @@
           "all@5": 1.0,
           "path_recall": 0.6667,
           "citation_hit": 1.0,
-          "coverage": 0.6667,
+          "coverage": 1.0,
           "top1_similarity": 0.6363,
-          "latency_ms": 938.5,
+          "latency_ms": 246.2,
           "low_confidence": false,
           "predicted": [
             "lcl#50",
@@ -7583,7 +7587,7 @@
           "citation_hit": 0.6667,
           "coverage": 1.0,
           "top1_similarity": 0.6638,
-          "latency_ms": 284.1,
+          "latency_ms": 240.3,
           "low_confidence": false,
           "predicted": [
             "lcl#7",
@@ -7603,7 +7607,7 @@
           "citation_hit": 0.6667,
           "coverage": 0.75,
           "top1_similarity": 0.6426,
-          "latency_ms": 264.4,
+          "latency_ms": 267.7,
           "low_confidence": false,
           "predicted": [
             "ll#75",
@@ -7623,7 +7627,7 @@
           "citation_hit": 0.6667,
           "coverage": 0.75,
           "top1_similarity": 0.6365,
-          "latency_ms": 255.0,
+          "latency_ms": 261.4,
           "low_confidence": false,
           "predicted": [
             "lcl#87",
@@ -7643,7 +7647,7 @@
           "citation_hit": 1.0,
           "coverage": 1.0,
           "top1_similarity": 0.7149,
-          "latency_ms": 291.8,
+          "latency_ms": 230.2,
           "low_confidence": false,
           "predicted": [
             "ll#45",
@@ -7663,7 +7667,7 @@
           "citation_hit": 0.6667,
           "coverage": 0.6667,
           "top1_similarity": 0.6876,
-          "latency_ms": 220.0,
+          "latency_ms": 227.3,
           "low_confidence": false,
           "predicted": [
             "lcl#31",
@@ -7683,7 +7687,7 @@
           "citation_hit": 0.6667,
           "coverage": 1.0,
           "top1_similarity": 0.68,
-          "latency_ms": 286.8,
+          "latency_ms": 191.2,
           "low_confidence": false,
           "predicted": [
             "ll#38",
@@ -7703,12 +7707,12 @@
           "citation_hit": 1.0,
           "coverage": 1.0,
           "top1_similarity": 0.7013,
-          "latency_ms": 251.8,
+          "latency_ms": 221.6,
           "low_confidence": false,
           "predicted": [
             "lcl#31",
-            "lcl#85",
             "ll#44",
+            "lcl#85",
             "lcl#62",
             "ll#41"
           ]
@@ -7723,7 +7727,7 @@
           "citation_hit": 0.6667,
           "coverage": 1.0,
           "top1_similarity": 0.6807,
-          "latency_ms": 265.2,
+          "latency_ms": 232.7,
           "low_confidence": false,
           "predicted": [
             "ll#50",
@@ -7743,7 +7747,7 @@
           "citation_hit": 0.6667,
           "coverage": 1.0,
           "top1_similarity": 0.7054,
-          "latency_ms": 271.5,
+          "latency_ms": 273.8,
           "low_confidence": false,
           "predicted": [
             "ll#82",
@@ -7763,7 +7767,7 @@
           "citation_hit": 0.3333,
           "coverage": 0.75,
           "top1_similarity": 0.691,
-          "latency_ms": 313.9,
+          "latency_ms": 325.4,
           "low_confidence": false,
           "predicted": [
             "lcl#6",
@@ -7776,14 +7780,14 @@
         {
           "id": "g164",
           "hop_type": "three_hop",
-          "level": "complex",
+          "level": "medium",
           "recall@5": 1.0,
           "all@5": 1.0,
           "path_recall": 1.0,
           "citation_hit": 1.0,
           "coverage": 0.8333,
           "top1_similarity": 0.6716,
-          "latency_ms": 729.8,
+          "latency_ms": 231.9,
           "low_confidence": false,
           "predicted": [
             "lcl#51",
@@ -7803,7 +7807,7 @@
           "citation_hit": 1.0,
           "coverage": 1.0,
           "top1_similarity": 0.7225,
-          "latency_ms": 241.1,
+          "latency_ms": 221.8,
           "low_confidence": false,
           "predicted": [
             "lcl#23",
@@ -7823,7 +7827,7 @@
           "citation_hit": 1.0,
           "coverage": 1.0,
           "top1_similarity": 0.7129,
-          "latency_ms": 203.5,
+          "latency_ms": 198.3,
           "low_confidence": false,
           "predicted": [
             "lcl#23",
@@ -7836,14 +7840,14 @@
         {
           "id": "g167",
           "hop_type": "three_hop",
-          "level": "complex",
+          "level": "medium",
           "recall@5": 0.5,
           "all@5": 0.0,
           "path_recall": 0.6667,
           "citation_hit": 0.5,
           "coverage": 1.0,
           "top1_similarity": 0.6912,
-          "latency_ms": 795.5,
+          "latency_ms": 314.1,
           "low_confidence": false,
           "predicted": [
             "ll#54",
@@ -7863,7 +7867,7 @@
           "citation_hit": 1.0,
           "coverage": 0.6667,
           "top1_similarity": 0.7065,
-          "latency_ms": 1033.5,
+          "latency_ms": 234.6,
           "low_confidence": false,
           "predicted": [
             "ll#58",
@@ -7883,7 +7887,7 @@
           "citation_hit": 1.0,
           "coverage": 1.0,
           "top1_similarity": 0.7087,
-          "latency_ms": 269.1,
+          "latency_ms": 213.8,
           "low_confidence": false,
           "predicted": [
             "ll#79",
@@ -7903,7 +7907,7 @@
           "citation_hit": 1.0,
           "coverage": 1.0,
           "top1_similarity": 0.7419,
-          "latency_ms": 955.8,
+          "latency_ms": 232.9,
           "low_confidence": false,
           "predicted": [
             "ll#79",
@@ -7923,7 +7927,7 @@
           "citation_hit": 0.6667,
           "coverage": 1.0,
           "top1_similarity": 0.7058,
-          "latency_ms": 249.5,
+          "latency_ms": 258.7,
           "low_confidence": false,
           "predicted": [
             "ll#79",
@@ -7943,7 +7947,7 @@
           "citation_hit": 0.6667,
           "coverage": 0.6667,
           "top1_similarity": 0.6661,
-          "latency_ms": 245.7,
+          "latency_ms": 261.2,
           "low_confidence": false,
           "predicted": [
             "cc#167",
@@ -7956,21 +7960,21 @@
         {
           "id": "g173",
           "hop_type": "three_hop",
-          "level": "complex",
-          "recall@5": 0.3333,
+          "level": "medium",
+          "recall@5": 0.6667,
           "all@5": 0.0,
           "path_recall": 0.0,
-          "citation_hit": 0.3333,
+          "citation_hit": 0.6667,
           "coverage": 1.0,
           "top1_similarity": 0.6068,
-          "latency_ms": 910.8,
+          "latency_ms": 211.0,
           "low_confidence": false,
           "predicted": [
             "lcl#50",
             "ll#31",
+            "ll#28",
             "lcl#47",
-            "cc#1088",
-            "ll#99"
+            "lcl#46"
           ]
         },
         {
@@ -7983,7 +7987,7 @@
           "citation_hit": 0.6667,
           "coverage": 1.0,
           "top1_similarity": 0.6687,
-          "latency_ms": 958.7,
+          "latency_ms": 207.6,
           "low_confidence": false,
           "predicted": [
             "ll#50",
@@ -8003,7 +8007,7 @@
           "citation_hit": 0.6667,
           "coverage": 1.0,
           "top1_similarity": 0.6233,
-          "latency_ms": 772.6,
+          "latency_ms": 184.8,
           "low_confidence": false,
           "predicted": [
             "ll#82",
@@ -8023,7 +8027,7 @@
           "citation_hit": 0.6667,
           "coverage": 0.6667,
           "top1_similarity": 0.6882,
-          "latency_ms": 261.7,
+          "latency_ms": 233.2,
           "low_confidence": false,
           "predicted": [
             "ll#61",
@@ -8043,7 +8047,7 @@
           "citation_hit": 0.6667,
           "coverage": 1.0,
           "top1_similarity": 0.7092,
-          "latency_ms": 343.6,
+          "latency_ms": 294.4,
           "low_confidence": false,
           "predicted": [
             "lcl#19",
@@ -8063,7 +8067,7 @@
           "citation_hit": 0.5,
           "coverage": 1.0,
           "top1_similarity": 0.6491,
-          "latency_ms": 1021.4,
+          "latency_ms": 279.7,
           "low_confidence": false,
           "predicted": [
             "lcl#13",
@@ -8083,7 +8087,7 @@
           "citation_hit": 0.3333,
           "coverage": 1.0,
           "top1_similarity": 0.7158,
-          "latency_ms": 296.6,
+          "latency_ms": 278.5,
           "low_confidence": false,
           "predicted": [
             "lcl#69",
@@ -8103,7 +8107,7 @@
           "citation_hit": 0.6667,
           "coverage": 1.0,
           "top1_similarity": 0.728,
-          "latency_ms": 327.3,
+          "latency_ms": 300.5,
           "low_confidence": false,
           "predicted": [
             "lcl#22",
@@ -8123,7 +8127,7 @@
           "citation_hit": 0.3333,
           "coverage": 1.0,
           "top1_similarity": 0.7077,
-          "latency_ms": 304.5,
+          "latency_ms": 294.3,
           "low_confidence": false,
           "predicted": [
             "lcl#23",
@@ -8143,14 +8147,14 @@
           "citation_hit": 0.6667,
           "coverage": 1.0,
           "top1_similarity": 0.6108,
-          "latency_ms": 305.1,
+          "latency_ms": 281.0,
           "low_confidence": false,
           "predicted": [
             "cc#475",
             "lcl#13",
-            "cc#485",
             "lcl#12",
-            "ll#20"
+            "lcl#14",
+            "cc#543"
           ]
         },
         {
@@ -8163,7 +8167,7 @@
           "citation_hit": 0.0,
           "coverage": 1.0,
           "top1_similarity": 0.7051,
-          "latency_ms": 961.5,
+          "latency_ms": 231.7,
           "low_confidence": false,
           "predicted": [
             "cc#484",
@@ -8183,7 +8187,7 @@
           "citation_hit": 0.3333,
           "coverage": 1.0,
           "top1_similarity": 0.6762,
-          "latency_ms": 299.6,
+          "latency_ms": 252.2,
           "low_confidence": false,
           "predicted": [
             "cc#483",
@@ -8203,7 +8207,7 @@
           "citation_hit": 0.3333,
           "coverage": 1.0,
           "top1_similarity": 0.6461,
-          "latency_ms": 332.6,
+          "latency_ms": 285.8,
           "low_confidence": false,
           "predicted": [
             "lcl#13",
@@ -8223,14 +8227,14 @@
           "citation_hit": 0.3333,
           "coverage": 1.0,
           "top1_similarity": 0.6766,
-          "latency_ms": 286.5,
+          "latency_ms": 209.6,
           "low_confidence": false,
           "predicted": [
             "ll#50",
-            "cc#959",
+            "lcl#60",
             "ll#91",
-            "ll#46",
-            "cc#782"
+            "cc#959",
+            "ll#46"
           ]
         },
         {
@@ -8243,7 +8247,7 @@
           "citation_hit": 0.6667,
           "coverage": 0.8,
           "top1_similarity": 0.6436,
-          "latency_ms": 230.3,
+          "latency_ms": 231.3,
           "low_confidence": false,
           "predicted": [
             "lcl#82",
@@ -8263,7 +8267,7 @@
           "citation_hit": 0.3333,
           "coverage": 0.6667,
           "top1_similarity": 0.6786,
-          "latency_ms": 288.3,
+          "latency_ms": 278.7,
           "low_confidence": false,
           "predicted": [
             "ll#26",
@@ -8283,7 +8287,7 @@
           "citation_hit": 0.6667,
           "coverage": 1.0,
           "top1_similarity": 0.6233,
-          "latency_ms": 232.1,
+          "latency_ms": 228.7,
           "low_confidence": false,
           "predicted": [
             "cc#169",
@@ -8303,7 +8307,7 @@
           "citation_hit": 0.6667,
           "coverage": 1.0,
           "top1_similarity": 0.7082,
-          "latency_ms": 273.8,
+          "latency_ms": 244.9,
           "low_confidence": false,
           "predicted": [
             "ll#77",
@@ -8323,7 +8327,7 @@
           "citation_hit": 0.3333,
           "coverage": 0.75,
           "top1_similarity": 0.677,
-          "latency_ms": 235.3,
+          "latency_ms": 244.2,
           "low_confidence": false,
           "predicted": [
             "cc#1191",
@@ -8343,7 +8347,7 @@
           "citation_hit": 0.0,
           "coverage": 1.0,
           "top1_similarity": 0.6793,
-          "latency_ms": 272.6,
+          "latency_ms": 238.2,
           "low_confidence": false,
           "predicted": [
             "ll#58",
@@ -8363,7 +8367,7 @@
           "citation_hit": 0.6667,
           "coverage": 0.6667,
           "top1_similarity": 0.6457,
-          "latency_ms": 248.2,
+          "latency_ms": 232.0,
           "low_confidence": false,
           "predicted": [
             "cc#584",
@@ -8383,7 +8387,7 @@
           "citation_hit": 1.0,
           "coverage": 1.0,
           "top1_similarity": 0.7402,
-          "latency_ms": 231.4,
+          "latency_ms": 226.1,
           "low_confidence": false,
           "predicted": [
             "cc#588",
@@ -8403,7 +8407,7 @@
           "citation_hit": 1.0,
           "coverage": 0.8333,
           "top1_similarity": 0.7235,
-          "latency_ms": 267.0,
+          "latency_ms": 245.3,
           "low_confidence": false,
           "predicted": [
             "lcl#23",
@@ -8423,7 +8427,7 @@
           "citation_hit": 0.5,
           "coverage": 1.0,
           "top1_similarity": 0.6995,
-          "latency_ms": 252.0,
+          "latency_ms": 247.1,
           "low_confidence": false,
           "predicted": [
             "cc#585",
@@ -8443,7 +8447,7 @@
           "citation_hit": 0.0,
           "coverage": 0.75,
           "top1_similarity": 0.6591,
-          "latency_ms": 271.8,
+          "latency_ms": 293.7,
           "low_confidence": false,
           "predicted": [
             "lcl#23",
@@ -8456,14 +8460,14 @@
         {
           "id": "g198",
           "hop_type": "cross_law",
-          "level": "medium",
+          "level": "complex",
           "recall@5": 0.6667,
           "all@5": 0.0,
           "path_recall": 0.6667,
           "citation_hit": 0.6667,
           "coverage": 1.0,
           "top1_similarity": 0.6872,
-          "latency_ms": 807.3,
+          "latency_ms": 250.1,
           "low_confidence": false,
           "predicted": [
             "cc#1186",
@@ -8476,21 +8480,21 @@
         {
           "id": "g199",
           "hop_type": "cross_law",
-          "level": "complex",
+          "level": "medium",
           "recall@5": 0.0,
           "all@5": 0.0,
           "path_recall": 0.3333,
           "citation_hit": 0.0,
           "coverage": 1.0,
           "top1_similarity": 0.6128,
-          "latency_ms": 997.8,
+          "latency_ms": 183.8,
           "low_confidence": false,
           "predicted": [
+            "cc#1165",
             "cc#1177",
             "cc#1236",
             "cc#1207",
-            "cc#1198",
-            "cc#1229"
+            "cc#1198"
           ]
         },
         {
@@ -8503,7 +8507,7 @@
           "citation_hit": 0.6667,
           "coverage": 1.0,
           "top1_similarity": 0.6754,
-          "latency_ms": 243.2,
+          "latency_ms": 207.0,
           "low_confidence": false,
           "predicted": [
             "cc#1186",
@@ -8520,28 +8524,28 @@
     "recall@5": {
       "text-graph": {
         "metric": "recall@5",
-        "mean": 0.3452,
+        "mean": 0.3333,
         "ci95": [
-          0.281,
-          0.4071
+          0.2679,
+          0.3929
         ],
         "n": 140
       },
       "text-hybrid": {
         "metric": "recall@5",
-        "mean": -0.0107,
+        "mean": -0.0131,
         "ci95": [
-          -0.0286,
-          0.0083
+          -0.0321,
+          0.006
         ],
         "n": 140
       },
       "graph-hybrid": {
         "metric": "recall@5",
-        "mean": -0.356,
+        "mean": -0.3464,
         "ci95": [
-          -0.4203,
-          -0.2929
+          -0.4131,
+          -0.2833
         ],
         "n": 140
       }

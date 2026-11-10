@@ -22,7 +22,7 @@
 | P0 口径 / 积压 commit / 红灯 | 完成 | README §4/§8/§12 已改；失败单测根因是「gold 判为非必要的相关锁定」被误要求 DEFINES 边，`g26`/`g45 → cc#733` 登记为 `KNOWN_RELEVANCE_ONLY`，未放宽断言；积压改动分 5 批提交（不 push） |
 | P2 引用 / grounded 拆分 | 完成（离线） | `scripts/recompute_citation_metrics.py`、`data/eval_out/citation_metrics.json`；in-sample 结论见 README §8.1 |
 | P3 默认档改 A_gates | 完成 | API `default="A_gates"`、UI `index=0`；依据见 README §8 末条与 §8.2 |
-| P1 B3 留出集（140） | 完成 | `data/eval_out/retrieval_holdout_140.json`；hybrid−text +1.07pt，CI [−0.83, +2.86] 含 0（README §5.1） |
+| P1 B3 留出集（140） | 完成 | `data/eval_out/retrieval_holdout_140.json`；hybrid−text +1.31pt，CI [−0.60, +3.21] 含 0（README §5.1） |
 | P1 B6 留出集（60 × 4 档） | 完成（432 次调用 / 298k tokens） | `data/eval_out/ablation_holdout_60.json`、`citation_metrics_holdout.json`；结论见 README §8.2 |
 | 简历待改文案 | 完成（未改简历文件） | [resume_edit_list_20261110.md](file:///E:/project/LexWeave/docs/resume_edit_list_20261110.md) |
 

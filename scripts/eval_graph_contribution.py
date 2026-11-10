@@ -30,6 +30,7 @@ import argparse
 import json
 import math
 import sys
+from collections import Counter
 from pathlib import Path
 from typing import Any
 
@@ -196,6 +197,17 @@ def bucket_of(row: dict, q: dict) -> list[str]:
     return out
 
 
+def failure_reason(row: dict) -> str:
+    """hybrid 未命中的确定性归因：实体链接 → 路径 → 置信度 → 排序丢失。"""
+    if row.get("entity_linking_failure"):
+        return "entity_linking_failure"
+    if not row.get("path_ok"):
+        return "graph_path_incomplete"
+    if row.get("low_confidence"):
+        return "low_confidence"
+    return "ranking_miss"
+
+
 def summarize(rows: list[dict], answer_by_id: dict[str, dict]) -> dict[str, Any]:
     def block(subset: list[dict]) -> dict[str, Any]:
         n = len(subset)
@@ -239,6 +251,7 @@ def summarize(rows: list[dict], answer_by_id: dict[str, dict]) -> dict[str, Any]
             if answered
             else {"n": 0, "mean": None, "ci95": [None, None], "source_note": "该子集没有可用的离线答案结果"},
             "necessary_questions": len(necessary_qs),
+            "failure_reasons": dict(Counter(failure_reason(r) for r in subset if not r["hybrid_hit@5"])),
         }
 
     buckets: dict[str, list[dict]] = {}
@@ -299,11 +312,28 @@ def build_markdown(report: dict) -> str:
         )
     lines += [
         "",
+        "## 失败归因（hybrid 未命中）",
+        "",
+        "| 桶 | 未命中 | 实体链接失败 | 图路径不完整 | 低置信 | 排序丢失 |",
+        "| --- | --- | --- | --- | --- | --- |",
+    ]
+    for name, b in report["by_bucket"].items():
+        reasons = b["failure_reasons"]
+        lines.append(
+            f"| {name} | {sum(reasons.values())} | {reasons.get('entity_linking_failure', 0)} | "
+            f"{reasons.get('graph_path_incomplete', 0)} | {reasons.get('low_confidence', 0)} | "
+            f"{reasons.get('ranking_miss', 0)} |"
+        )
+    answered = report["overall"]["answer_correct"].get("n") or 0
+    lines += [
+        "",
         "## 样本",
         "",
         f"- 图路补齐案例：`recoveries` 共 {len(report['recoveries'])} 条（含文本漏掉的金标与图路径）。",
-        f"- hybrid 仍未命中：`failures` 共 {len(report['failures'])} 条。",
+        f"- hybrid 仍未命中：`failures` 共 {len(report['failures'])} 条，每条带 `failure_reason`。",
         f"- 图路独有条文清单：`graph_only_candidates` 共 {len(report['graph_only_candidates'])} 条。",
+        f"- 答案层只有 {answered}/{report['n']} 题可用（缓存离线 B6），"
+        f"其余 {report['n'] - answered} 题**只报检索与路径，不报答案正确率**。",
         "",
         "机器可读明细见同目录 `graph_contribution.json`。",
         "",
@@ -342,9 +372,15 @@ def main(argv: list[str] | None = None) -> int:
     ap.add_argument("--gold", default="data/gold/gold_140_holdout.jsonl")
     ap.add_argument("--limit", type=int, default=None)
     ap.add_argument("--no-rerank", action="store_true", help="关闭共享精排，作为独立评价路径")
+    ap.add_argument("--no-llm", action="store_true", help="关闭 LLM 路由（离线复算，不产生付费调用）")
     ap.add_argument("--answer-tier", default="A_gates", help="离线答案缓存使用的档位")
     ap.add_argument("--out", default="data/eval_out/graph_contribution.json")
     args = ap.parse_args(argv)
+
+    if args.no_llm:
+        from config import settings
+
+        settings.llm_api_key = ""
 
     gold = read_jsonl(args.gold)
     if args.limit:
@@ -386,6 +422,7 @@ def main(argv: list[str] | None = None) -> int:
             "path_ok": r["path_ok"],
             "entity_linking_failure": r["entity_linking_failure"],
             "low_confidence": r["low_confidence"],
+            "failure_reason": failure_reason(r),
         }
         for r in rows
         if not r["hybrid_hit@5"]
@@ -402,6 +439,7 @@ def main(argv: list[str] | None = None) -> int:
             "gold_path": args.gold,
             "split_role": _split_role(args.gold),
             "use_rerank": not args.no_rerank,
+            "router_llm": not args.no_llm,
             "top_k": TOP_K,
             "answer_tier": args.answer_tier,
         },

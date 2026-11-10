@@ -2,7 +2,7 @@
 
 ![license](https://img.shields.io/badge/license-MIT-5B9E7A)
 ![python](https://img.shields.io/badge/python-3.11%2B-4C7FB0)
-![tests](https://img.shields.io/badge/tests-116%20passed-5B9E7A)
+![tests](https://img.shields.io/badge/tests-120%20passed-5B9E7A)
 ![edges](https://img.shields.io/badge/graph-1799%20nodes%20%2F%205632%20edges-8A94A0)
 
 面向「大模型算法岗」求职的作品项目：把一份**纯检索式**的法律问答 demo，改成一套可复现、可量化、
@@ -317,7 +317,8 @@ g181 g182 g183 g184 g185 g186 g188 g189 g191 g198 g199 g200`），按主失败�
   检索与图路评测的分母是 **200 / 60 / 140**（题池 / 开发集 / 题级留出）。
   两者**不能互相替换**：260 里含合成题，0.7731 不能写成「200 条金标的路由准确率」；
   反过来 140 条留出集也不能写成「260 题评测」。所有引用都带分母。
-* 延迟：图路 132 ms，文本路 411 ms（含 rerank），混合 396 ms（同一干净环境口径）。
+* 延迟：同一台机器、同一进程预热后，图路 96 ms，文本路 212 ms（含 rerank），混合 245 ms
+  （`data/eval_out/retrieval_holdout_140.json`；该次运行 `GRAPH_BACKEND=auto` 命中 Neo4j 的同一图版本）。
 
 ---
 
@@ -330,23 +331,23 @@ g181 g182 g183 g184 g185 g186 g188 g189 g191 g198 g199 g200`），按主失败�
 
 | 模式 | R@5 | all@5 | 路径准确率 | 中位延迟 |
 |---|---|---|---|---|
-| 纯文本 | 0.7583 | 0.5214 | 0.0000 | 313 ms |
-| 纯图 | 0.4131 | 0.1857 | 0.6190 | 72 ms |
-| 混合 + 路由 | **0.7691** | **0.5286** | 0.6190 | 285 ms |
+| 纯文本 | 0.7583 | 0.5214 | 0.0000 | 212 ms |
+| 纯图 | 0.4250 | 0.1857 | 0.6190 | 96 ms |
+| 混合 + 路由 | **0.7714** | **0.5286** | 0.6190 | 245 ms |
 
 | 对比 | ΔR@5 | 95% CI | Δall@5 | 95% CI |
 |---|---|---|---|---|
-| hybrid − text | **+1.07pt** | **[−0.83, +2.86] 含 0** | +0.71pt | [−2.86, +4.29] 含 0 |
-| text − graph | +34.52pt | [+28.10, +40.71] | +33.57pt | [+25.00, +42.14] |
-| hybrid − graph | +35.60pt | [+29.29, +42.03] | +34.29pt | [+25.00, +43.57] |
+| hybrid − text | **+1.31pt** | **[−0.60, +3.21] 含 0** | +0.71pt | [−2.86, +4.29] 含 0 |
+| text − graph | +33.33pt | [+26.79, +39.29] | +33.57pt | [+25.00, +42.14] |
+| hybrid − graph | +34.64pt | [+28.33, +41.31] | +34.29pt | [+25.00, +43.57] |
 
-分类型 R@5：二跳 text 0.8643 / hybrid 0.8714 / graph 0.4286；三跳 0.7609 / 0.7681 / 0.4601；
-跨法 0.4444 / 0.4722 / 0.2778。**跨法仍是三档共同的短板**，纯文本只有 0.4444。
+分类型 R@5：二跳 text 0.8643 / hybrid 0.8714 / graph 0.4429；三跳 0.7609 / 0.7754 / 0.4674；
+跨法 0.4444 / 0.4722 / 0.2917。**跨法仍是三档共同的短板**，纯文本只有 0.4444。
 
 结论（如实写）：
 
-* **hybrid 相对纯文本 +1.07pt，95% CI 含 0，不构成显著增益**；与 in-sample 的 +0.84pt 同向，但都远低于 +15pt 要求。
-  图路本身比文本低 **34.5pt**，融合后的少量增益来自文本路，不是图路提供了新证据。
+* **hybrid 相对纯文本 +1.31pt，95% CI 含 0，不构成显著增益**；与 in-sample 的 +0.84pt 同向，但都远低于 +15pt 要求。
+  图路本身比文本低 **33.3pt**，融合后的少量增益来自文本路，不是图路提供了新证据。
 * 留出集把标准误从 0.064 降到约 0.042（n=140），**+1pt 级别的差异仍无法下结论**；这不是样本量能救的，
   而是图路召回本身不够。
 * 口径仍有一个共享组件偏置：`gold_200` 的条文锁定用了 bge-reranker，评测也用它。**留出的是题，不是组件**，
@@ -358,15 +359,15 @@ g181 g182 g183 g184 g185 g186 g188 g189 g191 g198 g199 g200`），按主失败�
 
 | 模式 | R@5 | all@5 | 中位延迟 |
 |---|---|---|---|
-| 纯文本 | 0.6893 | 0.4143 | 46 ms |
-| 纯图 | 0.4250 | 0.1857 | 42 ms |
-| 混合 + 路由 | 0.4286 | 0.1714 | 59 ms |
+| 纯文本 | 0.6893 | 0.4143 | 47 ms |
+| 纯图 | 0.4250 | 0.1857 | 80 ms |
+| 混合 + 路由 | 0.4286 | 0.1714 | 92 ms |
 
 配对 bootstrap（1000 次）：text − hybrid = **+26.07pt [19.29, 32.38]**，即**无精排时 hybrid 显著差于纯文本**；
 graph − hybrid = −0.36pt [−2.14, +1.55]，不显著。这组数字说明两件事，都和上面的偏置披露直接相关：
 
 1. 纯文本在完全不使用共享精排时仍有 R@5 0.6893 / all@5 0.4143，**不是靠精排把金标"喂"上去的**；
-2. 主表 hybrid 的 +1.07pt **依赖精排**：融合权重 0.55:0.45 与 `RERANK_CANDIDATES=25` 是按"精排前给候选"校准的，
+2. 主表 hybrid 的 +1.31pt **依赖精排**：融合权重 0.55:0.45 与 `RERANK_CANDIDATES=25` 是按"精排前给候选"校准的，
    摘掉精排后 10 条图路候选经加权 RRF 排到文本候选之前，hybrid 退化成图路水平。
    所以主表结论只能读作"当前精排配置下的题级留出结果"，**不能读作与组件无关的增益**。
    这条路径是组件消融，不是"更公平的评测器"——它测的是另一个系统（无交叉编码器）。
@@ -386,11 +387,14 @@ graph − hybrid = −0.36pt [−2.14, +1.55]，不显著。这组数字说明�
 | 检索 | hybrid hit@5 | 0.5286 | [0.4462, 0.6094] | 140 |
 | 路径 | 场景命中且概念链完整 | 0.1786 | [0.1240, 0.2503] | 140 |
 | 路径 | 其中场景命中 / 概念链召回 | 0.4071 / 0.6190 | — | 140 |
+| 路径 | 图路独有候选中的必要路径率 | 0.1511 | [0.1010, 0.2199] | 139 |
 | 答案 | grounded 且 must-cite 全中（离线缓存） | 0.5167 | [0.3931, 0.6383] | 60 |
 
 * **图路的真实贡献很小且很局部**：文本路失败的 67 题里，图路只补回 **4 题（5.97%）**；
-  图路独有候选 533 条中，**必要 21 条、相关但非必要 198 条、噪声 314 条**。
+  图路独有候选 532 条中，**必要 22 条、相关但非必要 197 条、噪声 313 条**。
   所以「图路提升了多跳能力」这句话只能限定在「少数实体链接失败/跨法题」，不能外推到整体。
+* **失败归因是确定性的**：hybrid 未命中的 66 题里，实体链接失败 9 题、图路径不完整 50 题、
+  低置信 0 题、纯排序丢失 7 题（`failure_reason` 逐题写在 JSON 里）。
 * **路径正确率是短板**：场景命中只有 40.7%，概念链完整只有 61.9%，两者同时满足只有 17.9%；
   这解释了为什么图路检索命中低——不是排序差，是路径在实体链接阶段就断了。
 * **分桶**（命中率 hybrid）：二跳 0.7571（n=70）、三跳 0.4130（n=46）、跨法 0.3529（n=68）、
@@ -609,7 +613,7 @@ graph − hybrid = −0.36pt [−2.14, +1.55]，不显著。这组数字说明�
   A/B 没有闸门，repair 前后相同（31/85 条越界引用原样保留）。**报 grounded 时必须同时报 repair 前**。
 * **留出集上真的出现了 1 条拒答**（C 与 A_gates 各 1/60，in-sample 是 0）：低置信度转人工的路径被触发，
   不再是「拒答率恒为 0」。样本太小，只能说明机制生效，不能估计拒答率。
-* **与 B3 留出集的关系**：B3 的 hybrid−text 是 +1.07pt、CI 含 0（§5.1）。B6 的 R@5 在四档间完全相同（0.7917），
+* **与 B3 留出集的关系**：B3 的 hybrid−text 是 +1.31pt、CI 含 0（§5.1）。B6 的 R@5 在四档间完全相同（0.7917），
   说明**四档差异不来自检索**；但 hybrid 相对纯文本的那 1pt 级增益，在任何档位里都不足以支撑「图路显著提升」。
   这两处结论一致：**图路当前的贡献是噪声级正向，不能写成显著提升**。
 
@@ -680,8 +684,8 @@ SSE 事件 Schema（`EVENT_SCHEMA`，少字段即回归）：
 | `done` | 同 `final` + `cache, status` | 结束；`status ∈ ok/cancelled/timeout/error` |
 | `error` | `status, detail` | 异常收口（也保证不写成功缓存） |
 
-顺序约束：`meta → [plan] → token(draft) → check → (superseded → token(draft=false) → check)* → final → done`。
-闸门之前流出的正文一律 `draft=true`，**未校验正文不会被标记为最终答案**；修复发生时
+顺序约束：`meta → [plan] → token(draft) → check → (superseded → token(draft) → check)* → final → done`。
+闸门之前（以及修复后重新校验之前）流出的正文一律 `draft=true`，**未校验正文不会被标记为最终答案**；修复发生时
 `answer_version` 递增并先发 `superseded`，不静默覆盖。版本号按实际修复次数递增（`1+attempts`）。
 
 ```bash
@@ -704,10 +708,13 @@ curl -N "http://127.0.0.1:8000/ask/stream?query=公司拖欠工资怎么办&tier
 
 * **换 Key 与换模型是两件事**：`auth` 只换 Key（`DEEPSEEK_API_KEY` 备用 Key），
   主模型失败且配置了 `LLM_FALLBACK_MODEL` 才换模型；两者都记在 `last_meta` 与 trace 的 `degradation` 里。
+  **trace 里的 `model` 是实际返回内容的模型**（换模型时会被改写，并附 `degradation.reason=fallback_model`），
+  不是配置里的主模型。
 * **非幂等写操作不重试**：`chat_stream` 已经吐出内容后不再整段重试（避免重复输出），
   缓存/checkpoint 写入也不在重试范围内。
 * **超时与取消**：`STREAM_TIMEOUT_S`（默认 120s）超时后发 `error(status="timeout")`；
-  客户端断开触发 `GeneratorExit`，记 `status="cancelled"`，**两者都不写成功答案、不写缓存**。
+  客户端断开触发 `GeneratorExit`，记 `status="cancelled"`，**两者都不写成功答案、不写缓存**；
+  断开时同步 `close()` 上游 HTTP 流，避免连接悬挂。
 * **降级 genesis 可追溯**：trace 的 `degradation={reason, detail, model}` 回答「这条答案为什么是模板」；
   可能原因固定为 `no_key / upstream_error / invalid_output / low_confidence`。
 
@@ -737,7 +744,9 @@ curl -N "http://127.0.0.1:8000/ask/stream?query=公司拖欠工资怎么办&tier
 * **设置 `ADMIN_TOKEN` 后**：`POST /hitl/{id}/resolve` 与 `POST /admin/cache/clear` 必须带
   `X-Admin-Token`，否则 403；比对用 `secrets.compare_digest`，失败的尝试也会进审计。
 * **归属校验**：客户端可带 `X-Client-Id`；会话首次访问即绑定，换一个 Client-Id 访问返回 403；
-  HITL 任务记录 `owner`，resolve 时归属不符返回 403。不带 `X-Client-Id` 时保持单机演示行为。
+  HITL 任务记录 `owner`，resolve 时归属不符返回 403。**公开模式**（配置了 `ADMIN_TOKEN`）下
+  `/chat`、`/chat/{id}/history`、`/hitl` 必须带 `X-Client-Id`（或管理员令牌），否则 403；
+  `/hitl` 只返回本人任务，管理员可看全部。不带 `X-Client-Id` 且未配置令牌时保持单机演示行为。
 * **审计**：所有管理动作写 `data/observability/admin_audit.jsonl`
   （`ts / action / target / client_id / auth / result`）。
 * **重建图**不暴露 HTTP 接口，只能跑 `scripts/build_graph.py`——公开部署时这本身就是一层保护。
@@ -753,7 +762,7 @@ curl -N "http://127.0.0.1:8000/ask/stream?query=公司拖欠工资怎么办&tier
 ```bash
 uv sync --extra dev                                    # 1) 建环境（lock 固定版本）
 uv run python scripts/build_graph.py                   # 2) 建图 + 刷新 stats.json（约 15 秒）
-uv run python -m pytest tests -q                       # 3) 单元测试（116 项；仅 1 项 slow 图抽检需离线图镜像）
+uv run python -m pytest tests -q                       # 3) 单元测试（120 项；仅 1 项 slow 图抽检需离线图镜像）
 uv run python scripts/check_graph_parity.py            # 4) 图版本 + 双后端一致性（Neo4j 未启动则显式 skipped）
 uv run python scripts/check_stream_contract.py          # 5) 同步/流式契约（20 组，离线）
 ```

@@ -39,6 +39,7 @@ from app.__004__retrieval.__004__router import (  # noqa: E402
     rule_fast,
     rule_route,
 )
+from common.eval_meta import graph_build_id as _graph_build_id  # noqa: E402
 from common.logging_utils import get_logger  # noqa: E402
 from common.path_utils import read_jsonl, write_json  # noqa: E402
 
@@ -468,6 +469,8 @@ def main() -> None:
         info = semantic.fit([r["query"] for r in rows], [r["features"] for r in rows], list(y), embeddings=emb)
         result["semantic_model"] = {**info, "path": str(semantic.model_path)}
 
+    # 路由本身不查图，但特征里含概念/场景计数（来自词表），与图版本同源；标上便于跨产物对齐。
+    result["graph_build_id"] = _graph_build_id()
     out = Path("data/eval_out/router.json")
     out.parent.mkdir(parents=True, exist_ok=True)
     write_json(out, result)

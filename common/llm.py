@@ -103,6 +103,28 @@ def report_degradation(reason: str, detail: str = "", model: str | None = None) 
             pass
 
 
+#: 实际使用模型的钩子：主模型成功时 ``degraded_reason=None``，换用备用模型时为 ``fallback_model``。
+#: 与降级钩子一样挂在 contextvar 上，保证并发请求之间不串号。
+_MODEL_HOOK: ContextVar[Callable[..., None] | None] = ContextVar("llm_model_hook", default=None)
+
+
+def set_model_hook(hook: Callable[..., None] | None):
+    return _MODEL_HOOK.set(hook)
+
+
+def reset_model_hook(token) -> None:
+    _MODEL_HOOK.reset(token)
+
+
+def report_model(model: str | None, degraded_reason: str | None = None) -> None:
+    hook = _MODEL_HOOK.get()
+    if hook is not None:
+        try:
+            hook(model, degraded_reason)
+        except Exception:  # 观测失败不能影响主流程
+            pass
+
+
 @dataclass
 class UsageCounter:
     calls: int = 0
@@ -326,6 +348,7 @@ class LLMClient:
                         continue
                     if key != self.api_key:
                         self.api_key = key
+                    report_model(model, degraded_reason)
                     self.last_meta = {
                         "text": content,
                         "model": model,
@@ -418,6 +441,14 @@ class LLMClient:
                         "degraded_reason": "stream_interrupted" if emitted else "upstream_failed",
                     }
                     raise LLMError(kind, f"流式中断（已输出={emitted}）: {str(exc)[:200]}") from exc
+                finally:
+                    # 客户端断开时生成器被 close()，这里同步关掉上游 HTTP 流，避免连接悬挂。
+                    close = getattr(stream, "close", None)
+                    if callable(close):
+                        try:
+                            close()
+                        except Exception:
+                            pass
                 prompt_tokens = getattr(usage, "prompt_tokens", 0) or 0 if usage is not None else 0
                 completion_tokens = getattr(usage, "completion_tokens", 0) or 0 if usage is not None else 0
                 USAGE.add(prompt_tokens, completion_tokens)
@@ -429,6 +460,7 @@ class LLMClient:
                     "errors": errors,
                     "degraded_reason": degraded_reason or ("empty_output" if not emitted else None),
                 }
+                report_model(model, degraded_reason)
                 return
         USAGE.failures += 1
         self.last_stream = {"model": self.model, "emitted": False, "errors": errors, "degraded_reason": "upstream_failed"}
