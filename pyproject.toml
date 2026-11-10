@@ -48,6 +48,7 @@ torch = [{ index = "pytorch-cu130" }]
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 addopts = "-q"
+markers = ["slow: 需要本地图镜像或模型的慢测试（CI 用 -m \"not slow\" 排除）"]
 
 [tool.ruff]
 line-length = 110

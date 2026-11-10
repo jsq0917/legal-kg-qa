@@ -119,15 +119,26 @@
 
 可直接加一条：
 
-> ◆ 140 条未参与调参的留出集：text R@5 0.7583 / hybrid 0.7691 / graph 0.4131；hybrid−text +1.07pt，配对 bootstrap 95%CI [−2.86, +0.83]（含 0）——**图路在留出集上仍无显著增益**。
+> ◆ 140 条未参与调参的留出集：text R@5 0.7583 / hybrid 0.7691 / graph 0.4131；hybrid−text +1.07pt，配对 bootstrap 95%CI [−0.83, +2.86]（含 0）——**图路在留出集上仍无显著增益**。
 
 这条比"hybrid 提升 3.9pt"更值得写：它主动承认增益不显著，反而能挡住"in-sample 调参"的追问。
 
-### C2. B6 留出集（运行中，完成后补）
+### C2. B6 留出集（已完成）
 
-运行产物：`data/eval_out/ablation_holdout_60.json`
-需要补的数字：四档 grounded / grounded_before_repair / grounded_after_repair / cite_precision / precision_at_must / over_citation_rate / llm_calls / latency。
-**如果 A vs A_gates 或 hybrid 的结论在留出集上翻转，直接按翻转后的写，不换口径。**
+产物：`data/eval_out/ablation_holdout_60.json`、`data/eval_out/citation_metrics_holdout.json`
+（60 条留出题 × 四档，真实 LLM，实际 432 次调用 / 298,154 tokens）。
+
+**新增文案（建议替换 A1 的 in-sample 版本，或并排标注口径）**
+
+> ◆ 60 条未参与调参的留出集（四档 × 真实 LLM）：A_gates grounded 1.0000（repair 前 0.8833）、五闸全过 100%、1.30 次调用、中位 2.35s；B 多 Agent grounded 0.7667、2.30 次调用、3.46s——多 Agent 无增益。四档 must-cite 召回 0.753–0.758 基本持平，引用精确率差异主要来自「引得更少」（超额引用 1.4750→0.8778）。
+
+**如果只能写一句**：写「A_gates 在 60 条留出集上 grounded 1.0000（repair 前 0.8833）、比 C 少 1 次调用且延迟低 1.24s」，不要写「引用更准」。
+
+**留出集与 in-sample 的差异（若面试被问）**
+- A_gates−A grounded：in-sample +6.67pt（CI 贴 0）→ 留出集 +8.33pt（CI [1.67, 16.67] 不含 0）。
+- A_gates−C grounded：in-sample +16.67pt → 留出集 +15.00pt，均显著。
+- B−A grounded：in-sample −16.67pt → 留出集 −15.00pt，均显著；B−A 引用精确率在留出集上不显著（CI 含 0）。
+- 留出集出现 1/60 拒答（C 与 A_gates），in-sample 为 0；样本太小，不要据此报拒答率。
 
 ---
 
@@ -142,4 +153,4 @@
 - [ ] B3 vLLM / ASR 移出或独立成项目
 - [ ] B4 第 27 条技术栈删掉本项目未使用的 `vLLM · LoRA`（若选移出方案）
 - [ ] C1 加 140 条留出集 B3 结论
-- [ ] C2 B6 留出集结果出来后补数字
+- [ ] C2 B6 留出集结果出来后补数字（已完成：A_gates 1.0000 / repair 前 0.8833）
