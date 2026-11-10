@@ -559,10 +559,11 @@ graph − hybrid = −0.36pt [−2.14, +1.55]，不显著。这组数字说明�
 ### 8.2 B6 留出集（60 条，未参与调参；真实 LLM）
 
 题目来自 §5.1 的 140 条留出集，按 30/20/10 分层抽 60 条（`scripts/make_holdout.py`，seed 20261110），
-落盘 `data/gold/gold_60_holdout.jsonl`。配置与 §8 一致（`deepseek-v4.1-flash`、`temperature=0`、图后端 `networkx`、
-检索 `hybrid`），四档各跑一遍。
+落盘 `data/gold/gold_60_holdout.jsonl`。配置与 §8 一致（`deepseek-v4.1-flash`、`temperature=0`、检索 `hybrid`）；
+图后端这次是 `auto` 实际命中 **Neo4j**（`g963749014664`，与 NetworkX 镜像 parity 0 差异，见 §3），
+上一版记录为 `networkx`——两版检索/路径指标逐位相同（0.7917 / 0.6222）。
 
-**两个版本都保留**（同题同配置，2026-11-11 重跑）：`data/eval_out/ablation_holdout_60.json` 是当前版，
+**两个版本都保留**（同题、同模型与参数，2026-11-11 重跑）：`data/eval_out/ablation_holdout_60.json` 是当前版，
 自带 `graph_build_id=g963749014664` 与 `split_role=holdout_balanced`，可自证图版本；
 上一版没有图版本字段，原样保留为 `data/eval_out/ablation_holdout_60_pre_graphver.json`。
 当前版**实际消耗 436 次 LLM 调用 / 300,326 tokens**（A 79 / B 139 / C 139 / A_gates 79），
