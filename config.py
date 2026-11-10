@@ -49,6 +49,11 @@ class Settings(BaseSettings):
     llm_temperature: float = Field(default=0.0, alias="LLM_TEMPERATURE")
     llm_max_tokens: int = Field(default=2048, alias="LLM_MAX_TOKENS")
     llm_timeout: int = Field(default=60, alias="LLM_TIMEOUT")
+    # 思考模式（思维链）。百炼的 deepseek-v4.1-flash 默认开启，思维链与正文共享 max_tokens，
+    # 本项目 answer 节点只给 480 token，思考一开正文就被挤成空串（finish_reason=length），
+    # 而 try_chat 对空串不抛错 -> 静默回落模板，看起来像「key 没生效」。
+    # auto: 仅百炼端点下发 enable_thinking=False；on/off: 强制。
+    llm_thinking: Literal["auto", "on", "off"] = Field(default="auto", alias="LLM_THINKING")
 
     # ---------------- Neo4j ----------------
     neo4j_uri: str = Field(default="bolt://localhost:7687", alias="NEO4J_URI")
@@ -73,6 +78,15 @@ class Settings(BaseSettings):
     rrf_k: int = Field(default=60, alias="RRF_K")
     refuse_threshold: float = Field(default=0.62, alias="REFUSE_THRESHOLD")
     path_coverage_threshold: float = Field(default=0.60, alias="PATH_COVERAGE_THRESHOLD")
+    # 域外拒答门：取 data/gold/gold_60.jsonl 60 条域内金标 top1 相似度的 5% 分位
+    # （实测 0.6234，向下取两位有效数字 0.62）。低于此分位说明「问题与劳动法语料不对口」，
+    # 直接拒答而不是硬答并引民法典条文。复算见 scripts/measure_off_domain.py。
+    off_domain_threshold: float = Field(default=0.62, alias="OFF_DOMAIN_THRESHOLD")
+
+    # ---------------- 金标集 ----------------
+    # T07：金标从 60 扩到 200 后，用 GOLD_FILE 显式切换，默认仍指 gold_60（不切默认，
+    # 免得 T03/T16 等下游指标准被动漂移）。取值 gold_60 | gold_200，路径为 data/gold/<值>.jsonl。
+    gold_file: Literal["gold_60", "gold_200"] = Field(default="gold_60", alias="GOLD_FILE")
 
     # ---------------- 运行 ----------------
     session_db_path: str = Field(default="data/sessions/sessions.sqlite3", alias="SESSION_DB_PATH")
@@ -112,6 +126,11 @@ class Settings(BaseSettings):
     @property
     def gold_dir(self) -> Path:
         return GOLD_DIR
+
+    @property
+    def gold_path(self) -> Path:
+        """GOLD_FILE 解析出的金标文件路径：gold_60 -> data/gold/gold_60.jsonl。"""
+        return GOLD_DIR / f"{self.gold_file}.jsonl"
 
     @property
     def index_dir(self) -> Path:

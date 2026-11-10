@@ -23,7 +23,7 @@ from app.__004__retrieval.__000__text_index import TextIndex  # noqa: E402
 from app.__004__retrieval.__001__entity_linker import LinkingResult  # noqa: E402
 from app.__004__retrieval.__002__graph_retrieval import GraphResult, GraphRetriever  # noqa: E402
 from app.__004__retrieval.__003__hybrid import HybridRetriever  # noqa: E402
-from app.__004__retrieval.__004__router import LEVELS, QueryRouter, RouteDecision  # noqa: E402
+from app.__004__retrieval.__004__router import LEVELS, CascadeRouter, RouteDecision  # noqa: E402
 from common.logging_utils import get_logger  # noqa: E402
 
 log = get_logger("retriever")
@@ -113,7 +113,7 @@ class Retriever:
         self._text: TextIndex | None = None
         self._graph: GraphRetriever | None = None
         self._hybrid: HybridRetriever | None = None
-        self.router = QueryRouter() if use_router else None
+        self.router = CascadeRouter() if use_router else None
 
     # ---------------- 组件 ----------------
     @property

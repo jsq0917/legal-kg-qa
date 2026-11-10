@@ -22,17 +22,19 @@ def test_lexicon_matches_seed() -> None:
 
 
 def test_lexicon_counts_match_readme() -> None:
-    """锁住 README 与徽章里的 1,799 节点 / 5,697 边的上游口径。
+    """锁住 README 与徽章里的 1,799 节点 / 5,826 边的上游口径。
 
-    概念 281 + 场景 53 + 条文 1,465 = 1,799 节点；REQUIRES 196 / SPECIAL_OF 183 /
-    APPLIES_TO 198 参与 5,697 条边。改词典必须同步改 README，否则三条复现命令会对不上。
+    概念 281 + 场景 53 + 条文 1,465 = 1,799 节点；REQUIRES 230（含 59 条 gold-path 边）/
+    SPECIAL_OF 185 / APPLIES_TO 291 参与 5,826 条边。改词典必须同步改 README，
+    否则三条复现命令会对不上。
     """
     stats = read_json("data/lexicon/stats.json")
     assert stats["concepts"] == 281
     assert stats["scenarios"] == 53
-    assert stats["requires_edges"] == 196
-    assert stats["special_of_edges"] == 183
-    assert stats["scenario_concept_edges"] == 198
+    assert stats["requires_edges"] == 230
+    assert stats["gold_path_requires"] == 59
+    assert stats["special_of_edges"] == 185
+    assert stats["scenario_concept_edges"] == 291
 
     concepts = read_jsonl("data/lexicon/concepts.jsonl")
     assert len(concepts) == stats["concepts"]

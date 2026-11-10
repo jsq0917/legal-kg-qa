@@ -34,6 +34,27 @@ _ARTICLE_TAIL = re.compile(r"第[一二三四五六七八九十百千零〇0-9]+
 # 「第N条」往左取法名时优先认这三个法的尾名，长名在前，避免「劳动法」吃掉「劳动合同法」
 _LAW_TAILS = ("劳动合同法", "劳动法", "民法典")
 _GENERIC_LAW = re.compile(r"[\u4e00-\u9fa5]{2,6}法$")
+# 条文内部的指代写法，不是「引用某法」的主张：只按裸条号处理
+_ANAPHORA = ("本法", "该法", "本条例", "本办法")
+
+
+def _claim_text(answer: str) -> str:
+    """只保留「引用声明」，丢掉逐字引用的原文。
+
+    「依据」行的格式是 ``- 条号（法名）：原文``，冒号之后是法条原文，不是模型的引用主张。
+    原文里常有「本法第二十四条」这类互引，扫进去会被当成编造条号——实测
+    「用人单位依据本法第二十四条」被拼成法名「人单位依据本法」，``cite_exists`` 直接判负，
+    答案随后被 repair 换成模板，LLM 生成的内容白丢。
+    """
+    kept: list[str] = []
+    for line in answer.splitlines():
+        s = line.strip()
+        if s.startswith("-"):
+            cut = min([i for i in (s.find("："), s.find(":")) if i > 0], default=-1)
+            if cut > 0:
+                s = s[:cut]
+        kept.append(s)
+    return "\n".join(kept)
 
 
 def _known_citations(article_index: dict[str, dict]) -> set[str]:
@@ -47,8 +68,12 @@ def cited_patterns(answer: str) -> list[str]:
     「根据」一起吞进法名，归一化后反被判成编造条号。改成「先定位第N条、再向左取法名尾」。
     """
     out: set[str] = set()
-    for m in _ARTICLE_TAIL.finditer(answer):
-        head = answer[max(0, m.start() - 14) : m.start()].rstrip("》\"」』】〕 \u3000")
+    text = _claim_text(answer)
+    for m in _ARTICLE_TAIL.finditer(text):
+        head = text[max(0, m.start() - 14) : m.start()].rstrip("》\"」』】〕 \u3000")
+        if head.endswith(_ANAPHORA):
+            out.add(m.group())
+            continue
         for name in _LAW_TAILS:
             if head.endswith(name):
                 out.add(name + m.group())

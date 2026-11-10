@@ -12,12 +12,14 @@ from __future__ import annotations
 import json
 import os
 import re
+import time
+from collections.abc import Callable
 from dataclasses import dataclass, field
 from threading import Lock
 from typing import Any
 
-from config import settings
 from common.logging_utils import get_logger
+from config import settings
 
 log = get_logger("llm")
 
@@ -60,6 +62,16 @@ class UsageCounter:
 
 USAGE = UsageCounter()
 
+#: 可观测性钩子：每次成功调用回报 ``(耗时 ms, prompt_tokens, completion_tokens)``。
+#: 只做回调，不改变调用语义；没注册钩子时（默认）零开销。
+_TIMING_HOOK: Callable[[float, int, int], None] | None = None
+
+
+def set_timing_hook(hook: Callable[[float, int, int], None] | None) -> None:
+    global _TIMING_HOOK
+    _TIMING_HOOK = hook
+
+
 _JSON_BLOCK = re.compile(r"```(?:json)?\s*(.*?)```", re.S)
 
 
@@ -81,6 +93,23 @@ def _extract_json(text: str) -> Any:
             except json.JSONDecodeError:
                 continue
     raise ValueError(f"LLM 输出无法解析为 JSON: {text[:200]}")
+
+
+def is_dashscope(base_url: str) -> bool:
+    return "dashscope.aliyuncs.com" in base_url or "maas.aliyuncs.com" in base_url
+
+
+def thinking_extra_body(base_url: str) -> dict[str, Any] | None:
+    """思考模式开关：只在百炼端点上发，避免 OpenAI / 本地端点因未知字段 400。
+
+    ``enable_thinking=False`` 能让 deepseek-v4.1-flash / qwen3 系列跳过思维链，
+    否则思维链会先把 max_tokens 吃满、content 返回空串。非百炼端点一律不发该字段——
+    DeepSeek 官方与本地 Ollama 都不需要它，发了反而可能被判 400。
+    冒烟脚本也调这个函数，保证「测的」和「跑的」是同一条参数路径。
+    """
+    if not is_dashscope(base_url):
+        return None
+    return {"enable_thinking": settings.llm_thinking == "on"}
 
 
 class LLMClient:
@@ -148,8 +177,12 @@ class LLMClient:
             "temperature": self.temperature if temperature is None else temperature,
             "max_tokens": max_tokens or settings.llm_max_tokens,
         }
+        extra_body = thinking_extra_body(self.base_url)
+        if extra_body:
+            kwargs["extra_body"] = extra_body
         auth_errors: list[str] = []
         for key, client in self._clients_or_init():
+            t0 = time.perf_counter()
             try:
                 resp = client.chat.completions.create(**kwargs)
             except Exception as exc:  # 网络/额度/鉴权
@@ -160,15 +193,26 @@ class LLMClient:
                 USAGE.failures += 1
                 log.warning("LLM 调用失败: %s", exc)
                 raise
+            elapsed_ms = (time.perf_counter() - t0) * 1000
             usage = getattr(resp, "usage", None)
-            if usage is not None:
-                USAGE.add(getattr(usage, "prompt_tokens", 0) or 0, getattr(usage, "completion_tokens", 0) or 0)
-            else:
-                USAGE.add(0, 0)
+            prompt_tokens = (getattr(usage, "prompt_tokens", 0) or 0) if usage is not None else 0
+            completion_tokens = (getattr(usage, "completion_tokens", 0) or 0) if usage is not None else 0
+            USAGE.add(prompt_tokens, completion_tokens)
+            if _TIMING_HOOK is not None:
+                _TIMING_HOOK(elapsed_ms, prompt_tokens, completion_tokens)
             if key != self.api_key:
                 self.api_key = key  # 记住可用 key，后续调用不再走失败分支
                 self._clients = [(key, client)]
-            return resp.choices[0].message.content or ""
+            content = resp.choices[0].message.content or ""
+            if not content.strip() and resp.choices[0].finish_reason == "length":
+                # 空正文 + length：几乎都是思维链占满了 max_tokens。这里必须出声，
+                # 否则上层 try_chat 会把它当普通空串吞掉，静默回落到模板答案。
+                log.warning(
+                    "LLM 返回空正文（finish_reason=length，max_tokens=%s）。"
+                    "多为思考模式吃满配额，检查 LLM_THINKING=off 或调大 LLM_MAX_TOKENS",
+                    kwargs.get("max_tokens"),
+                )
+            return content
         USAGE.failures += 1
         raise RuntimeError(f"所有候选 API Key 均鉴权失败: {auth_errors}")
 
