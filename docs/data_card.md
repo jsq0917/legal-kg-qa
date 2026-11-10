@@ -117,7 +117,8 @@ text − hybrid = +26.07pt [+19.29, +32.38]（显著）。**hybrid 的 +1.31pt �
 # 图路贡献三层口径
 .venv\Scripts\python.exe scripts/eval_graph_contribution.py
 
-# 四档消融（需要 LLM key / 预算；已有缓存结果见 data/eval_out/ablation_holdout_60.json）
+# 四档消融（需要 LLM key / 预算；当前版见 data/eval_out/ablation_holdout_60.json，
+# 自带 graph_build_id/split_role；无图版本字段的上一版保留为 ablation_holdout_60_pre_graphver.json）
 .venv\Scripts\python.exe scripts/eval_ablation.py --gold data/gold/gold_60_holdout.jsonl
 
 # DEFINES 四桶机械复核

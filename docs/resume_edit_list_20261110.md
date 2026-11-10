@@ -126,19 +126,20 @@
 
 ### C2. B6 留出集（已完成）
 
-产物：`data/eval_out/ablation_holdout_60.json`、`data/eval_out/citation_metrics_holdout.json`
-（60 条留出题 × 四档，真实 LLM，实际 432 次调用 / 298,154 tokens）。
+产物：`data/eval_out/ablation_holdout_60.json`（2026-11-11 重跑，自带 `graph_build_id=g963749014664`）、
+`data/eval_out/citation_metrics_holdout.json`；无图版本字段的旧版保留为 `ablation_holdout_60_pre_graphver.json`。
+（60 条留出题 × 四档，真实 LLM，当前版实际 436 次调用 / 300,326 tokens；旧版 432 / 298,154。）
 
 **新增文案（建议替换 A1 的 in-sample 版本，或并排标注口径）**
 
-> ◆ 60 条未参与调参的留出集（四档 × 真实 LLM）：A_gates grounded 1.0000（repair 前 0.8833）、五闸全过 100%、1.30 次调用、中位 2.35s；B 多 Agent grounded 0.7667、2.30 次调用、3.46s——多 Agent 无增益。四档 must-cite 召回 0.753–0.758 基本持平，引用精确率差异主要来自「引得更少」（超额引用 1.4750→0.8778）。
+> ◆ 60 条未参与调参的留出集（四档 × 真实 LLM）：A_gates grounded 1.0000（repair 前 0.8833）、五闸全过 100%、1.32 次调用、中位 2.30s；B 多 Agent grounded 0.7333、2.32 次调用、3.56s——多 Agent 无增益。四档 must-cite 召回 0.750–0.758 基本持平，引用精确率差异主要来自「引得更少」（超额引用 1.7611→0.8333）。
 
-**如果只能写一句**：写「A_gates 在 60 条留出集上 grounded 1.0000（repair 前 0.8833）、比 C 少 1 次调用且延迟低 1.24s」，不要写「引用更准」。
+**如果只能写一句**：写「A_gates 在 60 条留出集上 grounded 1.0000（repair 前 0.8833）、调用次数与 A 相同（1.32）且比 C 少 1 次、延迟低 1.13s」，不要写「引用更准」，也不要写「相对 A 显著」。
 
 **留出集与 in-sample 的差异（若面试被问）**
-- A_gates−A grounded：in-sample +6.67pt（CI 贴 0）→ 留出集 +8.33pt（CI [1.67, 16.67] 不含 0）。
-- A_gates−C grounded：in-sample +16.67pt → 留出集 +15.00pt，均显著。
-- B−A grounded：in-sample −16.67pt → 留出集 −15.00pt，均显著；B−A 引用精确率在留出集上不显著（CI 含 0）。
+- A_gates−A grounded：in-sample +6.67pt（CI 贴 0）→ 留出集 **+3.33pt（CI [0.00, 8.33] 贴边界，不显著）**；上一版留出集曾为 +8.33pt（CI 不含 0），同一配置重跑后回落，差异来自上游逐题抖动。
+- A_gates−C grounded：in-sample +16.67pt → 留出集 +21.67pt，均显著。
+- B−A grounded：in-sample −16.67pt → 留出集 −23.33pt，均显著；B−A 引用精确率在留出集上不显著（CI 含 0）。
 - 留出集出现 1/60 拒答（C 与 A_gates），in-sample 为 0；样本太小，不要据此报拒答率。
 
 ---

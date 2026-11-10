@@ -13,59 +13,59 @@
       "summary": {
         "n": 60,
         "order_available": true,
-        "must_cite_recall": 0.7583,
+        "must_cite_recall": 0.7528,
         "must_cite_recall_ci95": [
-          0.6861,
-          0.8278
+          0.6833,
+          0.8222
         ],
-        "precision_at_must": 0.4861,
+        "precision_at_must": 0.5083,
         "precision_at_must_ci95": [
-          0.3972,
-          0.5722
+          0.4167,
+          0.5944
         ],
-        "precision_at_must_set": 0.7694,
+        "precision_at_must_set": 0.7639,
         "precision_at_must_set_ci95": [
-          0.6972,
-          0.8361
+          0.6917,
+          0.8333
         ],
-        "over_citation_rate": 1.1694,
+        "over_citation_rate": 0.9361,
         "over_citation_rate_ci95": [
-          0.8,
-          1.5972
+          0.6944,
+          1.2
         ],
-        "cite_precision": 0.4344,
+        "cite_precision": 0.4454,
         "cite_precision_ci95": [
-          0.3772,
-          0.4903
+          0.3926,
+          0.4944
         ],
-        "n_cites_mean": 3.95,
+        "n_cites_mean": 3.6333,
         "n_must_cite_mean": 2.1667,
         "grounded_split_available": true,
-        "grounded_before_repair_mean": 0.9167,
-        "grounded_after_repair_mean": 0.9167,
-        "out_of_scope_cites_raw_mean": 0.5167,
-        "out_of_scope_cites_post_mean": 0.5167,
+        "grounded_before_repair_mean": 0.9667,
+        "grounded_after_repair_mean": 0.9667,
+        "out_of_scope_cites_raw_mean": 0.2333,
+        "out_of_scope_cites_post_mean": 0.2333,
         "by_hop": {
           "two_hop": {
             "must_cite_recall": 0.85,
-            "precision_at_must": 0.5167,
+            "precision_at_must": 0.55,
             "precision_at_must_set": 0.85,
-            "over_citation_rate": 1.2667,
-            "cite_precision": 0.43
+            "over_citation_rate": 1.1333,
+            "cite_precision": 0.4435
           },
           "three_hop": {
             "must_cite_recall": 0.775,
-            "precision_at_must": 0.5333,
-            "precision_at_must_set": 0.8,
-            "over_citation_rate": 1.4667,
-            "cite_precision": 0.4833
+            "precision_at_must": 0.5417,
+            "precision_at_must_set": 0.7917,
+            "over_citation_rate": 0.9667,
+            "cite_precision": 0.5
           },
           "cross_law": {
-            "must_cite_recall": 0.45,
-            "precision_at_must": 0.3,
-            "precision_at_must_set": 0.4667,
+            "must_cite_recall": 0.4166,
+            "precision_at_must": 0.3166,
+            "precision_at_must_set": 0.45,
             "over_citation_rate": 0.2833,
-            "cite_precision": 0.35
+            "cite_precision": 0.3417
           }
         }
       },
@@ -103,20 +103,22 @@
           "must_cite_recall": 0.5,
           "precision_at_must": 0.5,
           "precision_at_must_set": 0.5,
-          "over_citation_rate": 0.5,
-          "cite_precision": 0.3333,
-          "n_cites": 3,
+          "over_citation_rate": 1.0,
+          "cite_precision": 0.25,
+          "n_cites": 4,
           "n_must_cite": 2,
           "id": "g72",
           "hop_type": "two_hop",
           "citations": [
             "中华人民共和国劳动合同法第八十七条",
             "中华人民共和国劳动合同法第四十八条",
+            "中华人民共和国民法典第五百八十四条",
             "中华人民共和国民法典第五百六十七条"
           ],
           "citations_ordered": [
             "中华人民共和国劳动合同法第八十七条",
             "中华人民共和国劳动合同法第四十八条",
+            "中华人民共和国民法典第五百八十四条",
             "中华人民共和国民法典第五百六十七条"
           ],
           "gold_citations": [
@@ -130,21 +132,19 @@
         },
         {
           "must_cite_recall": 1.0,
-          "precision_at_must": 0.0,
+          "precision_at_must": 1.0,
           "precision_at_must_set": 1.0,
-          "over_citation_rate": 2.0,
-          "cite_precision": 0.3333,
-          "n_cites": 3,
+          "over_citation_rate": 1.0,
+          "cite_precision": 0.5,
+          "n_cites": 2,
           "n_must_cite": 1,
           "id": "g74",
           "hop_type": "two_hop",
           "citations": [
-            "中华人民共和国劳动合同法第十三条",
             "中华人民共和国劳动合同法第十四条",
             "中华人民共和国劳动法第二十条"
           ],
           "citations_ordered": [
-            "中华人民共和国劳动合同法第十三条",
             "中华人民共和国劳动合同法第十四条",
             "中华人民共和国劳动法第二十条"
           ],
@@ -221,23 +221,19 @@
           "must_cite_recall": 0.5,
           "precision_at_must": 0.5,
           "precision_at_must_set": 0.5,
-          "over_citation_rate": 1.0,
-          "cite_precision": 0.25,
-          "n_cites": 4,
+          "over_citation_rate": 0.0,
+          "cite_precision": 0.5,
+          "n_cites": 2,
           "n_must_cite": 2,
           "id": "g83",
           "hop_type": "two_hop",
           "citations": [
             "中华人民共和国劳动合同法第三十七条",
-            "中华人民共和国劳动合同法第四十条",
-            "中华人民共和国劳动法第三十一条",
-            "中华人民共和国劳动法第二十六条"
+            "中华人民共和国劳动法第三十一条"
           ],
           "citations_ordered": [
             "中华人民共和国劳动合同法第三十七条",
-            "中华人民共和国劳动合同法第四十条",
-            "中华人民共和国劳动法第三十一条",
-            "中华人民共和国劳动法第二十六条"
+            "中华人民共和国劳动法第三十一条"
           ],
           "gold_citations": [
             "中华人民共和国劳动合同法第三十七条",
@@ -283,19 +279,21 @@
           "must_cite_recall": 1.0,
           "precision_at_must": 0.5,
           "precision_at_must_set": 1.0,
-          "over_citation_rate": 0.5,
-          "cite_precision": 0.6667,
-          "n_cites": 3,
+          "over_citation_rate": 1.0,
+          "cite_precision": 0.5,
+          "n_cites": 4,
           "n_must_cite": 2,
           "id": "g86",
           "hop_type": "two_hop",
           "citations": [
             "中华人民共和国劳动合同法第五十条",
+            "中华人民共和国劳动合同法第四十九条",
             "中华人民共和国劳动法第一百条",
             "中华人民共和国劳动法第七十二条"
           ],
           "citations_ordered": [
             "中华人民共和国劳动合同法第五十条",
+            "中华人民共和国劳动合同法第四十九条",
             "中华人民共和国劳动法第一百条",
             "中华人民共和国劳动法第七十二条"
           ],
@@ -312,34 +310,30 @@
           "must_cite_recall": 1.0,
           "precision_at_must": 1.0,
           "precision_at_must_set": 1.0,
-          "over_citation_rate": 1.5,
-          "cite_precision": 0.4,
-          "n_cites": 5,
+          "over_citation_rate": 0.5,
+          "cite_precision": 0.6667,
+          "n_cites": 3,
           "n_must_cite": 2,
           "id": "g89",
           "hop_type": "two_hop",
           "citations": [
             "中华人民共和国劳动合同法第四十一条",
             "中华人民共和国劳动合同法第四十三条",
-            "中华人民共和国劳动法第二十七条",
-            "中华人民共和国劳动法第四十一条",
-            "中华人民共和国民法典第四十一条"
+            "中华人民共和国劳动法第二十七条"
           ],
           "citations_ordered": [
             "中华人民共和国劳动合同法第四十一条",
             "中华人民共和国劳动合同法第四十三条",
-            "中华人民共和国劳动法第二十七条",
-            "中华人民共和国劳动法第四十一条",
-            "中华人民共和国民法典第四十一条"
+            "中华人民共和国劳动法第二十七条"
           ],
           "gold_citations": [
             "中华人民共和国劳动合同法第四十一条",
             "中华人民共和国劳动合同法第四十三条"
           ],
-          "grounded_before_repair": 0.0,
-          "grounded_after_repair": 0.0,
-          "out_of_scope_cites_raw": 2,
-          "out_of_scope_cites_post": 2
+          "grounded_before_repair": 1.0,
+          "grounded_after_repair": 1.0,
+          "out_of_scope_cites_raw": 0,
+          "out_of_scope_cites_post": 0
         },
         {
           "must_cite_recall": 1.0,
@@ -376,23 +370,21 @@
           "must_cite_recall": 0.5,
           "precision_at_must": 0.0,
           "precision_at_must_set": 0.5,
-          "over_citation_rate": 1.0,
-          "cite_precision": 0.25,
-          "n_cites": 4,
+          "over_citation_rate": 0.5,
+          "cite_precision": 0.3333,
+          "n_cites": 3,
           "n_must_cite": 2,
           "id": "g95",
           "hop_type": "two_hop",
           "citations": [
             "中华人民共和国劳动合同法第二十三条",
             "中华人民共和国劳动合同法第二十五条",
-            "中华人民共和国民法典第五百八十五条",
-            "中华人民共和国民法典第五百八十四条"
+            "中华人民共和国民法典第五百八十五条"
           ],
           "citations_ordered": [
             "中华人民共和国劳动合同法第二十三条",
             "中华人民共和国劳动合同法第二十五条",
-            "中华人民共和国民法典第五百八十五条",
-            "中华人民共和国民法典第五百八十四条"
+            "中华人民共和国民法典第五百八十五条"
           ],
           "gold_citations": [
             "中华人民共和国劳动合同法第十三条",
@@ -405,50 +397,34 @@
         },
         {
           "must_cite_recall": 0.5,
-          "precision_at_must": 0.0,
+          "precision_at_must": 0.5,
           "precision_at_must_set": 0.5,
-          "over_citation_rate": 5.0,
-          "cite_precision": 0.0833,
-          "n_cites": 12,
+          "over_citation_rate": 1.0,
+          "cite_precision": 0.25,
+          "n_cites": 4,
           "n_must_cite": 2,
           "id": "g97",
           "hop_type": "two_hop",
           "citations": [
-            "中华人民共和国劳动合同法第二十三条",
             "中华人民共和国劳动合同法第八十七条",
             "中华人民共和国劳动合同法第四十五条",
             "中华人民共和国劳动合同法第四十四条",
-            "中华人民共和国劳动法第二十三条",
-            "中华人民共和国劳动法第八十七条",
-            "中华人民共和国劳动法第四十五条",
-            "中华人民共和国劳动法第四十四条",
-            "中华人民共和国民法典第二十三条",
-            "中华人民共和国民法典第八十七条",
-            "中华人民共和国民法典第四十五条",
-            "中华人民共和国民法典第四十四条"
+            "中华人民共和国劳动法第二十三条"
           ],
           "citations_ordered": [
-            "中华人民共和国劳动合同法第二十三条",
             "中华人民共和国劳动合同法第八十七条",
             "中华人民共和国劳动合同法第四十五条",
             "中华人民共和国劳动合同法第四十四条",
-            "中华人民共和国劳动法第二十三条",
-            "中华人民共和国劳动法第八十七条",
-            "中华人民共和国劳动法第四十五条",
-            "中华人民共和国劳动法第四十四条",
-            "中华人民共和国民法典第二十三条",
-            "中华人民共和国民法典第八十七条",
-            "中华人民共和国民法典第四十五条",
-            "中华人民共和国民法典第四十四条"
+            "中华人民共和国劳动法第二十三条"
           ],
           "gold_citations": [
             "中华人民共和国劳动合同法第四十五条",
             "中华人民共和国劳动法第七十三条"
           ],
-          "grounded_before_repair": 0.0,
-          "grounded_after_repair": 0.0,
-          "out_of_scope_cites_raw": 8,
-          "out_of_scope_cites_post": 8
+          "grounded_before_repair": 1.0,
+          "grounded_after_repair": 1.0,
+          "out_of_scope_cites_raw": 0,
+          "out_of_scope_cites_post": 0
         },
         {
           "must_cite_recall": 1.0,
@@ -514,22 +490,20 @@
           "must_cite_recall": 1.0,
           "precision_at_must": 1.0,
           "precision_at_must_set": 1.0,
-          "over_citation_rate": 1.0,
-          "cite_precision": 0.5,
-          "n_cites": 4,
+          "over_citation_rate": 0.5,
+          "cite_precision": 0.6667,
+          "n_cites": 3,
           "n_must_cite": 2,
           "id": "g101",
           "hop_type": "two_hop",
           "citations": [
             "中华人民共和国劳动法第七十三条",
             "中华人民共和国劳动法第五十七条",
-            "中华人民共和国劳动法第五十二条",
             "中华人民共和国劳动法第五十四条"
           ],
           "citations_ordered": [
             "中华人民共和国劳动法第七十三条",
             "中华人民共和国劳动法第五十七条",
-            "中华人民共和国劳动法第五十二条",
             "中华人民共和国劳动法第五十四条"
           ],
           "gold_citations": [
@@ -601,32 +575,44 @@
         },
         {
           "must_cite_recall": 1.0,
-          "precision_at_must": 0.5,
+          "precision_at_must": 0.0,
           "precision_at_must_set": 1.0,
-          "over_citation_rate": 0.5,
-          "cite_precision": 0.6667,
-          "n_cites": 3,
+          "over_citation_rate": 3.5,
+          "cite_precision": 0.2222,
+          "n_cites": 9,
           "n_must_cite": 2,
           "id": "g105",
           "hop_type": "two_hop",
           "citations": [
+            "中华人民共和国劳动合同法第三十八条",
+            "中华人民共和国劳动合同法第五十一条",
+            "中华人民共和国劳动合同法第四十条",
             "中华人民共和国劳动法第三十八条",
             "中华人民共和国劳动法第五十一条",
-            "中华人民共和国劳动法第四十条"
+            "中华人民共和国劳动法第四十条",
+            "中华人民共和国民法典第三十八条",
+            "中华人民共和国民法典第五十一条",
+            "中华人民共和国民法典第四十条"
           ],
           "citations_ordered": [
+            "中华人民共和国劳动合同法第三十八条",
+            "中华人民共和国劳动合同法第五十一条",
+            "中华人民共和国劳动合同法第四十条",
             "中华人民共和国劳动法第三十八条",
             "中华人民共和国劳动法第五十一条",
-            "中华人民共和国劳动法第四十条"
+            "中华人民共和国劳动法第四十条",
+            "中华人民共和国民法典第三十八条",
+            "中华人民共和国民法典第五十一条",
+            "中华人民共和国民法典第四十条"
           ],
           "gold_citations": [
             "中华人民共和国劳动法第五十一条",
             "中华人民共和国劳动法第四十条"
           ],
-          "grounded_before_repair": 1.0,
-          "grounded_after_repair": 1.0,
-          "out_of_scope_cites_raw": 0,
-          "out_of_scope_cites_post": 0
+          "grounded_before_repair": 0.0,
+          "grounded_after_repair": 0.0,
+          "out_of_scope_cites_raw": 6,
+          "out_of_scope_cites_post": 6
         },
         {
           "must_cite_recall": 1.0,
@@ -1102,20 +1088,22 @@
         },
         {
           "must_cite_recall": 0.3333,
-          "precision_at_must": 0.5,
-          "precision_at_must_set": 0.5,
+          "precision_at_must": 0.3333,
+          "precision_at_must_set": 0.3333,
           "over_citation_rate": 0.0,
-          "cite_precision": 0.5,
-          "n_cites": 2,
+          "cite_precision": 0.3333,
+          "n_cites": 3,
           "n_must_cite": 3,
           "id": "g137",
           "hop_type": "three_hop",
           "citations": [
             "中华人民共和国劳动合同法第九十七条",
+            "中华人民共和国劳动合同法第八十七条",
             "中华人民共和国劳动合同法第四十七条"
           ],
           "citations_ordered": [
             "中华人民共和国劳动合同法第九十七条",
+            "中华人民共和国劳动合同法第八十七条",
             "中华人民共和国劳动合同法第四十七条"
           ],
           "gold_citations": [
@@ -1157,6 +1145,2051 @@
           "grounded_after_repair": 1.0,
           "out_of_scope_cites_raw": 0,
           "out_of_scope_cites_post": 0
+        },
+        {
+          "must_cite_recall": 1.0,
+          "precision_at_must": 1.0,
+          "precision_at_must_set": 1.0,
+          "over_citation_rate": 3.0,
+          "cite_precision": 0.25,
+          "n_cites": 4,
+          "n_must_cite": 1,
+          "id": "g141",
+          "hop_type": "three_hop",
+          "citations": [
+            "中华人民共和国劳动合同法第三十七条",
+            "中华人民共和国劳动合同法第四十条",
+            "中华人民共和国劳动法第三十一条",
+            "中华人民共和国劳动法第二十六条"
+          ],
+          "citations_ordered": [
+            "中华人民共和国劳动合同法第三十七条",
+            "中华人民共和国劳动合同法第四十条",
+            "中华人民共和国劳动法第三十一条",
+            "中华人民共和国劳动法第二十六条"
+          ],
+          "gold_citations": [
+            "中华人民共和国劳动合同法第三十七条"
+          ],
+          "grounded_before_repair": 1.0,
+          "grounded_after_repair": 1.0,
+          "out_of_scope_cites_raw": 0,
+          "out_of_scope_cites_post": 0
+        },
+        {
+          "must_cite_recall": 1.0,
+          "precision_at_must": 1.0,
+          "precision_at_must_set": 1.0,
+          "over_citation_rate": 0.5,
+          "cite_precision": 0.6667,
+          "n_cites": 3,
+          "n_must_cite": 2,
+          "id": "g142",
+          "hop_type": "three_hop",
+          "citations": [
+            "中华人民共和国劳动合同法第三十七条",
+            "中华人民共和国劳动合同法第五十条",
+            "中华人民共和国劳动法第三十一条"
+          ],
+          "citations_ordered": [
+            "中华人民共和国劳动合同法第三十七条",
+            "中华人民共和国劳动合同法第五十条",
+            "中华人民共和国劳动法第三十一条"
+          ],
+          "gold_citations": [
+            "中华人民共和国劳动合同法第三十七条",
+            "中华人民共和国劳动合同法第五十条"
+          ],
+          "grounded_before_repair": 1.0,
+          "grounded_after_repair": 1.0,
+          "out_of_scope_cites_raw": 0,
+          "out_of_scope_cites_post": 0
+        },
+        {
+          "must_cite_recall": 0.6667,
+          "precision_at_must": 0.6667,
+          "precision_at_must_set": 0.6667,
+          "over_citation_rate": 0.0,
+          "cite_precision": 0.6667,
+          "n_cites": 3,
+          "n_must_cite": 3,
+          "id": "g144",
+          "hop_type": "three_hop",
+          "citations": [
+            "中华人民共和国劳动法第一百条",
+            "中华人民共和国劳动法第七十三条",
+            "中华人民共和国劳动法第七十二条"
+          ],
+          "citations_ordered": [
+            "中华人民共和国劳动法第一百条",
+            "中华人民共和国劳动法第七十三条",
+            "中华人民共和国劳动法第七十二条"
+          ],
+          "gold_citations": [
+            "中华人民共和国劳动合同法第三十八条",
+            "中华人民共和国劳动法第七十三条",
+            "中华人民共和国劳动法第七十二条"
+          ],
+          "grounded_before_repair": 1.0,
+          "grounded_after_repair": 1.0,
+          "out_of_scope_cites_raw": 0,
+          "out_of_scope_cites_post": 0
+        },
+        {
+          "must_cite_recall": 0.6667,
+          "precision_at_must": 0.6667,
+          "precision_at_must_set": 0.6667,
+          "over_citation_rate": 0.3333,
+          "cite_precision": 0.5,
+          "n_cites": 4,
+          "n_must_cite": 3,
+          "id": "g145",
+          "hop_type": "three_hop",
+          "citations": [
+            "中华人民共和国劳动合同法第四十一条",
+            "中华人民共和国劳动合同法第四十七条",
+            "中华人民共和国劳动合同法第四十三条",
+            "中华人民共和国劳动法第二十七条"
+          ],
+          "citations_ordered": [
+            "中华人民共和国劳动合同法第四十一条",
+            "中华人民共和国劳动合同法第四十七条",
+            "中华人民共和国劳动合同法第四十三条",
+            "中华人民共和国劳动法第二十七条"
+          ],
+          "gold_citations": [
+            "中华人民共和国劳动合同法第四十七条",
+            "中华人民共和国劳动合同法第四十三条",
+            "中华人民共和国劳动合同法第四十六条"
+          ],
+          "grounded_before_repair": 1.0,
+          "grounded_after_repair": 1.0,
+          "out_of_scope_cites_raw": 0,
+          "out_of_scope_cites_post": 0
+        },
+        {
+          "must_cite_recall": 0.6667,
+          "precision_at_must": 0.6667,
+          "precision_at_must_set": 0.6667,
+          "over_citation_rate": 0.3333,
+          "cite_precision": 0.5,
+          "n_cites": 4,
+          "n_must_cite": 3,
+          "id": "g146",
+          "hop_type": "three_hop",
+          "citations": [
+            "中华人民共和国劳动合同法第八十五条",
+            "中华人民共和国劳动合同法第四十一条",
+            "中华人民共和国劳动法第九十一条",
+            "中华人民共和国劳动法第二十七条"
+          ],
+          "citations_ordered": [
+            "中华人民共和国劳动合同法第八十五条",
+            "中华人民共和国劳动合同法第四十一条",
+            "中华人民共和国劳动法第九十一条",
+            "中华人民共和国劳动法第二十七条"
+          ],
+          "gold_citations": [
+            "中华人民共和国劳动合同法第八十五条",
+            "中华人民共和国劳动合同法第四十一条",
+            "中华人民共和国劳动合同法第四十七条"
+          ],
+          "grounded_before_repair": 1.0,
+          "grounded_after_repair": 1.0,
+          "out_of_scope_cites_raw": 0,
+          "out_of_scope_cites_post": 0
+        },
+        {
+          "must_cite_recall": 0.6667,
+          "precision_at_must": 0.6667,
+          "precision_at_must_set": 0.6667,
+          "over_citation_rate": 0.3333,
+          "cite_precision": 0.5,
+          "n_cites": 4,
+          "n_must_cite": 3,
+          "id": "g147",
+          "hop_type": "three_hop",
+          "citations": [
+            "中华人民共和国劳动合同法第八十七条",
+            "中华人民共和国劳动合同法第四十三条",
+            "中华人民共和国劳动法第三十条",
+            "中华人民共和国劳动法第二十五条"
+          ],
+          "citations_ordered": [
+            "中华人民共和国劳动合同法第八十七条",
+            "中华人民共和国劳动合同法第四十三条",
+            "中华人民共和国劳动法第三十条",
+            "中华人民共和国劳动法第二十五条"
+          ],
+          "gold_citations": [
+            "中华人民共和国劳动合同法第三十九条",
+            "中华人民共和国劳动合同法第八十七条",
+            "中华人民共和国劳动合同法第四十三条"
+          ],
+          "grounded_before_repair": 1.0,
+          "grounded_after_repair": 1.0,
+          "out_of_scope_cites_raw": 0,
+          "out_of_scope_cites_post": 0
+        },
+        {
+          "must_cite_recall": 1.0,
+          "precision_at_must": 0.5,
+          "precision_at_must_set": 1.0,
+          "over_citation_rate": 1.0,
+          "cite_precision": 0.5,
+          "n_cites": 4,
+          "n_must_cite": 2,
+          "id": "g148",
+          "hop_type": "three_hop",
+          "citations": [
+            "中华人民共和国劳动合同法第八十七条",
+            "中华人民共和国劳动合同法第八十五条",
+            "中华人民共和国劳动合同法第四十七条",
+            "中华人民共和国劳动合同法第四十八条"
+          ],
+          "citations_ordered": [
+            "中华人民共和国劳动合同法第八十七条",
+            "中华人民共和国劳动合同法第八十五条",
+            "中华人民共和国劳动合同法第四十七条",
+            "中华人民共和国劳动合同法第四十八条"
+          ],
+          "gold_citations": [
+            "中华人民共和国劳动合同法第八十七条",
+            "中华人民共和国劳动合同法第四十七条"
+          ],
+          "grounded_before_repair": 1.0,
+          "grounded_after_repair": 1.0,
+          "out_of_scope_cites_raw": 0,
+          "out_of_scope_cites_post": 0
+        },
+        {
+          "must_cite_recall": 0.6667,
+          "precision_at_must": 0.3333,
+          "precision_at_must_set": 0.6667,
+          "over_citation_rate": 3.0,
+          "cite_precision": 0.1667,
+          "n_cites": 12,
+          "n_must_cite": 3,
+          "id": "g150",
+          "hop_type": "three_hop",
+          "citations": [
+            "中华人民共和国劳动合同法第二十七条",
+            "中华人民共和国劳动合同法第六条",
+            "中华人民共和国劳动合同法第四十一条",
+            "中华人民共和国劳动合同法第四十七条",
+            "中华人民共和国劳动法第二十七条",
+            "中华人民共和国劳动法第六条",
+            "中华人民共和国劳动法第四十一条",
+            "中华人民共和国劳动法第四十七条",
+            "中华人民共和国民法典第二十七条",
+            "中华人民共和国民法典第六条",
+            "中华人民共和国民法典第四十一条",
+            "中华人民共和国民法典第四十七条"
+          ],
+          "citations_ordered": [
+            "中华人民共和国劳动合同法第二十七条",
+            "中华人民共和国劳动合同法第六条",
+            "中华人民共和国劳动合同法第四十一条",
+            "中华人民共和国劳动合同法第四十七条",
+            "中华人民共和国劳动法第二十七条",
+            "中华人民共和国劳动法第六条",
+            "中华人民共和国劳动法第四十一条",
+            "中华人民共和国劳动法第四十七条",
+            "中华人民共和国民法典第二十七条",
+            "中华人民共和国民法典第六条",
+            "中华人民共和国民法典第四十一条",
+            "中华人民共和国民法典第四十七条"
+          ],
+          "gold_citations": [
+            "中华人民共和国劳动合同法第六条",
+            "中华人民共和国劳动合同法第四十七条",
+            "中华人民共和国劳动合同法第四十六条"
+          ],
+          "grounded_before_repair": 0.0,
+          "grounded_after_repair": 0.0,
+          "out_of_scope_cites_raw": 8,
+          "out_of_scope_cites_post": 8
+        },
+        {
+          "must_cite_recall": 0.6667,
+          "precision_at_must": 0.6667,
+          "precision_at_must_set": 0.6667,
+          "over_citation_rate": 0.3333,
+          "cite_precision": 0.5,
+          "n_cites": 4,
+          "n_must_cite": 3,
+          "id": "g155",
+          "hop_type": "three_hop",
+          "citations": [
+            "中华人民共和国劳动合同法第四十五条",
+            "中华人民共和国劳动法第一百条",
+            "中华人民共和国劳动法第七十三条",
+            "中华人民共和国劳动法第七十五条"
+          ],
+          "citations_ordered": [
+            "中华人民共和国劳动合同法第四十五条",
+            "中华人民共和国劳动法第一百条",
+            "中华人民共和国劳动法第七十三条",
+            "中华人民共和国劳动法第七十五条"
+          ],
+          "gold_citations": [
+            "中华人民共和国劳动合同法第四十五条",
+            "中华人民共和国劳动法第七十三条",
+            "中华人民共和国劳动法第七十二条"
+          ],
+          "grounded_before_repair": 1.0,
+          "grounded_after_repair": 1.0,
+          "out_of_scope_cites_raw": 0,
+          "out_of_scope_cites_post": 0
+        },
+        {
+          "must_cite_recall": 0.6667,
+          "precision_at_must": 0.6667,
+          "precision_at_must_set": 0.6667,
+          "over_citation_rate": 0.0,
+          "cite_precision": 0.6667,
+          "n_cites": 3,
+          "n_must_cite": 3,
+          "id": "g161",
+          "hop_type": "three_hop",
+          "citations": [
+            "中华人民共和国劳动合同法第三十八条",
+            "中华人民共和国劳动法第九十一条",
+            "中华人民共和国劳动法第五十条"
+          ],
+          "citations_ordered": [
+            "中华人民共和国劳动合同法第三十八条",
+            "中华人民共和国劳动法第九十一条",
+            "中华人民共和国劳动法第五十条"
+          ],
+          "gold_citations": [
+            "中华人民共和国劳动合同法第三十八条",
+            "中华人民共和国劳动合同法第三十条",
+            "中华人民共和国劳动法第五十条"
+          ],
+          "grounded_before_repair": 1.0,
+          "grounded_after_repair": 1.0,
+          "out_of_scope_cites_raw": 0,
+          "out_of_scope_cites_post": 0
+        },
+        {
+          "must_cite_recall": 1.0,
+          "precision_at_must": 0.0,
+          "precision_at_must_set": 1.0,
+          "over_citation_rate": 3.0,
+          "cite_precision": 0.25,
+          "n_cites": 4,
+          "n_must_cite": 1,
+          "id": "g166",
+          "hop_type": "three_hop",
+          "citations": [
+            "中华人民共和国劳动合同法第九十条",
+            "中华人民共和国劳动合同法第二十三条",
+            "中华人民共和国劳动合同法第二十四条",
+            "中华人民共和国民法典第五百零一条"
+          ],
+          "citations_ordered": [
+            "中华人民共和国劳动合同法第九十条",
+            "中华人民共和国劳动合同法第二十三条",
+            "中华人民共和国劳动合同法第二十四条",
+            "中华人民共和国民法典第五百零一条"
+          ],
+          "gold_citations": [
+            "中华人民共和国劳动合同法第二十三条"
+          ],
+          "grounded_before_repair": 1.0,
+          "grounded_after_repair": 1.0,
+          "out_of_scope_cites_raw": 0,
+          "out_of_scope_cites_post": 0
+        },
+        {
+          "must_cite_recall": 1.0,
+          "precision_at_must": 0.0,
+          "precision_at_must_set": 1.0,
+          "over_citation_rate": 3.0,
+          "cite_precision": 0.25,
+          "n_cites": 4,
+          "n_must_cite": 1,
+          "id": "g169",
+          "hop_type": "three_hop",
+          "citations": [
+            "中华人民共和国劳动法第七十七条",
+            "中华人民共和国劳动法第七十九条",
+            "中华人民共和国劳动法第八十三条",
+            "中华人民共和国劳动法第八十二条"
+          ],
+          "citations_ordered": [
+            "中华人民共和国劳动法第七十七条",
+            "中华人民共和国劳动法第七十九条",
+            "中华人民共和国劳动法第八十三条",
+            "中华人民共和国劳动法第八十二条"
+          ],
+          "gold_citations": [
+            "中华人民共和国劳动法第七十九条"
+          ],
+          "grounded_before_repair": 1.0,
+          "grounded_after_repair": 1.0,
+          "out_of_scope_cites_raw": 0,
+          "out_of_scope_cites_post": 0
+        },
+        {
+          "must_cite_recall": 0.6667,
+          "precision_at_must": 0.3333,
+          "precision_at_must_set": 0.6667,
+          "over_citation_rate": 0.3333,
+          "cite_precision": 0.5,
+          "n_cites": 4,
+          "n_must_cite": 3,
+          "id": "g172",
+          "hop_type": "three_hop",
+          "citations": [
+            "中华人民共和国民法典第一百六十七条",
+            "中华人民共和国民法典第三百八十七条",
+            "中华人民共和国民法典第三百八十八条",
+            "中华人民共和国民法典第六百八十九条"
+          ],
+          "citations_ordered": [
+            "中华人民共和国民法典第一百六十七条",
+            "中华人民共和国民法典第三百八十七条",
+            "中华人民共和国民法典第三百八十八条",
+            "中华人民共和国民法典第六百八十九条"
+          ],
+          "gold_citations": [
+            "中华人民共和国民法典第一百六十七条",
+            "中华人民共和国民法典第六百八十九条",
+            "中华人民共和国民法典第六百八十二条"
+          ],
+          "grounded_before_repair": 1.0,
+          "grounded_after_repair": 1.0,
+          "out_of_scope_cites_raw": 0,
+          "out_of_scope_cites_post": 0
+        },
+        {
+          "must_cite_recall": 0.6667,
+          "precision_at_must": 0.6667,
+          "precision_at_must_set": 0.6667,
+          "over_citation_rate": 0.0,
+          "cite_precision": 0.6667,
+          "n_cites": 3,
+          "n_must_cite": 3,
+          "id": "g174",
+          "hop_type": "three_hop",
+          "citations": [
+            "中华人民共和国劳动合同法第三十条",
+            "中华人民共和国劳动法第五十条",
+            "中华人民共和国劳动法第十六条"
+          ],
+          "citations_ordered": [
+            "中华人民共和国劳动合同法第三十条",
+            "中华人民共和国劳动法第五十条",
+            "中华人民共和国劳动法第十六条"
+          ],
+          "gold_citations": [
+            "中华人民共和国劳动合同法第七条",
+            "中华人民共和国劳动合同法第三十条",
+            "中华人民共和国劳动法第五十条"
+          ],
+          "grounded_before_repair": 1.0,
+          "grounded_after_repair": 1.0,
+          "out_of_scope_cites_raw": 0,
+          "out_of_scope_cites_post": 0
+        },
+        {
+          "must_cite_recall": 0.3333,
+          "precision_at_must": 0.3333,
+          "precision_at_must_set": 0.3333,
+          "over_citation_rate": 0.3333,
+          "cite_precision": 0.25,
+          "n_cites": 4,
+          "n_must_cite": 3,
+          "id": "g177",
+          "hop_type": "cross_law",
+          "citations": [
+            "中华人民共和国劳动合同法第八十三条",
+            "中华人民共和国劳动合同法第十九条",
+            "中华人民共和国劳动法第二十一条",
+            "中华人民共和国民法典第四百九十条"
+          ],
+          "citations_ordered": [
+            "中华人民共和国劳动合同法第八十三条",
+            "中华人民共和国劳动合同法第十九条",
+            "中华人民共和国劳动法第二十一条",
+            "中华人民共和国民法典第四百九十条"
+          ],
+          "gold_citations": [
+            "中华人民共和国劳动合同法第十三条",
+            "中华人民共和国劳动合同法第十九条",
+            "中华人民共和国民法典第四百八十三条"
+          ],
+          "grounded_before_repair": 1.0,
+          "grounded_after_repair": 1.0,
+          "out_of_scope_cites_raw": 0,
+          "out_of_scope_cites_post": 0
+        },
+        {
+          "must_cite_recall": 0.3333,
+          "precision_at_must": 0.5,
+          "precision_at_must_set": 0.5,
+          "over_citation_rate": 0.0,
+          "cite_precision": 0.5,
+          "n_cites": 2,
+          "n_must_cite": 3,
+          "id": "g179",
+          "hop_type": "cross_law",
+          "citations": [
+            "中华人民共和国劳动合同法第六十九条",
+            "中华人民共和国劳动合同法第六十八条"
+          ],
+          "citations_ordered": [
+            "中华人民共和国劳动合同法第六十九条",
+            "中华人民共和国劳动合同法第六十八条"
+          ],
+          "gold_citations": [
+            "中华人民共和国劳动合同法第六十九条",
+            "中华人民共和国劳动合同法第十五条",
+            "中华人民共和国民法典第四百八十三条"
+          ],
+          "grounded_before_repair": 1.0,
+          "grounded_after_repair": 1.0,
+          "out_of_scope_cites_raw": 0,
+          "out_of_scope_cites_post": 0
+        },
+        {
+          "must_cite_recall": 0.3333,
+          "precision_at_must": 0.3333,
+          "precision_at_must_set": 0.3333,
+          "over_citation_rate": 0.0,
+          "cite_precision": 0.3333,
+          "n_cites": 3,
+          "n_must_cite": 3,
+          "id": "g181",
+          "hop_type": "cross_law",
+          "citations": [
+            "中华人民共和国劳动合同法第二十三条",
+            "中华人民共和国民法典第五百八十五条",
+            "中华人民共和国民法典第五百八十四条"
+          ],
+          "citations_ordered": [
+            "中华人民共和国劳动合同法第二十三条",
+            "中华人民共和国民法典第五百八十五条",
+            "中华人民共和国民法典第五百八十四条"
+          ],
+          "gold_citations": [
+            "中华人民共和国劳动合同法第十五条",
+            "中华人民共和国民法典第五百八十五条",
+            "中华人民共和国民法典第四百八十三条"
+          ],
+          "grounded_before_repair": 1.0,
+          "grounded_after_repair": 1.0,
+          "out_of_scope_cites_raw": 0,
+          "out_of_scope_cites_post": 0
+        },
+        {
+          "must_cite_recall": 0.0,
+          "precision_at_must": 0.0,
+          "precision_at_must_set": 0.0,
+          "over_citation_rate": 0.0,
+          "cite_precision": 0.0,
+          "n_cites": 2,
+          "n_must_cite": 3,
+          "id": "g183",
+          "hop_type": "cross_law",
+          "citations": [
+            "中华人民共和国劳动合同法第十六条",
+            "中华人民共和国民法典第四百八十四条"
+          ],
+          "citations_ordered": [
+            "中华人民共和国劳动合同法第十六条",
+            "中华人民共和国民法典第四百八十四条"
+          ],
+          "gold_citations": [
+            "中华人民共和国劳动合同法第十五条",
+            "中华人民共和国民法典第四百八十三条",
+            "中华人民共和国民法典第四百八十八条"
+          ],
+          "grounded_before_repair": 1.0,
+          "grounded_after_repair": 1.0,
+          "out_of_scope_cites_raw": 0,
+          "out_of_scope_cites_post": 0
+        },
+        {
+          "must_cite_recall": 0.3333,
+          "precision_at_must": 0.3333,
+          "precision_at_must_set": 0.3333,
+          "over_citation_rate": 0.3333,
+          "cite_precision": 0.25,
+          "n_cites": 4,
+          "n_must_cite": 3,
+          "id": "g185",
+          "hop_type": "cross_law",
+          "citations": [
+            "中华人民共和国劳动合同法第十三条",
+            "中华人民共和国劳动合同法第四十八条",
+            "中华人民共和国劳动法第十七条",
+            "中华人民共和国民法典第五百四十三条"
+          ],
+          "citations_ordered": [
+            "中华人民共和国劳动合同法第十三条",
+            "中华人民共和国劳动合同法第四十八条",
+            "中华人民共和国劳动法第十七条",
+            "中华人民共和国民法典第五百四十三条"
+          ],
+          "gold_citations": [
+            "中华人民共和国劳动合同法第十三条",
+            "中华人民共和国民法典第五百二十五条",
+            "中华人民共和国民法典第四百八十三条"
+          ],
+          "grounded_before_repair": 1.0,
+          "grounded_after_repair": 1.0,
+          "out_of_scope_cites_raw": 0,
+          "out_of_scope_cites_post": 0
+        },
+        {
+          "must_cite_recall": 0.3333,
+          "precision_at_must": 0.3333,
+          "precision_at_must_set": 0.3333,
+          "over_citation_rate": 0.3333,
+          "cite_precision": 0.25,
+          "n_cites": 4,
+          "n_must_cite": 3,
+          "id": "g188",
+          "hop_type": "cross_law",
+          "citations": [
+            "中华人民共和国劳动合同法第三十七条",
+            "中华人民共和国劳动合同法第四十条",
+            "中华人民共和国劳动法第三十一条",
+            "中华人民共和国劳动法第二十六条"
+          ],
+          "citations_ordered": [
+            "中华人民共和国劳动合同法第三十七条",
+            "中华人民共和国劳动合同法第四十条",
+            "中华人民共和国劳动法第三十一条",
+            "中华人民共和国劳动法第二十六条"
+          ],
+          "gold_citations": [
+            "中华人民共和国劳动合同法第七条",
+            "中华人民共和国劳动合同法第三十七条",
+            "中华人民共和国民法典第一百六十三条"
+          ],
+          "grounded_before_repair": 1.0,
+          "grounded_after_repair": 1.0,
+          "out_of_scope_cites_raw": 0,
+          "out_of_scope_cites_post": 0
+        },
+        {
+          "must_cite_recall": 1.0,
+          "precision_at_must": 0.5,
+          "precision_at_must_set": 1.0,
+          "over_citation_rate": 1.0,
+          "cite_precision": 0.5,
+          "n_cites": 4,
+          "n_must_cite": 2,
+          "id": "g194",
+          "hop_type": "cross_law",
+          "citations": [
+            "中华人民共和国劳动合同法第二十二条",
+            "中华人民共和国劳动合同法第二十五条",
+            "中华人民共和国民法典第五百八十五条",
+            "中华人民共和国民法典第五百八十八条"
+          ],
+          "citations_ordered": [
+            "中华人民共和国劳动合同法第二十二条",
+            "中华人民共和国劳动合同法第二十五条",
+            "中华人民共和国民法典第五百八十五条",
+            "中华人民共和国民法典第五百八十八条"
+          ],
+          "gold_citations": [
+            "中华人民共和国劳动合同法第二十二条",
+            "中华人民共和国民法典第五百八十八条"
+          ],
+          "grounded_before_repair": 1.0,
+          "grounded_after_repair": 1.0,
+          "out_of_scope_cites_raw": 0,
+          "out_of_scope_cites_post": 0
+        },
+        {
+          "must_cite_recall": 0.5,
+          "precision_at_must": 0.0,
+          "precision_at_must_set": 0.5,
+          "over_citation_rate": 0.5,
+          "cite_precision": 0.3333,
+          "n_cites": 3,
+          "n_must_cite": 2,
+          "id": "g196",
+          "hop_type": "cross_law",
+          "citations": [
+            "中华人民共和国劳动合同法第二十五条",
+            "中华人民共和国民法典第五百九十二条",
+            "中华人民共和国民法典第五百八十五条"
+          ],
+          "citations_ordered": [
+            "中华人民共和国劳动合同法第二十五条",
+            "中华人民共和国民法典第五百九十二条",
+            "中华人民共和国民法典第五百八十五条"
+          ],
+          "gold_citations": [
+            "中华人民共和国劳动合同法第四十六条",
+            "中华人民共和国民法典第五百八十五条"
+          ],
+          "grounded_before_repair": 1.0,
+          "grounded_after_repair": 1.0,
+          "out_of_scope_cites_raw": 0,
+          "out_of_scope_cites_post": 0
+        },
+        {
+          "must_cite_recall": 0.3333,
+          "precision_at_must": 0.5,
+          "precision_at_must_set": 0.5,
+          "over_citation_rate": 0.0,
+          "cite_precision": 0.5,
+          "n_cites": 2,
+          "n_must_cite": 3,
+          "id": "g198",
+          "hop_type": "cross_law",
+          "citations": [
+            "中华人民共和国民法典第一千一百八十六条",
+            "中华人民共和国民法典第一千一百六十六条"
+          ],
+          "citations_ordered": [
+            "中华人民共和国民法典第一千一百八十六条",
+            "中华人民共和国民法典第一千一百六十六条"
+          ],
+          "gold_citations": [
+            "中华人民共和国劳动法第七十三条",
+            "中华人民共和国民法典第一千一百六十六条",
+            "中华人民共和国民法典第一百五十七条"
+          ],
+          "grounded_before_repair": 1.0,
+          "grounded_after_repair": 1.0,
+          "out_of_scope_cites_raw": 0,
+          "out_of_scope_cites_post": 0
+        },
+        {
+          "must_cite_recall": 0.6667,
+          "precision_at_must": 0.3333,
+          "precision_at_must_set": 0.6667,
+          "over_citation_rate": 0.3333,
+          "cite_precision": 0.5,
+          "n_cites": 4,
+          "n_must_cite": 3,
+          "id": "g200",
+          "hop_type": "cross_law",
+          "citations": [
+            "中华人民共和国民法典第一千一百八十六条",
+            "中华人民共和国民法典第一千一百六十五条",
+            "中华人民共和国民法典第一千二百三十三条",
+            "中华人民共和国民法典第一千二百二十九条"
+          ],
+          "citations_ordered": [
+            "中华人民共和国民法典第一千一百八十六条",
+            "中华人民共和国民法典第一千一百六十五条",
+            "中华人民共和国民法典第一千二百三十三条",
+            "中华人民共和国民法典第一千二百二十九条"
+          ],
+          "gold_citations": [
+            "中华人民共和国劳动法第五十八条",
+            "中华人民共和国民法典第一千一百八十六条",
+            "中华人民共和国民法典第一千二百二十九条"
+          ],
+          "grounded_before_repair": 1.0,
+          "grounded_after_repair": 1.0,
+          "out_of_scope_cites_raw": 0,
+          "out_of_scope_cites_post": 0
+        }
+      ]
+    },
+    "B": {
+      "summary": {
+        "n": 60,
+        "order_available": true,
+        "must_cite_recall": 0.75,
+        "must_cite_recall_ci95": [
+          0.675,
+          0.8222
+        ],
+        "precision_at_must": 0.4778,
+        "precision_at_must_ci95": [
+          0.3861,
+          0.5694
+        ],
+        "precision_at_must_set": 0.7583,
+        "precision_at_must_set_ci95": [
+          0.6833,
+          0.8306
+        ],
+        "over_citation_rate": 1.7611,
+        "over_citation_rate_ci95": [
+          1.1667,
+          2.4056
+        ],
+        "cite_precision": 0.3941,
+        "cite_precision_ci95": [
+          0.3362,
+          0.4593
+        ],
+        "n_cites_mean": 4.9833,
+        "n_must_cite_mean": 2.1667,
+        "grounded_split_available": true,
+        "grounded_before_repair_mean": 0.7333,
+        "grounded_after_repair_mean": 0.7333,
+        "out_of_scope_cites_raw_mean": 1.6833,
+        "out_of_scope_cites_post_mean": 1.6833,
+        "by_hop": {
+          "two_hop": {
+            "must_cite_recall": 0.8333,
+            "precision_at_must": 0.45,
+            "precision_at_must_set": 0.8333,
+            "over_citation_rate": 2.4667,
+            "cite_precision": 0.3521
+          },
+          "three_hop": {
+            "must_cite_recall": 0.775,
+            "precision_at_must": 0.5833,
+            "precision_at_must_set": 0.7917,
+            "over_citation_rate": 1.425,
+            "cite_precision": 0.475
+          },
+          "cross_law": {
+            "must_cite_recall": 0.45,
+            "precision_at_must": 0.35,
+            "precision_at_must_set": 0.4667,
+            "over_citation_rate": 0.3166,
+            "cite_precision": 0.3583
+          }
+        }
+      },
+      "rows": [
+        {
+          "must_cite_recall": 0.5,
+          "precision_at_must": 0.5,
+          "precision_at_must_set": 0.5,
+          "over_citation_rate": 0.5,
+          "cite_precision": 0.3333,
+          "n_cites": 3,
+          "n_must_cite": 2,
+          "id": "g69",
+          "hop_type": "two_hop",
+          "citations": [
+            "中华人民共和国劳动合同法第八十三条",
+            "中华人民共和国劳动合同法第十九条",
+            "中华人民共和国劳动法第二十一条"
+          ],
+          "citations_ordered": [
+            "中华人民共和国劳动合同法第八十三条",
+            "中华人民共和国劳动合同法第十九条",
+            "中华人民共和国劳动法第二十一条"
+          ],
+          "gold_citations": [
+            "中华人民共和国劳动合同法第十九条",
+            "中华人民共和国劳动合同法第十五条"
+          ],
+          "grounded_before_repair": 1.0,
+          "grounded_after_repair": 1.0,
+          "out_of_scope_cites_raw": 0,
+          "out_of_scope_cites_post": 0
+        },
+        {
+          "must_cite_recall": 0.5,
+          "precision_at_must": 0.5,
+          "precision_at_must_set": 0.5,
+          "over_citation_rate": 0.0,
+          "cite_precision": 0.5,
+          "n_cites": 2,
+          "n_must_cite": 2,
+          "id": "g72",
+          "hop_type": "two_hop",
+          "citations": [
+            "中华人民共和国劳动合同法第八十七条",
+            "中华人民共和国劳动合同法第四十八条"
+          ],
+          "citations_ordered": [
+            "中华人民共和国劳动合同法第八十七条",
+            "中华人民共和国劳动合同法第四十八条"
+          ],
+          "gold_citations": [
+            "中华人民共和国劳动合同法第八十七条",
+            "中华人民共和国劳动合同法第四十四条"
+          ],
+          "grounded_before_repair": 1.0,
+          "grounded_after_repair": 1.0,
+          "out_of_scope_cites_raw": 0,
+          "out_of_scope_cites_post": 0
+        },
+        {
+          "must_cite_recall": 1.0,
+          "precision_at_must": 1.0,
+          "precision_at_must_set": 1.0,
+          "over_citation_rate": 1.0,
+          "cite_precision": 0.5,
+          "n_cites": 2,
+          "n_must_cite": 1,
+          "id": "g74",
+          "hop_type": "two_hop",
+          "citations": [
+            "中华人民共和国劳动合同法第十四条",
+            "中华人民共和国劳动法第二十条"
+          ],
+          "citations_ordered": [
+            "中华人民共和国劳动合同法第十四条",
+            "中华人民共和国劳动法第二十条"
+          ],
+          "gold_citations": [
+            "中华人民共和国劳动合同法第十四条"
+          ],
+          "grounded_before_repair": 1.0,
+          "grounded_after_repair": 1.0,
+          "out_of_scope_cites_raw": 0,
+          "out_of_scope_cites_post": 0
+        },
+        {
+          "must_cite_recall": 1.0,
+          "precision_at_must": 1.0,
+          "precision_at_must_set": 1.0,
+          "over_citation_rate": 4.5,
+          "cite_precision": 0.1818,
+          "n_cites": 11,
+          "n_must_cite": 2,
+          "id": "g75",
+          "hop_type": "two_hop",
+          "citations": [
+            "中华人民共和国劳动合同法第九十条",
+            "中华人民共和国劳动合同法第二十三条",
+            "中华人民共和国劳动合同法第二十四条",
+            "中华人民共和国劳动法第一百零二条",
+            "中华人民共和国劳动法第九十条",
+            "中华人民共和国劳动法第二十三条",
+            "中华人民共和国劳动法第二十四条",
+            "中华人民共和国民法典第一百零二条",
+            "中华人民共和国民法典第九十条",
+            "中华人民共和国民法典第二十三条",
+            "中华人民共和国民法典第二十四条"
+          ],
+          "citations_ordered": [
+            "中华人民共和国劳动合同法第九十条",
+            "中华人民共和国劳动合同法第二十三条",
+            "中华人民共和国劳动合同法第二十四条",
+            "中华人民共和国劳动法第一百零二条",
+            "中华人民共和国劳动法第九十条",
+            "中华人民共和国劳动法第二十三条",
+            "中华人民共和国劳动法第二十四条",
+            "中华人民共和国民法典第一百零二条",
+            "中华人民共和国民法典第九十条",
+            "中华人民共和国民法典第二十三条",
+            "中华人民共和国民法典第二十四条"
+          ],
+          "gold_citations": [
+            "中华人民共和国劳动合同法第九十条",
+            "中华人民共和国劳动合同法第二十三条"
+          ],
+          "grounded_before_repair": 0.0,
+          "grounded_after_repair": 0.0,
+          "out_of_scope_cites_raw": 7,
+          "out_of_scope_cites_post": 7
+        },
+        {
+          "must_cite_recall": 1.0,
+          "precision_at_must": 1.0,
+          "precision_at_must_set": 1.0,
+          "over_citation_rate": 3.0,
+          "cite_precision": 0.25,
+          "n_cites": 4,
+          "n_must_cite": 1,
+          "id": "g81",
+          "hop_type": "two_hop",
+          "citations": [
+            "中华人民共和国劳动合同法第三十七条",
+            "中华人民共和国劳动合同法第二十一条",
+            "中华人民共和国劳动合同法第四十条",
+            "中华人民共和国劳动法第三十一条"
+          ],
+          "citations_ordered": [
+            "中华人民共和国劳动合同法第三十七条",
+            "中华人民共和国劳动合同法第二十一条",
+            "中华人民共和国劳动合同法第四十条",
+            "中华人民共和国劳动法第三十一条"
+          ],
+          "gold_citations": [
+            "中华人民共和国劳动合同法第三十七条"
+          ],
+          "grounded_before_repair": 1.0,
+          "grounded_after_repair": 1.0,
+          "out_of_scope_cites_raw": 0,
+          "out_of_scope_cites_post": 0
+        },
+        {
+          "must_cite_recall": 0.5,
+          "precision_at_must": 0.5,
+          "precision_at_must_set": 0.5,
+          "over_citation_rate": 1.0,
+          "cite_precision": 0.25,
+          "n_cites": 4,
+          "n_must_cite": 2,
+          "id": "g83",
+          "hop_type": "two_hop",
+          "citations": [
+            "中华人民共和国劳动合同法第三十七条",
+            "中华人民共和国劳动合同法第四十条",
+            "中华人民共和国劳动法第三十一条",
+            "中华人民共和国劳动法第二十六条"
+          ],
+          "citations_ordered": [
+            "中华人民共和国劳动合同法第三十七条",
+            "中华人民共和国劳动合同法第四十条",
+            "中华人民共和国劳动法第三十一条",
+            "中华人民共和国劳动法第二十六条"
+          ],
+          "gold_citations": [
+            "中华人民共和国劳动合同法第三十七条",
+            "中华人民共和国劳动合同法第四十六条"
+          ],
+          "grounded_before_repair": 1.0,
+          "grounded_after_repair": 1.0,
+          "out_of_scope_cites_raw": 0,
+          "out_of_scope_cites_post": 0
+        },
+        {
+          "must_cite_recall": 0.5,
+          "precision_at_must": 0.0,
+          "precision_at_must_set": 0.5,
+          "over_citation_rate": 1.0,
+          "cite_precision": 0.25,
+          "n_cites": 4,
+          "n_must_cite": 2,
+          "id": "g84",
+          "hop_type": "two_hop",
+          "citations": [
+            "中华人民共和国劳动合同法第三十条",
+            "中华人民共和国劳动合同法第四十七条",
+            "中华人民共和国劳动法第九十一条",
+            "中华人民共和国劳动法第五十条"
+          ],
+          "citations_ordered": [
+            "中华人民共和国劳动合同法第三十条",
+            "中华人民共和国劳动合同法第四十七条",
+            "中华人民共和国劳动法第九十一条",
+            "中华人民共和国劳动法第五十条"
+          ],
+          "gold_citations": [
+            "中华人民共和国劳动合同法第三十八条",
+            "中华人民共和国劳动法第五十条"
+          ],
+          "grounded_before_repair": 1.0,
+          "grounded_after_repair": 1.0,
+          "out_of_scope_cites_raw": 0,
+          "out_of_scope_cites_post": 0
+        },
+        {
+          "must_cite_recall": 1.0,
+          "precision_at_must": 0.5,
+          "precision_at_must_set": 1.0,
+          "over_citation_rate": 0.5,
+          "cite_precision": 0.6667,
+          "n_cites": 3,
+          "n_must_cite": 2,
+          "id": "g86",
+          "hop_type": "two_hop",
+          "citations": [
+            "中华人民共和国劳动合同法第五十条",
+            "中华人民共和国劳动法第一百条",
+            "中华人民共和国劳动法第七十二条"
+          ],
+          "citations_ordered": [
+            "中华人民共和国劳动合同法第五十条",
+            "中华人民共和国劳动法第一百条",
+            "中华人民共和国劳动法第七十二条"
+          ],
+          "gold_citations": [
+            "中华人民共和国劳动合同法第五十条",
+            "中华人民共和国劳动法第七十二条"
+          ],
+          "grounded_before_repair": 1.0,
+          "grounded_after_repair": 1.0,
+          "out_of_scope_cites_raw": 0,
+          "out_of_scope_cites_post": 0
+        },
+        {
+          "must_cite_recall": 1.0,
+          "precision_at_must": 0.5,
+          "precision_at_must_set": 1.0,
+          "over_citation_rate": 3.5,
+          "cite_precision": 0.2222,
+          "n_cites": 9,
+          "n_must_cite": 2,
+          "id": "g89",
+          "hop_type": "two_hop",
+          "citations": [
+            "中华人民共和国劳动合同法第二十七条",
+            "中华人民共和国劳动合同法第四十一条",
+            "中华人民共和国劳动合同法第四十三条",
+            "中华人民共和国劳动法第二十七条",
+            "中华人民共和国劳动法第四十一条",
+            "中华人民共和国劳动法第四十三条",
+            "中华人民共和国民法典第二十七条",
+            "中华人民共和国民法典第四十一条",
+            "中华人民共和国民法典第四十三条"
+          ],
+          "citations_ordered": [
+            "中华人民共和国劳动合同法第二十七条",
+            "中华人民共和国劳动合同法第四十一条",
+            "中华人民共和国劳动合同法第四十三条",
+            "中华人民共和国劳动法第二十七条",
+            "中华人民共和国劳动法第四十一条",
+            "中华人民共和国劳动法第四十三条",
+            "中华人民共和国民法典第二十七条",
+            "中华人民共和国民法典第四十一条",
+            "中华人民共和国民法典第四十三条"
+          ],
+          "gold_citations": [
+            "中华人民共和国劳动合同法第四十一条",
+            "中华人民共和国劳动合同法第四十三条"
+          ],
+          "grounded_before_repair": 0.0,
+          "grounded_after_repair": 0.0,
+          "out_of_scope_cites_raw": 6,
+          "out_of_scope_cites_post": 6
+        },
+        {
+          "must_cite_recall": 1.0,
+          "precision_at_must": 0.5,
+          "precision_at_must_set": 1.0,
+          "over_citation_rate": 1.0,
+          "cite_precision": 0.5,
+          "n_cites": 4,
+          "n_must_cite": 2,
+          "id": "g92",
+          "hop_type": "two_hop",
+          "citations": [
+            "中华人民共和国劳动合同法第三十条",
+            "中华人民共和国劳动合同法第八十二条",
+            "中华人民共和国劳动合同法第十一条",
+            "中华人民共和国劳动法第五十条"
+          ],
+          "citations_ordered": [
+            "中华人民共和国劳动合同法第三十条",
+            "中华人民共和国劳动合同法第八十二条",
+            "中华人民共和国劳动合同法第十一条",
+            "中华人民共和国劳动法第五十条"
+          ],
+          "gold_citations": [
+            "中华人民共和国劳动合同法第八十二条",
+            "中华人民共和国劳动法第五十条"
+          ],
+          "grounded_before_repair": 1.0,
+          "grounded_after_repair": 1.0,
+          "out_of_scope_cites_raw": 0,
+          "out_of_scope_cites_post": 0
+        },
+        {
+          "must_cite_recall": 0.0,
+          "precision_at_must": 0.0,
+          "precision_at_must_set": 0.0,
+          "over_citation_rate": 2.5,
+          "cite_precision": 0.0,
+          "n_cites": 7,
+          "n_must_cite": 2,
+          "id": "g95",
+          "hop_type": "two_hop",
+          "citations": [
+            "中华人民共和国劳动合同法第二十三条",
+            "中华人民共和国劳动合同法第二十二条",
+            "中华人民共和国劳动合同法第二十五条",
+            "中华人民共和国劳动法第二十三条",
+            "中华人民共和国劳动法第二十二条",
+            "中华人民共和国民法典第二十三条",
+            "中华人民共和国民法典第二十二条"
+          ],
+          "citations_ordered": [
+            "中华人民共和国劳动合同法第二十三条",
+            "中华人民共和国劳动合同法第二十二条",
+            "中华人民共和国劳动合同法第二十五条",
+            "中华人民共和国劳动法第二十三条",
+            "中华人民共和国劳动法第二十二条",
+            "中华人民共和国民法典第二十三条",
+            "中华人民共和国民法典第二十二条"
+          ],
+          "gold_citations": [
+            "中华人民共和国劳动合同法第十三条",
+            "中华人民共和国民法典第五百八十五条"
+          ],
+          "grounded_before_repair": 0.0,
+          "grounded_after_repair": 0.0,
+          "out_of_scope_cites_raw": 5,
+          "out_of_scope_cites_post": 5
+        },
+        {
+          "must_cite_recall": 0.5,
+          "precision_at_must": 0.0,
+          "precision_at_must_set": 0.5,
+          "over_citation_rate": 5.5,
+          "cite_precision": 0.0769,
+          "n_cites": 13,
+          "n_must_cite": 2,
+          "id": "g97",
+          "hop_type": "two_hop",
+          "citations": [
+            "中华人民共和国劳动合同法第二十三条",
+            "中华人民共和国劳动合同法第八十七条",
+            "中华人民共和国劳动合同法第四十二条",
+            "中华人民共和国劳动合同法第四十五条",
+            "中华人民共和国劳动合同法第四十四条",
+            "中华人民共和国劳动法第二十三条",
+            "中华人民共和国劳动法第八十七条",
+            "中华人民共和国劳动法第四十五条",
+            "中华人民共和国劳动法第四十四条",
+            "中华人民共和国民法典第二十三条",
+            "中华人民共和国民法典第八十七条",
+            "中华人民共和国民法典第四十五条",
+            "中华人民共和国民法典第四十四条"
+          ],
+          "citations_ordered": [
+            "中华人民共和国劳动合同法第二十三条",
+            "中华人民共和国劳动合同法第八十七条",
+            "中华人民共和国劳动合同法第四十二条",
+            "中华人民共和国劳动合同法第四十五条",
+            "中华人民共和国劳动合同法第四十四条",
+            "中华人民共和国劳动法第二十三条",
+            "中华人民共和国劳动法第八十七条",
+            "中华人民共和国劳动法第四十五条",
+            "中华人民共和国劳动法第四十四条",
+            "中华人民共和国民法典第二十三条",
+            "中华人民共和国民法典第八十七条",
+            "中华人民共和国民法典第四十五条",
+            "中华人民共和国民法典第四十四条"
+          ],
+          "gold_citations": [
+            "中华人民共和国劳动合同法第四十五条",
+            "中华人民共和国劳动法第七十三条"
+          ],
+          "grounded_before_repair": 0.0,
+          "grounded_after_repair": 0.0,
+          "out_of_scope_cites_raw": 9,
+          "out_of_scope_cites_post": 9
+        },
+        {
+          "must_cite_recall": 1.0,
+          "precision_at_must": 0.0,
+          "precision_at_must_set": 1.0,
+          "over_citation_rate": 3.5,
+          "cite_precision": 0.2222,
+          "n_cites": 9,
+          "n_must_cite": 2,
+          "id": "g98",
+          "hop_type": "two_hop",
+          "citations": [
+            "中华人民共和国劳动合同法第七十三条",
+            "中华人民共和国劳动合同法第七十二条",
+            "中华人民共和国劳动合同法第七十条",
+            "中华人民共和国劳动法第七十三条",
+            "中华人民共和国劳动法第七十二条",
+            "中华人民共和国劳动法第七十条",
+            "中华人民共和国民法典第七十三条",
+            "中华人民共和国民法典第七十二条",
+            "中华人民共和国民法典第七十条"
+          ],
+          "citations_ordered": [
+            "中华人民共和国劳动合同法第七十三条",
+            "中华人民共和国劳动合同法第七十二条",
+            "中华人民共和国劳动合同法第七十条",
+            "中华人民共和国劳动法第七十三条",
+            "中华人民共和国劳动法第七十二条",
+            "中华人民共和国劳动法第七十条",
+            "中华人民共和国民法典第七十三条",
+            "中华人民共和国民法典第七十二条",
+            "中华人民共和国民法典第七十条"
+          ],
+          "gold_citations": [
+            "中华人民共和国劳动法第七十三条",
+            "中华人民共和国劳动法第七十二条"
+          ],
+          "grounded_before_repair": 0.0,
+          "grounded_after_repair": 0.0,
+          "out_of_scope_cites_raw": 6,
+          "out_of_scope_cites_post": 6
+        },
+        {
+          "must_cite_recall": 1.0,
+          "precision_at_must": 0.0,
+          "precision_at_must_set": 1.0,
+          "over_citation_rate": 3.0,
+          "cite_precision": 0.25,
+          "n_cites": 8,
+          "n_must_cite": 2,
+          "id": "g99",
+          "hop_type": "two_hop",
+          "citations": [
+            "中华人民共和国劳动合同法第七十三条",
+            "中华人民共和国劳动合同法第七十二条",
+            "中华人民共和国劳动法第一百条",
+            "中华人民共和国劳动法第七十三条",
+            "中华人民共和国劳动法第七十二条",
+            "中华人民共和国民法典第一百条",
+            "中华人民共和国民法典第七十三条",
+            "中华人民共和国民法典第七十二条"
+          ],
+          "citations_ordered": [
+            "中华人民共和国劳动合同法第七十三条",
+            "中华人民共和国劳动合同法第七十二条",
+            "中华人民共和国劳动法第一百条",
+            "中华人民共和国劳动法第七十三条",
+            "中华人民共和国劳动法第七十二条",
+            "中华人民共和国民法典第一百条",
+            "中华人民共和国民法典第七十三条",
+            "中华人民共和国民法典第七十二条"
+          ],
+          "gold_citations": [
+            "中华人民共和国劳动法第七十三条",
+            "中华人民共和国劳动法第七十二条"
+          ],
+          "grounded_before_repair": 0.0,
+          "grounded_after_repair": 0.0,
+          "out_of_scope_cites_raw": 5,
+          "out_of_scope_cites_post": 5
+        },
+        {
+          "must_cite_recall": 1.0,
+          "precision_at_must": 0.0,
+          "precision_at_must_set": 1.0,
+          "over_citation_rate": 5.0,
+          "cite_precision": 0.1667,
+          "n_cites": 12,
+          "n_must_cite": 2,
+          "id": "g101",
+          "hop_type": "two_hop",
+          "citations": [
+            "中华人民共和国劳动合同法第七十三条",
+            "中华人民共和国劳动合同法第五十七条",
+            "中华人民共和国劳动合同法第五十二条",
+            "中华人民共和国劳动合同法第五十四条",
+            "中华人民共和国劳动法第七十三条",
+            "中华人民共和国劳动法第五十七条",
+            "中华人民共和国劳动法第五十二条",
+            "中华人民共和国劳动法第五十四条",
+            "中华人民共和国民法典第七十三条",
+            "中华人民共和国民法典第五十七条",
+            "中华人民共和国民法典第五十二条",
+            "中华人民共和国民法典第五十四条"
+          ],
+          "citations_ordered": [
+            "中华人民共和国劳动合同法第七十三条",
+            "中华人民共和国劳动合同法第五十七条",
+            "中华人民共和国劳动合同法第五十二条",
+            "中华人民共和国劳动合同法第五十四条",
+            "中华人民共和国劳动法第七十三条",
+            "中华人民共和国劳动法第五十七条",
+            "中华人民共和国劳动法第五十二条",
+            "中华人民共和国劳动法第五十四条",
+            "中华人民共和国民法典第七十三条",
+            "中华人民共和国民法典第五十七条",
+            "中华人民共和国民法典第五十二条",
+            "中华人民共和国民法典第五十四条"
+          ],
+          "gold_citations": [
+            "中华人民共和国劳动法第七十三条",
+            "中华人民共和国劳动法第五十七条"
+          ],
+          "grounded_before_repair": 0.0,
+          "grounded_after_repair": 0.0,
+          "out_of_scope_cites_raw": 8,
+          "out_of_scope_cites_post": 8
+        },
+        {
+          "must_cite_recall": 1.0,
+          "precision_at_must": 0.5,
+          "precision_at_must_set": 1.0,
+          "over_citation_rate": 1.0,
+          "cite_precision": 0.5,
+          "n_cites": 4,
+          "n_must_cite": 2,
+          "id": "g102",
+          "hop_type": "two_hop",
+          "citations": [
+            "中华人民共和国劳动法第九十二条",
+            "中华人民共和国劳动法第五十二条",
+            "中华人民共和国劳动法第六十一条",
+            "中华人民共和国劳动法第六十三条"
+          ],
+          "citations_ordered": [
+            "中华人民共和国劳动法第九十二条",
+            "中华人民共和国劳动法第五十二条",
+            "中华人民共和国劳动法第六十一条",
+            "中华人民共和国劳动法第六十三条"
+          ],
+          "gold_citations": [
+            "中华人民共和国劳动法第五十二条",
+            "中华人民共和国劳动法第六十三条"
+          ],
+          "grounded_before_repair": 1.0,
+          "grounded_after_repair": 1.0,
+          "out_of_scope_cites_raw": 0,
+          "out_of_scope_cites_post": 0
+        },
+        {
+          "must_cite_recall": 1.0,
+          "precision_at_must": 1.0,
+          "precision_at_must_set": 1.0,
+          "over_citation_rate": 0.0,
+          "cite_precision": 1.0,
+          "n_cites": 2,
+          "n_must_cite": 2,
+          "id": "g104",
+          "hop_type": "two_hop",
+          "citations": [
+            "中华人民共和国劳动法第三十六条",
+            "中华人民共和国劳动法第四十五条"
+          ],
+          "citations_ordered": [
+            "中华人民共和国劳动法第三十六条",
+            "中华人民共和国劳动法第四十五条"
+          ],
+          "gold_citations": [
+            "中华人民共和国劳动法第三十六条",
+            "中华人民共和国劳动法第四十五条"
+          ],
+          "grounded_before_repair": 1.0,
+          "grounded_after_repair": 1.0,
+          "out_of_scope_cites_raw": 0,
+          "out_of_scope_cites_post": 0
+        },
+        {
+          "must_cite_recall": 1.0,
+          "precision_at_must": 0.0,
+          "precision_at_must_set": 1.0,
+          "over_citation_rate": 3.5,
+          "cite_precision": 0.2222,
+          "n_cites": 9,
+          "n_must_cite": 2,
+          "id": "g105",
+          "hop_type": "two_hop",
+          "citations": [
+            "中华人民共和国劳动合同法第三十八条",
+            "中华人民共和国劳动合同法第五十一条",
+            "中华人民共和国劳动合同法第四十条",
+            "中华人民共和国劳动法第三十八条",
+            "中华人民共和国劳动法第五十一条",
+            "中华人民共和国劳动法第四十条",
+            "中华人民共和国民法典第三十八条",
+            "中华人民共和国民法典第五十一条",
+            "中华人民共和国民法典第四十条"
+          ],
+          "citations_ordered": [
+            "中华人民共和国劳动合同法第三十八条",
+            "中华人民共和国劳动合同法第五十一条",
+            "中华人民共和国劳动合同法第四十条",
+            "中华人民共和国劳动法第三十八条",
+            "中华人民共和国劳动法第五十一条",
+            "中华人民共和国劳动法第四十条",
+            "中华人民共和国民法典第三十八条",
+            "中华人民共和国民法典第五十一条",
+            "中华人民共和国民法典第四十条"
+          ],
+          "gold_citations": [
+            "中华人民共和国劳动法第五十一条",
+            "中华人民共和国劳动法第四十条"
+          ],
+          "grounded_before_repair": 0.0,
+          "grounded_after_repair": 0.0,
+          "out_of_scope_cites_raw": 6,
+          "out_of_scope_cites_post": 6
+        },
+        {
+          "must_cite_recall": 1.0,
+          "precision_at_must": 0.0,
+          "precision_at_must_set": 1.0,
+          "over_citation_rate": 3.5,
+          "cite_precision": 0.2222,
+          "n_cites": 9,
+          "n_must_cite": 2,
+          "id": "g107",
+          "hop_type": "two_hop",
+          "citations": [
+            "中华人民共和国劳动合同法第三十九条",
+            "中华人民共和国劳动合同法第三十八条",
+            "中华人民共和国劳动合同法第四十条",
+            "中华人民共和国劳动法第三十九条",
+            "中华人民共和国劳动法第三十八条",
+            "中华人民共和国劳动法第四十条",
+            "中华人民共和国民法典第三十九条",
+            "中华人民共和国民法典第三十八条",
+            "中华人民共和国民法典第四十条"
+          ],
+          "citations_ordered": [
+            "中华人民共和国劳动合同法第三十九条",
+            "中华人民共和国劳动合同法第三十八条",
+            "中华人民共和国劳动合同法第四十条",
+            "中华人民共和国劳动法第三十九条",
+            "中华人民共和国劳动法第三十八条",
+            "中华人民共和国劳动法第四十条",
+            "中华人民共和国民法典第三十九条",
+            "中华人民共和国民法典第三十八条",
+            "中华人民共和国民法典第四十条"
+          ],
+          "gold_citations": [
+            "中华人民共和国劳动法第三十八条",
+            "中华人民共和国劳动法第四十条"
+          ],
+          "grounded_before_repair": 0.0,
+          "grounded_after_repair": 0.0,
+          "out_of_scope_cites_raw": 6,
+          "out_of_scope_cites_post": 6
+        },
+        {
+          "must_cite_recall": 1.0,
+          "precision_at_must": 1.0,
+          "precision_at_must_set": 1.0,
+          "over_citation_rate": 1.0,
+          "cite_precision": 0.5,
+          "n_cites": 4,
+          "n_must_cite": 2,
+          "id": "g108",
+          "hop_type": "two_hop",
+          "citations": [
+            "中华人民共和国劳动合同法第三十一条",
+            "中华人民共和国劳动法第三十七条",
+            "中华人民共和国劳动法第九十一条",
+            "中华人民共和国劳动法第五十条"
+          ],
+          "citations_ordered": [
+            "中华人民共和国劳动合同法第三十一条",
+            "中华人民共和国劳动法第三十七条",
+            "中华人民共和国劳动法第九十一条",
+            "中华人民共和国劳动法第五十条"
+          ],
+          "gold_citations": [
+            "中华人民共和国劳动合同法第三十一条",
+            "中华人民共和国劳动法第三十七条"
+          ],
+          "grounded_before_repair": 1.0,
+          "grounded_after_repair": 1.0,
+          "out_of_scope_cites_raw": 0,
+          "out_of_scope_cites_post": 0
+        },
+        {
+          "must_cite_recall": 1.0,
+          "precision_at_must": 0.5,
+          "precision_at_must_set": 1.0,
+          "over_citation_rate": 1.0,
+          "cite_precision": 0.5,
+          "n_cites": 4,
+          "n_must_cite": 2,
+          "id": "g110",
+          "hop_type": "two_hop",
+          "citations": [
+            "中华人民共和国劳动合同法第七十二条",
+            "中华人民共和国劳动合同法第三十条",
+            "中华人民共和国劳动法第七十七条",
+            "中华人民共和国劳动法第八十二条"
+          ],
+          "citations_ordered": [
+            "中华人民共和国劳动合同法第七十二条",
+            "中华人民共和国劳动合同法第三十条",
+            "中华人民共和国劳动法第七十七条",
+            "中华人民共和国劳动法第八十二条"
+          ],
+          "gold_citations": [
+            "中华人民共和国劳动合同法第七十二条",
+            "中华人民共和国劳动法第七十七条"
+          ],
+          "grounded_before_repair": 1.0,
+          "grounded_after_repair": 1.0,
+          "out_of_scope_cites_raw": 0,
+          "out_of_scope_cites_post": 0
+        },
+        {
+          "must_cite_recall": 0.5,
+          "precision_at_must": 0.5,
+          "precision_at_must_set": 0.5,
+          "over_citation_rate": 1.0,
+          "cite_precision": 0.25,
+          "n_cites": 4,
+          "n_must_cite": 2,
+          "id": "g112",
+          "hop_type": "two_hop",
+          "citations": [
+            "中华人民共和国劳动合同法第五十九条",
+            "中华人民共和国劳动合同法第六十二条",
+            "中华人民共和国民法典第一千一百九十一条",
+            "中华人民共和国民法典第一百七十七条"
+          ],
+          "citations_ordered": [
+            "中华人民共和国劳动合同法第五十九条",
+            "中华人民共和国劳动合同法第六十二条",
+            "中华人民共和国民法典第一千一百九十一条",
+            "中华人民共和国民法典第一百七十七条"
+          ],
+          "gold_citations": [
+            "中华人民共和国劳动合同法第五十九条",
+            "中华人民共和国劳动合同法第五十八条"
+          ],
+          "grounded_before_repair": 1.0,
+          "grounded_after_repair": 1.0,
+          "out_of_scope_cites_raw": 0,
+          "out_of_scope_cites_post": 0
+        },
+        {
+          "must_cite_recall": 0.0,
+          "precision_at_must": 0.0,
+          "precision_at_must_set": 0.0,
+          "over_citation_rate": 0.0,
+          "cite_precision": 0.0,
+          "n_cites": 2,
+          "n_must_cite": 2,
+          "id": "g116",
+          "hop_type": "two_hop",
+          "citations": [
+            "中华人民共和国劳动法第七十六条",
+            "中华人民共和国劳动法第三条"
+          ],
+          "citations_ordered": [
+            "中华人民共和国劳动法第七十六条",
+            "中华人民共和国劳动法第三条"
+          ],
+          "gold_citations": [
+            "中华人民共和国劳动合同法第四十条",
+            "中华人民共和国劳动法第五十八条"
+          ],
+          "grounded_before_repair": 1.0,
+          "grounded_after_repair": 1.0,
+          "out_of_scope_cites_raw": 0,
+          "out_of_scope_cites_post": 0
+        },
+        {
+          "must_cite_recall": 1.0,
+          "precision_at_must": 0.0,
+          "precision_at_must_set": 1.0,
+          "over_citation_rate": 11.0,
+          "cite_precision": 0.0833,
+          "n_cites": 12,
+          "n_must_cite": 1,
+          "id": "g117",
+          "hop_type": "two_hop",
+          "citations": [
+            "中华人民共和国劳动合同法第九十条",
+            "中华人民共和国劳动合同法第二十三条",
+            "中华人民共和国劳动合同法第二十二条",
+            "中华人民共和国劳动合同法第二十四条",
+            "中华人民共和国劳动法第九十条",
+            "中华人民共和国劳动法第二十三条",
+            "中华人民共和国劳动法第二十二条",
+            "中华人民共和国劳动法第二十四条",
+            "中华人民共和国民法典第九十条",
+            "中华人民共和国民法典第二十三条",
+            "中华人民共和国民法典第二十二条",
+            "中华人民共和国民法典第二十四条"
+          ],
+          "citations_ordered": [
+            "中华人民共和国劳动合同法第九十条",
+            "中华人民共和国劳动合同法第二十三条",
+            "中华人民共和国劳动合同法第二十二条",
+            "中华人民共和国劳动合同法第二十四条",
+            "中华人民共和国劳动法第九十条",
+            "中华人民共和国劳动法第二十三条",
+            "中华人民共和国劳动法第二十二条",
+            "中华人民共和国劳动法第二十四条",
+            "中华人民共和国民法典第九十条",
+            "中华人民共和国民法典第二十三条",
+            "中华人民共和国民法典第二十二条",
+            "中华人民共和国民法典第二十四条"
+          ],
+          "gold_citations": [
+            "中华人民共和国劳动合同法第二十三条"
+          ],
+          "grounded_before_repair": 0.0,
+          "grounded_after_repair": 0.0,
+          "out_of_scope_cites_raw": 8,
+          "out_of_scope_cites_post": 8
+        },
+        {
+          "must_cite_recall": 1.0,
+          "precision_at_must": 1.0,
+          "precision_at_must_set": 1.0,
+          "over_citation_rate": 2.0,
+          "cite_precision": 0.3333,
+          "n_cites": 3,
+          "n_must_cite": 1,
+          "id": "g118",
+          "hop_type": "two_hop",
+          "citations": [
+            "中华人民共和国劳动合同法第二十二条",
+            "中华人民共和国劳动合同法第二十五条",
+            "中华人民共和国民法典第五百八十五条"
+          ],
+          "citations_ordered": [
+            "中华人民共和国劳动合同法第二十二条",
+            "中华人民共和国劳动合同法第二十五条",
+            "中华人民共和国民法典第五百八十五条"
+          ],
+          "gold_citations": [
+            "中华人民共和国劳动合同法第二十二条"
+          ],
+          "grounded_before_repair": 1.0,
+          "grounded_after_repair": 1.0,
+          "out_of_scope_cites_raw": 0,
+          "out_of_scope_cites_post": 0
+        },
+        {
+          "must_cite_recall": 1.0,
+          "precision_at_must": 0.0,
+          "precision_at_must_set": 1.0,
+          "over_citation_rate": 11.0,
+          "cite_precision": 0.0833,
+          "n_cites": 12,
+          "n_must_cite": 1,
+          "id": "g119",
+          "hop_type": "two_hop",
+          "citations": [
+            "中华人民共和国劳动合同法第九十二条",
+            "中华人民共和国劳动合同法第五十三条",
+            "中华人民共和国劳动合同法第五十二条",
+            "中华人民共和国劳动合同法第五十四条",
+            "中华人民共和国劳动法第九十二条",
+            "中华人民共和国劳动法第五十三条",
+            "中华人民共和国劳动法第五十二条",
+            "中华人民共和国劳动法第五十四条",
+            "中华人民共和国民法典第九十二条",
+            "中华人民共和国民法典第五十三条",
+            "中华人民共和国民法典第五十二条",
+            "中华人民共和国民法典第五十四条"
+          ],
+          "citations_ordered": [
+            "中华人民共和国劳动合同法第九十二条",
+            "中华人民共和国劳动合同法第五十三条",
+            "中华人民共和国劳动合同法第五十二条",
+            "中华人民共和国劳动合同法第五十四条",
+            "中华人民共和国劳动法第九十二条",
+            "中华人民共和国劳动法第五十三条",
+            "中华人民共和国劳动法第五十二条",
+            "中华人民共和国劳动法第五十四条",
+            "中华人民共和国民法典第九十二条",
+            "中华人民共和国民法典第五十三条",
+            "中华人民共和国民法典第五十二条",
+            "中华人民共和国民法典第五十四条"
+          ],
+          "gold_citations": [
+            "中华人民共和国劳动法第五十四条"
+          ],
+          "grounded_before_repair": 0.0,
+          "grounded_after_repair": 0.0,
+          "out_of_scope_cites_raw": 8,
+          "out_of_scope_cites_post": 8
+        },
+        {
+          "must_cite_recall": 1.0,
+          "precision_at_must": 0.0,
+          "precision_at_must_set": 1.0,
+          "over_citation_rate": 2.0,
+          "cite_precision": 0.3333,
+          "n_cites": 3,
+          "n_must_cite": 1,
+          "id": "g121",
+          "hop_type": "two_hop",
+          "citations": [
+            "中华人民共和国劳动法第七十七条",
+            "中华人民共和国劳动法第七十九条",
+            "中华人民共和国劳动法第八十二条"
+          ],
+          "citations_ordered": [
+            "中华人民共和国劳动法第七十七条",
+            "中华人民共和国劳动法第七十九条",
+            "中华人民共和国劳动法第八十二条"
+          ],
+          "gold_citations": [
+            "中华人民共和国劳动法第七十九条"
+          ],
+          "grounded_before_repair": 1.0,
+          "grounded_after_repair": 1.0,
+          "out_of_scope_cites_raw": 0,
+          "out_of_scope_cites_post": 0
+        },
+        {
+          "must_cite_recall": 1.0,
+          "precision_at_must": 1.0,
+          "precision_at_must_set": 1.0,
+          "over_citation_rate": 1.0,
+          "cite_precision": 0.5,
+          "n_cites": 2,
+          "n_must_cite": 1,
+          "id": "g122",
+          "hop_type": "two_hop",
+          "citations": [
+            "中华人民共和国劳动法第七十九条",
+            "中华人民共和国劳动法第八十三条"
+          ],
+          "citations_ordered": [
+            "中华人民共和国劳动法第七十九条",
+            "中华人民共和国劳动法第八十三条"
+          ],
+          "gold_citations": [
+            "中华人民共和国劳动法第七十九条"
+          ],
+          "grounded_before_repair": 1.0,
+          "grounded_after_repair": 1.0,
+          "out_of_scope_cites_raw": 0,
+          "out_of_scope_cites_post": 0
+        },
+        {
+          "must_cite_recall": 1.0,
+          "precision_at_must": 1.0,
+          "precision_at_must_set": 1.0,
+          "over_citation_rate": 0.0,
+          "cite_precision": 1.0,
+          "n_cites": 2,
+          "n_must_cite": 2,
+          "id": "g123",
+          "hop_type": "two_hop",
+          "citations": [
+            "中华人民共和国劳动法第七十九条",
+            "中华人民共和国劳动法第八十二条"
+          ],
+          "citations_ordered": [
+            "中华人民共和国劳动法第七十九条",
+            "中华人民共和国劳动法第八十二条"
+          ],
+          "gold_citations": [
+            "中华人民共和国劳动法第七十九条",
+            "中华人民共和国劳动法第八十二条"
+          ],
+          "grounded_before_repair": 1.0,
+          "grounded_after_repair": 1.0,
+          "out_of_scope_cites_raw": 0,
+          "out_of_scope_cites_post": 0
+        },
+        {
+          "must_cite_recall": 1.0,
+          "precision_at_must": 1.0,
+          "precision_at_must_set": 1.0,
+          "over_citation_rate": 0.5,
+          "cite_precision": 0.6667,
+          "n_cites": 3,
+          "n_must_cite": 2,
+          "id": "g129",
+          "hop_type": "two_hop",
+          "citations": [
+            "中华人民共和国劳动合同法第三十五条",
+            "中华人民共和国劳动法第十七条",
+            "中华人民共和国民法典第五百四十三条"
+          ],
+          "citations_ordered": [
+            "中华人民共和国劳动合同法第三十五条",
+            "中华人民共和国劳动法第十七条",
+            "中华人民共和国民法典第五百四十三条"
+          ],
+          "gold_citations": [
+            "中华人民共和国劳动合同法第三十五条",
+            "中华人民共和国劳动法第十七条"
+          ],
+          "grounded_before_repair": 1.0,
+          "grounded_after_repair": 1.0,
+          "out_of_scope_cites_raw": 0,
+          "out_of_scope_cites_post": 0
+        },
+        {
+          "must_cite_recall": 1.0,
+          "precision_at_must": 0.6667,
+          "precision_at_must_set": 1.0,
+          "over_citation_rate": 0.3333,
+          "cite_precision": 0.75,
+          "n_cites": 4,
+          "n_must_cite": 3,
+          "id": "g133",
+          "hop_type": "three_hop",
+          "citations": [
+            "中华人民共和国劳动合同法第三十一条",
+            "中华人民共和国劳动合同法第八十五条",
+            "中华人民共和国劳动法第四十一条",
+            "中华人民共和国劳动法第四十二条"
+          ],
+          "citations_ordered": [
+            "中华人民共和国劳动合同法第三十一条",
+            "中华人民共和国劳动合同法第八十五条",
+            "中华人民共和国劳动法第四十一条",
+            "中华人民共和国劳动法第四十二条"
+          ],
+          "gold_citations": [
+            "中华人民共和国劳动合同法第三十一条",
+            "中华人民共和国劳动法第四十一条",
+            "中华人民共和国劳动法第四十二条"
+          ],
+          "grounded_before_repair": 1.0,
+          "grounded_after_repair": 1.0,
+          "out_of_scope_cites_raw": 0,
+          "out_of_scope_cites_post": 0
+        },
+        {
+          "must_cite_recall": 1.0,
+          "precision_at_must": 1.0,
+          "precision_at_must_set": 1.0,
+          "over_citation_rate": 0.3333,
+          "cite_precision": 0.75,
+          "n_cites": 4,
+          "n_must_cite": 3,
+          "id": "g134",
+          "hop_type": "three_hop",
+          "citations": [
+            "中华人民共和国劳动合同法第三十一条",
+            "中华人民共和国劳动合同法第八十五条",
+            "中华人民共和国劳动法第三十六条",
+            "中华人民共和国劳动法第四十四条"
+          ],
+          "citations_ordered": [
+            "中华人民共和国劳动合同法第三十一条",
+            "中华人民共和国劳动合同法第八十五条",
+            "中华人民共和国劳动法第三十六条",
+            "中华人民共和国劳动法第四十四条"
+          ],
+          "gold_citations": [
+            "中华人民共和国劳动合同法第三十一条",
+            "中华人民共和国劳动合同法第八十五条",
+            "中华人民共和国劳动法第三十六条"
+          ],
+          "grounded_before_repair": 1.0,
+          "grounded_after_repair": 1.0,
+          "out_of_scope_cites_raw": 0,
+          "out_of_scope_cites_post": 0
+        },
+        {
+          "must_cite_recall": 0.6667,
+          "precision_at_must": 1.0,
+          "precision_at_must_set": 1.0,
+          "over_citation_rate": 0.0,
+          "cite_precision": 1.0,
+          "n_cites": 2,
+          "n_must_cite": 3,
+          "id": "g135",
+          "hop_type": "three_hop",
+          "citations": [
+            "中华人民共和国劳动合同法第八十七条",
+            "中华人民共和国劳动合同法第四十三条"
+          ],
+          "citations_ordered": [
+            "中华人民共和国劳动合同法第八十七条",
+            "中华人民共和国劳动合同法第四十三条"
+          ],
+          "gold_citations": [
+            "中华人民共和国劳动合同法第三十九条",
+            "中华人民共和国劳动合同法第八十七条",
+            "中华人民共和国劳动合同法第四十三条"
+          ],
+          "grounded_before_repair": 1.0,
+          "grounded_after_repair": 1.0,
+          "out_of_scope_cites_raw": 0,
+          "out_of_scope_cites_post": 0
+        },
+        {
+          "must_cite_recall": 0.5,
+          "precision_at_must": 0.0,
+          "precision_at_must_set": 0.5,
+          "over_citation_rate": 0.5,
+          "cite_precision": 0.3333,
+          "n_cites": 3,
+          "n_must_cite": 2,
+          "id": "g136",
+          "hop_type": "three_hop",
+          "citations": [
+            "中华人民共和国劳动合同法第十三条",
+            "中华人民共和国劳动合同法第十二条",
+            "中华人民共和国劳动合同法第十四条"
+          ],
+          "citations_ordered": [
+            "中华人民共和国劳动合同法第十三条",
+            "中华人民共和国劳动合同法第十二条",
+            "中华人民共和国劳动合同法第十四条"
+          ],
+          "gold_citations": [
+            "中华人民共和国劳动合同法第十四条",
+            "中华人民共和国劳动合同法第四十四条"
+          ],
+          "grounded_before_repair": 1.0,
+          "grounded_after_repair": 1.0,
+          "out_of_scope_cites_raw": 0,
+          "out_of_scope_cites_post": 0
+        },
+        {
+          "must_cite_recall": 0.6667,
+          "precision_at_must": 0.3333,
+          "precision_at_must_set": 0.6667,
+          "over_citation_rate": 2.0,
+          "cite_precision": 0.2222,
+          "n_cites": 9,
+          "n_must_cite": 3,
+          "id": "g137",
+          "hop_type": "three_hop",
+          "citations": [
+            "中华人民共和国劳动合同法第九十七条",
+            "中华人民共和国劳动合同法第八十七条",
+            "中华人民共和国劳动合同法第四十七条",
+            "中华人民共和国劳动合同法第四十六条",
+            "中华人民共和国劳动法第二十八条",
+            "中华人民共和国劳动法第八十七条",
+            "中华人民共和国劳动法第四十七条",
+            "中华人民共和国民法典第八十七条",
+            "中华人民共和国民法典第四十七条"
+          ],
+          "citations_ordered": [
+            "中华人民共和国劳动合同法第九十七条",
+            "中华人民共和国劳动合同法第八十七条",
+            "中华人民共和国劳动合同法第四十七条",
+            "中华人民共和国劳动合同法第四十六条",
+            "中华人民共和国劳动法第二十八条",
+            "中华人民共和国劳动法第八十七条",
+            "中华人民共和国劳动法第四十七条",
+            "中华人民共和国民法典第八十七条",
+            "中华人民共和国民法典第四十七条"
+          ],
+          "gold_citations": [
+            "中华人民共和国劳动合同法第四十七条",
+            "中华人民共和国劳动合同法第四十六条",
+            "中华人民共和国劳动合同法第四十四条"
+          ],
+          "grounded_before_repair": 0.0,
+          "grounded_after_repair": 0.0,
+          "out_of_scope_cites_raw": 4,
+          "out_of_scope_cites_post": 4
+        },
+        {
+          "must_cite_recall": 1.0,
+          "precision_at_must": 0.0,
+          "precision_at_must_set": 1.0,
+          "over_citation_rate": 11.0,
+          "cite_precision": 0.0833,
+          "n_cites": 12,
+          "n_must_cite": 1,
+          "id": "g140",
+          "hop_type": "three_hop",
+          "citations": [
+            "中华人民共和国劳动合同法第九十条",
+            "中华人民共和国劳动合同法第二十三条",
+            "中华人民共和国劳动合同法第二十二条",
+            "中华人民共和国劳动合同法第二十四条",
+            "中华人民共和国劳动法第九十条",
+            "中华人民共和国劳动法第二十三条",
+            "中华人民共和国劳动法第二十二条",
+            "中华人民共和国劳动法第二十四条",
+            "中华人民共和国民法典第九十条",
+            "中华人民共和国民法典第二十三条",
+            "中华人民共和国民法典第二十二条",
+            "中华人民共和国民法典第二十四条"
+          ],
+          "citations_ordered": [
+            "中华人民共和国劳动合同法第九十条",
+            "中华人民共和国劳动合同法第二十三条",
+            "中华人民共和国劳动合同法第二十二条",
+            "中华人民共和国劳动合同法第二十四条",
+            "中华人民共和国劳动法第九十条",
+            "中华人民共和国劳动法第二十三条",
+            "中华人民共和国劳动法第二十二条",
+            "中华人民共和国劳动法第二十四条",
+            "中华人民共和国民法典第九十条",
+            "中华人民共和国民法典第二十三条",
+            "中华人民共和国民法典第二十二条",
+            "中华人民共和国民法典第二十四条"
+          ],
+          "gold_citations": [
+            "中华人民共和国劳动合同法第二十三条"
+          ],
+          "grounded_before_repair": 0.0,
+          "grounded_after_repair": 0.0,
+          "out_of_scope_cites_raw": 8,
+          "out_of_scope_cites_post": 8
         },
         {
           "must_cite_recall": 1.0,
@@ -1355,82 +3388,74 @@
         },
         {
           "must_cite_recall": 1.0,
-          "precision_at_must": 0.5,
+          "precision_at_must": 1.0,
           "precision_at_must_set": 1.0,
-          "over_citation_rate": 5.0,
-          "cite_precision": 0.1667,
-          "n_cites": 12,
+          "over_citation_rate": 0.5,
+          "cite_precision": 0.6667,
+          "n_cites": 3,
           "n_must_cite": 2,
           "id": "g148",
           "hop_type": "three_hop",
           "citations": [
             "中华人民共和国劳动合同法第八十七条",
-            "中华人民共和国劳动合同法第八十五条",
             "中华人民共和国劳动合同法第四十七条",
-            "中华人民共和国劳动合同法第四十八条",
-            "中华人民共和国劳动法第八十七条",
-            "中华人民共和国劳动法第八十五条",
-            "中华人民共和国劳动法第四十七条",
-            "中华人民共和国劳动法第四十八条",
-            "中华人民共和国民法典第八十七条",
-            "中华人民共和国民法典第八十五条",
-            "中华人民共和国民法典第四十七条",
-            "中华人民共和国民法典第四十八条"
+            "中华人民共和国劳动合同法第四十八条"
           ],
           "citations_ordered": [
             "中华人民共和国劳动合同法第八十七条",
-            "中华人民共和国劳动合同法第八十五条",
             "中华人民共和国劳动合同法第四十七条",
-            "中华人民共和国劳动合同法第四十八条",
-            "中华人民共和国劳动法第八十七条",
-            "中华人民共和国劳动法第八十五条",
-            "中华人民共和国劳动法第四十七条",
-            "中华人民共和国劳动法第四十八条",
-            "中华人民共和国民法典第八十七条",
-            "中华人民共和国民法典第八十五条",
-            "中华人民共和国民法典第四十七条",
-            "中华人民共和国民法典第四十八条"
+            "中华人民共和国劳动合同法第四十八条"
           ],
           "gold_citations": [
             "中华人民共和国劳动合同法第八十七条",
             "中华人民共和国劳动合同法第四十七条"
           ],
-          "grounded_before_repair": 0.0,
-          "grounded_after_repair": 0.0,
-          "out_of_scope_cites_raw": 8,
-          "out_of_scope_cites_post": 8
+          "grounded_before_repair": 1.0,
+          "grounded_after_repair": 1.0,
+          "out_of_scope_cites_raw": 0,
+          "out_of_scope_cites_post": 0
         },
         {
-          "must_cite_recall": 0.6667,
-          "precision_at_must": 0.6667,
-          "precision_at_must_set": 0.6667,
-          "over_citation_rate": 0.3333,
-          "cite_precision": 0.5,
-          "n_cites": 4,
+          "must_cite_recall": 0.3333,
+          "precision_at_must": 0.3333,
+          "precision_at_must_set": 0.3333,
+          "over_citation_rate": 2.0,
+          "cite_precision": 0.1111,
+          "n_cites": 9,
           "n_must_cite": 3,
           "id": "g150",
           "hop_type": "three_hop",
           "citations": [
-            "中华人民共和国劳动合同法第六条",
+            "中华人民共和国劳动合同法第二十七条",
             "中华人民共和国劳动合同法第四十一条",
             "中华人民共和国劳动合同法第四十七条",
-            "中华人民共和国劳动法第二十七条"
+            "中华人民共和国劳动法第二十七条",
+            "中华人民共和国劳动法第四十一条",
+            "中华人民共和国劳动法第四十七条",
+            "中华人民共和国民法典第二十七条",
+            "中华人民共和国民法典第四十一条",
+            "中华人民共和国民法典第四十七条"
           ],
           "citations_ordered": [
-            "中华人民共和国劳动合同法第六条",
+            "中华人民共和国劳动合同法第二十七条",
             "中华人民共和国劳动合同法第四十一条",
             "中华人民共和国劳动合同法第四十七条",
-            "中华人民共和国劳动法第二十七条"
+            "中华人民共和国劳动法第二十七条",
+            "中华人民共和国劳动法第四十一条",
+            "中华人民共和国劳动法第四十七条",
+            "中华人民共和国民法典第二十七条",
+            "中华人民共和国民法典第四十一条",
+            "中华人民共和国民法典第四十七条"
           ],
           "gold_citations": [
             "中华人民共和国劳动合同法第六条",
             "中华人民共和国劳动合同法第四十七条",
             "中华人民共和国劳动合同法第四十六条"
           ],
-          "grounded_before_repair": 1.0,
-          "grounded_after_repair": 1.0,
-          "out_of_scope_cites_raw": 0,
-          "out_of_scope_cites_post": 0
+          "grounded_before_repair": 0.0,
+          "grounded_after_repair": 0.0,
+          "out_of_scope_cites_raw": 6,
+          "out_of_scope_cites_post": 6
         },
         {
           "must_cite_recall": 0.6667,
@@ -1498,21 +3523,23 @@
           "must_cite_recall": 1.0,
           "precision_at_must": 0.0,
           "precision_at_must_set": 1.0,
-          "over_citation_rate": 2.0,
-          "cite_precision": 0.3333,
-          "n_cites": 3,
+          "over_citation_rate": 3.0,
+          "cite_precision": 0.25,
+          "n_cites": 4,
           "n_must_cite": 1,
           "id": "g166",
           "hop_type": "three_hop",
           "citations": [
             "中华人民共和国劳动合同法第九十条",
             "中华人民共和国劳动合同法第二十三条",
-            "中华人民共和国劳动合同法第二十四条"
+            "中华人民共和国劳动合同法第二十四条",
+            "中华人民共和国民法典第五百零一条"
           ],
           "citations_ordered": [
             "中华人民共和国劳动合同法第九十条",
             "中华人民共和国劳动合同法第二十三条",
-            "中华人民共和国劳动合同法第二十四条"
+            "中华人民共和国劳动合同法第二十四条",
+            "中华人民共和国民法典第五百零一条"
           ],
           "gold_citations": [
             "中华人民共和国劳动合同法第二十三条"
@@ -1524,49 +3551,31 @@
         },
         {
           "must_cite_recall": 1.0,
-          "precision_at_must": 0.0,
+          "precision_at_must": 1.0,
           "precision_at_must_set": 1.0,
-          "over_citation_rate": 11.0,
-          "cite_precision": 0.0833,
-          "n_cites": 12,
+          "over_citation_rate": 2.0,
+          "cite_precision": 0.3333,
+          "n_cites": 3,
           "n_must_cite": 1,
           "id": "g169",
           "hop_type": "three_hop",
           "citations": [
-            "中华人民共和国劳动合同法第七十七条",
-            "中华人民共和国劳动合同法第七十九条",
-            "中华人民共和国劳动合同法第八十三条",
-            "中华人民共和国劳动合同法第八十二条",
-            "中华人民共和国劳动法第七十七条",
             "中华人民共和国劳动法第七十九条",
             "中华人民共和国劳动法第八十三条",
-            "中华人民共和国劳动法第八十二条",
-            "中华人民共和国民法典第七十七条",
-            "中华人民共和国民法典第七十九条",
-            "中华人民共和国民法典第八十三条",
-            "中华人民共和国民法典第八十二条"
+            "中华人民共和国劳动法第八十二条"
           ],
           "citations_ordered": [
-            "中华人民共和国劳动合同法第七十七条",
-            "中华人民共和国劳动合同法第七十九条",
-            "中华人民共和国劳动合同法第八十三条",
-            "中华人民共和国劳动合同法第八十二条",
-            "中华人民共和国劳动法第七十七条",
             "中华人民共和国劳动法第七十九条",
             "中华人民共和国劳动法第八十三条",
-            "中华人民共和国劳动法第八十二条",
-            "中华人民共和国民法典第七十七条",
-            "中华人民共和国民法典第七十九条",
-            "中华人民共和国民法典第八十三条",
-            "中华人民共和国民法典第八十二条"
+            "中华人民共和国劳动法第八十二条"
           ],
           "gold_citations": [
             "中华人民共和国劳动法第七十九条"
           ],
-          "grounded_before_repair": 0.0,
-          "grounded_after_repair": 0.0,
-          "out_of_scope_cites_raw": 8,
-          "out_of_scope_cites_post": 8
+          "grounded_before_repair": 1.0,
+          "grounded_after_repair": 1.0,
+          "out_of_scope_cites_raw": 0,
+          "out_of_scope_cites_post": 0
         },
         {
           "must_cite_recall": 0.6667,
@@ -1634,18 +3643,20 @@
           "must_cite_recall": 0.3333,
           "precision_at_must": 0.3333,
           "precision_at_must_set": 0.3333,
-          "over_citation_rate": 0.0,
-          "cite_precision": 0.3333,
-          "n_cites": 3,
+          "over_citation_rate": 0.3333,
+          "cite_precision": 0.25,
+          "n_cites": 4,
           "n_must_cite": 3,
           "id": "g177",
           "hop_type": "cross_law",
           "citations": [
+            "中华人民共和国劳动合同法第八十三条",
             "中华人民共和国劳动合同法第十九条",
             "中华人民共和国劳动法第二十一条",
             "中华人民共和国民法典第四百九十条"
           ],
           "citations_ordered": [
+            "中华人民共和国劳动合同法第八十三条",
             "中华人民共和国劳动合同法第十九条",
             "中华人民共和国劳动法第二十一条",
             "中华人民共和国民法典第四百九十条"
@@ -1662,2069 +3673,60 @@
         },
         {
           "must_cite_recall": 0.3333,
-          "precision_at_must": 0.5,
-          "precision_at_must_set": 0.5,
-          "over_citation_rate": 0.0,
-          "cite_precision": 0.5,
-          "n_cites": 2,
-          "n_must_cite": 3,
-          "id": "g179",
-          "hop_type": "cross_law",
-          "citations": [
-            "中华人民共和国劳动合同法第六十九条",
-            "中华人民共和国劳动合同法第六十八条"
-          ],
-          "citations_ordered": [
-            "中华人民共和国劳动合同法第六十九条",
-            "中华人民共和国劳动合同法第六十八条"
-          ],
-          "gold_citations": [
-            "中华人民共和国劳动合同法第六十九条",
-            "中华人民共和国劳动合同法第十五条",
-            "中华人民共和国民法典第四百八十三条"
-          ],
-          "grounded_before_repair": 1.0,
-          "grounded_after_repair": 1.0,
-          "out_of_scope_cites_raw": 0,
-          "out_of_scope_cites_post": 0
-        },
-        {
-          "must_cite_recall": 0.3333,
           "precision_at_must": 0.3333,
           "precision_at_must_set": 0.3333,
-          "over_citation_rate": 0.0,
-          "cite_precision": 0.3333,
-          "n_cites": 3,
-          "n_must_cite": 3,
-          "id": "g181",
-          "hop_type": "cross_law",
-          "citations": [
-            "中华人民共和国劳动合同法第二十三条",
-            "中华人民共和国民法典第五百八十五条",
-            "中华人民共和国民法典第五百八十四条"
-          ],
-          "citations_ordered": [
-            "中华人民共和国劳动合同法第二十三条",
-            "中华人民共和国民法典第五百八十五条",
-            "中华人民共和国民法典第五百八十四条"
-          ],
-          "gold_citations": [
-            "中华人民共和国劳动合同法第十五条",
-            "中华人民共和国民法典第五百八十五条",
-            "中华人民共和国民法典第四百八十三条"
-          ],
-          "grounded_before_repair": 1.0,
-          "grounded_after_repair": 1.0,
-          "out_of_scope_cites_raw": 0,
-          "out_of_scope_cites_post": 0
-        },
-        {
-          "must_cite_recall": 0.0,
-          "precision_at_must": 0.0,
-          "precision_at_must_set": 0.0,
-          "over_citation_rate": 0.0,
-          "cite_precision": 0.0,
-          "n_cites": 2,
-          "n_must_cite": 3,
-          "id": "g183",
-          "hop_type": "cross_law",
-          "citations": [
-            "中华人民共和国劳动合同法第十六条",
-            "中华人民共和国民法典第四百八十四条"
-          ],
-          "citations_ordered": [
-            "中华人民共和国劳动合同法第十六条",
-            "中华人民共和国民法典第四百八十四条"
-          ],
-          "gold_citations": [
-            "中华人民共和国劳动合同法第十五条",
-            "中华人民共和国民法典第四百八十三条",
-            "中华人民共和国民法典第四百八十八条"
-          ],
-          "grounded_before_repair": 1.0,
-          "grounded_after_repair": 1.0,
-          "out_of_scope_cites_raw": 0,
-          "out_of_scope_cites_post": 0
-        },
-        {
-          "must_cite_recall": 0.3333,
-          "precision_at_must": 0.3333,
-          "precision_at_must_set": 0.3333,
-          "over_citation_rate": 0.3333,
-          "cite_precision": 0.25,
-          "n_cites": 4,
-          "n_must_cite": 3,
-          "id": "g185",
-          "hop_type": "cross_law",
-          "citations": [
-            "中华人民共和国劳动合同法第十三条",
-            "中华人民共和国劳动合同法第四十八条",
-            "中华人民共和国劳动法第十七条",
-            "中华人民共和国民法典第五百四十三条"
-          ],
-          "citations_ordered": [
-            "中华人民共和国劳动合同法第十三条",
-            "中华人民共和国劳动合同法第四十八条",
-            "中华人民共和国劳动法第十七条",
-            "中华人民共和国民法典第五百四十三条"
-          ],
-          "gold_citations": [
-            "中华人民共和国劳动合同法第十三条",
-            "中华人民共和国民法典第五百二十五条",
-            "中华人民共和国民法典第四百八十三条"
-          ],
-          "grounded_before_repair": 1.0,
-          "grounded_after_repair": 1.0,
-          "out_of_scope_cites_raw": 0,
-          "out_of_scope_cites_post": 0
-        },
-        {
-          "must_cite_recall": 0.3333,
-          "precision_at_must": 0.3333,
-          "precision_at_must_set": 0.3333,
-          "over_citation_rate": 0.3333,
-          "cite_precision": 0.25,
-          "n_cites": 4,
-          "n_must_cite": 3,
-          "id": "g188",
-          "hop_type": "cross_law",
-          "citations": [
-            "中华人民共和国劳动合同法第三十七条",
-            "中华人民共和国劳动合同法第四十条",
-            "中华人民共和国劳动法第三十一条",
-            "中华人民共和国劳动法第二十六条"
-          ],
-          "citations_ordered": [
-            "中华人民共和国劳动合同法第三十七条",
-            "中华人民共和国劳动合同法第四十条",
-            "中华人民共和国劳动法第三十一条",
-            "中华人民共和国劳动法第二十六条"
-          ],
-          "gold_citations": [
-            "中华人民共和国劳动合同法第七条",
-            "中华人民共和国劳动合同法第三十七条",
-            "中华人民共和国民法典第一百六十三条"
-          ],
-          "grounded_before_repair": 1.0,
-          "grounded_after_repair": 1.0,
-          "out_of_scope_cites_raw": 0,
-          "out_of_scope_cites_post": 0
-        },
-        {
-          "must_cite_recall": 1.0,
-          "precision_at_must": 0.5,
-          "precision_at_must_set": 1.0,
           "over_citation_rate": 1.0,
-          "cite_precision": 0.5,
-          "n_cites": 4,
-          "n_must_cite": 2,
-          "id": "g194",
-          "hop_type": "cross_law",
-          "citations": [
-            "中华人民共和国劳动合同法第二十二条",
-            "中华人民共和国劳动合同法第二十五条",
-            "中华人民共和国民法典第五百八十五条",
-            "中华人民共和国民法典第五百八十八条"
-          ],
-          "citations_ordered": [
-            "中华人民共和国劳动合同法第二十二条",
-            "中华人民共和国劳动合同法第二十五条",
-            "中华人民共和国民法典第五百八十五条",
-            "中华人民共和国民法典第五百八十八条"
-          ],
-          "gold_citations": [
-            "中华人民共和国劳动合同法第二十二条",
-            "中华人民共和国民法典第五百八十八条"
-          ],
-          "grounded_before_repair": 1.0,
-          "grounded_after_repair": 1.0,
-          "out_of_scope_cites_raw": 0,
-          "out_of_scope_cites_post": 0
-        },
-        {
-          "must_cite_recall": 0.5,
-          "precision_at_must": 0.0,
-          "precision_at_must_set": 0.5,
-          "over_citation_rate": 0.5,
-          "cite_precision": 0.3333,
-          "n_cites": 3,
-          "n_must_cite": 2,
-          "id": "g196",
-          "hop_type": "cross_law",
-          "citations": [
-            "中华人民共和国劳动合同法第二十五条",
-            "中华人民共和国民法典第五百九十二条",
-            "中华人民共和国民法典第五百八十五条"
-          ],
-          "citations_ordered": [
-            "中华人民共和国劳动合同法第二十五条",
-            "中华人民共和国民法典第五百九十二条",
-            "中华人民共和国民法典第五百八十五条"
-          ],
-          "gold_citations": [
-            "中华人民共和国劳动合同法第四十六条",
-            "中华人民共和国民法典第五百八十五条"
-          ],
-          "grounded_before_repair": 1.0,
-          "grounded_after_repair": 1.0,
-          "out_of_scope_cites_raw": 0,
-          "out_of_scope_cites_post": 0
-        },
-        {
-          "must_cite_recall": 0.6667,
-          "precision_at_must": 0.3333,
-          "precision_at_must_set": 0.6667,
-          "over_citation_rate": 0.3333,
-          "cite_precision": 0.5,
-          "n_cites": 4,
-          "n_must_cite": 3,
-          "id": "g198",
-          "hop_type": "cross_law",
-          "citations": [
-            "中华人民共和国劳动合同法第八十六条",
-            "中华人民共和国民法典第一千一百八十六条",
-            "中华人民共和国民法典第一千一百六十六条",
-            "中华人民共和国民法典第一百五十七条"
-          ],
-          "citations_ordered": [
-            "中华人民共和国劳动合同法第八十六条",
-            "中华人民共和国民法典第一千一百八十六条",
-            "中华人民共和国民法典第一千一百六十六条",
-            "中华人民共和国民法典第一百五十七条"
-          ],
-          "gold_citations": [
-            "中华人民共和国劳动法第七十三条",
-            "中华人民共和国民法典第一千一百六十六条",
-            "中华人民共和国民法典第一百五十七条"
-          ],
-          "grounded_before_repair": 1.0,
-          "grounded_after_repair": 1.0,
-          "out_of_scope_cites_raw": 0,
-          "out_of_scope_cites_post": 0
-        },
-        {
-          "must_cite_recall": 0.6667,
-          "precision_at_must": 0.3333,
-          "precision_at_must_set": 0.6667,
-          "over_citation_rate": 0.3333,
-          "cite_precision": 0.5,
-          "n_cites": 4,
-          "n_must_cite": 3,
-          "id": "g200",
-          "hop_type": "cross_law",
-          "citations": [
-            "中华人民共和国民法典第一千一百八十六条",
-            "中华人民共和国民法典第一千一百六十五条",
-            "中华人民共和国民法典第一千二百三十三条",
-            "中华人民共和国民法典第一千二百二十九条"
-          ],
-          "citations_ordered": [
-            "中华人民共和国民法典第一千一百八十六条",
-            "中华人民共和国民法典第一千一百六十五条",
-            "中华人民共和国民法典第一千二百三十三条",
-            "中华人民共和国民法典第一千二百二十九条"
-          ],
-          "gold_citations": [
-            "中华人民共和国劳动法第五十八条",
-            "中华人民共和国民法典第一千一百八十六条",
-            "中华人民共和国民法典第一千二百二十九条"
-          ],
-          "grounded_before_repair": 1.0,
-          "grounded_after_repair": 1.0,
-          "out_of_scope_cites_raw": 0,
-          "out_of_scope_cites_post": 0
-        }
-      ]
-    },
-    "B": {
-      "summary": {
-        "n": 60,
-        "order_available": true,
-        "must_cite_recall": 0.7583,
-        "must_cite_recall_ci95": [
-          0.6889,
-          0.8278
-        ],
-        "precision_at_must": 0.4778,
-        "precision_at_must_ci95": [
-          0.3861,
-          0.5694
-        ],
-        "precision_at_must_set": 0.775,
-        "precision_at_must_set_ci95": [
-          0.7083,
-          0.8361
-        ],
-        "over_citation_rate": 1.475,
-        "over_citation_rate_ci95": [
-          1.0056,
-          1.9833
-        ],
-        "cite_precision": 0.4153,
-        "cite_precision_ci95": [
-          0.3663,
-          0.4695
-        ],
-        "n_cites_mean": 4.6333,
-        "n_must_cite_mean": 2.1667,
-        "grounded_split_available": true,
-        "grounded_before_repair_mean": 0.7667,
-        "grounded_after_repair_mean": 0.7667,
-        "out_of_scope_cites_raw_mean": 1.4167,
-        "out_of_scope_cites_post_mean": 1.4167,
-        "by_hop": {
-          "two_hop": {
-            "must_cite_recall": 0.85,
-            "precision_at_must": 0.45,
-            "precision_at_must_set": 0.85,
-            "over_citation_rate": 1.8833,
-            "cite_precision": 0.3623
-          },
-          "three_hop": {
-            "must_cite_recall": 0.7917,
-            "precision_at_must": 0.5583,
-            "precision_at_must_set": 0.8084,
-            "over_citation_rate": 1.5167,
-            "cite_precision": 0.4983
-          },
-          "cross_law": {
-            "must_cite_recall": 0.4166,
-            "precision_at_must": 0.4,
-            "precision_at_must_set": 0.4833,
-            "over_citation_rate": 0.1667,
-            "cite_precision": 0.4083
-          }
-        }
-      },
-      "rows": [
-        {
-          "must_cite_recall": 0.5,
-          "precision_at_must": 0.5,
-          "precision_at_must_set": 0.5,
-          "over_citation_rate": 0.5,
-          "cite_precision": 0.3333,
-          "n_cites": 3,
-          "n_must_cite": 2,
-          "id": "g69",
-          "hop_type": "two_hop",
-          "citations": [
-            "中华人民共和国劳动合同法第八十三条",
-            "中华人民共和国劳动合同法第十九条",
-            "中华人民共和国劳动法第二十一条"
-          ],
-          "citations_ordered": [
-            "中华人民共和国劳动合同法第八十三条",
-            "中华人民共和国劳动合同法第十九条",
-            "中华人民共和国劳动法第二十一条"
-          ],
-          "gold_citations": [
-            "中华人民共和国劳动合同法第十九条",
-            "中华人民共和国劳动合同法第十五条"
-          ],
-          "grounded_before_repair": 1.0,
-          "grounded_after_repair": 1.0,
-          "out_of_scope_cites_raw": 0,
-          "out_of_scope_cites_post": 0
-        },
-        {
-          "must_cite_recall": 0.5,
-          "precision_at_must": 0.5,
-          "precision_at_must_set": 0.5,
-          "over_citation_rate": 0.0,
-          "cite_precision": 0.5,
-          "n_cites": 2,
-          "n_must_cite": 2,
-          "id": "g72",
-          "hop_type": "two_hop",
-          "citations": [
-            "中华人民共和国劳动合同法第八十七条",
-            "中华人民共和国劳动合同法第四十八条"
-          ],
-          "citations_ordered": [
-            "中华人民共和国劳动合同法第八十七条",
-            "中华人民共和国劳动合同法第四十八条"
-          ],
-          "gold_citations": [
-            "中华人民共和国劳动合同法第八十七条",
-            "中华人民共和国劳动合同法第四十四条"
-          ],
-          "grounded_before_repair": 1.0,
-          "grounded_after_repair": 1.0,
-          "out_of_scope_cites_raw": 0,
-          "out_of_scope_cites_post": 0
-        },
-        {
-          "must_cite_recall": 1.0,
-          "precision_at_must": 1.0,
-          "precision_at_must_set": 1.0,
-          "over_citation_rate": 1.0,
-          "cite_precision": 0.5,
-          "n_cites": 2,
-          "n_must_cite": 1,
-          "id": "g74",
-          "hop_type": "two_hop",
-          "citations": [
-            "中华人民共和国劳动合同法第十四条",
-            "中华人民共和国劳动法第二十条"
-          ],
-          "citations_ordered": [
-            "中华人民共和国劳动合同法第十四条",
-            "中华人民共和国劳动法第二十条"
-          ],
-          "gold_citations": [
-            "中华人民共和国劳动合同法第十四条"
-          ],
-          "grounded_before_repair": 1.0,
-          "grounded_after_repair": 1.0,
-          "out_of_scope_cites_raw": 0,
-          "out_of_scope_cites_post": 0
-        },
-        {
-          "must_cite_recall": 1.0,
-          "precision_at_must": 1.0,
-          "precision_at_must_set": 1.0,
-          "over_citation_rate": 1.0,
-          "cite_precision": 0.5,
-          "n_cites": 4,
-          "n_must_cite": 2,
-          "id": "g75",
-          "hop_type": "two_hop",
-          "citations": [
-            "中华人民共和国劳动合同法第九十条",
-            "中华人民共和国劳动合同法第二十三条",
-            "中华人民共和国劳动合同法第二十四条",
-            "中华人民共和国劳动法第一百零二条"
-          ],
-          "citations_ordered": [
-            "中华人民共和国劳动合同法第九十条",
-            "中华人民共和国劳动合同法第二十三条",
-            "中华人民共和国劳动合同法第二十四条",
-            "中华人民共和国劳动法第一百零二条"
-          ],
-          "gold_citations": [
-            "中华人民共和国劳动合同法第九十条",
-            "中华人民共和国劳动合同法第二十三条"
-          ],
-          "grounded_before_repair": 1.0,
-          "grounded_after_repair": 1.0,
-          "out_of_scope_cites_raw": 0,
-          "out_of_scope_cites_post": 0
-        },
-        {
-          "must_cite_recall": 1.0,
-          "precision_at_must": 1.0,
-          "precision_at_must_set": 1.0,
-          "over_citation_rate": 3.0,
-          "cite_precision": 0.25,
-          "n_cites": 4,
-          "n_must_cite": 1,
-          "id": "g81",
-          "hop_type": "two_hop",
-          "citations": [
-            "中华人民共和国劳动合同法第三十七条",
-            "中华人民共和国劳动合同法第二十一条",
-            "中华人民共和国劳动合同法第四十条",
-            "中华人民共和国劳动法第三十一条"
-          ],
-          "citations_ordered": [
-            "中华人民共和国劳动合同法第三十七条",
-            "中华人民共和国劳动合同法第二十一条",
-            "中华人民共和国劳动合同法第四十条",
-            "中华人民共和国劳动法第三十一条"
-          ],
-          "gold_citations": [
-            "中华人民共和国劳动合同法第三十七条"
-          ],
-          "grounded_before_repair": 1.0,
-          "grounded_after_repair": 1.0,
-          "out_of_scope_cites_raw": 0,
-          "out_of_scope_cites_post": 0
-        },
-        {
-          "must_cite_recall": 0.5,
-          "precision_at_must": 0.5,
-          "precision_at_must_set": 0.5,
-          "over_citation_rate": 1.0,
-          "cite_precision": 0.25,
-          "n_cites": 4,
-          "n_must_cite": 2,
-          "id": "g83",
-          "hop_type": "two_hop",
-          "citations": [
-            "中华人民共和国劳动合同法第三十七条",
-            "中华人民共和国劳动合同法第四十条",
-            "中华人民共和国劳动法第三十一条",
-            "中华人民共和国劳动法第二十六条"
-          ],
-          "citations_ordered": [
-            "中华人民共和国劳动合同法第三十七条",
-            "中华人民共和国劳动合同法第四十条",
-            "中华人民共和国劳动法第三十一条",
-            "中华人民共和国劳动法第二十六条"
-          ],
-          "gold_citations": [
-            "中华人民共和国劳动合同法第三十七条",
-            "中华人民共和国劳动合同法第四十六条"
-          ],
-          "grounded_before_repair": 1.0,
-          "grounded_after_repair": 1.0,
-          "out_of_scope_cites_raw": 0,
-          "out_of_scope_cites_post": 0
-        },
-        {
-          "must_cite_recall": 0.5,
-          "precision_at_must": 0.0,
-          "precision_at_must_set": 0.5,
-          "over_citation_rate": 1.0,
-          "cite_precision": 0.25,
-          "n_cites": 4,
-          "n_must_cite": 2,
-          "id": "g84",
-          "hop_type": "two_hop",
-          "citations": [
-            "中华人民共和国劳动合同法第三十条",
-            "中华人民共和国劳动合同法第四十七条",
-            "中华人民共和国劳动法第九十一条",
-            "中华人民共和国劳动法第五十条"
-          ],
-          "citations_ordered": [
-            "中华人民共和国劳动合同法第三十条",
-            "中华人民共和国劳动合同法第四十七条",
-            "中华人民共和国劳动法第九十一条",
-            "中华人民共和国劳动法第五十条"
-          ],
-          "gold_citations": [
-            "中华人民共和国劳动合同法第三十八条",
-            "中华人民共和国劳动法第五十条"
-          ],
-          "grounded_before_repair": 1.0,
-          "grounded_after_repair": 1.0,
-          "out_of_scope_cites_raw": 0,
-          "out_of_scope_cites_post": 0
-        },
-        {
-          "must_cite_recall": 1.0,
-          "precision_at_must": 0.5,
-          "precision_at_must_set": 1.0,
-          "over_citation_rate": 1.0,
-          "cite_precision": 0.5,
-          "n_cites": 4,
-          "n_must_cite": 2,
-          "id": "g86",
-          "hop_type": "two_hop",
-          "citations": [
-            "中华人民共和国劳动合同法第五十条",
-            "中华人民共和国劳动合同法第四十九条",
-            "中华人民共和国劳动法第一百条",
-            "中华人民共和国劳动法第七十二条"
-          ],
-          "citations_ordered": [
-            "中华人民共和国劳动合同法第五十条",
-            "中华人民共和国劳动合同法第四十九条",
-            "中华人民共和国劳动法第一百条",
-            "中华人民共和国劳动法第七十二条"
-          ],
-          "gold_citations": [
-            "中华人民共和国劳动合同法第五十条",
-            "中华人民共和国劳动法第七十二条"
-          ],
-          "grounded_before_repair": 1.0,
-          "grounded_after_repair": 1.0,
-          "out_of_scope_cites_raw": 0,
-          "out_of_scope_cites_post": 0
-        },
-        {
-          "must_cite_recall": 1.0,
-          "precision_at_must": 1.0,
-          "precision_at_must_set": 1.0,
-          "over_citation_rate": 2.0,
-          "cite_precision": 0.3333,
+          "cite_precision": 0.1667,
           "n_cites": 6,
-          "n_must_cite": 2,
-          "id": "g89",
-          "hop_type": "two_hop",
-          "citations": [
-            "中华人民共和国劳动合同法第四十一条",
-            "中华人民共和国劳动合同法第四十三条",
-            "中华人民共和国劳动法第四十一条",
-            "中华人民共和国劳动法第四十三条",
-            "中华人民共和国民法典第四十一条",
-            "中华人民共和国民法典第四十三条"
-          ],
-          "citations_ordered": [
-            "中华人民共和国劳动合同法第四十一条",
-            "中华人民共和国劳动合同法第四十三条",
-            "中华人民共和国劳动法第四十一条",
-            "中华人民共和国劳动法第四十三条",
-            "中华人民共和国民法典第四十一条",
-            "中华人民共和国民法典第四十三条"
-          ],
-          "gold_citations": [
-            "中华人民共和国劳动合同法第四十一条",
-            "中华人民共和国劳动合同法第四十三条"
-          ],
-          "grounded_before_repair": 0.0,
-          "grounded_after_repair": 0.0,
-          "out_of_scope_cites_raw": 4,
-          "out_of_scope_cites_post": 4
-        },
-        {
-          "must_cite_recall": 1.0,
-          "precision_at_must": 0.5,
-          "precision_at_must_set": 1.0,
-          "over_citation_rate": 1.0,
-          "cite_precision": 0.5,
-          "n_cites": 4,
-          "n_must_cite": 2,
-          "id": "g92",
-          "hop_type": "two_hop",
-          "citations": [
-            "中华人民共和国劳动合同法第三十条",
-            "中华人民共和国劳动合同法第八十二条",
-            "中华人民共和国劳动合同法第十一条",
-            "中华人民共和国劳动法第五十条"
-          ],
-          "citations_ordered": [
-            "中华人民共和国劳动合同法第三十条",
-            "中华人民共和国劳动合同法第八十二条",
-            "中华人民共和国劳动合同法第十一条",
-            "中华人民共和国劳动法第五十条"
-          ],
-          "gold_citations": [
-            "中华人民共和国劳动合同法第八十二条",
-            "中华人民共和国劳动法第五十条"
-          ],
-          "grounded_before_repair": 1.0,
-          "grounded_after_repair": 1.0,
-          "out_of_scope_cites_raw": 0,
-          "out_of_scope_cites_post": 0
-        },
-        {
-          "must_cite_recall": 0.5,
-          "precision_at_must": 0.0,
-          "precision_at_must_set": 0.5,
-          "over_citation_rate": 3.0,
-          "cite_precision": 0.125,
-          "n_cites": 8,
-          "n_must_cite": 2,
-          "id": "g95",
-          "hop_type": "two_hop",
-          "citations": [
-            "中华人民共和国劳动合同法第二十三条",
-            "中华人民共和国劳动合同法第二十二条",
-            "中华人民共和国劳动合同法第二十五条",
-            "中华人民共和国劳动法第二十三条",
-            "中华人民共和国劳动法第二十二条",
-            "中华人民共和国民法典第二十三条",
-            "中华人民共和国民法典第二十二条",
-            "中华人民共和国民法典第五百八十五条"
-          ],
-          "citations_ordered": [
-            "中华人民共和国劳动合同法第二十三条",
-            "中华人民共和国劳动合同法第二十二条",
-            "中华人民共和国劳动合同法第二十五条",
-            "中华人民共和国劳动法第二十三条",
-            "中华人民共和国劳动法第二十二条",
-            "中华人民共和国民法典第二十三条",
-            "中华人民共和国民法典第二十二条",
-            "中华人民共和国民法典第五百八十五条"
-          ],
-          "gold_citations": [
-            "中华人民共和国劳动合同法第十三条",
-            "中华人民共和国民法典第五百八十五条"
-          ],
-          "grounded_before_repair": 0.0,
-          "grounded_after_repair": 0.0,
-          "out_of_scope_cites_raw": 5,
-          "out_of_scope_cites_post": 5
-        },
-        {
-          "must_cite_recall": 0.5,
-          "precision_at_must": 0.0,
-          "precision_at_must_set": 0.5,
-          "over_citation_rate": 5.5,
-          "cite_precision": 0.0769,
-          "n_cites": 13,
-          "n_must_cite": 2,
-          "id": "g97",
-          "hop_type": "two_hop",
-          "citations": [
-            "中华人民共和国劳动合同法第二十三条",
-            "中华人民共和国劳动合同法第八十七条",
-            "中华人民共和国劳动合同法第四十二条",
-            "中华人民共和国劳动合同法第四十五条",
-            "中华人民共和国劳动合同法第四十四条",
-            "中华人民共和国劳动法第二十三条",
-            "中华人民共和国劳动法第八十七条",
-            "中华人民共和国劳动法第四十五条",
-            "中华人民共和国劳动法第四十四条",
-            "中华人民共和国民法典第二十三条",
-            "中华人民共和国民法典第八十七条",
-            "中华人民共和国民法典第四十五条",
-            "中华人民共和国民法典第四十四条"
-          ],
-          "citations_ordered": [
-            "中华人民共和国劳动合同法第二十三条",
-            "中华人民共和国劳动合同法第八十七条",
-            "中华人民共和国劳动合同法第四十二条",
-            "中华人民共和国劳动合同法第四十五条",
-            "中华人民共和国劳动合同法第四十四条",
-            "中华人民共和国劳动法第二十三条",
-            "中华人民共和国劳动法第八十七条",
-            "中华人民共和国劳动法第四十五条",
-            "中华人民共和国劳动法第四十四条",
-            "中华人民共和国民法典第二十三条",
-            "中华人民共和国民法典第八十七条",
-            "中华人民共和国民法典第四十五条",
-            "中华人民共和国民法典第四十四条"
-          ],
-          "gold_citations": [
-            "中华人民共和国劳动合同法第四十五条",
-            "中华人民共和国劳动法第七十三条"
-          ],
-          "grounded_before_repair": 0.0,
-          "grounded_after_repair": 0.0,
-          "out_of_scope_cites_raw": 9,
-          "out_of_scope_cites_post": 9
-        },
-        {
-          "must_cite_recall": 1.0,
-          "precision_at_must": 0.0,
-          "precision_at_must_set": 1.0,
-          "over_citation_rate": 5.0,
-          "cite_precision": 0.1667,
-          "n_cites": 12,
-          "n_must_cite": 2,
-          "id": "g98",
-          "hop_type": "two_hop",
-          "citations": [
-            "中华人民共和国劳动合同法第七十一条",
-            "中华人民共和国劳动合同法第七十三条",
-            "中华人民共和国劳动合同法第七十二条",
-            "中华人民共和国劳动合同法第七十条",
-            "中华人民共和国劳动法第七十一条",
-            "中华人民共和国劳动法第七十三条",
-            "中华人民共和国劳动法第七十二条",
-            "中华人民共和国劳动法第七十条",
-            "中华人民共和国民法典第七十一条",
-            "中华人民共和国民法典第七十三条",
-            "中华人民共和国民法典第七十二条",
-            "中华人民共和国民法典第七十条"
-          ],
-          "citations_ordered": [
-            "中华人民共和国劳动合同法第七十一条",
-            "中华人民共和国劳动合同法第七十三条",
-            "中华人民共和国劳动合同法第七十二条",
-            "中华人民共和国劳动合同法第七十条",
-            "中华人民共和国劳动法第七十一条",
-            "中华人民共和国劳动法第七十三条",
-            "中华人民共和国劳动法第七十二条",
-            "中华人民共和国劳动法第七十条",
-            "中华人民共和国民法典第七十一条",
-            "中华人民共和国民法典第七十三条",
-            "中华人民共和国民法典第七十二条",
-            "中华人民共和国民法典第七十条"
-          ],
-          "gold_citations": [
-            "中华人民共和国劳动法第七十三条",
-            "中华人民共和国劳动法第七十二条"
-          ],
-          "grounded_before_repair": 0.0,
-          "grounded_after_repair": 0.0,
-          "out_of_scope_cites_raw": 8,
-          "out_of_scope_cites_post": 8
-        },
-        {
-          "must_cite_recall": 1.0,
-          "precision_at_must": 0.5,
-          "precision_at_must_set": 1.0,
-          "over_citation_rate": 0.5,
-          "cite_precision": 0.6667,
-          "n_cites": 3,
-          "n_must_cite": 2,
-          "id": "g99",
-          "hop_type": "two_hop",
-          "citations": [
-            "中华人民共和国劳动法第一百条",
-            "中华人民共和国劳动法第七十三条",
-            "中华人民共和国劳动法第七十二条"
-          ],
-          "citations_ordered": [
-            "中华人民共和国劳动法第一百条",
-            "中华人民共和国劳动法第七十三条",
-            "中华人民共和国劳动法第七十二条"
-          ],
-          "gold_citations": [
-            "中华人民共和国劳动法第七十三条",
-            "中华人民共和国劳动法第七十二条"
-          ],
-          "grounded_before_repair": 1.0,
-          "grounded_after_repair": 1.0,
-          "out_of_scope_cites_raw": 0,
-          "out_of_scope_cites_post": 0
-        },
-        {
-          "must_cite_recall": 1.0,
-          "precision_at_must": 0.0,
-          "precision_at_must_set": 1.0,
-          "over_citation_rate": 3.5,
-          "cite_precision": 0.2222,
-          "n_cites": 9,
-          "n_must_cite": 2,
-          "id": "g101",
-          "hop_type": "two_hop",
-          "citations": [
-            "中华人民共和国劳动合同法第七十三条",
-            "中华人民共和国劳动合同法第五十七条",
-            "中华人民共和国劳动合同法第五十四条",
-            "中华人民共和国劳动法第七十三条",
-            "中华人民共和国劳动法第五十七条",
-            "中华人民共和国劳动法第五十四条",
-            "中华人民共和国民法典第七十三条",
-            "中华人民共和国民法典第五十七条",
-            "中华人民共和国民法典第五十四条"
-          ],
-          "citations_ordered": [
-            "中华人民共和国劳动合同法第七十三条",
-            "中华人民共和国劳动合同法第五十七条",
-            "中华人民共和国劳动合同法第五十四条",
-            "中华人民共和国劳动法第七十三条",
-            "中华人民共和国劳动法第五十七条",
-            "中华人民共和国劳动法第五十四条",
-            "中华人民共和国民法典第七十三条",
-            "中华人民共和国民法典第五十七条",
-            "中华人民共和国民法典第五十四条"
-          ],
-          "gold_citations": [
-            "中华人民共和国劳动法第七十三条",
-            "中华人民共和国劳动法第五十七条"
-          ],
-          "grounded_before_repair": 0.0,
-          "grounded_after_repair": 0.0,
-          "out_of_scope_cites_raw": 6,
-          "out_of_scope_cites_post": 6
-        },
-        {
-          "must_cite_recall": 1.0,
-          "precision_at_must": 0.0,
-          "precision_at_must_set": 1.0,
-          "over_citation_rate": 3.0,
-          "cite_precision": 0.25,
-          "n_cites": 8,
-          "n_must_cite": 2,
-          "id": "g102",
-          "hop_type": "two_hop",
-          "citations": [
-            "中华人民共和国劳动合同法第九十二条",
-            "中华人民共和国劳动合同法第六十三条",
-            "中华人民共和国劳动法第九十二条",
-            "中华人民共和国劳动法第五十二条",
-            "中华人民共和国劳动法第六十一条",
-            "中华人民共和国劳动法第六十三条",
-            "中华人民共和国民法典第九十二条",
-            "中华人民共和国民法典第六十三条"
-          ],
-          "citations_ordered": [
-            "中华人民共和国劳动合同法第九十二条",
-            "中华人民共和国劳动合同法第六十三条",
-            "中华人民共和国劳动法第九十二条",
-            "中华人民共和国劳动法第五十二条",
-            "中华人民共和国劳动法第六十一条",
-            "中华人民共和国劳动法第六十三条",
-            "中华人民共和国民法典第九十二条",
-            "中华人民共和国民法典第六十三条"
-          ],
-          "gold_citations": [
-            "中华人民共和国劳动法第五十二条",
-            "中华人民共和国劳动法第六十三条"
-          ],
-          "grounded_before_repair": 0.0,
-          "grounded_after_repair": 0.0,
-          "out_of_scope_cites_raw": 4,
-          "out_of_scope_cites_post": 4
-        },
-        {
-          "must_cite_recall": 1.0,
-          "precision_at_must": 0.5,
-          "precision_at_must_set": 1.0,
-          "over_citation_rate": 1.0,
-          "cite_precision": 0.5,
-          "n_cites": 4,
-          "n_must_cite": 2,
-          "id": "g104",
-          "hop_type": "two_hop",
-          "citations": [
-            "中华人民共和国劳动合同法第三十六条",
-            "中华人民共和国劳动法第三十六条",
-            "中华人民共和国劳动法第四十五条",
-            "中华人民共和国民法典第三十六条"
-          ],
-          "citations_ordered": [
-            "中华人民共和国劳动合同法第三十六条",
-            "中华人民共和国劳动法第三十六条",
-            "中华人民共和国劳动法第四十五条",
-            "中华人民共和国民法典第三十六条"
-          ],
-          "gold_citations": [
-            "中华人民共和国劳动法第三十六条",
-            "中华人民共和国劳动法第四十五条"
-          ],
-          "grounded_before_repair": 0.0,
-          "grounded_after_repair": 0.0,
-          "out_of_scope_cites_raw": 2,
-          "out_of_scope_cites_post": 2
-        },
-        {
-          "must_cite_recall": 1.0,
-          "precision_at_must": 0.0,
-          "precision_at_must_set": 1.0,
-          "over_citation_rate": 3.5,
-          "cite_precision": 0.2222,
-          "n_cites": 9,
-          "n_must_cite": 2,
-          "id": "g105",
-          "hop_type": "two_hop",
-          "citations": [
-            "中华人民共和国劳动合同法第三十八条",
-            "中华人民共和国劳动合同法第五十一条",
-            "中华人民共和国劳动合同法第四十条",
-            "中华人民共和国劳动法第三十八条",
-            "中华人民共和国劳动法第五十一条",
-            "中华人民共和国劳动法第四十条",
-            "中华人民共和国民法典第三十八条",
-            "中华人民共和国民法典第五十一条",
-            "中华人民共和国民法典第四十条"
-          ],
-          "citations_ordered": [
-            "中华人民共和国劳动合同法第三十八条",
-            "中华人民共和国劳动合同法第五十一条",
-            "中华人民共和国劳动合同法第四十条",
-            "中华人民共和国劳动法第三十八条",
-            "中华人民共和国劳动法第五十一条",
-            "中华人民共和国劳动法第四十条",
-            "中华人民共和国民法典第三十八条",
-            "中华人民共和国民法典第五十一条",
-            "中华人民共和国民法典第四十条"
-          ],
-          "gold_citations": [
-            "中华人民共和国劳动法第五十一条",
-            "中华人民共和国劳动法第四十条"
-          ],
-          "grounded_before_repair": 0.0,
-          "grounded_after_repair": 0.0,
-          "out_of_scope_cites_raw": 6,
-          "out_of_scope_cites_post": 6
-        },
-        {
-          "must_cite_recall": 1.0,
-          "precision_at_must": 0.0,
-          "precision_at_must_set": 1.0,
-          "over_citation_rate": 3.5,
-          "cite_precision": 0.2222,
-          "n_cites": 9,
-          "n_must_cite": 2,
-          "id": "g107",
-          "hop_type": "two_hop",
-          "citations": [
-            "中华人民共和国劳动合同法第三十九条",
-            "中华人民共和国劳动合同法第三十八条",
-            "中华人民共和国劳动合同法第四十条",
-            "中华人民共和国劳动法第三十九条",
-            "中华人民共和国劳动法第三十八条",
-            "中华人民共和国劳动法第四十条",
-            "中华人民共和国民法典第三十九条",
-            "中华人民共和国民法典第三十八条",
-            "中华人民共和国民法典第四十条"
-          ],
-          "citations_ordered": [
-            "中华人民共和国劳动合同法第三十九条",
-            "中华人民共和国劳动合同法第三十八条",
-            "中华人民共和国劳动合同法第四十条",
-            "中华人民共和国劳动法第三十九条",
-            "中华人民共和国劳动法第三十八条",
-            "中华人民共和国劳动法第四十条",
-            "中华人民共和国民法典第三十九条",
-            "中华人民共和国民法典第三十八条",
-            "中华人民共和国民法典第四十条"
-          ],
-          "gold_citations": [
-            "中华人民共和国劳动法第三十八条",
-            "中华人民共和国劳动法第四十条"
-          ],
-          "grounded_before_repair": 0.0,
-          "grounded_after_repair": 0.0,
-          "out_of_scope_cites_raw": 6,
-          "out_of_scope_cites_post": 6
-        },
-        {
-          "must_cite_recall": 1.0,
-          "precision_at_must": 1.0,
-          "precision_at_must_set": 1.0,
-          "over_citation_rate": 1.0,
-          "cite_precision": 0.5,
-          "n_cites": 4,
-          "n_must_cite": 2,
-          "id": "g108",
-          "hop_type": "two_hop",
-          "citations": [
-            "中华人民共和国劳动合同法第三十一条",
-            "中华人民共和国劳动法第三十七条",
-            "中华人民共和国劳动法第九十一条",
-            "中华人民共和国劳动法第五十条"
-          ],
-          "citations_ordered": [
-            "中华人民共和国劳动合同法第三十一条",
-            "中华人民共和国劳动法第三十七条",
-            "中华人民共和国劳动法第九十一条",
-            "中华人民共和国劳动法第五十条"
-          ],
-          "gold_citations": [
-            "中华人民共和国劳动合同法第三十一条",
-            "中华人民共和国劳动法第三十七条"
-          ],
-          "grounded_before_repair": 1.0,
-          "grounded_after_repair": 1.0,
-          "out_of_scope_cites_raw": 0,
-          "out_of_scope_cites_post": 0
-        },
-        {
-          "must_cite_recall": 1.0,
-          "precision_at_must": 0.5,
-          "precision_at_must_set": 1.0,
-          "over_citation_rate": 5.0,
-          "cite_precision": 0.1667,
-          "n_cites": 12,
-          "n_must_cite": 2,
-          "id": "g110",
-          "hop_type": "two_hop",
-          "citations": [
-            "中华人民共和国劳动合同法第七十七条",
-            "中华人民共和国劳动合同法第七十二条",
-            "中华人民共和国劳动合同法第三十条",
-            "中华人民共和国劳动合同法第八十二条",
-            "中华人民共和国劳动法第七十七条",
-            "中华人民共和国劳动法第七十二条",
-            "中华人民共和国劳动法第三十条",
-            "中华人民共和国劳动法第八十二条",
-            "中华人民共和国民法典第七十七条",
-            "中华人民共和国民法典第七十二条",
-            "中华人民共和国民法典第三十条",
-            "中华人民共和国民法典第八十二条"
-          ],
-          "citations_ordered": [
-            "中华人民共和国劳动合同法第七十七条",
-            "中华人民共和国劳动合同法第七十二条",
-            "中华人民共和国劳动合同法第三十条",
-            "中华人民共和国劳动合同法第八十二条",
-            "中华人民共和国劳动法第七十七条",
-            "中华人民共和国劳动法第七十二条",
-            "中华人民共和国劳动法第三十条",
-            "中华人民共和国劳动法第八十二条",
-            "中华人民共和国民法典第七十七条",
-            "中华人民共和国民法典第七十二条",
-            "中华人民共和国民法典第三十条",
-            "中华人民共和国民法典第八十二条"
-          ],
-          "gold_citations": [
-            "中华人民共和国劳动合同法第七十二条",
-            "中华人民共和国劳动法第七十七条"
-          ],
-          "grounded_before_repair": 0.0,
-          "grounded_after_repair": 0.0,
-          "out_of_scope_cites_raw": 8,
-          "out_of_scope_cites_post": 8
-        },
-        {
-          "must_cite_recall": 0.5,
-          "precision_at_must": 0.5,
-          "precision_at_must_set": 0.5,
-          "over_citation_rate": 1.0,
-          "cite_precision": 0.25,
-          "n_cites": 4,
-          "n_must_cite": 2,
-          "id": "g112",
-          "hop_type": "two_hop",
-          "citations": [
-            "中华人民共和国劳动合同法第五十九条",
-            "中华人民共和国劳动合同法第六十二条",
-            "中华人民共和国民法典第一千一百九十一条",
-            "中华人民共和国民法典第一百七十七条"
-          ],
-          "citations_ordered": [
-            "中华人民共和国劳动合同法第五十九条",
-            "中华人民共和国劳动合同法第六十二条",
-            "中华人民共和国民法典第一千一百九十一条",
-            "中华人民共和国民法典第一百七十七条"
-          ],
-          "gold_citations": [
-            "中华人民共和国劳动合同法第五十九条",
-            "中华人民共和国劳动合同法第五十八条"
-          ],
-          "grounded_before_repair": 1.0,
-          "grounded_after_repair": 1.0,
-          "out_of_scope_cites_raw": 0,
-          "out_of_scope_cites_post": 0
-        },
-        {
-          "must_cite_recall": 0.0,
-          "precision_at_must": 0.0,
-          "precision_at_must_set": 0.0,
-          "over_citation_rate": 0.0,
-          "cite_precision": 0.0,
-          "n_cites": 2,
-          "n_must_cite": 2,
-          "id": "g116",
-          "hop_type": "two_hop",
-          "citations": [
-            "中华人民共和国劳动法第七十六条",
-            "中华人民共和国劳动法第三条"
-          ],
-          "citations_ordered": [
-            "中华人民共和国劳动法第七十六条",
-            "中华人民共和国劳动法第三条"
-          ],
-          "gold_citations": [
-            "中华人民共和国劳动合同法第四十条",
-            "中华人民共和国劳动法第五十八条"
-          ],
-          "grounded_before_repair": 1.0,
-          "grounded_after_repair": 1.0,
-          "out_of_scope_cites_raw": 0,
-          "out_of_scope_cites_post": 0
-        },
-        {
-          "must_cite_recall": 1.0,
-          "precision_at_must": 0.0,
-          "precision_at_must_set": 1.0,
-          "over_citation_rate": 3.0,
-          "cite_precision": 0.25,
-          "n_cites": 4,
-          "n_must_cite": 1,
-          "id": "g117",
-          "hop_type": "two_hop",
-          "citations": [
-            "中华人民共和国劳动合同法第九十条",
-            "中华人民共和国劳动合同法第二十三条",
-            "中华人民共和国劳动合同法第二十四条",
-            "中华人民共和国劳动法第二十二条"
-          ],
-          "citations_ordered": [
-            "中华人民共和国劳动合同法第九十条",
-            "中华人民共和国劳动合同法第二十三条",
-            "中华人民共和国劳动合同法第二十四条",
-            "中华人民共和国劳动法第二十二条"
-          ],
-          "gold_citations": [
-            "中华人民共和国劳动合同法第二十三条"
-          ],
-          "grounded_before_repair": 1.0,
-          "grounded_after_repair": 1.0,
-          "out_of_scope_cites_raw": 0,
-          "out_of_scope_cites_post": 0
-        },
-        {
-          "must_cite_recall": 1.0,
-          "precision_at_must": 1.0,
-          "precision_at_must_set": 1.0,
-          "over_citation_rate": 1.0,
-          "cite_precision": 0.5,
-          "n_cites": 2,
-          "n_must_cite": 1,
-          "id": "g118",
-          "hop_type": "two_hop",
-          "citations": [
-            "中华人民共和国劳动合同法第二十二条",
-            "中华人民共和国劳动合同法第二十五条"
-          ],
-          "citations_ordered": [
-            "中华人民共和国劳动合同法第二十二条",
-            "中华人民共和国劳动合同法第二十五条"
-          ],
-          "gold_citations": [
-            "中华人民共和国劳动合同法第二十二条"
-          ],
-          "grounded_before_repair": 1.0,
-          "grounded_after_repair": 1.0,
-          "out_of_scope_cites_raw": 0,
-          "out_of_scope_cites_post": 0
-        },
-        {
-          "must_cite_recall": 1.0,
-          "precision_at_must": 0.0,
-          "precision_at_must_set": 1.0,
-          "over_citation_rate": 2.0,
-          "cite_precision": 0.3333,
-          "n_cites": 3,
-          "n_must_cite": 1,
-          "id": "g119",
-          "hop_type": "two_hop",
-          "citations": [
-            "中华人民共和国劳动法第九十二条",
-            "中华人民共和国劳动法第五十三条",
-            "中华人民共和国劳动法第五十四条"
-          ],
-          "citations_ordered": [
-            "中华人民共和国劳动法第九十二条",
-            "中华人民共和国劳动法第五十三条",
-            "中华人民共和国劳动法第五十四条"
-          ],
-          "gold_citations": [
-            "中华人民共和国劳动法第五十四条"
-          ],
-          "grounded_before_repair": 1.0,
-          "grounded_after_repair": 1.0,
-          "out_of_scope_cites_raw": 0,
-          "out_of_scope_cites_post": 0
-        },
-        {
-          "must_cite_recall": 1.0,
-          "precision_at_must": 0.0,
-          "precision_at_must_set": 1.0,
-          "over_citation_rate": 2.0,
-          "cite_precision": 0.3333,
-          "n_cites": 3,
-          "n_must_cite": 1,
-          "id": "g121",
-          "hop_type": "two_hop",
-          "citations": [
-            "中华人民共和国劳动法第七十七条",
-            "中华人民共和国劳动法第七十九条",
-            "中华人民共和国劳动法第八十二条"
-          ],
-          "citations_ordered": [
-            "中华人民共和国劳动法第七十七条",
-            "中华人民共和国劳动法第七十九条",
-            "中华人民共和国劳动法第八十二条"
-          ],
-          "gold_citations": [
-            "中华人民共和国劳动法第七十九条"
-          ],
-          "grounded_before_repair": 1.0,
-          "grounded_after_repair": 1.0,
-          "out_of_scope_cites_raw": 0,
-          "out_of_scope_cites_post": 0
-        },
-        {
-          "must_cite_recall": 1.0,
-          "precision_at_must": 1.0,
-          "precision_at_must_set": 1.0,
-          "over_citation_rate": 1.0,
-          "cite_precision": 0.5,
-          "n_cites": 2,
-          "n_must_cite": 1,
-          "id": "g122",
-          "hop_type": "two_hop",
-          "citations": [
-            "中华人民共和国劳动法第七十九条",
-            "中华人民共和国劳动法第八十三条"
-          ],
-          "citations_ordered": [
-            "中华人民共和国劳动法第七十九条",
-            "中华人民共和国劳动法第八十三条"
-          ],
-          "gold_citations": [
-            "中华人民共和国劳动法第七十九条"
-          ],
-          "grounded_before_repair": 1.0,
-          "grounded_after_repair": 1.0,
-          "out_of_scope_cites_raw": 0,
-          "out_of_scope_cites_post": 0
-        },
-        {
-          "must_cite_recall": 1.0,
-          "precision_at_must": 1.0,
-          "precision_at_must_set": 1.0,
-          "over_citation_rate": 0.0,
-          "cite_precision": 1.0,
-          "n_cites": 2,
-          "n_must_cite": 2,
-          "id": "g123",
-          "hop_type": "two_hop",
-          "citations": [
-            "中华人民共和国劳动法第七十九条",
-            "中华人民共和国劳动法第八十二条"
-          ],
-          "citations_ordered": [
-            "中华人民共和国劳动法第七十九条",
-            "中华人民共和国劳动法第八十二条"
-          ],
-          "gold_citations": [
-            "中华人民共和国劳动法第七十九条",
-            "中华人民共和国劳动法第八十二条"
-          ],
-          "grounded_before_repair": 1.0,
-          "grounded_after_repair": 1.0,
-          "out_of_scope_cites_raw": 0,
-          "out_of_scope_cites_post": 0
-        },
-        {
-          "must_cite_recall": 1.0,
-          "precision_at_must": 1.0,
-          "precision_at_must_set": 1.0,
-          "over_citation_rate": 0.5,
-          "cite_precision": 0.6667,
-          "n_cites": 3,
-          "n_must_cite": 2,
-          "id": "g129",
-          "hop_type": "two_hop",
-          "citations": [
-            "中华人民共和国劳动合同法第三十五条",
-            "中华人民共和国劳动法第十七条",
-            "中华人民共和国民法典第五百四十三条"
-          ],
-          "citations_ordered": [
-            "中华人民共和国劳动合同法第三十五条",
-            "中华人民共和国劳动法第十七条",
-            "中华人民共和国民法典第五百四十三条"
-          ],
-          "gold_citations": [
-            "中华人民共和国劳动合同法第三十五条",
-            "中华人民共和国劳动法第十七条"
-          ],
-          "grounded_before_repair": 1.0,
-          "grounded_after_repair": 1.0,
-          "out_of_scope_cites_raw": 0,
-          "out_of_scope_cites_post": 0
-        },
-        {
-          "must_cite_recall": 1.0,
-          "precision_at_must": 0.6667,
-          "precision_at_must_set": 1.0,
-          "over_citation_rate": 0.3333,
-          "cite_precision": 0.75,
-          "n_cites": 4,
-          "n_must_cite": 3,
-          "id": "g133",
-          "hop_type": "three_hop",
-          "citations": [
-            "中华人民共和国劳动合同法第三十一条",
-            "中华人民共和国劳动合同法第八十五条",
-            "中华人民共和国劳动法第四十一条",
-            "中华人民共和国劳动法第四十二条"
-          ],
-          "citations_ordered": [
-            "中华人民共和国劳动合同法第三十一条",
-            "中华人民共和国劳动合同法第八十五条",
-            "中华人民共和国劳动法第四十一条",
-            "中华人民共和国劳动法第四十二条"
-          ],
-          "gold_citations": [
-            "中华人民共和国劳动合同法第三十一条",
-            "中华人民共和国劳动法第四十一条",
-            "中华人民共和国劳动法第四十二条"
-          ],
-          "grounded_before_repair": 1.0,
-          "grounded_after_repair": 1.0,
-          "out_of_scope_cites_raw": 0,
-          "out_of_scope_cites_post": 0
-        },
-        {
-          "must_cite_recall": 1.0,
-          "precision_at_must": 1.0,
-          "precision_at_must_set": 1.0,
-          "over_citation_rate": 0.3333,
-          "cite_precision": 0.75,
-          "n_cites": 4,
-          "n_must_cite": 3,
-          "id": "g134",
-          "hop_type": "three_hop",
-          "citations": [
-            "中华人民共和国劳动合同法第三十一条",
-            "中华人民共和国劳动合同法第八十五条",
-            "中华人民共和国劳动法第三十六条",
-            "中华人民共和国劳动法第四十四条"
-          ],
-          "citations_ordered": [
-            "中华人民共和国劳动合同法第三十一条",
-            "中华人民共和国劳动合同法第八十五条",
-            "中华人民共和国劳动法第三十六条",
-            "中华人民共和国劳动法第四十四条"
-          ],
-          "gold_citations": [
-            "中华人民共和国劳动合同法第三十一条",
-            "中华人民共和国劳动合同法第八十五条",
-            "中华人民共和国劳动法第三十六条"
-          ],
-          "grounded_before_repair": 1.0,
-          "grounded_after_repair": 1.0,
-          "out_of_scope_cites_raw": 0,
-          "out_of_scope_cites_post": 0
-        },
-        {
-          "must_cite_recall": 0.6667,
-          "precision_at_must": 1.0,
-          "precision_at_must_set": 1.0,
-          "over_citation_rate": 0.0,
-          "cite_precision": 1.0,
-          "n_cites": 2,
-          "n_must_cite": 3,
-          "id": "g135",
-          "hop_type": "three_hop",
-          "citations": [
-            "中华人民共和国劳动合同法第八十七条",
-            "中华人民共和国劳动合同法第四十三条"
-          ],
-          "citations_ordered": [
-            "中华人民共和国劳动合同法第八十七条",
-            "中华人民共和国劳动合同法第四十三条"
-          ],
-          "gold_citations": [
-            "中华人民共和国劳动合同法第三十九条",
-            "中华人民共和国劳动合同法第八十七条",
-            "中华人民共和国劳动合同法第四十三条"
-          ],
-          "grounded_before_repair": 1.0,
-          "grounded_after_repair": 1.0,
-          "out_of_scope_cites_raw": 0,
-          "out_of_scope_cites_post": 0
-        },
-        {
-          "must_cite_recall": 0.5,
-          "precision_at_must": 0.5,
-          "precision_at_must_set": 0.5,
-          "over_citation_rate": 0.0,
-          "cite_precision": 0.5,
-          "n_cites": 2,
-          "n_must_cite": 2,
-          "id": "g136",
-          "hop_type": "three_hop",
-          "citations": [
-            "中华人民共和国劳动合同法第十三条",
-            "中华人民共和国劳动合同法第十四条"
-          ],
-          "citations_ordered": [
-            "中华人民共和国劳动合同法第十三条",
-            "中华人民共和国劳动合同法第十四条"
-          ],
-          "gold_citations": [
-            "中华人民共和国劳动合同法第十四条",
-            "中华人民共和国劳动合同法第四十四条"
-          ],
-          "grounded_before_repair": 1.0,
-          "grounded_after_repair": 1.0,
-          "out_of_scope_cites_raw": 0,
-          "out_of_scope_cites_post": 0
-        },
-        {
-          "must_cite_recall": 0.6667,
-          "precision_at_must": 0.0,
-          "precision_at_must_set": 0.6667,
-          "over_citation_rate": 4.0,
-          "cite_precision": 0.1333,
-          "n_cites": 15,
-          "n_must_cite": 3,
-          "id": "g137",
-          "hop_type": "three_hop",
-          "citations": [
-            "中华人民共和国劳动合同法第九十七条",
-            "中华人民共和国劳动合同法第二十八条",
-            "中华人民共和国劳动合同法第八十七条",
-            "中华人民共和国劳动合同法第四十七条",
-            "中华人民共和国劳动合同法第四十六条",
-            "中华人民共和国劳动法第九十七条",
-            "中华人民共和国劳动法第二十八条",
-            "中华人民共和国劳动法第八十七条",
-            "中华人民共和国劳动法第四十七条",
-            "中华人民共和国劳动法第四十六条",
-            "中华人民共和国民法典第九十七条",
-            "中华人民共和国民法典第二十八条",
-            "中华人民共和国民法典第八十七条",
-            "中华人民共和国民法典第四十七条",
-            "中华人民共和国民法典第四十六条"
-          ],
-          "citations_ordered": [
-            "中华人民共和国劳动合同法第九十七条",
-            "中华人民共和国劳动合同法第二十八条",
-            "中华人民共和国劳动合同法第八十七条",
-            "中华人民共和国劳动合同法第四十七条",
-            "中华人民共和国劳动合同法第四十六条",
-            "中华人民共和国劳动法第九十七条",
-            "中华人民共和国劳动法第二十八条",
-            "中华人民共和国劳动法第八十七条",
-            "中华人民共和国劳动法第四十七条",
-            "中华人民共和国劳动法第四十六条",
-            "中华人民共和国民法典第九十七条",
-            "中华人民共和国民法典第二十八条",
-            "中华人民共和国民法典第八十七条",
-            "中华人民共和国民法典第四十七条",
-            "中华人民共和国民法典第四十六条"
-          ],
-          "gold_citations": [
-            "中华人民共和国劳动合同法第四十七条",
-            "中华人民共和国劳动合同法第四十六条",
-            "中华人民共和国劳动合同法第四十四条"
-          ],
-          "grounded_before_repair": 0.0,
-          "grounded_after_repair": 0.0,
-          "out_of_scope_cites_raw": 10,
-          "out_of_scope_cites_post": 10
-        },
-        {
-          "must_cite_recall": 1.0,
-          "precision_at_must": 0.0,
-          "precision_at_must_set": 1.0,
-          "over_citation_rate": 11.0,
-          "cite_precision": 0.0833,
-          "n_cites": 12,
-          "n_must_cite": 1,
-          "id": "g140",
-          "hop_type": "three_hop",
-          "citations": [
-            "中华人民共和国劳动合同法第九十条",
-            "中华人民共和国劳动合同法第二十三条",
-            "中华人民共和国劳动合同法第二十二条",
-            "中华人民共和国劳动合同法第二十四条",
-            "中华人民共和国劳动法第九十条",
-            "中华人民共和国劳动法第二十三条",
-            "中华人民共和国劳动法第二十二条",
-            "中华人民共和国劳动法第二十四条",
-            "中华人民共和国民法典第九十条",
-            "中华人民共和国民法典第二十三条",
-            "中华人民共和国民法典第二十二条",
-            "中华人民共和国民法典第二十四条"
-          ],
-          "citations_ordered": [
-            "中华人民共和国劳动合同法第九十条",
-            "中华人民共和国劳动合同法第二十三条",
-            "中华人民共和国劳动合同法第二十二条",
-            "中华人民共和国劳动合同法第二十四条",
-            "中华人民共和国劳动法第九十条",
-            "中华人民共和国劳动法第二十三条",
-            "中华人民共和国劳动法第二十二条",
-            "中华人民共和国劳动法第二十四条",
-            "中华人民共和国民法典第九十条",
-            "中华人民共和国民法典第二十三条",
-            "中华人民共和国民法典第二十二条",
-            "中华人民共和国民法典第二十四条"
-          ],
-          "gold_citations": [
-            "中华人民共和国劳动合同法第二十三条"
-          ],
-          "grounded_before_repair": 0.0,
-          "grounded_after_repair": 0.0,
-          "out_of_scope_cites_raw": 8,
-          "out_of_scope_cites_post": 8
-        },
-        {
-          "must_cite_recall": 1.0,
-          "precision_at_must": 1.0,
-          "precision_at_must_set": 1.0,
-          "over_citation_rate": 3.0,
-          "cite_precision": 0.25,
-          "n_cites": 4,
-          "n_must_cite": 1,
-          "id": "g141",
-          "hop_type": "three_hop",
-          "citations": [
-            "中华人民共和国劳动合同法第三十七条",
-            "中华人民共和国劳动合同法第四十条",
-            "中华人民共和国劳动法第三十一条",
-            "中华人民共和国劳动法第二十六条"
-          ],
-          "citations_ordered": [
-            "中华人民共和国劳动合同法第三十七条",
-            "中华人民共和国劳动合同法第四十条",
-            "中华人民共和国劳动法第三十一条",
-            "中华人民共和国劳动法第二十六条"
-          ],
-          "gold_citations": [
-            "中华人民共和国劳动合同法第三十七条"
-          ],
-          "grounded_before_repair": 1.0,
-          "grounded_after_repair": 1.0,
-          "out_of_scope_cites_raw": 0,
-          "out_of_scope_cites_post": 0
-        },
-        {
-          "must_cite_recall": 1.0,
-          "precision_at_must": 1.0,
-          "precision_at_must_set": 1.0,
-          "over_citation_rate": 0.5,
-          "cite_precision": 0.6667,
-          "n_cites": 3,
-          "n_must_cite": 2,
-          "id": "g142",
-          "hop_type": "three_hop",
-          "citations": [
-            "中华人民共和国劳动合同法第三十七条",
-            "中华人民共和国劳动合同法第五十条",
-            "中华人民共和国劳动法第三十一条"
-          ],
-          "citations_ordered": [
-            "中华人民共和国劳动合同法第三十七条",
-            "中华人民共和国劳动合同法第五十条",
-            "中华人民共和国劳动法第三十一条"
-          ],
-          "gold_citations": [
-            "中华人民共和国劳动合同法第三十七条",
-            "中华人民共和国劳动合同法第五十条"
-          ],
-          "grounded_before_repair": 1.0,
-          "grounded_after_repair": 1.0,
-          "out_of_scope_cites_raw": 0,
-          "out_of_scope_cites_post": 0
-        },
-        {
-          "must_cite_recall": 0.6667,
-          "precision_at_must": 0.6667,
-          "precision_at_must_set": 0.6667,
-          "over_citation_rate": 0.0,
-          "cite_precision": 0.6667,
-          "n_cites": 3,
-          "n_must_cite": 3,
-          "id": "g144",
-          "hop_type": "three_hop",
-          "citations": [
-            "中华人民共和国劳动法第一百条",
-            "中华人民共和国劳动法第七十三条",
-            "中华人民共和国劳动法第七十二条"
-          ],
-          "citations_ordered": [
-            "中华人民共和国劳动法第一百条",
-            "中华人民共和国劳动法第七十三条",
-            "中华人民共和国劳动法第七十二条"
-          ],
-          "gold_citations": [
-            "中华人民共和国劳动合同法第三十八条",
-            "中华人民共和国劳动法第七十三条",
-            "中华人民共和国劳动法第七十二条"
-          ],
-          "grounded_before_repair": 1.0,
-          "grounded_after_repair": 1.0,
-          "out_of_scope_cites_raw": 0,
-          "out_of_scope_cites_post": 0
-        },
-        {
-          "must_cite_recall": 0.6667,
-          "precision_at_must": 0.6667,
-          "precision_at_must_set": 0.6667,
-          "over_citation_rate": 0.3333,
-          "cite_precision": 0.5,
-          "n_cites": 4,
-          "n_must_cite": 3,
-          "id": "g145",
-          "hop_type": "three_hop",
-          "citations": [
-            "中华人民共和国劳动合同法第四十一条",
-            "中华人民共和国劳动合同法第四十七条",
-            "中华人民共和国劳动合同法第四十三条",
-            "中华人民共和国劳动法第二十七条"
-          ],
-          "citations_ordered": [
-            "中华人民共和国劳动合同法第四十一条",
-            "中华人民共和国劳动合同法第四十七条",
-            "中华人民共和国劳动合同法第四十三条",
-            "中华人民共和国劳动法第二十七条"
-          ],
-          "gold_citations": [
-            "中华人民共和国劳动合同法第四十七条",
-            "中华人民共和国劳动合同法第四十三条",
-            "中华人民共和国劳动合同法第四十六条"
-          ],
-          "grounded_before_repair": 1.0,
-          "grounded_after_repair": 1.0,
-          "out_of_scope_cites_raw": 0,
-          "out_of_scope_cites_post": 0
-        },
-        {
-          "must_cite_recall": 0.6667,
-          "precision_at_must": 0.6667,
-          "precision_at_must_set": 0.6667,
-          "over_citation_rate": 0.3333,
-          "cite_precision": 0.5,
-          "n_cites": 4,
-          "n_must_cite": 3,
-          "id": "g146",
-          "hop_type": "three_hop",
-          "citations": [
-            "中华人民共和国劳动合同法第八十五条",
-            "中华人民共和国劳动合同法第四十一条",
-            "中华人民共和国劳动法第九十一条",
-            "中华人民共和国劳动法第二十七条"
-          ],
-          "citations_ordered": [
-            "中华人民共和国劳动合同法第八十五条",
-            "中华人民共和国劳动合同法第四十一条",
-            "中华人民共和国劳动法第九十一条",
-            "中华人民共和国劳动法第二十七条"
-          ],
-          "gold_citations": [
-            "中华人民共和国劳动合同法第八十五条",
-            "中华人民共和国劳动合同法第四十一条",
-            "中华人民共和国劳动合同法第四十七条"
-          ],
-          "grounded_before_repair": 1.0,
-          "grounded_after_repair": 1.0,
-          "out_of_scope_cites_raw": 0,
-          "out_of_scope_cites_post": 0
-        },
-        {
-          "must_cite_recall": 0.6667,
-          "precision_at_must": 0.6667,
-          "precision_at_must_set": 0.6667,
-          "over_citation_rate": 0.3333,
-          "cite_precision": 0.5,
-          "n_cites": 4,
-          "n_must_cite": 3,
-          "id": "g147",
-          "hop_type": "three_hop",
-          "citations": [
-            "中华人民共和国劳动合同法第八十七条",
-            "中华人民共和国劳动合同法第四十三条",
-            "中华人民共和国劳动法第三十条",
-            "中华人民共和国劳动法第二十五条"
-          ],
-          "citations_ordered": [
-            "中华人民共和国劳动合同法第八十七条",
-            "中华人民共和国劳动合同法第四十三条",
-            "中华人民共和国劳动法第三十条",
-            "中华人民共和国劳动法第二十五条"
-          ],
-          "gold_citations": [
-            "中华人民共和国劳动合同法第三十九条",
-            "中华人民共和国劳动合同法第八十七条",
-            "中华人民共和国劳动合同法第四十三条"
-          ],
-          "grounded_before_repair": 1.0,
-          "grounded_after_repair": 1.0,
-          "out_of_scope_cites_raw": 0,
-          "out_of_scope_cites_post": 0
-        },
-        {
-          "must_cite_recall": 1.0,
-          "precision_at_must": 1.0,
-          "precision_at_must_set": 1.0,
-          "over_citation_rate": 0.5,
-          "cite_precision": 0.6667,
-          "n_cites": 3,
-          "n_must_cite": 2,
-          "id": "g148",
-          "hop_type": "three_hop",
-          "citations": [
-            "中华人民共和国劳动合同法第八十七条",
-            "中华人民共和国劳动合同法第四十七条",
-            "中华人民共和国劳动合同法第四十八条"
-          ],
-          "citations_ordered": [
-            "中华人民共和国劳动合同法第八十七条",
-            "中华人民共和国劳动合同法第四十七条",
-            "中华人民共和国劳动合同法第四十八条"
-          ],
-          "gold_citations": [
-            "中华人民共和国劳动合同法第八十七条",
-            "中华人民共和国劳动合同法第四十七条"
-          ],
-          "grounded_before_repair": 1.0,
-          "grounded_after_repair": 1.0,
-          "out_of_scope_cites_raw": 0,
-          "out_of_scope_cites_post": 0
-        },
-        {
-          "must_cite_recall": 0.6667,
-          "precision_at_must": 0.3333,
-          "precision_at_must_set": 0.6667,
-          "over_citation_rate": 3.0,
-          "cite_precision": 0.1667,
-          "n_cites": 12,
-          "n_must_cite": 3,
-          "id": "g150",
-          "hop_type": "three_hop",
-          "citations": [
-            "中华人民共和国劳动合同法第二十七条",
-            "中华人民共和国劳动合同法第六条",
-            "中华人民共和国劳动合同法第四十一条",
-            "中华人民共和国劳动合同法第四十七条",
-            "中华人民共和国劳动法第二十七条",
-            "中华人民共和国劳动法第六条",
-            "中华人民共和国劳动法第四十一条",
-            "中华人民共和国劳动法第四十七条",
-            "中华人民共和国民法典第二十七条",
-            "中华人民共和国民法典第六条",
-            "中华人民共和国民法典第四十一条",
-            "中华人民共和国民法典第四十七条"
-          ],
-          "citations_ordered": [
-            "中华人民共和国劳动合同法第二十七条",
-            "中华人民共和国劳动合同法第六条",
-            "中华人民共和国劳动合同法第四十一条",
-            "中华人民共和国劳动合同法第四十七条",
-            "中华人民共和国劳动法第二十七条",
-            "中华人民共和国劳动法第六条",
-            "中华人民共和国劳动法第四十一条",
-            "中华人民共和国劳动法第四十七条",
-            "中华人民共和国民法典第二十七条",
-            "中华人民共和国民法典第六条",
-            "中华人民共和国民法典第四十一条",
-            "中华人民共和国民法典第四十七条"
-          ],
-          "gold_citations": [
-            "中华人民共和国劳动合同法第六条",
-            "中华人民共和国劳动合同法第四十七条",
-            "中华人民共和国劳动合同法第四十六条"
-          ],
-          "grounded_before_repair": 0.0,
-          "grounded_after_repair": 0.0,
-          "out_of_scope_cites_raw": 8,
-          "out_of_scope_cites_post": 8
-        },
-        {
-          "must_cite_recall": 0.6667,
-          "precision_at_must": 0.3333,
-          "precision_at_must_set": 0.6667,
-          "over_citation_rate": 0.3333,
-          "cite_precision": 0.5,
-          "n_cites": 4,
-          "n_must_cite": 3,
-          "id": "g155",
-          "hop_type": "three_hop",
-          "citations": [
-            "中华人民共和国劳动合同法第四十二条",
-            "中华人民共和国劳动合同法第四十五条",
-            "中华人民共和国劳动法第一百条",
-            "中华人民共和国劳动法第七十三条"
-          ],
-          "citations_ordered": [
-            "中华人民共和国劳动合同法第四十二条",
-            "中华人民共和国劳动合同法第四十五条",
-            "中华人民共和国劳动法第一百条",
-            "中华人民共和国劳动法第七十三条"
-          ],
-          "gold_citations": [
-            "中华人民共和国劳动合同法第四十五条",
-            "中华人民共和国劳动法第七十三条",
-            "中华人民共和国劳动法第七十二条"
-          ],
-          "grounded_before_repair": 0.0,
-          "grounded_after_repair": 0.0,
-          "out_of_scope_cites_raw": 1,
-          "out_of_scope_cites_post": 1
-        },
-        {
-          "must_cite_recall": 0.6667,
-          "precision_at_must": 0.6667,
-          "precision_at_must_set": 0.6667,
-          "over_citation_rate": 0.0,
-          "cite_precision": 0.6667,
-          "n_cites": 3,
-          "n_must_cite": 3,
-          "id": "g161",
-          "hop_type": "three_hop",
-          "citations": [
-            "中华人民共和国劳动合同法第三十八条",
-            "中华人民共和国劳动法第九十一条",
-            "中华人民共和国劳动法第五十条"
-          ],
-          "citations_ordered": [
-            "中华人民共和国劳动合同法第三十八条",
-            "中华人民共和国劳动法第九十一条",
-            "中华人民共和国劳动法第五十条"
-          ],
-          "gold_citations": [
-            "中华人民共和国劳动合同法第三十八条",
-            "中华人民共和国劳动合同法第三十条",
-            "中华人民共和国劳动法第五十条"
-          ],
-          "grounded_before_repair": 1.0,
-          "grounded_after_repair": 1.0,
-          "out_of_scope_cites_raw": 0,
-          "out_of_scope_cites_post": 0
-        },
-        {
-          "must_cite_recall": 1.0,
-          "precision_at_must": 0.0,
-          "precision_at_must_set": 1.0,
-          "over_citation_rate": 3.0,
-          "cite_precision": 0.25,
-          "n_cites": 4,
-          "n_must_cite": 1,
-          "id": "g166",
-          "hop_type": "three_hop",
-          "citations": [
-            "中华人民共和国劳动合同法第九十条",
-            "中华人民共和国劳动合同法第二十三条",
-            "中华人民共和国劳动合同法第二十四条",
-            "中华人民共和国民法典第五百零一条"
-          ],
-          "citations_ordered": [
-            "中华人民共和国劳动合同法第九十条",
-            "中华人民共和国劳动合同法第二十三条",
-            "中华人民共和国劳动合同法第二十四条",
-            "中华人民共和国民法典第五百零一条"
-          ],
-          "gold_citations": [
-            "中华人民共和国劳动合同法第二十三条"
-          ],
-          "grounded_before_repair": 1.0,
-          "grounded_after_repair": 1.0,
-          "out_of_scope_cites_raw": 0,
-          "out_of_scope_cites_post": 0
-        },
-        {
-          "must_cite_recall": 1.0,
-          "precision_at_must": 0.0,
-          "precision_at_must_set": 1.0,
-          "over_citation_rate": 3.0,
-          "cite_precision": 0.25,
-          "n_cites": 4,
-          "n_must_cite": 1,
-          "id": "g169",
-          "hop_type": "three_hop",
-          "citations": [
-            "中华人民共和国劳动法第七十七条",
-            "中华人民共和国劳动法第七十九条",
-            "中华人民共和国劳动法第八十三条",
-            "中华人民共和国劳动法第八十二条"
-          ],
-          "citations_ordered": [
-            "中华人民共和国劳动法第七十七条",
-            "中华人民共和国劳动法第七十九条",
-            "中华人民共和国劳动法第八十三条",
-            "中华人民共和国劳动法第八十二条"
-          ],
-          "gold_citations": [
-            "中华人民共和国劳动法第七十九条"
-          ],
-          "grounded_before_repair": 1.0,
-          "grounded_after_repair": 1.0,
-          "out_of_scope_cites_raw": 0,
-          "out_of_scope_cites_post": 0
-        },
-        {
-          "must_cite_recall": 0.6667,
-          "precision_at_must": 0.3333,
-          "precision_at_must_set": 0.6667,
-          "over_citation_rate": 0.3333,
-          "cite_precision": 0.5,
-          "n_cites": 4,
-          "n_must_cite": 3,
-          "id": "g172",
-          "hop_type": "three_hop",
-          "citations": [
-            "中华人民共和国民法典第一百六十七条",
-            "中华人民共和国民法典第三百八十七条",
-            "中华人民共和国民法典第三百八十八条",
-            "中华人民共和国民法典第六百八十九条"
-          ],
-          "citations_ordered": [
-            "中华人民共和国民法典第一百六十七条",
-            "中华人民共和国民法典第三百八十七条",
-            "中华人民共和国民法典第三百八十八条",
-            "中华人民共和国民法典第六百八十九条"
-          ],
-          "gold_citations": [
-            "中华人民共和国民法典第一百六十七条",
-            "中华人民共和国民法典第六百八十九条",
-            "中华人民共和国民法典第六百八十二条"
-          ],
-          "grounded_before_repair": 1.0,
-          "grounded_after_repair": 1.0,
-          "out_of_scope_cites_raw": 0,
-          "out_of_scope_cites_post": 0
-        },
-        {
-          "must_cite_recall": 0.6667,
-          "precision_at_must": 0.6667,
-          "precision_at_must_set": 0.6667,
-          "over_citation_rate": 0.0,
-          "cite_precision": 0.6667,
-          "n_cites": 3,
-          "n_must_cite": 3,
-          "id": "g174",
-          "hop_type": "three_hop",
-          "citations": [
-            "中华人民共和国劳动合同法第三十条",
-            "中华人民共和国劳动法第五十条",
-            "中华人民共和国劳动法第十六条"
-          ],
-          "citations_ordered": [
-            "中华人民共和国劳动合同法第三十条",
-            "中华人民共和国劳动法第五十条",
-            "中华人民共和国劳动法第十六条"
-          ],
-          "gold_citations": [
-            "中华人民共和国劳动合同法第七条",
-            "中华人民共和国劳动合同法第三十条",
-            "中华人民共和国劳动法第五十条"
-          ],
-          "grounded_before_repair": 1.0,
-          "grounded_after_repair": 1.0,
-          "out_of_scope_cites_raw": 0,
-          "out_of_scope_cites_post": 0
-        },
-        {
-          "must_cite_recall": 0.3333,
-          "precision_at_must": 0.5,
-          "precision_at_must_set": 0.5,
-          "over_citation_rate": 0.0,
-          "cite_precision": 0.5,
-          "n_cites": 2,
-          "n_must_cite": 3,
-          "id": "g177",
-          "hop_type": "cross_law",
-          "citations": [
-            "中华人民共和国劳动合同法第十九条",
-            "中华人民共和国民法典第四百九十条"
-          ],
-          "citations_ordered": [
-            "中华人民共和国劳动合同法第十九条",
-            "中华人民共和国民法典第四百九十条"
-          ],
-          "gold_citations": [
-            "中华人民共和国劳动合同法第十三条",
-            "中华人民共和国劳动合同法第十九条",
-            "中华人民共和国民法典第四百八十三条"
-          ],
-          "grounded_before_repair": 1.0,
-          "grounded_after_repair": 1.0,
-          "out_of_scope_cites_raw": 0,
-          "out_of_scope_cites_post": 0
-        },
-        {
-          "must_cite_recall": 0.3333,
-          "precision_at_must": 0.5,
-          "precision_at_must_set": 0.5,
-          "over_citation_rate": 0.0,
-          "cite_precision": 0.5,
-          "n_cites": 2,
           "n_must_cite": 3,
           "id": "g179",
           "hop_type": "cross_law",
           "citations": [
             "中华人民共和国劳动合同法第六十九条",
-            "中华人民共和国劳动合同法第六十八条"
+            "中华人民共和国劳动合同法第六十八条",
+            "中华人民共和国劳动法第六十九条",
+            "中华人民共和国劳动法第六十八条",
+            "中华人民共和国民法典第六十九条",
+            "中华人民共和国民法典第六十八条"
           ],
           "citations_ordered": [
             "中华人民共和国劳动合同法第六十九条",
-            "中华人民共和国劳动合同法第六十八条"
+            "中华人民共和国劳动合同法第六十八条",
+            "中华人民共和国劳动法第六十九条",
+            "中华人民共和国劳动法第六十八条",
+            "中华人民共和国民法典第六十九条",
+            "中华人民共和国民法典第六十八条"
           ],
           "gold_citations": [
             "中华人民共和国劳动合同法第六十九条",
             "中华人民共和国劳动合同法第十五条",
             "中华人民共和国民法典第四百八十三条"
           ],
-          "grounded_before_repair": 1.0,
-          "grounded_after_repair": 1.0,
-          "out_of_scope_cites_raw": 0,
-          "out_of_scope_cites_post": 0
+          "grounded_before_repair": 0.0,
+          "grounded_after_repair": 0.0,
+          "out_of_scope_cites_raw": 4,
+          "out_of_scope_cites_post": 4
         },
         {
           "must_cite_recall": 0.3333,
           "precision_at_must": 0.3333,
           "precision_at_must_set": 0.3333,
-          "over_citation_rate": 0.0,
-          "cite_precision": 0.3333,
-          "n_cites": 3,
+          "over_citation_rate": 0.3333,
+          "cite_precision": 0.25,
+          "n_cites": 4,
           "n_must_cite": 3,
           "id": "g181",
           "hop_type": "cross_law",
           "citations": [
             "中华人民共和国劳动合同法第二十三条",
             "中华人民共和国民法典第五百八十五条",
+            "中华人民共和国民法典第五百八十八条",
             "中华人民共和国民法典第五百八十四条"
           ],
           "citations_ordered": [
             "中华人民共和国劳动合同法第二十三条",
             "中华人民共和国民法典第五百八十五条",
+            "中华人民共和国民法典第五百八十八条",
             "中华人民共和国民法典第五百八十四条"
           ],
           "gold_citations": [
@@ -3829,22 +3831,20 @@
           "must_cite_recall": 1.0,
           "precision_at_must": 0.5,
           "precision_at_must_set": 1.0,
-          "over_citation_rate": 1.0,
-          "cite_precision": 0.5,
-          "n_cites": 4,
+          "over_citation_rate": 0.5,
+          "cite_precision": 0.6667,
+          "n_cites": 3,
           "n_must_cite": 2,
           "id": "g194",
           "hop_type": "cross_law",
           "citations": [
             "中华人民共和国劳动合同法第二十二条",
             "中华人民共和国劳动合同法第二十五条",
-            "中华人民共和国民法典第五百八十五条",
             "中华人民共和国民法典第五百八十八条"
           ],
           "citations_ordered": [
             "中华人民共和国劳动合同法第二十二条",
             "中华人民共和国劳动合同法第二十五条",
-            "中华人民共和国民法典第五百八十五条",
             "中华人民共和国民法典第五百八十八条"
           ],
           "gold_citations": [
@@ -3884,22 +3884,26 @@
           "out_of_scope_cites_post": 0
         },
         {
-          "must_cite_recall": 0.3333,
-          "precision_at_must": 0.5,
-          "precision_at_must_set": 0.5,
-          "over_citation_rate": 0.0,
+          "must_cite_recall": 0.6667,
+          "precision_at_must": 0.3333,
+          "precision_at_must_set": 0.6667,
+          "over_citation_rate": 0.3333,
           "cite_precision": 0.5,
-          "n_cites": 2,
+          "n_cites": 4,
           "n_must_cite": 3,
           "id": "g198",
           "hop_type": "cross_law",
           "citations": [
+            "中华人民共和国劳动合同法第八十六条",
             "中华人民共和国民法典第一千一百八十六条",
-            "中华人民共和国民法典第一千一百六十六条"
+            "中华人民共和国民法典第一千一百六十六条",
+            "中华人民共和国民法典第一百五十七条"
           ],
           "citations_ordered": [
+            "中华人民共和国劳动合同法第八十六条",
             "中华人民共和国民法典第一千一百八十六条",
-            "中华人民共和国民法典第一千一百六十六条"
+            "中华人民共和国民法典第一千一百六十六条",
+            "中华人民共和国民法典第一百五十七条"
           ],
           "gold_citations": [
             "中华人民共和国劳动法第七十三条",
@@ -3949,58 +3953,58 @@
       "summary": {
         "n": 60,
         "order_available": true,
-        "must_cite_recall": 0.7528,
+        "must_cite_recall": 0.7583,
         "must_cite_recall_ci95": [
-          0.6833,
-          0.8167
+          0.6861,
+          0.8222
         ],
-        "precision_at_must": 0.4972,
+        "precision_at_must": 0.4889,
         "precision_at_must_ci95": [
-          0.4111,
-          0.5917
+          0.3972,
+          0.5861
         ],
-        "precision_at_must_set": 0.7667,
+        "precision_at_must_set": 0.7694,
         "precision_at_must_set_ci95": [
-          0.6917,
-          0.8333
+          0.6972,
+          0.8361
         ],
-        "over_citation_rate": 1.1167,
+        "over_citation_rate": 1.3611,
         "over_citation_rate_ci95": [
-          0.8361,
-          1.4333
+          0.9944,
+          1.7917
         ],
-        "cite_precision": 0.4273,
+        "cite_precision": 0.4057,
         "cite_precision_ci95": [
-          0.3778,
-          0.4754
+          0.3523,
+          0.4554
         ],
-        "n_cites_mean": 4,
+        "n_cites_mean": 4.3333,
         "n_must_cite_mean": 2.1667,
         "grounded_split_available": true,
-        "grounded_before_repair_mean": 0.7833,
-        "grounded_after_repair_mean": 0.85,
-        "out_of_scope_cites_raw_mean": 0.95,
-        "out_of_scope_cites_post_mean": 0.6167,
+        "grounded_before_repair_mean": 0.6833,
+        "grounded_after_repair_mean": 0.7833,
+        "out_of_scope_cites_raw_mean": 1.3333,
+        "out_of_scope_cites_post_mean": 0.85,
         "by_hop": {
           "two_hop": {
             "must_cite_recall": 0.85,
-            "precision_at_must": 0.4667,
+            "precision_at_must": 0.45,
             "precision_at_must_set": 0.85,
-            "over_citation_rate": 1.5167,
-            "cite_precision": 0.4033
+            "over_citation_rate": 1.8,
+            "cite_precision": 0.3717
           },
           "three_hop": {
             "must_cite_recall": 0.775,
-            "precision_at_must": 0.6083,
+            "precision_at_must": 0.6,
             "precision_at_must_set": 0.8,
-            "over_citation_rate": 0.9667,
-            "cite_precision": 0.4893
+            "over_citation_rate": 1.25,
+            "cite_precision": 0.4722
           },
           "cross_law": {
-            "must_cite_recall": 0.4166,
-            "precision_at_must": 0.3666,
-            "precision_at_must_set": 0.45,
-            "over_citation_rate": 0.2167,
+            "must_cite_recall": 0.45,
+            "precision_at_must": 0.3833,
+            "precision_at_must_set": 0.4667,
+            "over_citation_rate": 0.2667,
             "cite_precision": 0.375
           }
         }
@@ -4039,27 +4043,31 @@
           "must_cite_recall": 0.5,
           "precision_at_must": 0.5,
           "precision_at_must_set": 0.5,
-          "over_citation_rate": 0.0,
-          "cite_precision": 0.5,
-          "n_cites": 2,
+          "over_citation_rate": 1.0,
+          "cite_precision": 0.25,
+          "n_cites": 4,
           "n_must_cite": 2,
           "id": "g72",
           "hop_type": "two_hop",
           "citations": [
             "中华人民共和国劳动合同法第八十七条",
-            "中华人民共和国劳动合同法第四十八条"
+            "中华人民共和国劳动合同法第四十八条",
+            "中华人民共和国民法典第五百八十四条",
+            "中华人民共和国民法典第五百六十七条"
           ],
           "citations_ordered": [
             "中华人民共和国劳动合同法第八十七条",
-            "中华人民共和国劳动合同法第四十八条"
+            "中华人民共和国劳动合同法第四十八条",
+            "中华人民共和国民法典第五百八十四条",
+            "中华人民共和国民法典第五百六十七条"
           ],
           "gold_citations": [
             "中华人民共和国劳动合同法第八十七条",
             "中华人民共和国劳动合同法第四十四条"
           ],
-          "grounded_before_repair": 1.0,
+          "grounded_before_repair": 0.0,
           "grounded_after_repair": 1.0,
-          "out_of_scope_cites_raw": 0,
+          "out_of_scope_cites_raw": 4,
           "out_of_scope_cites_post": 0
         },
         {
@@ -4092,9 +4100,9 @@
           "must_cite_recall": 1.0,
           "precision_at_must": 1.0,
           "precision_at_must_set": 1.0,
-          "over_citation_rate": 4.0,
-          "cite_precision": 0.2,
-          "n_cites": 10,
+          "over_citation_rate": 1.0,
+          "cite_precision": 0.5,
+          "n_cites": 4,
           "n_must_cite": 2,
           "id": "g75",
           "hop_type": "two_hop",
@@ -4102,34 +4110,22 @@
             "中华人民共和国劳动合同法第九十条",
             "中华人民共和国劳动合同法第二十三条",
             "中华人民共和国劳动合同法第二十四条",
-            "中华人民共和国劳动法第一百零二条",
-            "中华人民共和国劳动法第九十条",
-            "中华人民共和国劳动法第二十三条",
-            "中华人民共和国劳动法第二十四条",
-            "中华人民共和国民法典第九十条",
-            "中华人民共和国民法典第二十三条",
-            "中华人民共和国民法典第二十四条"
+            "中华人民共和国劳动法第一百零二条"
           ],
           "citations_ordered": [
             "中华人民共和国劳动合同法第九十条",
             "中华人民共和国劳动合同法第二十三条",
             "中华人民共和国劳动合同法第二十四条",
-            "中华人民共和国劳动法第一百零二条",
-            "中华人民共和国劳动法第九十条",
-            "中华人民共和国劳动法第二十三条",
-            "中华人民共和国劳动法第二十四条",
-            "中华人民共和国民法典第九十条",
-            "中华人民共和国民法典第二十三条",
-            "中华人民共和国民法典第二十四条"
+            "中华人民共和国劳动法第一百零二条"
           ],
           "gold_citations": [
             "中华人民共和国劳动合同法第九十条",
             "中华人民共和国劳动合同法第二十三条"
           ],
-          "grounded_before_repair": 0.0,
-          "grounded_after_repair": 0.0,
-          "out_of_scope_cites_raw": 7,
-          "out_of_scope_cites_post": 6
+          "grounded_before_repair": 1.0,
+          "grounded_after_repair": 1.0,
+          "out_of_scope_cites_raw": 0,
+          "out_of_scope_cites_post": 0
         },
         {
           "must_cite_recall": 1.0,
@@ -4227,19 +4223,21 @@
           "must_cite_recall": 1.0,
           "precision_at_must": 0.5,
           "precision_at_must_set": 1.0,
-          "over_citation_rate": 0.5,
-          "cite_precision": 0.6667,
-          "n_cites": 3,
+          "over_citation_rate": 1.0,
+          "cite_precision": 0.5,
+          "n_cites": 4,
           "n_must_cite": 2,
           "id": "g86",
           "hop_type": "two_hop",
           "citations": [
             "中华人民共和国劳动合同法第五十条",
+            "中华人民共和国劳动合同法第四十九条",
             "中华人民共和国劳动法第一百条",
             "中华人民共和国劳动法第七十二条"
           ],
           "citations_ordered": [
             "中华人民共和国劳动合同法第五十条",
+            "中华人民共和国劳动合同法第四十九条",
             "中华人民共和国劳动法第一百条",
             "中华人民共和国劳动法第七十二条"
           ],
@@ -4256,9 +4254,9 @@
           "must_cite_recall": 1.0,
           "precision_at_must": 0.5,
           "precision_at_must_set": 1.0,
-          "over_citation_rate": 1.0,
-          "cite_precision": 0.5,
-          "n_cites": 4,
+          "over_citation_rate": 3.0,
+          "cite_precision": 0.25,
+          "n_cites": 8,
           "n_must_cite": 2,
           "id": "g89",
           "hop_type": "two_hop",
@@ -4266,22 +4264,30 @@
             "中华人民共和国劳动合同法第六条",
             "中华人民共和国劳动合同法第四十一条",
             "中华人民共和国劳动合同法第四十三条",
-            "中华人民共和国劳动法第二十七条"
+            "中华人民共和国劳动法第二十七条",
+            "中华人民共和国劳动法第四十一条",
+            "中华人民共和国劳动法第四十三条",
+            "中华人民共和国民法典第四十一条",
+            "中华人民共和国民法典第四十三条"
           ],
           "citations_ordered": [
             "中华人民共和国劳动合同法第六条",
             "中华人民共和国劳动合同法第四十一条",
             "中华人民共和国劳动合同法第四十三条",
-            "中华人民共和国劳动法第二十七条"
+            "中华人民共和国劳动法第二十七条",
+            "中华人民共和国劳动法第四十一条",
+            "中华人民共和国劳动法第四十三条",
+            "中华人民共和国民法典第四十一条",
+            "中华人民共和国民法典第四十三条"
           ],
           "gold_citations": [
             "中华人民共和国劳动合同法第四十一条",
             "中华人民共和国劳动合同法第四十三条"
           ],
           "grounded_before_repair": 0.0,
-          "grounded_after_repair": 1.0,
+          "grounded_after_repair": 0.0,
           "out_of_scope_cites_raw": 4,
-          "out_of_scope_cites_post": 0
+          "out_of_scope_cites_post": 4
         },
         {
           "must_cite_recall": 1.0,
@@ -4342,7 +4348,7 @@
           ],
           "grounded_before_repair": 0.0,
           "grounded_after_repair": 1.0,
-          "out_of_scope_cites_raw": 5,
+          "out_of_scope_cites_raw": 3,
           "out_of_scope_cites_post": 0
         },
         {
@@ -4373,7 +4379,7 @@
           ],
           "grounded_before_repair": 0.0,
           "grounded_after_repair": 1.0,
-          "out_of_scope_cites_raw": 1,
+          "out_of_scope_cites_raw": 8,
           "out_of_scope_cites_post": 0
         },
         {
@@ -4408,7 +4414,7 @@
           ],
           "grounded_before_repair": 0.0,
           "grounded_after_repair": 0.0,
-          "out_of_scope_cites_raw": 6,
+          "out_of_scope_cites_raw": 2,
           "out_of_scope_cites_post": 2
         },
         {
@@ -4476,7 +4482,7 @@
           ],
           "grounded_before_repair": 0.0,
           "grounded_after_repair": 0.0,
-          "out_of_scope_cites_raw": 6,
+          "out_of_scope_cites_raw": 4,
           "out_of_scope_cites_post": 4
         },
         {
@@ -4519,7 +4525,7 @@
           ],
           "grounded_before_repair": 0.0,
           "grounded_after_repair": 0.0,
-          "out_of_scope_cites_raw": 4,
+          "out_of_scope_cites_raw": 6,
           "out_of_scope_cites_post": 6
         },
         {
@@ -4589,7 +4595,7 @@
           ],
           "grounded_before_repair": 0.0,
           "grounded_after_repair": 0.0,
-          "out_of_scope_cites_raw": 2,
+          "out_of_scope_cites_raw": 6,
           "out_of_scope_cites_post": 6
         },
         {
@@ -4628,7 +4634,7 @@
           ],
           "grounded_before_repair": 0.0,
           "grounded_after_repair": 0.0,
-          "out_of_scope_cites_raw": 6,
+          "out_of_scope_cites_raw": 4,
           "out_of_scope_cites_post": 4
         },
         {
@@ -4728,19 +4734,17 @@
           "must_cite_recall": 0.0,
           "precision_at_must": 0.0,
           "precision_at_must_set": 0.0,
-          "over_citation_rate": 0.5,
+          "over_citation_rate": 0.0,
           "cite_precision": 0.0,
-          "n_cites": 3,
+          "n_cites": 2,
           "n_must_cite": 2,
           "id": "g116",
           "hop_type": "two_hop",
           "citations": [
-            "中华人民共和国劳动法第七十五条",
             "中华人民共和国劳动法第七十六条",
             "中华人民共和国劳动法第三条"
           ],
           "citations_ordered": [
-            "中华人民共和国劳动法第七十五条",
             "中华人民共和国劳动法第七十六条",
             "中华人民共和国劳动法第三条"
           ],
@@ -4757,9 +4761,9 @@
           "must_cite_recall": 1.0,
           "precision_at_must": 0.0,
           "precision_at_must_set": 1.0,
-          "over_citation_rate": 3.0,
-          "cite_precision": 0.25,
-          "n_cites": 4,
+          "over_citation_rate": 7.0,
+          "cite_precision": 0.125,
+          "n_cites": 8,
           "n_must_cite": 1,
           "id": "g117",
           "hop_type": "two_hop",
@@ -4767,21 +4771,29 @@
             "中华人民共和国劳动合同法第九十条",
             "中华人民共和国劳动合同法第二十三条",
             "中华人民共和国劳动合同法第二十四条",
-            "中华人民共和国劳动法第二十二条"
+            "中华人民共和国劳动法第九十条",
+            "中华人民共和国劳动法第二十二条",
+            "中华人民共和国劳动法第二十四条",
+            "中华人民共和国民法典第九十条",
+            "中华人民共和国民法典第二十四条"
           ],
           "citations_ordered": [
             "中华人民共和国劳动合同法第九十条",
             "中华人民共和国劳动合同法第二十三条",
             "中华人民共和国劳动合同法第二十四条",
-            "中华人民共和国劳动法第二十二条"
+            "中华人民共和国劳动法第九十条",
+            "中华人民共和国劳动法第二十二条",
+            "中华人民共和国劳动法第二十四条",
+            "中华人民共和国民法典第九十条",
+            "中华人民共和国民法典第二十四条"
           ],
           "gold_citations": [
             "中华人民共和国劳动合同法第二十三条"
           ],
-          "grounded_before_repair": 1.0,
-          "grounded_after_repair": 1.0,
-          "out_of_scope_cites_raw": 0,
-          "out_of_scope_cites_post": 0
+          "grounded_before_repair": 0.0,
+          "grounded_after_repair": 0.0,
+          "out_of_scope_cites_raw": 4,
+          "out_of_scope_cites_post": 4
         },
         {
           "must_cite_recall": 1.0,
@@ -4813,31 +4825,39 @@
           "must_cite_recall": 1.0,
           "precision_at_must": 0.0,
           "precision_at_must_set": 1.0,
-          "over_citation_rate": 3.0,
-          "cite_precision": 0.25,
-          "n_cites": 4,
+          "over_citation_rate": 7.0,
+          "cite_precision": 0.125,
+          "n_cites": 8,
           "n_must_cite": 1,
           "id": "g119",
           "hop_type": "two_hop",
           "citations": [
+            "中华人民共和国劳动合同法第九十二条",
+            "中华人民共和国劳动合同法第五十三条",
             "中华人民共和国劳动法第九十二条",
             "中华人民共和国劳动法第五十三条",
             "中华人民共和国劳动法第五十二条",
-            "中华人民共和国劳动法第五十四条"
+            "中华人民共和国劳动法第五十四条",
+            "中华人民共和国民法典第九十二条",
+            "中华人民共和国民法典第五十三条"
           ],
           "citations_ordered": [
+            "中华人民共和国劳动合同法第九十二条",
+            "中华人民共和国劳动合同法第五十三条",
             "中华人民共和国劳动法第九十二条",
             "中华人民共和国劳动法第五十三条",
             "中华人民共和国劳动法第五十二条",
-            "中华人民共和国劳动法第五十四条"
+            "中华人民共和国劳动法第五十四条",
+            "中华人民共和国民法典第九十二条",
+            "中华人民共和国民法典第五十三条"
           ],
           "gold_citations": [
             "中华人民共和国劳动法第五十四条"
           ],
-          "grounded_before_repair": 1.0,
-          "grounded_after_repair": 1.0,
-          "out_of_scope_cites_raw": 0,
-          "out_of_scope_cites_post": 0
+          "grounded_before_repair": 0.0,
+          "grounded_after_repair": 0.0,
+          "out_of_scope_cites_raw": 4,
+          "out_of_scope_cites_post": 4
         },
         {
           "must_cite_recall": 1.0,
@@ -4895,19 +4915,21 @@
         },
         {
           "must_cite_recall": 1.0,
-          "precision_at_must": 1.0,
+          "precision_at_must": 0.5,
           "precision_at_must_set": 1.0,
-          "over_citation_rate": 0.0,
-          "cite_precision": 1.0,
-          "n_cites": 2,
+          "over_citation_rate": 0.5,
+          "cite_precision": 0.6667,
+          "n_cites": 3,
           "n_must_cite": 2,
           "id": "g123",
           "hop_type": "two_hop",
           "citations": [
+            "中华人民共和国劳动法第七十七条",
             "中华人民共和国劳动法第七十九条",
             "中华人民共和国劳动法第八十二条"
           ],
           "citations_ordered": [
+            "中华人民共和国劳动法第七十七条",
             "中华人民共和国劳动法第七十九条",
             "中华人民共和国劳动法第八十二条"
           ],
@@ -5043,30 +5065,42 @@
         },
         {
           "must_cite_recall": 0.5,
-          "precision_at_must": 0.5,
+          "precision_at_must": 0.0,
           "precision_at_must_set": 0.5,
-          "over_citation_rate": 0.0,
-          "cite_precision": 0.5,
-          "n_cites": 2,
+          "over_citation_rate": 3.0,
+          "cite_precision": 0.125,
+          "n_cites": 8,
           "n_must_cite": 2,
           "id": "g136",
           "hop_type": "three_hop",
           "citations": [
             "中华人民共和国劳动合同法第十三条",
-            "中华人民共和国劳动合同法第十四条"
+            "中华人民共和国劳动合同法第十二条",
+            "中华人民共和国劳动合同法第十四条",
+            "中华人民共和国劳动法第二十条",
+            "中华人民共和国劳动法第十三条",
+            "中华人民共和国劳动法第十四条",
+            "中华人民共和国民法典第十三条",
+            "中华人民共和国民法典第十四条"
           ],
           "citations_ordered": [
             "中华人民共和国劳动合同法第十三条",
-            "中华人民共和国劳动合同法第十四条"
+            "中华人民共和国劳动合同法第十二条",
+            "中华人民共和国劳动合同法第十四条",
+            "中华人民共和国劳动法第二十条",
+            "中华人民共和国劳动法第十三条",
+            "中华人民共和国劳动法第十四条",
+            "中华人民共和国民法典第十三条",
+            "中华人民共和国民法典第十四条"
           ],
           "gold_citations": [
             "中华人民共和国劳动合同法第十四条",
             "中华人民共和国劳动合同法第四十四条"
           ],
-          "grounded_before_repair": 1.0,
-          "grounded_after_repair": 1.0,
-          "out_of_scope_cites_raw": 0,
-          "out_of_scope_cites_post": 0
+          "grounded_before_repair": 0.0,
+          "grounded_after_repair": 0.0,
+          "out_of_scope_cites_raw": 4,
+          "out_of_scope_cites_post": 4
         },
         {
           "must_cite_recall": 0.3333,
@@ -5079,11 +5113,11 @@
           "id": "g137",
           "hop_type": "three_hop",
           "citations": [
-            "中华人民共和国劳动合同法第九十七条",
+            "中华人民共和国劳动合同法第八十七条",
             "中华人民共和国劳动合同法第四十七条"
           ],
           "citations_ordered": [
-            "中华人民共和国劳动合同法第九十七条",
+            "中华人民共和国劳动合同法第八十七条",
             "中华人民共和国劳动合同法第四十七条"
           ],
           "gold_citations": [
@@ -5100,9 +5134,9 @@
           "must_cite_recall": 1.0,
           "precision_at_must": 0.0,
           "precision_at_must_set": 1.0,
-          "over_citation_rate": 3.0,
-          "cite_precision": 0.25,
-          "n_cites": 4,
+          "over_citation_rate": 5.0,
+          "cite_precision": 0.1667,
+          "n_cites": 6,
           "n_must_cite": 1,
           "id": "g140",
           "hop_type": "three_hop",
@@ -5110,21 +5144,25 @@
             "中华人民共和国劳动合同法第九十条",
             "中华人民共和国劳动合同法第二十三条",
             "中华人民共和国劳动合同法第二十四条",
-            "中华人民共和国劳动法第二十二条"
+            "中华人民共和国劳动法第二十二条",
+            "中华人民共和国劳动法第二十四条",
+            "中华人民共和国民法典第二十四条"
           ],
           "citations_ordered": [
             "中华人民共和国劳动合同法第九十条",
             "中华人民共和国劳动合同法第二十三条",
             "中华人民共和国劳动合同法第二十四条",
-            "中华人民共和国劳动法第二十二条"
+            "中华人民共和国劳动法第二十二条",
+            "中华人民共和国劳动法第二十四条",
+            "中华人民共和国民法典第二十四条"
           ],
           "gold_citations": [
             "中华人民共和国劳动合同法第二十三条"
           ],
-          "grounded_before_repair": 1.0,
-          "grounded_after_repair": 1.0,
-          "out_of_scope_cites_raw": 0,
-          "out_of_scope_cites_post": 0
+          "grounded_before_repair": 0.0,
+          "grounded_after_repair": 0.0,
+          "out_of_scope_cites_raw": 2,
+          "out_of_scope_cites_post": 2
         },
         {
           "must_cite_recall": 1.0,
@@ -5222,7 +5260,7 @@
           ],
           "grounded_before_repair": 0.0,
           "grounded_after_repair": 0.0,
-          "out_of_scope_cites_raw": 5,
+          "out_of_scope_cites_raw": 3,
           "out_of_scope_cites_post": 3
         },
         {
@@ -5325,9 +5363,9 @@
           "must_cite_recall": 1.0,
           "precision_at_must": 0.5,
           "precision_at_must_set": 1.0,
-          "over_citation_rate": 3.0,
-          "cite_precision": 0.25,
-          "n_cites": 8,
+          "over_citation_rate": 4.0,
+          "cite_precision": 0.2,
+          "n_cites": 10,
           "n_must_cite": 2,
           "id": "g148",
           "hop_type": "three_hop",
@@ -5338,8 +5376,10 @@
             "中华人民共和国劳动合同法第四十八条",
             "中华人民共和国劳动法第八十七条",
             "中华人民共和国劳动法第四十七条",
+            "中华人民共和国劳动法第四十八条",
             "中华人民共和国民法典第八十七条",
-            "中华人民共和国民法典第四十七条"
+            "中华人民共和国民法典第四十七条",
+            "中华人民共和国民法典第四十八条"
           ],
           "citations_ordered": [
             "中华人民共和国劳动合同法第八十七条",
@@ -5348,8 +5388,10 @@
             "中华人民共和国劳动合同法第四十八条",
             "中华人民共和国劳动法第八十七条",
             "中华人民共和国劳动法第四十七条",
+            "中华人民共和国劳动法第四十八条",
             "中华人民共和国民法典第八十七条",
-            "中华人民共和国民法典第四十七条"
+            "中华人民共和国民法典第四十七条",
+            "中华人民共和国民法典第四十八条"
           ],
           "gold_citations": [
             "中华人民共和国劳动合同法第八十七条",
@@ -5358,7 +5400,7 @@
           "grounded_before_repair": 0.0,
           "grounded_after_repair": 0.0,
           "out_of_scope_cites_raw": 6,
-          "out_of_scope_cites_post": 4
+          "out_of_scope_cites_post": 6
         },
         {
           "must_cite_recall": 0.6667,
@@ -5387,9 +5429,9 @@
             "中华人民共和国劳动合同法第四十七条",
             "中华人民共和国劳动合同法第四十六条"
           ],
-          "grounded_before_repair": 1.0,
+          "grounded_before_repair": 0.0,
           "grounded_after_repair": 1.0,
-          "out_of_scope_cites_raw": 0,
+          "out_of_scope_cites_raw": 8,
           "out_of_scope_cites_post": 0
         },
         {
@@ -5426,23 +5468,21 @@
         },
         {
           "must_cite_recall": 0.6667,
-          "precision_at_must": 0.3333,
+          "precision_at_must": 0.6667,
           "precision_at_must_set": 0.6667,
-          "over_citation_rate": 0.3333,
-          "cite_precision": 0.5,
-          "n_cites": 4,
+          "over_citation_rate": 0.0,
+          "cite_precision": 0.6667,
+          "n_cites": 3,
           "n_must_cite": 3,
           "id": "g161",
           "hop_type": "three_hop",
           "citations": [
             "中华人民共和国劳动合同法第三十八条",
-            "中华人民共和国劳动合同法第四十条",
             "中华人民共和国劳动法第九十一条",
             "中华人民共和国劳动法第五十条"
           ],
           "citations_ordered": [
             "中华人民共和国劳动合同法第三十八条",
-            "中华人民共和国劳动合同法第四十条",
             "中华人民共和国劳动法第九十一条",
             "中华人民共和国劳动法第五十条"
           ],
@@ -5639,7 +5679,7 @@
           ],
           "grounded_before_repair": 0.0,
           "grounded_after_repair": 0.0,
-          "out_of_scope_cites_raw": 4,
+          "out_of_scope_cites_raw": 2,
           "out_of_scope_cites_post": 2
         },
         {
@@ -5764,29 +5804,31 @@
           "must_cite_recall": 1.0,
           "precision_at_must": 0.5,
           "precision_at_must_set": 1.0,
-          "over_citation_rate": 0.5,
-          "cite_precision": 0.6667,
-          "n_cites": 3,
+          "over_citation_rate": 1.0,
+          "cite_precision": 0.5,
+          "n_cites": 4,
           "n_must_cite": 2,
           "id": "g194",
           "hop_type": "cross_law",
           "citations": [
             "中华人民共和国劳动合同法第二十二条",
             "中华人民共和国劳动合同法第二十五条",
+            "中华人民共和国民法典第五百八十五条",
             "中华人民共和国民法典第五百八十八条"
           ],
           "citations_ordered": [
             "中华人民共和国劳动合同法第二十二条",
             "中华人民共和国劳动合同法第二十五条",
+            "中华人民共和国民法典第五百八十五条",
             "中华人民共和国民法典第五百八十八条"
           ],
           "gold_citations": [
             "中华人民共和国劳动合同法第二十二条",
             "中华人民共和国民法典第五百八十八条"
           ],
-          "grounded_before_repair": 1.0,
+          "grounded_before_repair": 0.0,
           "grounded_after_repair": 1.0,
-          "out_of_scope_cites_raw": 0,
+          "out_of_scope_cites_raw": 5,
           "out_of_scope_cites_post": 0
         },
         {
@@ -5817,22 +5859,26 @@
           "out_of_scope_cites_post": 0
         },
         {
-          "must_cite_recall": 0.3333,
-          "precision_at_must": 0.5,
-          "precision_at_must_set": 0.5,
-          "over_citation_rate": 0.0,
+          "must_cite_recall": 0.6667,
+          "precision_at_must": 0.3333,
+          "precision_at_must_set": 0.6667,
+          "over_citation_rate": 0.3333,
           "cite_precision": 0.5,
-          "n_cites": 2,
+          "n_cites": 4,
           "n_must_cite": 3,
           "id": "g198",
           "hop_type": "cross_law",
           "citations": [
+            "中华人民共和国劳动合同法第八十六条",
             "中华人民共和国民法典第一千一百八十六条",
-            "中华人民共和国民法典第一千一百六十六条"
+            "中华人民共和国民法典第一千一百六十六条",
+            "中华人民共和国民法典第一百五十七条"
           ],
           "citations_ordered": [
+            "中华人民共和国劳动合同法第八十六条",
             "中华人民共和国民法典第一千一百八十六条",
-            "中华人民共和国民法典第一千一百六十六条"
+            "中华人民共和国民法典第一千一百六十六条",
+            "中华人民共和国民法典第一百五十七条"
           ],
           "gold_citations": [
             "中华人民共和国劳动法第七十三条",
@@ -5846,24 +5892,22 @@
         },
         {
           "must_cite_recall": 0.6667,
-          "precision_at_must": 0.3333,
+          "precision_at_must": 0.6667,
           "precision_at_must_set": 0.6667,
-          "over_citation_rate": 0.3333,
-          "cite_precision": 0.5,
-          "n_cites": 4,
+          "over_citation_rate": 0.0,
+          "cite_precision": 0.6667,
+          "n_cites": 3,
           "n_must_cite": 3,
           "id": "g200",
           "hop_type": "cross_law",
           "citations": [
             "中华人民共和国民法典第一千一百八十六条",
             "中华人民共和国民法典第一千一百六十五条",
-            "中华人民共和国民法典第一千二百三十三条",
             "中华人民共和国民法典第一千二百二十九条"
           ],
           "citations_ordered": [
             "中华人民共和国民法典第一千一百八十六条",
             "中华人民共和国民法典第一千一百六十五条",
-            "中华人民共和国民法典第一千二百三十三条",
             "中华人民共和国民法典第一千二百二十九条"
           ],
           "gold_citations": [
@@ -5882,59 +5926,59 @@
       "summary": {
         "n": 60,
         "order_available": true,
-        "must_cite_recall": 0.7528,
+        "must_cite_recall": 0.7583,
         "must_cite_recall_ci95": [
-          0.6778,
-          0.8194
+          0.6861,
+          0.8278
         ],
-        "precision_at_must": 0.5222,
+        "precision_at_must": 0.5417,
         "precision_at_must_ci95": [
-          0.4361,
-          0.6028
+          0.4528,
+          0.625
         ],
-        "precision_at_must_set": 0.7639,
+        "precision_at_must_set": 0.7667,
         "precision_at_must_set_ci95": [
-          0.6944,
-          0.8306
+          0.6972,
+          0.8361
         ],
-        "over_citation_rate": 0.8778,
+        "over_citation_rate": 0.8333,
         "over_citation_rate_ci95": [
-          0.6639,
-          1.125
+          0.6361,
+          1.0778
         ],
-        "cite_precision": 0.4486,
+        "cite_precision": 0.4556,
         "cite_precision_ci95": [
-          0.3986,
-          0.5
+          0.4042,
+          0.5056
         ],
-        "n_cites_mean": 3.4667,
+        "n_cites_mean": 3.45,
         "n_must_cite_mean": 2.1667,
         "grounded_split_available": true,
         "grounded_before_repair_mean": 0.8833,
         "grounded_after_repair_mean": 1.0,
-        "out_of_scope_cites_raw_mean": 0.6833,
+        "out_of_scope_cites_raw_mean": 0.5333,
         "out_of_scope_cites_post_mean": 0,
         "by_hop": {
           "two_hop": {
             "must_cite_recall": 0.85,
             "precision_at_must": 0.5667,
             "precision_at_must_set": 0.85,
-            "over_citation_rate": 1.0833,
+            "over_citation_rate": 1.0667,
             "cite_precision": 0.4444
           },
           "three_hop": {
             "must_cite_recall": 0.775,
-            "precision_at_must": 0.5583,
+            "precision_at_must": 0.6083,
             "precision_at_must_set": 0.7917,
-            "over_citation_rate": 0.8583,
-            "cite_precision": 0.5083
+            "over_citation_rate": 0.775,
+            "cite_precision": 0.5167
           },
           "cross_law": {
-            "must_cite_recall": 0.4166,
-            "precision_at_must": 0.3166,
-            "precision_at_must_set": 0.45,
-            "over_citation_rate": 0.3,
-            "cite_precision": 0.3417
+            "must_cite_recall": 0.45,
+            "precision_at_must": 0.3333,
+            "precision_at_must_set": 0.4667,
+            "over_citation_rate": 0.25,
+            "cite_precision": 0.3667
           }
         }
       },
@@ -5972,19 +6016,21 @@
           "must_cite_recall": 0.5,
           "precision_at_must": 0.5,
           "precision_at_must_set": 0.5,
-          "over_citation_rate": 0.0,
-          "cite_precision": 0.5,
-          "n_cites": 2,
+          "over_citation_rate": 0.5,
+          "cite_precision": 0.3333,
+          "n_cites": 3,
           "n_must_cite": 2,
           "id": "g72",
           "hop_type": "two_hop",
           "citations": [
             "中华人民共和国劳动合同法第八十七条",
-            "中华人民共和国劳动合同法第四十八条"
+            "中华人民共和国劳动合同法第四十八条",
+            "中华人民共和国民法典第五百六十七条"
           ],
           "citations_ordered": [
             "中华人民共和国劳动合同法第八十七条",
-            "中华人民共和国劳动合同法第四十八条"
+            "中华人民共和国劳动合同法第四十八条",
+            "中华人民共和国民法典第五百六十七条"
           ],
           "gold_citations": [
             "中华人民共和国劳动合同法第八十七条",
@@ -6294,7 +6340,7 @@
           ],
           "grounded_before_repair": 0.0,
           "grounded_after_repair": 1.0,
-          "out_of_scope_cites_raw": 5,
+          "out_of_scope_cites_raw": 1,
           "out_of_scope_cites_post": 0
         },
         {
@@ -6323,9 +6369,9 @@
             "中华人民共和国劳动法第七十三条",
             "中华人民共和国劳动法第七十二条"
           ],
-          "grounded_before_repair": 0.0,
+          "grounded_before_repair": 1.0,
           "grounded_after_repair": 1.0,
-          "out_of_scope_cites_raw": 8,
+          "out_of_scope_cites_raw": 0,
           "out_of_scope_cites_post": 0
         },
         {
@@ -6414,9 +6460,9 @@
             "中华人民共和国劳动法第五十二条",
             "中华人民共和国劳动法第六十三条"
           ],
-          "grounded_before_repair": 1.0,
+          "grounded_before_repair": 0.0,
           "grounded_after_repair": 1.0,
-          "out_of_scope_cites_raw": 0,
+          "out_of_scope_cites_raw": 8,
           "out_of_scope_cites_post": 0
         },
         {
@@ -6450,31 +6496,29 @@
           "must_cite_recall": 1.0,
           "precision_at_must": 0.5,
           "precision_at_must_set": 1.0,
-          "over_citation_rate": 1.0,
-          "cite_precision": 0.5,
-          "n_cites": 4,
+          "over_citation_rate": 0.5,
+          "cite_precision": 0.6667,
+          "n_cites": 3,
           "n_must_cite": 2,
           "id": "g105",
           "hop_type": "two_hop",
           "citations": [
             "中华人民共和国劳动法第三十八条",
             "中华人民共和国劳动法第五十一条",
-            "中华人民共和国劳动法第四十条",
-            "中华人民共和国民法典第二百零三条"
+            "中华人民共和国劳动法第四十条"
           ],
           "citations_ordered": [
             "中华人民共和国劳动法第三十八条",
             "中华人民共和国劳动法第五十一条",
-            "中华人民共和国劳动法第四十条",
-            "中华人民共和国民法典第二百零三条"
+            "中华人民共和国劳动法第四十条"
           ],
           "gold_citations": [
             "中华人民共和国劳动法第五十一条",
             "中华人民共和国劳动法第四十条"
           ],
-          "grounded_before_repair": 0.0,
+          "grounded_before_repair": 1.0,
           "grounded_after_repair": 1.0,
-          "out_of_scope_cites_raw": 6,
+          "out_of_scope_cites_raw": 0,
           "out_of_scope_cites_post": 0
         },
         {
@@ -6594,28 +6638,26 @@
             "中华人民共和国劳动合同法第五十九条",
             "中华人民共和国劳动合同法第五十八条"
           ],
-          "grounded_before_repair": 0.0,
+          "grounded_before_repair": 1.0,
           "grounded_after_repair": 1.0,
-          "out_of_scope_cites_raw": 4,
+          "out_of_scope_cites_raw": 0,
           "out_of_scope_cites_post": 0
         },
         {
           "must_cite_recall": 0.0,
           "precision_at_must": 0.0,
           "precision_at_must_set": 0.0,
-          "over_citation_rate": 0.5,
+          "over_citation_rate": 0.0,
           "cite_precision": 0.0,
-          "n_cites": 3,
+          "n_cites": 2,
           "n_must_cite": 2,
           "id": "g116",
           "hop_type": "two_hop",
           "citations": [
-            "中华人民共和国劳动法第七十五条",
             "中华人民共和国劳动法第七十六条",
             "中华人民共和国劳动法第三条"
           ],
           "citations_ordered": [
-            "中华人民共和国劳动法第七十五条",
             "中华人民共和国劳动法第七十六条",
             "中华人民共和国劳动法第三条"
           ],
@@ -6953,30 +6995,32 @@
           "must_cite_recall": 0.3333,
           "precision_at_must": 0.3333,
           "precision_at_must_set": 0.3333,
-          "over_citation_rate": 0.0,
-          "cite_precision": 0.3333,
-          "n_cites": 3,
+          "over_citation_rate": 0.3333,
+          "cite_precision": 0.25,
+          "n_cites": 4,
           "n_must_cite": 3,
           "id": "g137",
           "hop_type": "three_hop",
           "citations": [
             "中华人民共和国劳动合同法第九十七条",
             "中华人民共和国劳动合同法第八十七条",
-            "中华人民共和国劳动合同法第四十七条"
+            "中华人民共和国劳动合同法第四十七条",
+            "中华人民共和国劳动法第二十八条"
           ],
           "citations_ordered": [
             "中华人民共和国劳动合同法第九十七条",
             "中华人民共和国劳动合同法第八十七条",
-            "中华人民共和国劳动合同法第四十七条"
+            "中华人民共和国劳动合同法第四十七条",
+            "中华人民共和国劳动法第二十八条"
           ],
           "gold_citations": [
             "中华人民共和国劳动合同法第四十七条",
             "中华人民共和国劳动合同法第四十六条",
             "中华人民共和国劳动合同法第四十四条"
           ],
-          "grounded_before_repair": 1.0,
+          "grounded_before_repair": 0.0,
           "grounded_after_repair": 1.0,
-          "out_of_scope_cites_raw": 0,
+          "out_of_scope_cites_raw": 4,
           "out_of_scope_cites_post": 0
         },
         {
@@ -7222,9 +7266,9 @@
             "中华人民共和国劳动合同法第八十七条",
             "中华人民共和国劳动合同法第四十七条"
           ],
-          "grounded_before_repair": 0.0,
+          "grounded_before_repair": 1.0,
           "grounded_after_repair": 1.0,
-          "out_of_scope_cites_raw": 8,
+          "out_of_scope_cites_raw": 0,
           "out_of_scope_cites_post": 0
         },
         {
@@ -7254,9 +7298,9 @@
             "中华人民共和国劳动合同法第四十七条",
             "中华人民共和国劳动合同法第四十六条"
           ],
-          "grounded_before_repair": 1.0,
+          "grounded_before_repair": 0.0,
           "grounded_after_repair": 1.0,
-          "out_of_scope_cites_raw": 0,
+          "out_of_scope_cites_raw": 8,
           "out_of_scope_cites_post": 0
         },
         {
@@ -7286,9 +7330,9 @@
             "中华人民共和国劳动法第七十三条",
             "中华人民共和国劳动法第七十二条"
           ],
-          "grounded_before_repair": 1.0,
+          "grounded_before_repair": 0.0,
           "grounded_after_repair": 1.0,
-          "out_of_scope_cites_raw": 0,
+          "out_of_scope_cites_raw": 1,
           "out_of_scope_cites_post": 0
         },
         {
@@ -7323,25 +7367,21 @@
         },
         {
           "must_cite_recall": 1.0,
-          "precision_at_must": 0.0,
+          "precision_at_must": 1.0,
           "precision_at_must_set": 1.0,
-          "over_citation_rate": 3.0,
-          "cite_precision": 0.25,
-          "n_cites": 4,
+          "over_citation_rate": 1.0,
+          "cite_precision": 0.5,
+          "n_cites": 2,
           "n_must_cite": 1,
           "id": "g166",
           "hop_type": "three_hop",
           "citations": [
-            "中华人民共和国劳动合同法第九十条",
             "中华人民共和国劳动合同法第二十三条",
-            "中华人民共和国劳动合同法第二十四条",
-            "中华人民共和国民法典第五百零一条"
+            "中华人民共和国劳动合同法第二十四条"
           ],
           "citations_ordered": [
-            "中华人民共和国劳动合同法第九十条",
             "中华人民共和国劳动合同法第二十三条",
-            "中华人民共和国劳动合同法第二十四条",
-            "中华人民共和国民法典第五百零一条"
+            "中华人民共和国劳动合同法第二十四条"
           ],
           "gold_citations": [
             "中华人民共和国劳动合同法第二十三条"
@@ -7537,16 +7577,18 @@
           "precision_at_must_set": 0.0,
           "over_citation_rate": 0.0,
           "cite_precision": 0.0,
-          "n_cites": 2,
+          "n_cites": 3,
           "n_must_cite": 3,
           "id": "g183",
           "hop_type": "cross_law",
           "citations": [
             "中华人民共和国劳动合同法第十六条",
+            "中华人民共和国民法典第四百八十二条",
             "中华人民共和国民法典第四百八十四条"
           ],
           "citations_ordered": [
             "中华人民共和国劳动合同法第十六条",
+            "中华人民共和国民法典第四百八十二条",
             "中华人民共和国民法典第四百八十四条"
           ],
           "gold_citations": [
@@ -7649,64 +7691,34 @@
             "中华人民共和国劳动合同法第二十二条",
             "中华人民共和国民法典第五百八十八条"
           ],
-          "grounded_before_repair": 1.0,
-          "grounded_after_repair": 1.0,
-          "out_of_scope_cites_raw": 0,
-          "out_of_scope_cites_post": 0
-        },
-        {
-          "must_cite_recall": 0.5,
-          "precision_at_must": 0.0,
-          "precision_at_must_set": 0.5,
-          "over_citation_rate": 1.0,
-          "cite_precision": 0.25,
-          "n_cites": 4,
-          "n_must_cite": 2,
-          "id": "g196",
-          "hop_type": "cross_law",
-          "citations": [
-            "中华人民共和国劳动合同法第二十五条",
-            "中华人民共和国民法典第五百九十二条",
-            "中华人民共和国民法典第五百八十五条",
-            "中华人民共和国民法典第五百八十八条"
-          ],
-          "citations_ordered": [
-            "中华人民共和国劳动合同法第二十五条",
-            "中华人民共和国民法典第五百九十二条",
-            "中华人民共和国民法典第五百八十五条",
-            "中华人民共和国民法典第五百八十八条"
-          ],
-          "gold_citations": [
-            "中华人民共和国劳动合同法第四十六条",
-            "中华人民共和国民法典第五百八十五条"
-          ],
           "grounded_before_repair": 0.0,
           "grounded_after_repair": 1.0,
           "out_of_scope_cites_raw": 5,
           "out_of_scope_cites_post": 0
         },
         {
-          "must_cite_recall": 0.3333,
-          "precision_at_must": 0.5,
+          "must_cite_recall": 0.5,
+          "precision_at_must": 0.0,
           "precision_at_must_set": 0.5,
-          "over_citation_rate": 0.0,
-          "cite_precision": 0.5,
-          "n_cites": 2,
-          "n_must_cite": 3,
-          "id": "g198",
+          "over_citation_rate": 0.5,
+          "cite_precision": 0.3333,
+          "n_cites": 3,
+          "n_must_cite": 2,
+          "id": "g196",
           "hop_type": "cross_law",
           "citations": [
-            "中华人民共和国民法典第一千一百八十六条",
-            "中华人民共和国民法典第一千一百六十六条"
+            "中华人民共和国劳动合同法第二十五条",
+            "中华人民共和国民法典第五百九十二条",
+            "中华人民共和国民法典第五百八十五条"
           ],
           "citations_ordered": [
-            "中华人民共和国民法典第一千一百八十六条",
-            "中华人民共和国民法典第一千一百六十六条"
+            "中华人民共和国劳动合同法第二十五条",
+            "中华人民共和国民法典第五百九十二条",
+            "中华人民共和国民法典第五百八十五条"
           ],
           "gold_citations": [
-            "中华人民共和国劳动法第七十三条",
-            "中华人民共和国民法典第一千一百六十六条",
-            "中华人民共和国民法典第一百五十七条"
+            "中华人民共和国劳动合同法第四十六条",
+            "中华人民共和国民法典第五百八十五条"
           ],
           "grounded_before_repair": 1.0,
           "grounded_after_repair": 1.0,
@@ -7721,18 +7733,48 @@
           "cite_precision": 0.5,
           "n_cites": 4,
           "n_must_cite": 3,
+          "id": "g198",
+          "hop_type": "cross_law",
+          "citations": [
+            "中华人民共和国劳动合同法第八十六条",
+            "中华人民共和国民法典第一千一百八十六条",
+            "中华人民共和国民法典第一千一百六十六条",
+            "中华人民共和国民法典第一百五十七条"
+          ],
+          "citations_ordered": [
+            "中华人民共和国劳动合同法第八十六条",
+            "中华人民共和国民法典第一千一百八十六条",
+            "中华人民共和国民法典第一千一百六十六条",
+            "中华人民共和国民法典第一百五十七条"
+          ],
+          "gold_citations": [
+            "中华人民共和国劳动法第七十三条",
+            "中华人民共和国民法典第一千一百六十六条",
+            "中华人民共和国民法典第一百五十七条"
+          ],
+          "grounded_before_repair": 1.0,
+          "grounded_after_repair": 1.0,
+          "out_of_scope_cites_raw": 0,
+          "out_of_scope_cites_post": 0
+        },
+        {
+          "must_cite_recall": 0.6667,
+          "precision_at_must": 0.6667,
+          "precision_at_must_set": 0.6667,
+          "over_citation_rate": 0.0,
+          "cite_precision": 0.6667,
+          "n_cites": 3,
+          "n_must_cite": 3,
           "id": "g200",
           "hop_type": "cross_law",
           "citations": [
             "中华人民共和国民法典第一千一百八十六条",
             "中华人民共和国民法典第一千一百六十五条",
-            "中华人民共和国民法典第一千二百三十三条",
             "中华人民共和国民法典第一千二百二十九条"
           ],
           "citations_ordered": [
             "中华人民共和国民法典第一千一百八十六条",
             "中华人民共和国民法典第一千一百六十五条",
-            "中华人民共和国民法典第一千二百三十三条",
             "中华人民共和国民法典第一千二百二十九条"
           ],
           "gold_citations": [
