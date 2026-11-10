@@ -1,25 +1,32 @@
-"""LangGraph 编排：A（单链路）/ B（多 Agent）/ C（多 Agent + 五道闸）。
+"""LangGraph 编排：A（单链路）/ B（多 Agent）/ C（多 Agent + 五道闸）/ A_gates（单链路 + 五道闸）。
 
 为什么用 LangGraph 而不是手写 if/else：
 状态在节点间显式流转，C 档的「校验 -> 修复 -> 复检」天然是一个有环图，
 用条件边表达比嵌套函数清楚，也便于把 ``repaired`` / ``attempts`` 落进评测。
 
-三个档位的 LLM 调用结构（成本表的口径）：
-* A: retrieve(0) + answer(1)                        = 1 次
-* B: retrieve(0) + plan(1) + answer(1)               = 2 次
-* C: retrieve(0) + plan(1) + answer(1) + repair(0)*  = 2 次（闸门是规则，不打 LLM）
+四个档位的 LLM 调用结构（成本表的口径）：
+* A:       retrieve(0) + answer(1)                        = 1 次
+* B:       retrieve(0) + plan(1) + answer(1)               = 2 次
+* C:       retrieve(0) + plan(1) + answer(1) + repair(0)*  = 2 次（闸门是规则，不打 LLM）
+* A_gates: retrieve(0) + answer(1) + repair(0)*            = 1 次（同上，只多了闸门）
+
+``A_gates`` 只用于 B6 消融（T04）：回答与闸门都在，但没有 plan 节点。
+它回答的问题是「五道闸门的收益是否依赖多 Agent 的规划」——若 A_gates 与 C 的
+grounded 接近，说明闸门本身有效；若明显更差，说明 plan 提供的那一跳确实有用。
 """
 
 from __future__ import annotations
 
 import sys
+from collections.abc import Callable
 from pathlib import Path
-from typing import Any, Callable
+from typing import Any
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 
-from app.__007__agents.__000__state import QAState  # noqa: E402
+from app.__007__agents.__000__state import QAState, normalize_tier  # noqa: E402
 from app.__007__agents.__001__gates import run_gates  # noqa: E402
+from common import prompt_guard  # noqa: E402
 from common.llm import get_llm, llm_probe  # noqa: E402
 from common.logging_utils import get_logger  # noqa: E402
 
@@ -39,6 +46,22 @@ def llm_enabled() -> bool:
 
 
 def _fmt_items(items: list[dict]) -> str:
+    """拼接层（唯一的 prompt 组装点）：检索条文进 prompt 前必须过数据边界。
+
+    ``ENABLE_PROMPT_GUARD=0`` 时逐字回到旧格式，便于做防护前后的 A/B 对照。
+    """
+    if prompt_guard.guard_enabled():
+        return prompt_guard.guard_block(
+            [
+                {
+                    "article_id": i["citation"],
+                    "source": "corpus",
+                    "law_name": i["law_name"],
+                    "content": i.get("content", "")[:220],
+                }
+                for i in items
+            ]
+        )
     return "\n".join(f"{i['citation']}（{i['law_name']}）：{i.get('content', '')[:220]}" for i in items)
 
 
@@ -155,6 +178,7 @@ def make_flow(
             answer = "该问题检索证据不足（top1 相似度与图路径覆盖均偏低），无法确定结论，建议补充材料或转人工复核。\n" + answer
         return {
             "answer": answer,
+            "answer_pre_repair": state.get("answer_pre_repair") or state.get("answer", ""),
             "citations": [i["citation"] for i in items[:4]],
             "attempts": state.get("attempts", 0) + 1,
             "repaired": True,
@@ -172,21 +196,20 @@ def make_flow(
     g.add_node("retrieve", retrieve)
     g.add_node("answer", answer)
     g.set_entry_point("retrieve")
-    if tier == "A":
+    if tier in ("A", "A_gates"):
         g.add_edge("retrieve", "answer")
-        g.add_edge("answer", END)
     else:
         g.add_node("plan", plan)
         g.add_edge("retrieve", "plan")
         g.add_edge("plan", "answer")
-        if tier == "B":
-            g.add_edge("answer", END)
-        else:
-            g.add_node("check", check)
-            g.add_node("repair", repair)
-            g.add_edge("answer", "check")
-            g.add_conditional_edges("check", after_check, {"repair": "repair", "done": END})
-            g.add_edge("repair", "check")
+    if tier in ("A", "B"):
+        g.add_edge("answer", END)
+    else:
+        g.add_node("check", check)
+        g.add_node("repair", repair)
+        g.add_edge("answer", "check")
+        g.add_conditional_edges("check", after_check, {"repair": "repair", "done": END})
+        g.add_edge("repair", "check")
     compiled = g.compile()
 
     def run(query: str, mode: str = "hybrid") -> dict:

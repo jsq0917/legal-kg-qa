@@ -15,6 +15,12 @@ from __future__ import annotations
 from typing import Any, TypedDict
 
 
+def normalize_tier(tier: str) -> str:
+    """把外部传入的档位规范成内部键；默认档为 A_gates（见 README §8 的消融依据）。"""
+    t = (tier or "A_gates").strip().upper().replace("-", "_")
+    return "A_gates" if t in {"A_GATES", "AGATES"} else t
+
+
 class QAState(TypedDict, total=False):
     query: str
     mode: str  # text | graph | hybrid
@@ -22,6 +28,7 @@ class QAState(TypedDict, total=False):
     retrieval: dict[str, Any]
     path_note: str
     answer: str
+    answer_pre_repair: str  # repair 前的原始答案，用于拆分 grounded 修复前后
     citations: list[str]
     checks: list[dict[str, Any]]
     attempts: int

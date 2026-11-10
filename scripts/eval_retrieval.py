@@ -14,6 +14,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import random
 import statistics
 import sys
 import time
@@ -89,14 +90,45 @@ def evaluate_mode(retriever, gold: list[dict], mode: str, level: str | None = No
     return out
 
 
+def paired_bootstrap(results: dict, metric: str, n: int = 1000, seed: int = 20261029) -> dict:
+    """按题配对的 bootstrap：同一道题在两个模式下做差，再重采样题号。"""
+    rng = random.Random(seed)
+    modes = list(results)
+    out: dict = {}
+    for i, m1 in enumerate(modes):
+        for m2 in modes[i + 1 :]:
+            r1 = {r["id"]: r for r in results[m1]["rows"]}
+            r2 = {r["id"]: r for r in results[m2]["rows"]}
+            ids = sorted(set(r1) & set(r2))
+            diffs = [r1[k][metric] - r2[k][metric] for k in ids]
+            if not diffs:
+                continue
+            boots = sorted(statistics.mean(rng.choices(diffs, k=len(diffs))) for _ in range(n))
+            out[f"{m1}-{m2}"] = {
+                "metric": metric,
+                "mean": round(statistics.mean(diffs), 4),
+                "ci95": [round(boots[int(0.025 * n)], 4), round(boots[int(0.975 * n) - 1], 4)],
+                "n": len(diffs),
+            }
+    return out
+
+
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--modes", nargs="+", default=list(MODES))
     ap.add_argument("--no-router", action="store_true", help="固定 medium 档，测「无路由」基线")
+    ap.add_argument("--no-llm", action="store_true", help="确定性路径：路由不触发 LLM 兜底")
+    ap.add_argument("--out", default="data/eval_out/retrieval.json", help="结果输出路径（默认沿用原文件）")
     ap.add_argument("--limit", type=int, default=None)
+    ap.add_argument("--gold", default="data/gold/gold_60.jsonl", help="金标题库；留出集请指向 gold_140_holdout.jsonl")
     args = ap.parse_args()
 
-    gold = read_jsonl("data/gold/gold_60.jsonl")
+    if args.no_llm:
+        from config import settings
+
+        settings.llm_api_key = ""
+
+    gold = read_jsonl(args.gold)
     if args.limit:
         gold = gold[: args.limit]
 
@@ -116,9 +148,20 @@ def main() -> None:
             res["latency_median_ms"],
         )
 
-    out_path = Path("data/eval_out/retrieval.json")
+    out_path = Path(args.out)
     out_path.parent.mkdir(parents=True, exist_ok=True)
-    write_json(out_path, {"gold_report": json.loads(Path("data/gold/gold_report.json").read_text(encoding="utf-8")), "results": results})
+    boot = {
+        "recall@5": paired_bootstrap(results, "recall@5"),
+        "all@5": paired_bootstrap(results, "all@5"),
+    }
+    write_json(
+        out_path,
+        {
+            "gold_report": json.loads(Path("data/gold/gold_report.json").read_text(encoding="utf-8")),
+            "results": results,
+            "paired_bootstrap": boot,
+        },
+    )
     log.info("写出 %s", out_path)
 
 
