@@ -30,6 +30,7 @@ Thumbs.db
 启动.bat
 
 # 本地 agent 记忆 / 运行 trace / 评测备份（不入库）
+logs/
 .workbuddy/
 data/observability/
 data/eval_out/_backup_*/
