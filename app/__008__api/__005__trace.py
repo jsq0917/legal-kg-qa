@@ -70,6 +70,7 @@ class Trace:
         cache: str = "miss",
         llm_enabled: bool = True,
         model: str | None = None,
+        graph_build_id: str = "",
     ) -> None:
         self.request_id = uuid.uuid4().hex[:12]
         self.path = path
@@ -79,6 +80,10 @@ class Trace:
         self.cache = cache
         self.llm_enabled = llm_enabled
         self.model = model
+        self.graph_build_id = graph_build_id
+        self.answer_version: int = 0
+        self.superseded_versions: list[int] = []
+        self.degradation: dict[str, Any] | None = None
         self.t0 = time.perf_counter()
         self.retrieve_ms: float | None = None
         self.llm_ms: float = 0.0
@@ -101,6 +106,10 @@ class Trace:
     def event(self, name: str, **payload: Any) -> None:
         """给前端用的轻量事件（如 ``guard_block`` / ``cache_hit``），不上时间轴。"""
         self.events.append({"name": name, **payload})
+
+    def record_degradation(self, reason: str, detail: str = "", model: str | None = None) -> None:
+        """记录一次「降级答案」的成因：无 Key / 上游失败 / 输出非法 / 低置信。"""
+        self.degradation = {"reason": reason, "detail": detail[:300], "model": model}
 
     # ---------------- 收口 ----------------
     def finish(
@@ -154,10 +163,14 @@ class Trace:
             "ts": datetime.now().astimezone().isoformat(timespec="milliseconds"),
             "path": self.path,
             "query": self.query,
+            "graph_build_id": state.get("graph_build_id") or self.graph_build_id,
             "tier": tier,
             "mode": state.get("mode") or self.mode,
             "cache": cached,
             "status": status,
+            "answer_version": state.get("answer_version", self.answer_version),
+            "superseded_versions": state.get("superseded_versions", self.superseded_versions),
+            "degradation": self.degradation,
             "latency_ms": total,
             "stages": {
                 "retrieve_ms": retrieve,
@@ -203,6 +216,7 @@ def trace_request(
     cache: str = "miss",
     llm_enabled: bool = True,
     model: str | None = None,
+    graph_build_id: str = "",
 ) -> Iterator[Trace]:
     trace = Trace(
         path,
@@ -212,6 +226,7 @@ def trace_request(
         cache=cache,
         llm_enabled=llm_enabled,
         model=model,
+        graph_build_id=graph_build_id,
     )
     token = _CURRENT.set(trace)
     try:

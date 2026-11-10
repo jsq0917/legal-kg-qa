@@ -10,6 +10,9 @@ from dataclasses import dataclass, field
 from typing import Any, Literal
 
 LABELS = ("Article", "Concept", "Scenario")
+# Neo4j 没有「图级属性」，用一个保留节点记录当前导入的图版本；它不计入实体统计。
+META_LABEL = "GraphMeta"
+META_ID = "__graph_meta__"
 # B7：Article→Concept 拆成 DEFINES（该条在定义/正面规制该概念）与 REFERS_TO（只是顺带提及）。
 RELATIONS = ("APPLIES_TO", "DEFINES", "REFERS_TO", "REQUIRES", "SPECIAL_OF", "CITES")
 
@@ -76,12 +79,14 @@ CYPHER_TEMPLATES: dict[str, str] = {
         WHERE s.id IN $scenario_ids
         RETURN s.id AS scenario_id, s.name AS scenario_name, c.id AS concept_id,
                c.name AS concept_name, r.weight AS weight
+        ORDER BY scenario_id ASC, concept_id ASC
     """,
     "concept_neighbors": """
         MATCH (c:Concept)-[r:REQUIRES|SPECIAL_OF]->(n:Concept)
         WHERE c.id IN $concept_ids AND type(r) IN $relations
         RETURN c.id AS source, n.id AS target, n.name AS target_name, type(r) AS relation,
                r.confidence AS confidence
+        ORDER BY confidence DESC, target ASC, relation ASC
         LIMIT $limit
     """,
     "concept_neighbors_in": """
@@ -89,6 +94,7 @@ CYPHER_TEMPLATES: dict[str, str] = {
         WHERE c.id IN $concept_ids AND type(r) IN $relations
         RETURN c.id AS source, n.id AS target, n.name AS target_name, type(r) AS relation,
                r.confidence AS confidence
+        ORDER BY confidence DESC, target ASC, relation ASC
         LIMIT $limit
     """,
     "article_cites": """
@@ -96,6 +102,7 @@ CYPHER_TEMPLATES: dict[str, str] = {
         WHERE a.id IN $article_ids
         RETURN a.id AS source, b.id AS target, b.law_name AS law_name,
                b.article_no AS article_no, r.confidence AS confidence
+        ORDER BY source ASC, target ASC
     """,
     "article_detail": """
         MATCH (a:Article)
@@ -103,13 +110,14 @@ CYPHER_TEMPLATES: dict[str, str] = {
         RETURN a.id AS id, a.law_name AS law_name, a.article_no AS article_no,
                a.article_num AS article_num, a.chapter_path AS chapter_path,
                a.content AS content
+        ORDER BY id ASC
     """,
     "concept_scenarios": """
         MATCH (s:Scenario)-[r:APPLIES_TO]->(c:Concept)
         WHERE c.id IN $concept_ids
         RETURN s.id AS scenario_id, s.name AS scenario_name, c.id AS concept_id,
                r.weight AS weight
-        ORDER BY weight DESC LIMIT $limit
+        ORDER BY weight DESC, scenario_id ASC, concept_id ASC LIMIT $limit
     """,
 }
 

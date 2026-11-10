@@ -64,6 +64,14 @@ def _retriever():
 _FLOWS: dict[tuple[str, bool], Any] = {}
 
 
+def _graph_build_id() -> str:
+    """当前图版本；图尚未初始化时返回空串（不阻塞请求）。"""
+    try:
+        return _retriever().graph.store.graph_build_id
+    except Exception:
+        return ""
+
+
 def _flow(tier: str, use_llm: bool = True):
     from app.__007__agents.__002__flows import make_flow
 
@@ -142,13 +150,23 @@ class HitlResolveReq(BaseModel):
 @app.get("/health")
 def health() -> dict[str, Any]:
     ret = _retriever()
+    graph_health: dict[str, Any] = {}
     try:
-        backend = ret.graph.store.backend
-    except Exception:  # 图未构建时也要能返回 200，便于前端展示「先跑 build_graph」
-        backend = "uninitialized"
+        store = ret.graph.store
+        graph_health = store.health()
+        graph_health["nodes"] = store.stats().get("nodes")
+        graph_health["edges"] = store.stats().get("edges")
+    except Exception as exc:  # 图未构建时也要能返回 200，便于前端展示「先跑 build_graph」
+        graph_health = {
+            "backend": "uninitialized",
+            "graph_build_id": "",
+            "degraded": True,
+            "degraded_reason": f"graph_unavailable: {exc}",
+        }
     return {
         "ok": True,
-        "graph_backend": backend,
+        "graph_backend": graph_health.get("backend"),
+        "graph": graph_health,
         "corpus_articles": len(ret.text.articles),
         "llm": llm_status(),
     }
@@ -182,6 +200,7 @@ def _ask(req: AskReq) -> dict[str, Any]:
     state = flow(req.query, mode=req.mode)
     state["latency_ms"] = round((time.perf_counter() - t0) * 1000, 1)
     state["tier"] = normalize_tier(req.tier)
+    state["graph_build_id"] = state["retrieval"].get("graph_build_id", "") if isinstance(state.get("retrieval"), dict) else ""
     state["retrieval"]["items"] = state["retrieval"]["items"][:_MAX_ITEMS]
     return state
 
@@ -207,8 +226,15 @@ def ask(req: AskReq, response: Response) -> dict[str, Any]:
     只影响 ``/ask``，流式路径完全不走这条代码。
     """
     cache = get_cache()
+    graph_build_id = _graph_build_id()
     key = make_key(
-        req.query, req.mode, req.tier, req.llm, model_version(), prompt_guard.guard_enabled()
+        req.query,
+        req.mode,
+        req.tier,
+        req.llm,
+        model_version(),
+        prompt_guard.guard_enabled(),
+        graph_build_id=graph_build_id,
     )
     llm_on = bool(req.llm) and bool(llm_status()["enabled"])
     model = settings.llm_model if llm_on else None
@@ -218,7 +244,7 @@ def ask(req: AskReq, response: Response) -> dict[str, Any]:
         latency = round((time.perf_counter() - t0) * 1000, 2)
         with trace_request(
             "/ask", query=req.query, tier=req.tier, mode=req.mode, cache="hit",
-            llm_enabled=llm_on, model=model,
+            llm_enabled=llm_on, model=model, graph_build_id=graph_build_id,
         ) as tr:
             trace = tr.finish(cached, total_ms=latency, cache="hit")
         cached["cache"] = "hit"
@@ -230,7 +256,7 @@ def ask(req: AskReq, response: Response) -> dict[str, Any]:
 
     with trace_request(
         "/ask", query=req.query, tier=req.tier, mode=req.mode, cache="miss",
-        llm_enabled=llm_on, model=model,
+        llm_enabled=llm_on, model=model, graph_build_id=graph_build_id,
     ) as tr:
         state = _ask(req)
         gate_ms = _measure_gates(state) if normalize_tier(req.tier) in ("C", "A_gates") else None

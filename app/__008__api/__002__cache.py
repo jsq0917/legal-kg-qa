@@ -1,8 +1,9 @@
-"""响应级缓存：**同问、同参数、同模型版本**直接返回，不打 LLM。
+"""响应级缓存：**同问、同参数、同图版本、同模型版本、同校验策略**直接返回，不打 LLM。
 
-key 口径（六个字段一起进 sha256，任何一项变了就换 key）：
-``query``（归一化后）· ``mode`` · ``tier`` · ``llm`` 开关 · ``模型版本`` · ``提示词/闸门版本``
-另外把 ``prompt_guard`` 开关也计入，否则 T28 的防护前后会互相污染缓存。
+key 口径（九个字段一起进 sha256，任何一项变了就换 key）：
+``query``（归一化后）· ``mode`` · ``tier`` · ``llm`` 开关 · ``模型版本`` ·
+``提示词版本`` · ``答案结构版本`` · ``校验/闸门策略版本`` · ``图版本（graph_build_id）``。
+把图版本计进去，是为了避免「图重建后仍命中旧图答案」——旧结果不能被当成当前图的结果。
 
 归一化只做「去首尾空白 + 内部空白折叠 + 英文小写」——**不做同义改写**，
 避免把两个实质不同的问题折叠成同一条缓存（那会变成另一种「自证」）。
@@ -25,8 +26,12 @@ from dataclasses import dataclass, field
 from typing import Any
 
 # 提示词/闸门逻辑变更时递增：旧缓存自动失效，不用手工清
-PROMPT_VERSION = "2026-10-30.1"
-KEY_VERSION = "v1"
+PROMPT_VERSION = "2026-11-11.1"
+#: 校验（五闸语义）与修复策略版本；与提示词、答案结构分开计，便于定位是哪一层变了。
+POLICY_VERSION = "gates-2026-11-11"
+#: 答案结构版本（新增 answer_version / 草稿-终稿语义时递增）。
+ANSWER_VERSION = 2
+KEY_VERSION = "v2"
 
 
 def _env_int(name: str, default: int) -> int:
@@ -66,6 +71,17 @@ def model_version() -> str:
         return "unknown"
 
 
+def graph_version() -> str:
+    """缓存 key 里的「图版本」：读当前 manifest 的 graph_build_id。"""
+    try:
+        from app.__003__graph.__005__version import read_manifest
+
+        manifest = read_manifest()
+        return (manifest or {}).get("graph_build_id") or "unknown"
+    except Exception:  # 配置/路径缺失时也要能算出 key
+        return "unknown"
+
+
 def make_key(
     query: str,
     mode: str,
@@ -73,16 +89,22 @@ def make_key(
     llm: bool,
     version: str,
     guard: bool,
+    graph_build_id: str | None = None,
+    policy_version: str = POLICY_VERSION,
+    answer_version: int = ANSWER_VERSION,
 ) -> str:
     payload = {
         "kv": KEY_VERSION,
         "prompt": PROMPT_VERSION,
+        "policy": policy_version,
+        "answer_schema": answer_version,
         "q": normalise_query(query),
         "mode": mode.lower(),
         "tier": tier.upper(),
         "llm": bool(llm),
         "model": version,
         "guard": bool(guard),
+        "graph": graph_build_id if graph_build_id is not None else graph_version(),
     }
     raw = json.dumps(payload, ensure_ascii=False, sort_keys=True)
     return hashlib.sha256(raw.encode()).hexdigest()

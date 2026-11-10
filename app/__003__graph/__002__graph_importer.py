@@ -12,7 +12,8 @@ from typing import Any
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 
-from app.__003__graph.__000__schema import scenario_node_id  # noqa: E402
+from app.__003__graph.__000__schema import META_ID, scenario_node_id  # noqa: E402
+from app.__003__graph.__005__version import SCHEMA_VERSION, compute_content_hash  # noqa: E402
 from common.logging_utils import get_logger  # noqa: E402
 from common.neo4j_manager import get_neo4j_manager  # noqa: E402
 from common.path_utils import read_jsonl  # noqa: E402
@@ -156,6 +157,16 @@ def import_all(clear: bool = False, extracted_dir: Path | None = None, lexicon_d
     _run(CONCEPT_REL_CYPHER % "SPECIAL_OF", specs, "SPECIAL_OF")
 
     _run(CITES_CYPHER, cites, "CITES")
+
+    content_hash = compute_content_hash(articles, concepts, scenarios, requires, special_of, mentions, cites)
+    mgr.run_query(
+        """
+        MERGE (m:GraphMeta {id: $id})
+        SET m.graph_build_id = $build_id, m.content_hash = $content_hash, m.schema_version = $schema_version
+        """,
+        {"id": META_ID, "build_id": f"g{content_hash[:12]}", "content_hash": content_hash, "schema_version": SCHEMA_VERSION},
+    )
+    log.info("图谱版本 %s", f"g{content_hash[:12]}")
 
     stats = mgr.export_metadata_to_json()
     log.info("Neo4j 导入完成 %s", stats)

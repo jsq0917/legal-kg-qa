@@ -23,6 +23,8 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 from app.__004__retrieval.__005__retriever import get_retriever  # noqa: E402
+from common.eval_meta import graph_build_id as _graph_build_id  # noqa: E402
+from common.eval_meta import split_role as _split_role  # noqa: E402
 from common.logging_utils import get_logger  # noqa: E402
 from common.path_utils import read_jsonl, write_json  # noqa: E402
 
@@ -31,12 +33,14 @@ log = get_logger("eval_retrieval")
 MODES = ("text", "graph", "hybrid")
 
 
-def evaluate_mode(retriever, gold: list[dict], mode: str, level: str | None = None) -> dict:
+def evaluate_mode(
+    retriever, gold: list[dict], mode: str, level: str | None = None, use_rerank: bool = True
+) -> dict:
     rows = []
     for q in gold:
         expected = set(q["expected_articles"])
         chain = [c["id"] for c in q["concepts"]]
-        out = retriever.retrieve(q["question"], mode=mode, level=level)
+        out = retriever.retrieve(q["question"], mode=mode, level=level, use_rerank=use_rerank)
 
         top5 = out.article_ids[:5]
         recall5 = len(expected & set(top5)) / max(len(expected), 1)
@@ -121,6 +125,11 @@ def main() -> None:
     ap.add_argument("--out", default="data/eval_out/retrieval.json", help="结果输出路径（默认沿用原文件）")
     ap.add_argument("--limit", type=int, default=None)
     ap.add_argument("--gold", default="data/gold/gold_60.jsonl", help="金标题库；留出集请指向 gold_140_holdout.jsonl")
+    ap.add_argument(
+        "--no-rerank",
+        action="store_true",
+        help="关闭交叉编码器精排（独立评价路径：不与金标构造共享精排组件）",
+    )
     args = ap.parse_args()
 
     if args.no_llm:
@@ -136,7 +145,9 @@ def main() -> None:
     results: dict = {}
     for mode in args.modes:
         t0 = time.perf_counter()
-        res = evaluate_mode(retriever, gold, mode, level="medium" if args.no_router else None)
+        res = evaluate_mode(
+            retriever, gold, mode, level="medium" if args.no_router else None, use_rerank=not args.no_rerank
+        )
         results[mode] = res
         log.info(
             "%s recall@5=%.3f all@5=%.3f path=%.3f cit=%.3f median=%.0fms",
@@ -158,6 +169,10 @@ def main() -> None:
         out_path,
         {
             "gold_report": json.loads(Path("data/gold/gold_report.json").read_text(encoding="utf-8")),
+            "graph_build_id": _graph_build_id(),
+            "gold_path": args.gold,
+            "split_role": _split_role(args.gold),
+            "use_rerank": not args.no_rerank,
             "results": results,
             "paired_bootstrap": boot,
         },

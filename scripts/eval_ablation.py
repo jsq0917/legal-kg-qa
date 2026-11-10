@@ -29,6 +29,8 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from app.__004__retrieval.__005__retriever import get_retriever  # noqa: E402
 from app.__007__agents.__001__gates import build_article_concepts, cited_citations  # noqa: E402
 from app.__007__agents.__002__flows import make_flow  # noqa: E402
+from common.eval_meta import graph_build_id as _graph_build_id  # noqa: E402
+from common.eval_meta import split_role as _split_role  # noqa: E402
 from common.llm import USAGE  # noqa: E402
 from common.logging_utils import get_logger  # noqa: E402
 from common.path_utils import read_jsonl, write_json  # noqa: E402
@@ -216,7 +218,9 @@ def main() -> None:
     report = {
         "llm_mode": "deterministic" if args.no_llm else "llm",
         "retrieval_mode": args.mode,
+        "graph_build_id": _graph_build_id(),
         "gold_path": args.gold,
+        "split_role": _split_role(args.gold),
         "n": len(gold),
         "bootstrap_n": BOOTSTRAP_N,
         "tiers": summaries,

@@ -60,6 +60,7 @@ class RetrievalOutput:
     latency_ms: float
     path_coverage_threshold: float = 0.60
     refuse_threshold: float = 0.62
+    graph_build_id: str = ""
 
     @property
     def low_confidence(self) -> bool:
@@ -74,6 +75,7 @@ class RetrievalOutput:
         return {
             "query": self.query,
             "mode": self.mode,
+            "graph_build_id": self.graph_build_id,
             "level": self.decision.level,
             "reason": self.decision.reason,
             "top_k": self.decision.top_k,
@@ -152,13 +154,14 @@ class Retriever:
         top_k: int | None = None,
         hops: int | None = None,
         use_cites: bool = True,
+        use_rerank: bool = True,
     ) -> RetrievalOutput:
         t0 = time.perf_counter()
         decision = self.decide(query, level)
         k = top_k or decision.top_k
 
         if mode == "text":
-            text_hits = self.text.search(query, top_k=k, use_rerank=True)
+            text_hits = self.text.search(query, top_k=k, use_rerank=use_rerank)
             items = [
                 RetrievalItem(r.article_id, r.score, "text", 0.0, [], r.meta)
                 for r in text_hits
@@ -196,6 +199,7 @@ class Retriever:
                 graph_weight=decision.graph_weight,
                 use_cites=use_cites,
                 rrf_k=self.settings.rrf_k,
+                use_rerank=use_rerank,
             )
             items = [
                 RetrievalItem(h.article_id, h.score, h.source, h.coverage, h.path, h.meta)
@@ -220,6 +224,7 @@ class Retriever:
             latency_ms=(time.perf_counter() - t0) * 1000,
             path_coverage_threshold=self.settings.path_coverage_threshold,
             refuse_threshold=self.settings.refuse_threshold,
+            graph_build_id=self.graph.store.graph_build_id,
         )
         return out
 

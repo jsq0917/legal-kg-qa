@@ -17,6 +17,13 @@ import networkx as nx
 sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 
 from app.__003__graph.__000__schema import scenario_node_id  # noqa: E402
+from app.__003__graph.__005__version import (  # noqa: E402
+    build_manifest,
+    compute_content_hash,
+    compute_graph_fingerprint,
+    read_manifest,
+    write_manifest,
+)
 from common.logging_utils import get_logger  # noqa: E402
 from common.path_utils import read_jsonl, write_json  # noqa: E402
 
@@ -130,6 +137,22 @@ class NetworkXGraphStore:
     def __init__(self, graph_path: Path) -> None:
         with open(graph_path, "rb") as f:
             self.g: nx.MultiDiGraph = pickle.load(f)
+        self.graph_build_id: str = self.g.graph.get("graph_build_id", "")
+        self.content_hash: str = self.g.graph.get("content_hash", "")
+        self.degraded_reason: str | None = None
+        manifest = read_manifest(graph_path.parent)
+        if manifest:
+            if not self.graph_build_id:
+                self.degraded_reason = "networkx_graph_has_no_build_id"
+            elif manifest.get("graph_build_id") != self.graph_build_id:
+                self.degraded_reason = (
+                    f"networkx_manifest_mismatch: manifest={manifest.get('graph_build_id')} "
+                    f"graph={self.graph_build_id}"
+                )
+        else:
+            self.degraded_reason = "networkx_manifest_missing"
+        if self.degraded_reason:
+            log.warning("离线图镜像与 manifest 不一致（%s），需要重新建图", self.degraded_reason)
         self._articles: dict[str, dict] = {}
         self._concept_to_articles: dict[str, list[tuple[str, float]]] = {}
         self._scenario_to_concepts: dict[str, list[tuple[str, float]]] = {}
@@ -159,9 +182,50 @@ class NetworkXGraphStore:
             elif rel == "CITES":
                 self._cites.setdefault(u, []).append((v, conf))
         for key in self._concept_to_articles:
-            self._concept_to_articles[key].sort(key=lambda x: x[1], reverse=True)
+            # 与 Cypher ORDER BY confidence DESC, concept_hits DESC, a.id ASC 对齐：
+            # 单概念的 concept_hits 恒为 1，这里按 (-score, article_id) 排序即可稳定。
+            self._concept_to_articles[key].sort(key=lambda x: (-x[1], x[0]))
+        for key in self._scenario_to_concepts:
+            self._scenario_to_concepts[key].sort(key=lambda x: x[0])
+        for key in self._concept_out:
+            self._concept_out[key].sort(key=lambda x: (-x[2], x[0], x[1]))
+        for key in self._concept_in:
+            self._concept_in[key].sort(key=lambda x: (-x[2], x[0], x[1]))
+        for key in self._cites:
+            self._cites[key].sort(key=lambda x: x[0])
+        for key in self._concept_scenarios:
+            self._concept_scenarios[key].sort(key=lambda x: (-x[1], x[0]))
 
     # ---------------- 查询计划 ----------------
+    def execute(self, plan) -> list[dict]:
+        """与 Neo4j 后端同一入口，供一致性检查直接复用。"""
+        p = plan.params
+        if plan.name == "concept_articles":
+            return self.concept_articles(p["concept_ids"], p.get("limit", 20))
+        if plan.name == "scenario_concepts":
+            return self.scenario_concepts(p["scenario_ids"])
+        if plan.name == "concept_neighbors":
+            return self.concept_neighbors(
+                p["concept_ids"],
+                relations=p.get("relations"),
+                direction=p.get("direction", "out"),
+                limit=p.get("limit", 20),
+            )
+        if plan.name == "concept_neighbors_in":
+            return self.concept_neighbors(
+                p["concept_ids"],
+                relations=p.get("relations"),
+                direction="in",
+                limit=p.get("limit", 20),
+            )
+        if plan.name == "article_cites":
+            return self.article_cites(p["article_ids"])
+        if plan.name == "concept_scenarios":
+            return self.concept_scenarios(p["concept_ids"], p.get("limit", 20))
+        if plan.name == "article_detail":
+            return self.article_detail(p["ids"])
+        raise ValueError(f"未实现的查询计划: {plan.name}")
+
     def concept_articles(self, concept_ids: list[str], limit: int = 20) -> list[dict]:
         agg: dict[str, dict[str, Any]] = {}
         for cid in concept_ids:
@@ -205,6 +269,7 @@ class NetworkXGraphStore:
                         "weight": w,
                     }
                 )
+        out.sort(key=lambda r: (r["scenario_id"], r["concept_id"]))
         return out
 
     def concept_neighbors(
@@ -228,7 +293,7 @@ class NetworkXGraphStore:
                         "confidence": conf,
                     }
                 )
-        out.sort(key=lambda r: r["confidence"], reverse=True)
+        out.sort(key=lambda r: (-r["confidence"], r["target"], r["relation"]))
         return out[:limit]
 
     def article_cites(self, article_ids: list[str]) -> list[dict]:
@@ -245,6 +310,7 @@ class NetworkXGraphStore:
                         "confidence": conf,
                     }
                 )
+        out.sort(key=lambda r: (r["source"], r["target"]))
         return out
 
     def concept_scenarios(self, concept_ids: list[str], limit: int = 20) -> list[dict]:
@@ -263,11 +329,11 @@ class NetworkXGraphStore:
                         "weight": w,
                     }
                 )
-        out.sort(key=lambda r: -r["weight"])
+        out.sort(key=lambda r: (-r["weight"], r["scenario_id"], r["concept_id"]))
         return out[:limit]
 
     def article_detail(self, ids: list[str]) -> list[dict]:
-        return [dict(self._articles[i], id=i) for i in ids if i in self._articles]
+        return [dict(self._articles[i], id=i) for i in sorted(ids) if i in self._articles]
 
     # ---------------- 元信息 ----------------
     def stats(self) -> dict[str, Any]:
@@ -280,6 +346,9 @@ class NetworkXGraphStore:
             relations[rel] = relations.get(rel, 0) + 1
         return {
             "backend": "networkx",
+            "graph_build_id": self.graph_build_id,
+            "content_hash": self.content_hash,
+            "degraded_reason": self.degraded_reason,
             "nodes": self.g.number_of_nodes(),
             "edges": self.g.number_of_edges(),
             "labels": labels,
@@ -318,6 +387,12 @@ def build_and_save(
     special_of = read_jsonl(lexicon_dir / "special_of.jsonl")
 
     g = build_multidigraph(articles, concepts, scenarios, requires, special_of, mentions, cites)
+    content_hash = compute_content_hash(articles, concepts, scenarios, requires, special_of, mentions, cites)
+    g.graph["content_hash"] = content_hash
+    g.graph["graph_build_id"] = f"g{content_hash[:12]}"
+    g.graph["schema_version"] = 2
+    # 图指纹在写 pkl 之前算好并写入，读出来才能校验「这份 pkl 确实是这批输入建的」。
+    g.graph["graph_fingerprint"] = compute_graph_fingerprint(g)
     out_path.parent.mkdir(parents=True, exist_ok=True)
     with open(out_path, "wb") as f:
         pickle.dump(g, f, protocol=pickle.HIGHEST_PROTOCOL)
@@ -325,7 +400,21 @@ def build_and_save(
     store = NetworkXGraphStore(out_path)
     store.export_json(out_path.parent / "graph.json")
     stats = store.stats()
-    log.info("图镜像已保存 %s %s", out_path, stats)
+    manifest = build_manifest(
+        content_hash=content_hash,
+        stats=stats,
+        source_files={
+            "articles": len(articles),
+            "concepts": len(concepts),
+            "scenarios": len(scenarios),
+            "mentions": len(mentions),
+            "requires": len(requires),
+            "special_of": len(special_of),
+            "cites": len(cites),
+        },
+    )
+    write_manifest(manifest, out_path.parent)
+    log.info("图镜像已保存 %s %s (graph_build_id=%s)", out_path, stats, manifest["graph_build_id"])
     return stats
 
 
