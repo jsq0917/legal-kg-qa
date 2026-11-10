@@ -1,0 +1,1252 @@
+{
+  "gold_report": {
+    "total": 200,
+    "by_hop": {
+      "two_hop": 100,
+      "three_hop": 66,
+      "cross_law": 34
+    },
+    "leakage_fail": 0,
+    "leakage_fail_rate": 0.0,
+    "necessity_fail": 5,
+    "necessity_article_fail": 27,
+    "kappa_pass_a_vs_b1": 0.9473,
+    "kappa_pass_a_vs_b2": 0.9329,
+    "kappa_pass_b_stability": 0.9856,
+    "llm_used": true,
+    "mean_articles": 2.17,
+    "laws_covered": [
+      "中华人民共和国劳动合同法",
+      "中华人民共和国劳动法",
+      "中华人民共和国民法典"
+    ]
+  },
+  "results": {
+    "graph": {
+      "mode": "graph",
+      "level_override": "router",
+      "n": 60,
+      "recall@5": 0.4389,
+      "all@5": 0.2167,
+      "path_recall": 0.5694,
+      "citation_hit": 0.4389,
+      "latency_median_ms": 442.8,
+      "low_confidence_rate": 0.0,
+      "by_hop": {
+        "two_hop": {
+          "recall@5": 0.4667,
+          "all@5": 0.3,
+          "path_recall": 0.5833,
+          "citation_hit": 0.4667
+        },
+        "three_hop": {
+          "recall@5": 0.4417,
+          "all@5": 0.15,
+          "path_recall": 0.5667,
+          "citation_hit": 0.4417
+        },
+        "cross_law": {
+          "recall@5": 0.35,
+          "all@5": 0.1,
+          "path_recall": 0.5333,
+          "citation_hit": 0.35
+        }
+      },
+      "rows": [
+        {
+          "id": "g01",
+          "hop_type": "two_hop",
+          "level": "complex",
+          "recall@5": 0.5,
+          "all@5": 0.0,
+          "path_recall": 0.0,
+          "citation_hit": 0.5,
+          "coverage": 1.0,
+          "top1_similarity": 0.7402,
+          "latency_ms": 25615.1,
+          "low_confidence": false,
+          "predicted": [
+            "lcl#47",
+            "cc#76",
+            "ll#50",
+            "cc#57",
+            "ll#46"
+          ]
+        },
+        {
+          "id": "g02",
+          "hop_type": "two_hop",
+          "level": "medium",
+          "recall@5": 0.5,
+          "all@5": 0.0,
+          "path_recall": 0.5,
+          "citation_hit": 0.5,
+          "coverage": 1.0,
+          "top1_similarity": 0.7185,
+          "latency_ms": 460.0,
+          "low_confidence": false,
+          "predicted": [
+            "ll#50",
+            "ll#91",
+            "cc#76",
+            "lcl#85",
+            "ll#46"
+          ]
+        },
+        {
+          "id": "g03",
+          "hop_type": "two_hop",
+          "level": "medium",
+          "recall@5": 1.0,
+          "all@5": 1.0,
+          "path_recall": 1.0,
+          "citation_hit": 1.0,
+          "coverage": 0.75,
+          "top1_similarity": 0.7046,
+          "latency_ms": 441.6,
+          "low_confidence": false,
+          "predicted": [
+            "lcl#20",
+            "lcl#39",
+            "lcl#17",
+            "ll#21",
+            "ll#35"
+          ]
+        },
+        {
+          "id": "g04",
+          "hop_type": "two_hop",
+          "level": "medium",
+          "recall@5": 0.0,
+          "all@5": 0.0,
+          "path_recall": 0.0,
+          "citation_hit": 0.0,
+          "coverage": 1.0,
+          "top1_similarity": 0.6825,
+          "latency_ms": 450.2,
+          "low_confidence": false,
+          "predicted": [
+            "cc#76",
+            "cc#57",
+            "cc#683",
+            "cc#103",
+            "cc#105"
+          ]
+        },
+        {
+          "id": "g05",
+          "hop_type": "two_hop",
+          "level": "medium",
+          "recall@5": 1.0,
+          "all@5": 1.0,
+          "path_recall": 0.5,
+          "citation_hit": 1.0,
+          "coverage": 1.0,
+          "top1_similarity": 0.6673,
+          "latency_ms": 456.9,
+          "low_confidence": false,
+          "predicted": [
+            "lcl#23",
+            "lcl#22",
+            "cc#76",
+            "lcl#24",
+            "lcl#90"
+          ]
+        },
+        {
+          "id": "g06",
+          "hop_type": "two_hop",
+          "level": "medium",
+          "recall@5": 0.0,
+          "all@5": 0.0,
+          "path_recall": 0.5,
+          "citation_hit": 0.0,
+          "coverage": 0.5,
+          "top1_similarity": 0.6959,
+          "latency_ms": 378.0,
+          "low_confidence": false,
+          "predicted": [
+            "cc#76",
+            "cc#57",
+            "cc#683",
+            "cc#103",
+            "cc#105"
+          ]
+        },
+        {
+          "id": "g07",
+          "hop_type": "two_hop",
+          "level": "medium",
+          "recall@5": 0.0,
+          "all@5": 0.0,
+          "path_recall": 0.5,
+          "citation_hit": 0.0,
+          "coverage": 1.0,
+          "top1_similarity": 0.6792,
+          "latency_ms": 377.3,
+          "low_confidence": false,
+          "predicted": [
+            "cc#76",
+            "ll#71",
+            "cc#57",
+            "ll#73",
+            "cc#683"
+          ]
+        },
+        {
+          "id": "g08",
+          "hop_type": "two_hop",
+          "level": "medium",
+          "recall@5": 0.5,
+          "all@5": 0.0,
+          "path_recall": 0.5,
+          "citation_hit": 0.5,
+          "coverage": 0.5,
+          "top1_similarity": 0.6336,
+          "latency_ms": 447.4,
+          "low_confidence": false,
+          "predicted": [
+            "cc#76",
+            "cc#57",
+            "lcl#47",
+            "cc#103",
+            "cc#105"
+          ]
+        },
+        {
+          "id": "g09",
+          "hop_type": "two_hop",
+          "level": "medium",
+          "recall@5": 0.0,
+          "all@5": 0.0,
+          "path_recall": 0.5,
+          "citation_hit": 0.0,
+          "coverage": 1.0,
+          "top1_similarity": 0.6526,
+          "latency_ms": 429.2,
+          "low_confidence": false,
+          "predicted": [
+            "cc#584",
+            "cc#1187",
+            "lcl#48",
+            "lcl#83",
+            "cc#1183"
+          ]
+        },
+        {
+          "id": "g10",
+          "hop_type": "two_hop",
+          "level": "medium",
+          "recall@5": 0.0,
+          "all@5": 0.0,
+          "path_recall": 1.0,
+          "citation_hit": 0.0,
+          "coverage": 0.75,
+          "top1_similarity": 0.7433,
+          "latency_ms": 392.0,
+          "low_confidence": false,
+          "predicted": [
+            "ll#50",
+            "cc#76",
+            "ll#46",
+            "cc#469",
+            "ll#48"
+          ]
+        },
+        {
+          "id": "g11",
+          "hop_type": "two_hop",
+          "level": "medium",
+          "recall@5": 1.0,
+          "all@5": 1.0,
+          "path_recall": 1.0,
+          "citation_hit": 1.0,
+          "coverage": 1.0,
+          "top1_similarity": 0.6827,
+          "latency_ms": 646.5,
+          "low_confidence": false,
+          "predicted": [
+            "ll#44",
+            "cc#188",
+            "ll#45",
+            "ll#51",
+            "lcl#4"
+          ]
+        },
+        {
+          "id": "g12",
+          "hop_type": "two_hop",
+          "level": "medium",
+          "recall@5": 0.0,
+          "all@5": 0.0,
+          "path_recall": 0.0,
+          "citation_hit": 0.0,
+          "coverage": 1.0,
+          "top1_similarity": 0.6588,
+          "latency_ms": 432.1,
+          "low_confidence": false,
+          "predicted": [
+            "cc#76",
+            "cc#57",
+            "cc#683",
+            "cc#103",
+            "cc#105"
+          ]
+        },
+        {
+          "id": "g13",
+          "hop_type": "two_hop",
+          "level": "medium",
+          "recall@5": 0.5,
+          "all@5": 0.0,
+          "path_recall": 1.0,
+          "citation_hit": 0.5,
+          "coverage": 0.75,
+          "top1_similarity": 0.6359,
+          "latency_ms": 529.8,
+          "low_confidence": false,
+          "predicted": [
+            "ll#50",
+            "cc#76",
+            "ll#46",
+            "cc#57",
+            "ll#48"
+          ]
+        },
+        {
+          "id": "g14",
+          "hop_type": "two_hop",
+          "level": "medium",
+          "recall@5": 1.0,
+          "all@5": 1.0,
+          "path_recall": 0.5,
+          "citation_hit": 1.0,
+          "coverage": 1.0,
+          "top1_similarity": 0.6468,
+          "latency_ms": 364.8,
+          "low_confidence": false,
+          "predicted": [
+            "ll#49",
+            "ll#48",
+            "lcl#20",
+            "ll#91",
+            "lcl#85"
+          ]
+        },
+        {
+          "id": "g15",
+          "hop_type": "two_hop",
+          "level": "medium",
+          "recall@5": 1.0,
+          "all@5": 1.0,
+          "path_recall": 0.5,
+          "citation_hit": 1.0,
+          "coverage": 0.6667,
+          "top1_similarity": 0.6711,
+          "latency_ms": 401.7,
+          "low_confidence": false,
+          "predicted": [
+            "lcl#72",
+            "ll#35",
+            "lcl#68",
+            "lcl#69",
+            "ll#50"
+          ]
+        },
+        {
+          "id": "g16",
+          "hop_type": "two_hop",
+          "level": "medium",
+          "recall@5": 0.0,
+          "all@5": 0.0,
+          "path_recall": 0.0,
+          "citation_hit": 0.0,
+          "coverage": 1.0,
+          "top1_similarity": 0.6604,
+          "latency_ms": 424.5,
+          "low_confidence": false,
+          "predicted": [
+            "cc#76",
+            "cc#57",
+            "cc#683",
+            "cc#103",
+            "cc#105"
+          ]
+        },
+        {
+          "id": "g17",
+          "hop_type": "two_hop",
+          "level": "medium",
+          "recall@5": 0.0,
+          "all@5": 0.0,
+          "path_recall": 1.0,
+          "citation_hit": 0.0,
+          "coverage": 1.0,
+          "top1_similarity": 0.6794,
+          "latency_ms": 364.7,
+          "low_confidence": false,
+          "predicted": [
+            "cc#76",
+            "ll#16",
+            "cc#469",
+            "cc#57",
+            "cc#103"
+          ]
+        },
+        {
+          "id": "g18",
+          "hop_type": "two_hop",
+          "level": "medium",
+          "recall@5": 0.5,
+          "all@5": 0.0,
+          "path_recall": 1.0,
+          "citation_hit": 0.5,
+          "coverage": 0.75,
+          "top1_similarity": 0.6365,
+          "latency_ms": 336.6,
+          "low_confidence": false,
+          "predicted": [
+            "lcl#51",
+            "lcl#55",
+            "ll#33",
+            "lcl#56",
+            "ll#35"
+          ]
+        },
+        {
+          "id": "g19",
+          "hop_type": "two_hop",
+          "level": "medium",
+          "recall@5": 0.5,
+          "all@5": 0.0,
+          "path_recall": 0.5,
+          "citation_hit": 0.5,
+          "coverage": 1.0,
+          "top1_similarity": 0.6749,
+          "latency_ms": 466.9,
+          "low_confidence": false,
+          "predicted": [
+            "lcl#23",
+            "lcl#59",
+            "lcl#57",
+            "lcl#58",
+            "lcl#65"
+          ]
+        },
+        {
+          "id": "g20",
+          "hop_type": "two_hop",
+          "level": "medium",
+          "recall@5": 1.0,
+          "all@5": 1.0,
+          "path_recall": 0.5,
+          "citation_hit": 1.0,
+          "coverage": 1.0,
+          "top1_similarity": 0.6628,
+          "latency_ms": 378.7,
+          "low_confidence": false,
+          "predicted": [
+            "lcl#22",
+            "cc#938",
+            "cc#76",
+            "lcl#16",
+            "cc#103"
+          ]
+        },
+        {
+          "id": "g21",
+          "hop_type": "two_hop",
+          "level": "medium",
+          "recall@5": 0.0,
+          "all@5": 0.0,
+          "path_recall": 0.5,
+          "citation_hit": 0.0,
+          "coverage": 0.6667,
+          "top1_similarity": 0.6821,
+          "latency_ms": 446.1,
+          "low_confidence": false,
+          "predicted": [
+            "lcl#47",
+            "lcl#38",
+            "ll#48",
+            "ll#32",
+            "lcl#55"
+          ]
+        },
+        {
+          "id": "g22",
+          "hop_type": "two_hop",
+          "level": "medium",
+          "recall@5": 1.0,
+          "all@5": 1.0,
+          "path_recall": 0.5,
+          "citation_hit": 1.0,
+          "coverage": 1.0,
+          "top1_similarity": 0.7009,
+          "latency_ms": 413.5,
+          "low_confidence": false,
+          "predicted": [
+            "ll#12",
+            "cc#1071",
+            "cc#1072",
+            "ll#3"
+          ]
+        },
+        {
+          "id": "g23",
+          "hop_type": "two_hop",
+          "level": "complex",
+          "recall@5": 0.5,
+          "all@5": 0.0,
+          "path_recall": 1.0,
+          "citation_hit": 0.5,
+          "coverage": 0.5,
+          "top1_similarity": 0.7066,
+          "latency_ms": 417.4,
+          "low_confidence": false,
+          "predicted": [
+            "ll#58",
+            "ll#53",
+            "ll#3",
+            "ll#64",
+            "lcl#38"
+          ]
+        },
+        {
+          "id": "g24",
+          "hop_type": "two_hop",
+          "level": "medium",
+          "recall@5": 1.0,
+          "all@5": 1.0,
+          "path_recall": 1.0,
+          "citation_hit": 1.0,
+          "coverage": 1.0,
+          "top1_similarity": 0.6235,
+          "latency_ms": 344.9,
+          "low_confidence": false,
+          "predicted": [
+            "lcl#50",
+            "cc#76",
+            "cc#57",
+            "cc#103",
+            "cc#105"
+          ]
+        },
+        {
+          "id": "g25",
+          "hop_type": "two_hop",
+          "level": "medium",
+          "recall@5": 0.5,
+          "all@5": 0.0,
+          "path_recall": 1.0,
+          "citation_hit": 0.5,
+          "coverage": 1.0,
+          "top1_similarity": 0.7359,
+          "latency_ms": 474.7,
+          "low_confidence": false,
+          "predicted": [
+            "cc#584",
+            "cc#585",
+            "cc#587",
+            "lcl#22",
+            "cc#595"
+          ]
+        },
+        {
+          "id": "g26",
+          "hop_type": "two_hop",
+          "level": "medium",
+          "recall@5": 0.5,
+          "all@5": 0.0,
+          "path_recall": 0.5,
+          "citation_hit": 0.5,
+          "coverage": 1.0,
+          "top1_similarity": 0.7067,
+          "latency_ms": 449.4,
+          "low_confidence": false,
+          "predicted": [
+            "cc#587",
+            "cc#584",
+            "cc#545",
+            "cc#595",
+            "cc#585"
+          ]
+        },
+        {
+          "id": "g27",
+          "hop_type": "two_hop",
+          "level": "medium",
+          "recall@5": 0.0,
+          "all@5": 0.0,
+          "path_recall": 0.5,
+          "citation_hit": 0.0,
+          "coverage": 1.0,
+          "top1_similarity": 0.7779,
+          "latency_ms": 475.6,
+          "low_confidence": false,
+          "predicted": [
+            "cc#585",
+            "lcl#22",
+            "cc#584",
+            "cc#522",
+            "cc#523"
+          ]
+        },
+        {
+          "id": "g28",
+          "hop_type": "two_hop",
+          "level": "medium",
+          "recall@5": 0.0,
+          "all@5": 0.0,
+          "path_recall": 0.0,
+          "citation_hit": 0.0,
+          "coverage": 0.0,
+          "top1_similarity": 0.6942,
+          "latency_ms": 454.8,
+          "low_confidence": false,
+          "predicted": []
+        },
+        {
+          "id": "g29",
+          "hop_type": "two_hop",
+          "level": "complex",
+          "recall@5": 1.0,
+          "all@5": 1.0,
+          "path_recall": 1.0,
+          "citation_hit": 1.0,
+          "coverage": 0.6667,
+          "top1_similarity": 0.7345,
+          "latency_ms": 462.1,
+          "low_confidence": false,
+          "predicted": [
+            "cc#699",
+            "cc#689",
+            "cc#685",
+            "cc#692",
+            "cc#702"
+          ]
+        },
+        {
+          "id": "g30",
+          "hop_type": "two_hop",
+          "level": "medium",
+          "recall@5": 0.5,
+          "all@5": 0.0,
+          "path_recall": 0.5,
+          "citation_hit": 0.5,
+          "coverage": 1.0,
+          "top1_similarity": 0.6695,
+          "latency_ms": 432.8,
+          "low_confidence": false,
+          "predicted": [
+            "cc#157",
+            "cc#1165",
+            "cc#1166",
+            "cc#1189",
+            "cc#1190"
+          ]
+        },
+        {
+          "id": "g31",
+          "hop_type": "three_hop",
+          "level": "complex",
+          "recall@5": 0.5,
+          "all@5": 0.0,
+          "path_recall": 0.6667,
+          "citation_hit": 0.5,
+          "coverage": 1.0,
+          "top1_similarity": 0.7475,
+          "latency_ms": 543.2,
+          "low_confidence": false,
+          "predicted": [
+            "ll#50",
+            "cc#76",
+            "ll#46",
+            "cc#57",
+            "ll#48"
+          ]
+        },
+        {
+          "id": "g32",
+          "hop_type": "three_hop",
+          "level": "medium",
+          "recall@5": 0.0,
+          "all@5": 0.0,
+          "path_recall": 0.3333,
+          "citation_hit": 0.0,
+          "coverage": 0.5,
+          "top1_similarity": 0.7387,
+          "latency_ms": 452.8,
+          "low_confidence": false,
+          "predicted": [
+            "cc#76",
+            "cc#57",
+            "ll#42",
+            "cc#103",
+            "cc#105"
+          ]
+        },
+        {
+          "id": "g33",
+          "hop_type": "three_hop",
+          "level": "complex",
+          "recall@5": 0.5,
+          "all@5": 0.0,
+          "path_recall": 1.0,
+          "citation_hit": 0.5,
+          "coverage": 1.0,
+          "top1_similarity": 0.6965,
+          "latency_ms": 516.3,
+          "low_confidence": false,
+          "predicted": [
+            "lcl#20",
+            "lcl#17",
+            "ll#21",
+            "ll#35",
+            "lcl#87"
+          ]
+        },
+        {
+          "id": "g34",
+          "hop_type": "three_hop",
+          "level": "medium",
+          "recall@5": 0.3333,
+          "all@5": 0.0,
+          "path_recall": 0.6667,
+          "citation_hit": 0.3333,
+          "coverage": 0.6667,
+          "top1_similarity": 0.627,
+          "latency_ms": 475.6,
+          "low_confidence": false,
+          "predicted": [
+            "cc#76",
+            "lcl#43",
+            "lcl#6",
+            "lcl#47",
+            "ll#30"
+          ]
+        },
+        {
+          "id": "g35",
+          "hop_type": "three_hop",
+          "level": "complex",
+          "recall@5": 1.0,
+          "all@5": 1.0,
+          "path_recall": 0.3333,
+          "citation_hit": 1.0,
+          "coverage": 1.0,
+          "top1_similarity": 0.6946,
+          "latency_ms": 440.7,
+          "low_confidence": false,
+          "predicted": [
+            "lcl#22",
+            "lcl#23",
+            "cc#585",
+            "ll#35",
+            "lcl#29"
+          ]
+        },
+        {
+          "id": "g36",
+          "hop_type": "three_hop",
+          "level": "complex",
+          "recall@5": 0.3333,
+          "all@5": 0.0,
+          "path_recall": 0.6667,
+          "citation_hit": 0.3333,
+          "coverage": 1.0,
+          "top1_similarity": 0.6385,
+          "latency_ms": 611.5,
+          "low_confidence": false,
+          "predicted": [
+            "ll#73",
+            "cc#76",
+            "ll#16",
+            "ll#71",
+            "cc#57"
+          ]
+        },
+        {
+          "id": "g37",
+          "hop_type": "three_hop",
+          "level": "complex",
+          "recall@5": 0.6667,
+          "all@5": 0.0,
+          "path_recall": 0.6667,
+          "citation_hit": 0.6667,
+          "coverage": 1.0,
+          "top1_similarity": 0.703,
+          "latency_ms": 467.8,
+          "low_confidence": false,
+          "predicted": [
+            "lcl#52",
+            "lcl#87",
+            "lcl#48",
+            "ll#58",
+            "ll#32"
+          ]
+        },
+        {
+          "id": "g38",
+          "hop_type": "three_hop",
+          "level": "medium",
+          "recall@5": 0.5,
+          "all@5": 0.0,
+          "path_recall": 1.0,
+          "citation_hit": 0.5,
+          "coverage": 1.0,
+          "top1_similarity": 0.6597,
+          "latency_ms": 374.7,
+          "low_confidence": false,
+          "predicted": [
+            "lcl#59",
+            "lcl#58",
+            "lcl#65",
+            "lcl#60",
+            "lcl#57"
+          ]
+        },
+        {
+          "id": "g39",
+          "hop_type": "three_hop",
+          "level": "complex",
+          "recall@5": 0.5,
+          "all@5": 0.0,
+          "path_recall": 0.6667,
+          "citation_hit": 0.5,
+          "coverage": 0.75,
+          "top1_similarity": 0.7101,
+          "latency_ms": 443.9,
+          "low_confidence": false,
+          "predicted": [
+            "lcl#72",
+            "ll#50",
+            "ll#35",
+            "lcl#69",
+            "lcl#68"
+          ]
+        },
+        {
+          "id": "g40",
+          "hop_type": "three_hop",
+          "level": "medium",
+          "recall@5": 1.0,
+          "all@5": 1.0,
+          "path_recall": 0.6667,
+          "citation_hit": 1.0,
+          "coverage": 1.0,
+          "top1_similarity": 0.6492,
+          "latency_ms": 397.3,
+          "low_confidence": false,
+          "predicted": [
+            "cc#1143",
+            "lcl#26",
+            "ll#18",
+            "cc#148",
+            "cc#150"
+          ]
+        },
+        {
+          "id": "g41",
+          "hop_type": "three_hop",
+          "level": "complex",
+          "recall@5": 1.0,
+          "all@5": 1.0,
+          "path_recall": 1.0,
+          "citation_hit": 1.0,
+          "coverage": 1.0,
+          "top1_similarity": 0.8111,
+          "latency_ms": 506.0,
+          "low_confidence": false,
+          "predicted": [
+            "lcl#22",
+            "cc#585",
+            "cc#76",
+            "cc#103",
+            "cc#105"
+          ]
+        },
+        {
+          "id": "g42",
+          "hop_type": "three_hop",
+          "level": "medium",
+          "recall@5": 0.0,
+          "all@5": 0.0,
+          "path_recall": 0.6667,
+          "citation_hit": 0.0,
+          "coverage": 0.6667,
+          "top1_similarity": 0.6851,
+          "latency_ms": 459.9,
+          "low_confidence": false,
+          "predicted": [
+            "lcl#47",
+            "cc#76",
+            "lcl#85",
+            "ll#53",
+            "cc#103"
+          ]
+        },
+        {
+          "id": "g43",
+          "hop_type": "three_hop",
+          "level": "medium",
+          "recall@5": 0.5,
+          "all@5": 0.0,
+          "path_recall": 1.0,
+          "citation_hit": 0.5,
+          "coverage": 1.0,
+          "top1_similarity": 0.6761,
+          "latency_ms": 396.1,
+          "low_confidence": false,
+          "predicted": [
+            "ll#82",
+            "cc#195",
+            "ll#79",
+            "cc#594",
+            "ll#84"
+          ]
+        },
+        {
+          "id": "g44",
+          "hop_type": "three_hop",
+          "level": "complex",
+          "recall@5": 0.0,
+          "all@5": 0.0,
+          "path_recall": 0.3333,
+          "citation_hit": 0.0,
+          "coverage": 1.0,
+          "top1_similarity": 0.7072,
+          "latency_ms": 510.1,
+          "low_confidence": false,
+          "predicted": [
+            "cc#685",
+            "cc#699",
+            "cc#690",
+            "cc#681",
+            "cc#682"
+          ]
+        },
+        {
+          "id": "g45",
+          "hop_type": "three_hop",
+          "level": "medium",
+          "recall@5": 0.6667,
+          "all@5": 0.0,
+          "path_recall": 0.3333,
+          "citation_hit": 0.6667,
+          "coverage": 1.0,
+          "top1_similarity": 0.6219,
+          "latency_ms": 369.0,
+          "low_confidence": false,
+          "predicted": [
+            "cc#587",
+            "cc#584",
+            "cc#545",
+            "cc#595",
+            "cc#585"
+          ]
+        },
+        {
+          "id": "g46",
+          "hop_type": "three_hop",
+          "level": "complex",
+          "recall@5": 0.3333,
+          "all@5": 0.0,
+          "path_recall": 0.0,
+          "citation_hit": 0.3333,
+          "coverage": 1.0,
+          "top1_similarity": 0.6968,
+          "latency_ms": 432.8,
+          "low_confidence": false,
+          "predicted": [
+            "cc#157",
+            "cc#1187",
+            "cc#584",
+            "cc#1183",
+            "cc#1165"
+          ]
+        },
+        {
+          "id": "g47",
+          "hop_type": "three_hop",
+          "level": "complex",
+          "recall@5": 0.0,
+          "all@5": 0.0,
+          "path_recall": 0.0,
+          "citation_hit": 0.0,
+          "coverage": 1.0,
+          "top1_similarity": 0.6869,
+          "latency_ms": 475.0,
+          "low_confidence": false,
+          "predicted": [
+            "cc#157",
+            "cc#179",
+            "cc#1187",
+            "cc#584",
+            "cc#1165"
+          ]
+        },
+        {
+          "id": "g48",
+          "hop_type": "three_hop",
+          "level": "complex",
+          "recall@5": 0.6667,
+          "all@5": 0.0,
+          "path_recall": 0.6667,
+          "citation_hit": 0.6667,
+          "coverage": 1.0,
+          "top1_similarity": 0.6539,
+          "latency_ms": 528.1,
+          "low_confidence": false,
+          "predicted": [
+            "cc#1034",
+            "cc#990",
+            "cc#76",
+            "cc#57",
+            "cc#1032"
+          ]
+        },
+        {
+          "id": "g49",
+          "hop_type": "three_hop",
+          "level": "complex",
+          "recall@5": 0.3333,
+          "all@5": 0.0,
+          "path_recall": 0.3333,
+          "citation_hit": 0.3333,
+          "coverage": 1.0,
+          "top1_similarity": 0.7104,
+          "latency_ms": 408.8,
+          "low_confidence": false,
+          "predicted": [
+            "cc#1163",
+            "cc#1147",
+            "cc#1144",
+            "cc#1161",
+            "cc#1154"
+          ]
+        },
+        {
+          "id": "g50",
+          "hop_type": "three_hop",
+          "level": "complex",
+          "recall@5": 0.0,
+          "all@5": 0.0,
+          "path_recall": 0.3333,
+          "citation_hit": 0.0,
+          "coverage": 1.0,
+          "top1_similarity": 0.6919,
+          "latency_ms": 400.9,
+          "low_confidence": false,
+          "predicted": [
+            "cc#163",
+            "cc#76",
+            "cc#926",
+            "cc#161",
+            "cc#57"
+          ]
+        },
+        {
+          "id": "g51",
+          "hop_type": "cross_law",
+          "level": "medium",
+          "recall@5": 0.0,
+          "all@5": 0.0,
+          "path_recall": 0.3333,
+          "citation_hit": 0.0,
+          "coverage": 1.0,
+          "top1_similarity": 0.6215,
+          "latency_ms": 358.6,
+          "low_confidence": false,
+          "predicted": [
+            "cc#496",
+            "cc#76",
+            "cc#57",
+            "cc#683",
+            "cc#103"
+          ]
+        },
+        {
+          "id": "g52",
+          "hop_type": "cross_law",
+          "level": "complex",
+          "recall@5": 1.0,
+          "all@5": 1.0,
+          "path_recall": 1.0,
+          "citation_hit": 1.0,
+          "coverage": 1.0,
+          "top1_similarity": 0.7588,
+          "latency_ms": 463.3,
+          "low_confidence": false,
+          "predicted": [
+            "lcl#22",
+            "lcl#23",
+            "cc#585",
+            "ll#35",
+            "lcl#16"
+          ]
+        },
+        {
+          "id": "g53",
+          "hop_type": "cross_law",
+          "level": "complex",
+          "recall@5": 0.5,
+          "all@5": 0.0,
+          "path_recall": 0.6667,
+          "citation_hit": 0.5,
+          "coverage": 1.0,
+          "top1_similarity": 0.6753,
+          "latency_ms": 353.0,
+          "low_confidence": false,
+          "predicted": [
+            "cc#1183",
+            "cc#996",
+            "cc#584",
+            "cc#389",
+            "cc#585"
+          ]
+        },
+        {
+          "id": "g54",
+          "hop_type": "cross_law",
+          "level": "complex",
+          "recall@5": 0.6667,
+          "all@5": 0.0,
+          "path_recall": 0.6667,
+          "citation_hit": 0.6667,
+          "coverage": 1.0,
+          "top1_similarity": 0.6616,
+          "latency_ms": 459.8,
+          "low_confidence": false,
+          "predicted": [
+            "ll#79",
+            "cc#195",
+            "ll#82",
+            "cc#594",
+            "ll#77"
+          ]
+        },
+        {
+          "id": "g55",
+          "hop_type": "cross_law",
+          "level": "complex",
+          "recall@5": 0.0,
+          "all@5": 0.0,
+          "path_recall": 0.6667,
+          "citation_hit": 0.0,
+          "coverage": 0.8,
+          "top1_similarity": 0.7159,
+          "latency_ms": 376.3,
+          "low_confidence": false,
+          "predicted": [
+            "cc#1175",
+            "cc#1187",
+            "cc#157",
+            "cc#1229",
+            "cc#395"
+          ]
+        },
+        {
+          "id": "g56",
+          "hop_type": "cross_law",
+          "level": "complex",
+          "recall@5": 0.3333,
+          "all@5": 0.0,
+          "path_recall": 0.3333,
+          "citation_hit": 0.3333,
+          "coverage": 1.0,
+          "top1_similarity": 0.6481,
+          "latency_ms": 477.0,
+          "low_confidence": false,
+          "predicted": [
+            "lcl#72",
+            "ll#19",
+            "lcl#69",
+            "lcl#68",
+            "lcl#70"
+          ]
+        },
+        {
+          "id": "g57",
+          "hop_type": "cross_law",
+          "level": "complex",
+          "recall@5": 0.0,
+          "all@5": 0.0,
+          "path_recall": 0.6667,
+          "citation_hit": 0.0,
+          "coverage": 0.5,
+          "top1_similarity": 0.6635,
+          "latency_ms": 381.6,
+          "low_confidence": false,
+          "predicted": [
+            "cc#134",
+            "cc#57",
+            "cc#76",
+            "cc#144",
+            "cc#133"
+          ]
+        },
+        {
+          "id": "g58",
+          "hop_type": "cross_law",
+          "level": "medium",
+          "recall@5": 0.5,
+          "all@5": 0.0,
+          "path_recall": 0.3333,
+          "citation_hit": 0.5,
+          "coverage": 1.0,
+          "top1_similarity": 0.673,
+          "latency_ms": 375.0,
+          "low_confidence": false,
+          "predicted": [
+            "lcl#42",
+            "cc#157",
+            "cc#76",
+            "ll#54",
+            "cc#1187"
+          ]
+        },
+        {
+          "id": "g59",
+          "hop_type": "cross_law",
+          "level": "complex",
+          "recall@5": 0.5,
+          "all@5": 0.0,
+          "path_recall": 0.6667,
+          "citation_hit": 0.5,
+          "coverage": 0.8333,
+          "top1_similarity": 0.6466,
+          "latency_ms": 485.3,
+          "low_confidence": false,
+          "predicted": [
+            "lcl#22",
+            "cc#585",
+            "cc#584",
+            "cc#76",
+            "cc#873"
+          ]
+        },
+        {
+          "id": "g60",
+          "hop_type": "cross_law",
+          "level": "complex",
+          "recall@5": 0.0,
+          "all@5": 0.0,
+          "path_recall": 0.0,
+          "citation_hit": 0.0,
+          "coverage": 1.0,
+          "top1_similarity": 0.5473,
+          "latency_ms": 408.6,
+          "low_confidence": false,
+          "predicted": [
+            "cc#76",
+            "ll#35",
+            "lcl#8",
+            "lcl#55",
+            "lcl#23"
+          ]
+        }
+      ]
+    }
+  }
+}

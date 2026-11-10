@@ -1,0 +1,22 @@
+{
+  "gap_file": "data\\lexicon\\gap_edges_inferred.jsonl",
+  "graph_file": "data\\graph\\lexweave_graph.pkl",
+  "gap_rows": 194,
+  "added_this_run": 194,
+  "skipped_already_present": 0,
+  "bad_relation_rows": 0,
+  "missing_node_rows": 0,
+  "missing_node_samples": [],
+  "added_by_relation": {
+    "REQUIRES": 192,
+    "SPECIAL_OF": 2
+  },
+  "inferred_edges_in_graph": 194,
+  "mechanical_edges": {
+    "REQUIRES": 230,
+    "SPECIAL_OF": 185,
+    "APPLIES_TO": 291
+  },
+  "mechanical_with_inferred_flag": 0,
+  "check_only": false
+}

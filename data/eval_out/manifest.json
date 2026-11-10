@@ -1,0 +1,328 @@
+{
+  "schema": "t08a-manifest/v1",
+  "generated_at": "2026-10-30T18:42:47+08:00",
+  "git": {
+    "sha": "754f0a5ef8cd5a0462f9f5da3a3b71b7ec9b600a",
+    "dirty": true,
+    "changed_files": 41,
+    "status_short": [
+      "M app/__002__extract/__003__edge_typing.py",
+      " M app/__006__hitl/__003__pipeline.py",
+      " M app/__007__agents/__002__flows.py",
+      " M app/__008__api/__000__server.py",
+      " M config.py",
+      " M data/eval_out/gold_article_review.json",
+      " M data/eval_out/hitl.json",
+      " M data/gold/gold_report.json",
+      " M data/gold/llm_cache.json",
+      " M eval/gold_combos.py",
+      " M scripts/build_gold.py",
+      " M scripts/check_gold.py",
+      " M scripts/eval_hitl.py",
+      "?? .github/",
+      "?? CONTRIBUTING.md",
+      "?? app/__008__api/__001__ratelimit.py",
+      "?? app/__008__api/__002__cache.py",
+      "?? app/__008__api/__003__stream.py",
+      "?? app/__008__api/__004__bench.py",
+      "?? common/prompt_guard.py"
+    ]
+  },
+  "run": {
+    "mode": "deterministic",
+    "args": {
+      "no_llm": true,
+      "limit": null,
+      "timeout": 1800
+    },
+    "python": "3.13.12",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "cwd": "E:\\project\\LexWeave"
+  },
+  "jobs": [
+    {
+      "name": "retrieval",
+      "script": "scripts/eval_retrieval.py",
+      "cmd": [
+        "E:\\project\\LexWeave\\.venv\\Scripts\\python.exe",
+        "scripts/eval_retrieval.py"
+      ],
+      "status": "ok",
+      "exit_code": 0,
+      "timed_out": false,
+      "duration_s": 687.21,
+      "artifact": "data/eval_out/retrieval.json",
+      "artifact_existed": true,
+      "artifact_changed_during_run": true,
+      "artifact_mtime_before": 1793347340.2751288,
+      "artifact_mtime_during_run": 1793356162.1768916,
+      "artifact_sha256_8_before": "4fc46c0a",
+      "artifact_sha256_8_during_run": "5b9522b1",
+      "artifact_restored": true,
+      "metrics": {
+        "text": {
+          "n": 60,
+          "recall@5": 0.7472,
+          "all@5": 0.6167,
+          "path_recall": 0.0,
+          "citation_hit": 0.7472,
+          "latency_median_ms": 391.4
+        },
+        "graph": {
+          "n": 60,
+          "recall@5": 0.4417,
+          "all@5": 0.2333,
+          "path_recall": 0.5694,
+          "citation_hit": 0.4417,
+          "latency_median_ms": 94.5
+        },
+        "hybrid": {
+          "n": 60,
+          "recall@5": 0.7556,
+          "all@5": 0.6167,
+          "path_recall": 0.5694,
+          "citation_hit": 0.7556,
+          "latency_median_ms": 349.5
+        }
+      },
+      "metrics_sha256_8": "cfa502b0",
+      "log_tail": {
+        "stdout": "",
+        "stderr": "lexweave.eval_retrieval | text recall@5=0.747 all@5=0.617 path=0.000 cit=0.747 median=391ms\n18:29:00 | INFO    | lexweave.eval_retrieval | graph recall@5=0.442 all@5=0.233 path=0.569 cit=0.442 median=94ms\n18:29:22 | INFO    | lexweave.eval_retrieval | hybrid recall@5=0.756 all@5=0.617 path=0.569 cit=0.756 median=350ms\n18:29:22 | INFO    | lexweave.eval_retrieval | 写出 data\\eval_out\\retrieval.json"
+      }
+    },
+    {
+      "name": "router",
+      "script": "scripts/eval_router.py",
+      "cmd": [
+        "E:\\project\\LexWeave\\.venv\\Scripts\\python.exe",
+        "scripts/eval_router.py"
+      ],
+      "status": "ok",
+      "exit_code": 0,
+      "timed_out": false,
+      "duration_s": 31.63,
+      "artifact": "data/eval_out/router.json",
+      "artifact_existed": true,
+      "artifact_changed_during_run": false,
+      "artifact_mtime_before": 1793347340.2832766,
+      "artifact_mtime_during_run": 1793356199.8029678,
+      "artifact_sha256_8_before": "1cc74a6a",
+      "artifact_sha256_8_during_run": "1cc74a6a",
+      "artifact_restored": true,
+      "metrics": {
+        "n": 80,
+        "by_label": {
+          "simple": 20,
+          "medium": 30,
+          "complex": 30
+        },
+        "rule_accuracy": 0.7,
+        "lr_loo_accuracy": 0.7375
+      },
+      "metrics_sha256_8": "41e083ce",
+      "log_tail": {
+        "stdout": "",
+        "stderr": "391 [00:01<00:00, 341.80it/s]\nE:\\project\\LexWeave\\common\\embedding_model.py:97: FutureWarning: The `get_sentence_embedding_dimension` method has been renamed to `get_embedding_dimension`.\n  self.dim = int(self.model.get_sentence_embedding_dimension())\n18:29:59 | INFO    | lexweave.eval_router | 规则 0.700 | LR 留一 0.738 | 样本 {'simple': 20, 'medium': 30, 'complex': 30} | 已写出 data\\eval_out\\router.json"
+      }
+    },
+    {
+      "name": "ablation",
+      "script": "scripts/eval_ablation.py",
+      "cmd": [
+        "E:\\project\\LexWeave\\.venv\\Scripts\\python.exe",
+        "scripts/eval_ablation.py",
+        "--no-llm"
+      ],
+      "status": "ok",
+      "exit_code": 0,
+      "timed_out": false,
+      "duration_s": 502.73,
+      "artifact": "data/eval_out/ablation.json",
+      "artifact_existed": true,
+      "artifact_changed_during_run": true,
+      "artifact_mtime_before": 1793347340.2442746,
+      "artifact_mtime_during_run": 1793356701.5394423,
+      "artifact_sha256_8_before": "29f2bd32",
+      "artifact_sha256_8_during_run": "65acd5bf",
+      "artifact_restored": true,
+      "metrics": {
+        "llm_mode": "deterministic",
+        "retrieval_mode": "hybrid",
+        "n": 60,
+        "tiers": {
+          "A": {
+            "n": 60,
+            "recall@5": 0.7556,
+            "path_accuracy": 0.5694,
+            "cite_precision": 0.3022,
+            "cite_recall": 0.7333,
+            "grounded": 0.6833,
+            "llm_calls_mean": 0,
+            "tokens_mean": 0,
+            "latency_median_ms": 434.9
+          },
+          "B": {
+            "n": 60,
+            "recall@5": 0.7556,
+            "path_accuracy": 0.5694,
+            "cite_precision": 0.3022,
+            "cite_recall": 0.7333,
+            "grounded": 0.6833,
+            "llm_calls_mean": 0,
+            "tokens_mean": 0,
+            "latency_median_ms": 408.9
+          },
+          "C": {
+            "n": 60,
+            "recall@5": 0.7556,
+            "path_accuracy": 0.5694,
+            "cite_precision": 0.3022,
+            "cite_recall": 0.7333,
+            "grounded": 0.6833,
+            "llm_calls_mean": 0,
+            "tokens_mean": 0,
+            "latency_median_ms": 318.9
+          }
+        }
+      },
+      "metrics_sha256_8": "12d44203",
+      "log_tail": {
+        "stdout": ".0,\n  \"refused_rate\": 0.0,\n  \"llm_calls_mean\": 0,\n  \"tokens_mean\": 0,\n  \"latency_median_ms\": 408.9\n },\n \"C\": {\n  \"n\": 60,\n  \"recall@5\": 0.7556,\n  \"path_accuracy\": 0.5694,\n  \"cite_precision\": 0.3022,\n  \"cite_recall\": 0.7333,\n  \"grounded\": 0.6833,\n  \"gate_all_pass\": 0.6833,\n  \"repaired_rate\": 0.3167,\n  \"refused_rate\": 0.0,\n  \"llm_calls_mean\": 0,\n  \"tokens_mean\": 0,\n  \"latency_median_ms\": 318.9\n }\n}",
+        "stderr": "0.756 cite_p=0.302 grounded=0.683 calls=0.00 tokens=0 median=435ms\n18:38:01 | INFO    | lexweave.eval_ablation | B 档完成 recall@5=0.756 cite_p=0.302 grounded=0.683 calls=0.00 tokens=0 median=409ms\n18:38:21 | INFO    | lexweave.eval_ablation | C 档完成 recall@5=0.756 cite_p=0.302 grounded=0.683 calls=0.00 tokens=0 median=319ms\n18:38:21 | INFO    | lexweave.eval_ablation | 写出 data\\eval_out\\ablation.json"
+      }
+    },
+    {
+      "name": "dialog",
+      "script": "scripts/eval_dialog.py",
+      "cmd": [
+        "E:\\project\\LexWeave\\.venv\\Scripts\\python.exe",
+        "scripts/eval_dialog.py"
+      ],
+      "status": "ok",
+      "exit_code": 0,
+      "timed_out": false,
+      "duration_s": 226.37,
+      "artifact": "data/eval_out/dialog.json",
+      "artifact_existed": true,
+      "artifact_changed_during_run": false,
+      "artifact_mtime_before": 1793347338.3552501,
+      "artifact_mtime_during_run": 1793356927.7207952,
+      "artifact_sha256_8_before": "2c48f3aa",
+      "artifact_sha256_8_during_run": "2c48f3aa",
+      "artifact_restored": true,
+      "metrics": {
+        "scripts": 20,
+        "turns": 48,
+        "status_accuracy": 1.0,
+        "slot_accuracy": 1.0,
+        "inheritance_accuracy": 1.0,
+        "coref_pass": "7/7",
+        "restart_ok": true,
+        "restart_continues": true
+      },
+      "metrics_sha256_8": "edf34b72",
+      "log_tail": {
+        "stdout": "",
+        "stderr": "280/393 [00:00<00:00, 326.03it/s]\nLoading weights:  81%|████████  | 318/393 [00:01<00:00, 338.28it/s]\nLoading weights:  90%|████████▉ | 353/393 [00:01<00:00, 331.55it/s]\nLoading weights:  98%|█████████▊| 387/393 [00:01<00:00, 322.16it/s]\nLoading weights: 100%|██████████| 393/393 [00:01<00:00, 316.05it/s]\n18:42:07 | INFO    | lexweave.eval_dialog | 状态 1.000 | 槽位 1.000 | 继承 1.000 | 指代 7/7 | 重连 True"
+      }
+    },
+    {
+      "name": "hitl",
+      "script": "scripts/eval_hitl.py",
+      "cmd": [
+        "E:\\project\\LexWeave\\.venv\\Scripts\\python.exe",
+        "scripts/eval_hitl.py"
+      ],
+      "status": "ok",
+      "exit_code": 0,
+      "timed_out": false,
+      "duration_s": 31.76,
+      "artifact": "data/eval_out/hitl.json",
+      "artifact_existed": true,
+      "artifact_changed_during_run": true,
+      "artifact_mtime_before": 1793356274.026274,
+      "artifact_mtime_during_run": 1793356960.2186675,
+      "artifact_sha256_8_before": "b4a396be",
+      "artifact_sha256_8_during_run": "acc5d0e7",
+      "artifact_restored": true,
+      "metrics": {
+        "all_pass": true,
+        "generation": "deterministic",
+        "checkpoint_files": 3,
+        "off_domain_threshold": 0.62,
+        "stats": {
+          "total_tasks": 5,
+          "reviewed_tasks": 3,
+          "intervention_rate": 0.6,
+          "correction_types": {
+            "accept": 2,
+            "edit_articles": 1
+          },
+          "corrections": 3,
+          "pending": 0,
+          "completed": 3
+        }
+      },
+      "metrics_sha256_8": "7e6d2533",
+      "log_tail": {
+        "stdout": "",
+        "stderr": ":01<00:00, 329.60it/s]\n18:42:39 | INFO    | lexweave.hitl | 域外拒答: 夫妻离婚时房子和存款怎么分割？ (未链接到劳动法域概念)\n18:42:40 | INFO    | lexweave.hitl | 域外拒答: 签了房屋买卖合同，卖方违约不配合过户，我 (未链接到劳动法域概念)\n18:42:40 | INFO    | lexweave.eval_hitl | E2E 全部通过=True 统计={\"total_tasks\": 5, \"reviewed_tasks\": 3, \"intervention_rate\": 0.6, \"correction_types\": {\"accept\": 2, \"edit_articles\": 1}, \"corrections\": 3, \"pending\": 0, \"completed\": 3}"
+      }
+    },
+    {
+      "name": "gold",
+      "script": "scripts/check_gold.py",
+      "cmd": [
+        "E:\\project\\LexWeave\\.venv\\Scripts\\python.exe",
+        "scripts/check_gold.py"
+      ],
+      "status": "ok",
+      "exit_code": 0,
+      "timed_out": false,
+      "duration_s": 5.97,
+      "artifact": "data/eval_out/gold.json",
+      "artifact_existed": true,
+      "artifact_changed_during_run": false,
+      "artifact_mtime_before": 1793355184.5649176,
+      "artifact_mtime_during_run": 1793356967.4955032,
+      "artifact_sha256_8_before": "38d50ef2",
+      "artifact_sha256_8_during_run": "38d50ef2",
+      "artifact_restored": true,
+      "metrics": {
+        "total": 60,
+        "by_hop": {
+          "two_hop": 30,
+          "three_hop": 20,
+          "cross_law": 10
+        },
+        "leakage": {
+          "verbatim_fail": 0,
+          "verbatim_fail_rate": 0.0,
+          "strict_fail": 54,
+          "build_fail": 0,
+          "max_leak": 0.2727
+        },
+        "necessity_pass_rate": 0.9833,
+        "path_pass_rate": 1.0,
+        "kappa": {
+          "pass_a_vs_b1": 0.9336,
+          "pass_a_vs_b2": 0.9253,
+          "pass_b_stability": 0.9917
+        }
+      },
+      "metrics_sha256_8": "da2c73ca",
+      "log_tail": {
+        "stdout": ",\n  \"pass_b_stability\": 0.9917\n },\n \"note\": \"Pass A 为人工给定的场景+概念链（条文由规则锁定），Pass B 为独立 LLM 判读；κ 衡量「人定骨架」与「模型判读」的一致性，不等同于双人盲标的标注者间一致性。\"\n}\n必要性（概念层）未通过： [('g60', ['agency', 'apparent_agency'])]\n必要性（条文层）未通过： [('g26', ['cc#733']), ('g36', ['ll#73']), ('g43', ['ll#82']), ('g45', ['cc#733']), ('g46', ['cc#1166']), ('g47', ['cc#613']), ('g55', ['ll#73', 'cc#1165', 'cc#1166']), ('g56', ['cc#476'])]\n路径断点： []",
+        "stderr": "18:42:46 | INFO    | lexweave.neo4j | Neo4j 已连接: bolt://localhost:7687 db=neo4j\n18:42:46 | INFO    | lexweave.graph_store | 图后端: neo4j"
+      }
+    }
+  ],
+  "summary": {
+    "n_jobs": 6,
+    "ok": 6,
+    "failed": [],
+    "all_ok": true,
+    "total_duration_s": 1485.74
+  }
+}

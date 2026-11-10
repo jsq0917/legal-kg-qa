@@ -480,18 +480,6 @@
       "name": "诉讼时效"
     }
   ],
-  "相邻权利人": [
-    {
-      "id": "adjacent_relation",
-      "kind": "concept",
-      "name": "相邻关系"
-    },
-    {
-      "id": "adjacent_right_holder",
-      "kind": "concept",
-      "name": "相邻权利人"
-    }
-  ],
   "担保": [
     {
       "id": "security_interest",
@@ -579,54 +567,6 @@
       "id": "sales_breach",
       "kind": "scenario",
       "name": "买卖违约"
-    }
-  ],
-  "保管人": [
-    {
-      "id": "custody_contract",
-      "kind": "concept",
-      "name": "保管合同"
-    },
-    {
-      "id": "custodian",
-      "kind": "concept",
-      "name": "保管人"
-    }
-  ],
-  "受托人": [
-    {
-      "id": "entrustment_contract",
-      "kind": "concept",
-      "name": "委托合同"
-    },
-    {
-      "id": "agent_party",
-      "kind": "concept",
-      "name": "受托人"
-    }
-  ],
-  "合伙人": [
-    {
-      "id": "partnership_contract",
-      "kind": "concept",
-      "name": "合伙合同"
-    },
-    {
-      "id": "partner",
-      "kind": "concept",
-      "name": "合伙人"
-    }
-  ],
-  "技术开发": [
-    {
-      "id": "technology_contract",
-      "kind": "concept",
-      "name": "技术合同"
-    },
-    {
-      "id": "technology_development_contract",
-      "kind": "concept",
-      "name": "技术开发合同"
     }
   ],
   "产品责任": [

@@ -1,12 +1,12 @@
 {
   "concepts": 281,
   "scenarios": 53,
-  "requires_edges": 196,
-  "gold_path_requires": 35,
-  "special_of_edges": 183,
-  "scenario_concept_edges": 198,
-  "aliases": 822,
-  "alias_collisions": 62,
+  "requires_edges": 230,
+  "gold_path_requires": 59,
+  "special_of_edges": 185,
+  "scenario_concept_edges": 291,
+  "aliases": 811,
+  "alias_collisions": 57,
   "concept_types": {
     "document": 11,
     "status": 17,

@@ -1,0 +1,321 @@
+{
+ "task": "T16 / j 自标→自训→自服务闭环复评：A1 test 60 条三方对照",
+ "n": 60,
+ "test_set": {
+  "source": "F:\\大模型应用开发\\算法岗冲刺\\work\\a1-lora-sft\\data\\test_gold.jsonl",
+  "type": "A1 人工标注 test 60 条（纯人工标签，未参与 SFT/A3 补数据）",
+  "coverage": "60/60 全量，无抽样；未使用 gold_200",
+  "note": "与路由任务（T13/i）的 gold_200 口径隔离，不混用"
+ },
+ "protocol": {
+  "prompt": "复用 A1 prompt_test.jsonl 的 prompt_messages（system + 条文，零样本，逐字一致）",
+  "client": "LexWeave common/llm.py::LLMClient，三臂同代码同参数，只换 base_url/model/key",
+  "temperature": 0.0,
+  "max_tokens": 700,
+  "response_format": "三臂均不加（LLMClient 未透传）",
+  "parsing": "A1 scripts/eval_extract.py::parse_pred + evaluate（严格/宽松同口径）",
+  "metrics": "实体 strict/relaxed F1、关系 strict F1、json_parse_rate、exact_match，微平均",
+  "bootstrap": {
+   "n_boot": 1000,
+   "seed": 20261031,
+   "scheme": "paired (三臂共享同一组按条重采样下标)",
+   "per_arm": {
+    "deepseek": {
+     "entity": [
+      0.4205,
+      0.5269
+     ],
+     "relation": [
+      0.1197,
+      0.2173
+     ]
+    },
+    "lora": {
+     "entity": [
+      0.4233,
+      0.5304
+     ],
+     "relation": [
+      0.0282,
+      0.125
+     ]
+    },
+    "base": {
+     "entity": [
+      0.1189,
+      0.2367
+     ],
+     "relation": [
+      0.0,
+      0.0549
+     ]
+    }
+   },
+   "delta": {
+    "entity": {
+     "lora_minus_deepseek": {
+      "ci95": [
+       -0.0644,
+       0.0728
+      ],
+      "point": 0.0032
+     },
+     "base_minus_deepseek": {
+      "ci95": [
+       -0.3765,
+       -0.216
+      ],
+      "point": -0.299
+     },
+     "lora_minus_base": {
+      "ci95": [
+       0.2321,
+       0.3787
+      ],
+      "point": 0.3022
+     }
+    },
+    "relation": {
+     "lora_minus_deepseek": {
+      "ci95": [
+       -0.1652,
+       -0.0202
+      ],
+      "point": -0.0918
+     },
+     "base_minus_deepseek": {
+      "ci95": [
+       -0.2046,
+       -0.0863
+      ],
+      "point": -0.1455
+     },
+     "lora_minus_base": {
+      "ci95": [
+       -0.0035,
+       0.1123
+      ],
+      "point": 0.0537
+     }
+    }
+   }
+  }
+ },
+ "arms": {
+  "deepseek": {
+   "model": "deepseek-chat",
+   "base_url": "https://api.deepseek.com/v1",
+   "n_ok": 60,
+   "n_err": 0,
+   "latency_ms_median": 1169,
+   "latency_ms_mean_ex_warmup": 1160.4,
+   "out_tok_mean": 126.2,
+   "wall_s": 69.5,
+   "metrics": {
+    "n": 60,
+    "json_parse_rate": 1.0,
+    "entity_strict": {
+     "P": 0.4347,
+     "R": 0.5208,
+     "F1": 0.4738,
+     "tp": 163,
+     "fp": 212,
+     "fn": 150
+    },
+    "entity_relaxed": {
+     "P": 0.6133,
+     "R": 0.7348,
+     "F1": 0.6686
+    },
+    "relation": {
+     "P": 0.1423,
+     "R": 0.2023,
+     "F1": 0.1671,
+     "tp": 35,
+     "fp": 211,
+     "fn": 138
+    },
+    "relation_relaxed": {
+     "P": 0.3374,
+     "R": 0.4798,
+     "F1": 0.3962
+    },
+    "exact_match": 0.0,
+    "entity_F1_CI95": [
+     0.4205,
+     0.5269
+    ],
+    "entity_F1_point": 0.4738,
+    "relation_F1_CI95": [
+     0.1197,
+     0.2173
+    ],
+    "relation_F1_point": 0.1671
+   }
+  },
+  "lora": {
+   "model": "qwen25-1.5b-triple:q4km",
+   "base_url": "http://127.0.0.1:11436/v1",
+   "n_ok": 60,
+   "n_err": 0,
+   "latency_ms_median": 2259,
+   "latency_ms_mean_ex_warmup": 2320.3,
+   "out_tok_mean": 61.5,
+   "wall_s": 139.7,
+   "metrics": {
+    "n": 60,
+    "json_parse_rate": 1.0,
+    "entity_strict": {
+     "P": 0.5109,
+     "R": 0.4473,
+     "F1": 0.477,
+     "tp": 140,
+     "fp": 134,
+     "fn": 173
+    },
+    "entity_relaxed": {
+     "P": 0.635,
+     "R": 0.5559,
+     "F1": 0.5928
+    },
+    "relation": {
+     "P": 0.1364,
+     "R": 0.052,
+     "F1": 0.0753,
+     "tp": 9,
+     "fp": 57,
+     "fn": 164
+    },
+    "relation_relaxed": {
+     "P": 0.2879,
+     "R": 0.1098,
+     "F1": 0.159
+    },
+    "exact_match": 0.0,
+    "entity_F1_CI95": [
+     0.4233,
+     0.5304
+    ],
+    "entity_F1_point": 0.477,
+    "relation_F1_CI95": [
+     0.0282,
+     0.125
+    ],
+    "relation_F1_point": 0.0753
+   }
+  },
+  "base": {
+   "model": "qwen25-1.5b-base:q4km",
+   "base_url": "http://127.0.0.1:11436/v1",
+   "n_ok": 60,
+   "n_err": 0,
+   "latency_ms_median": 2339,
+   "latency_ms_mean_ex_warmup": 3102.2,
+   "out_tok_mean": 73.0,
+   "wall_s": 183.7,
+   "metrics": {
+    "n": 60,
+    "json_parse_rate": 0.9,
+    "entity_strict": {
+     "P": 0.4474,
+     "R": 0.1086,
+     "F1": 0.1748,
+     "tp": 34,
+     "fp": 42,
+     "fn": 279
+    },
+    "entity_relaxed": {
+     "P": 0.5921,
+     "R": 0.1438,
+     "F1": 0.2314
+    },
+    "relation": {
+     "P": 0.1667,
+     "R": 0.0116,
+     "F1": 0.0216,
+     "tp": 2,
+     "fp": 10,
+     "fn": 171
+    },
+    "relation_relaxed": {
+     "P": 0.25,
+     "R": 0.0173,
+     "F1": 0.0324
+    },
+    "exact_match": 0.0,
+    "entity_F1_CI95": [
+     0.1189,
+     0.2367
+    ],
+    "entity_F1_point": 0.1748,
+    "relation_F1_CI95": [
+     0.0,
+     0.0549
+    ],
+    "relation_F1_point": 0.0216
+   }
+  }
+ },
+ "table": [
+  {
+   "arm": "deepseek",
+   "metric": "entity",
+   "F1": 0.4738,
+   "CI95": [
+    0.4205,
+    0.5269
+   ]
+  },
+  {
+   "arm": "lora",
+   "metric": "entity",
+   "F1": 0.477,
+   "CI95": [
+    0.4233,
+    0.5304
+   ]
+  },
+  {
+   "arm": "base",
+   "metric": "entity",
+   "F1": 0.1748,
+   "CI95": [
+    0.1189,
+    0.2367
+   ]
+  },
+  {
+   "arm": "deepseek",
+   "metric": "relation",
+   "F1": 0.1671,
+   "CI95": [
+    0.1197,
+    0.2173
+   ]
+  },
+  {
+   "arm": "lora",
+   "metric": "relation",
+   "F1": 0.0753,
+   "CI95": [
+    0.0282,
+    0.125
+   ]
+  },
+  {
+   "arm": "base",
+   "metric": "relation",
+   "F1": 0.0216,
+   "CI95": [
+    0.0,
+    0.0549
+   ]
+  }
+ ],
+ "weights_provenance": {
+  "lora": "qwen25-1.5b-triple:q4km = A3 runs/v2_targeted adapter 合并进 Qwen2.5-1.5B-Instruct 后 q4_K_M（986 MB）",
+  "base": "qwen25-1.5b-base:q4km = 同一 Qwen2.5-1.5B-Instruct 的 q4_K_M（986 MB），仅无 adapter",
+  "same_quant": true,
+  "note": "两本地臂仅差 adapter，量化与基座完全一致；DeepSeek 为远端 API"
+ }
+}

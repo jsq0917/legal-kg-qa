@@ -261,13 +261,6 @@
       "name": "服务期与培训"
     }
   ],
-  "业主": [
-    {
-      "id": "property_service_contract",
-      "kind": "concept",
-      "name": "物业服务合同"
-    }
-  ],
   "业务员签合同": [
     {
       "id": "agency_dispute",
@@ -329,13 +322,6 @@
       "id": "employer",
       "kind": "concept",
       "name": "用人单位"
-    }
-  ],
-  "中介人": [
-    {
-      "id": "intermediary_contract",
-      "kind": "concept",
-      "name": "中介合同"
     }
   ],
   "中介合同": [
@@ -920,11 +906,6 @@
   ],
   "保管人": [
     {
-      "id": "custody_contract",
-      "kind": "concept",
-      "name": "保管合同"
-    },
-    {
       "id": "custodian",
       "kind": "concept",
       "name": "保管人"
@@ -1284,13 +1265,6 @@
       "id": "seller",
       "kind": "concept",
       "name": "出卖人"
-    }
-  ],
-  "出租": [
-    {
-      "id": "lease_contract",
-      "kind": "concept",
-      "name": "租赁合同"
     }
   ],
   "出租人": [
@@ -1690,13 +1664,6 @@
       "name": "病假与医疗期"
     }
   ],
-  "医疗机构": [
-    {
-      "id": "medical_malpractice_liability",
-      "kind": "concept",
-      "name": "医疗损害责任"
-    }
-  ],
   "医院赔偿": [
     {
       "id": "tort_medical",
@@ -1774,11 +1741,6 @@
   ],
   "受托人": [
     {
-      "id": "entrustment_contract",
-      "kind": "concept",
-      "name": "委托合同"
-    },
-    {
       "id": "agent_party",
       "kind": "concept",
       "name": "受托人"
@@ -1846,11 +1808,6 @@
     }
   ],
   "合伙人": [
-    {
-      "id": "partnership_contract",
-      "kind": "concept",
-      "name": "合伙合同"
-    },
     {
       "id": "partner",
       "kind": "concept",
@@ -2140,13 +2097,6 @@
     }
   ],
   "善意取得": [
-    {
-      "id": "bona_fide_acquisition",
-      "kind": "concept",
-      "name": "善意取得"
-    }
-  ],
-  "善意受让人": [
     {
       "id": "bona_fide_acquisition",
       "kind": "concept",
@@ -3102,18 +3052,18 @@
       "name": "经济性裁员"
     }
   ],
-  "承包": [
-    {
-      "id": "land_contract_management_right",
-      "kind": "concept",
-      "name": "土地承包经营权"
-    }
-  ],
   "承包人": [
     {
       "id": "contractor_party",
       "kind": "concept",
       "name": "承包人"
+    }
+  ],
+  "承包地": [
+    {
+      "id": "land_contract_management_right",
+      "kind": "concept",
+      "name": "土地承包经营权"
     }
   ],
   "承揽": [
@@ -3137,13 +3087,6 @@
       "name": "承揽合同"
     }
   ],
-  "承租": [
-    {
-      "id": "lease_contract",
-      "kind": "concept",
-      "name": "租赁合同"
-    }
-  ],
   "承租人": [
     {
       "id": "lessee",
@@ -3156,13 +3099,6 @@
       "id": "acceptance",
       "kind": "concept",
       "name": "承诺"
-    }
-  ],
-  "承运人": [
-    {
-      "id": "transport_contract",
-      "kind": "concept",
-      "name": "运输合同"
     }
   ],
   "技术合同": [
@@ -3187,11 +3123,6 @@
     }
   ],
   "技术开发": [
-    {
-      "id": "technology_contract",
-      "kind": "concept",
-      "name": "技术合同"
-    },
     {
       "id": "technology_development_contract",
       "kind": "concept",
@@ -3283,13 +3214,6 @@
     }
   ],
   "抵押": [
-    {
-      "id": "mortgage",
-      "kind": "concept",
-      "name": "抵押权"
-    }
-  ],
-  "抵押人": [
     {
       "id": "mortgage",
       "kind": "concept",
@@ -4276,13 +4200,6 @@
       "name": "环境污染责任"
     }
   ],
-  "生产者": [
-    {
-      "id": "product_liability",
-      "kind": "concept",
-      "name": "产品责任"
-    }
-  ],
   "生命健康权": [
     {
       "id": "life_health_right",
@@ -4490,11 +4407,6 @@
     }
   ],
   "相邻权利人": [
-    {
-      "id": "adjacent_relation",
-      "kind": "concept",
-      "name": "相邻关系"
-    },
     {
       "id": "adjacent_right_holder",
       "kind": "concept",
@@ -4951,13 +4863,6 @@
       "name": "网络侵权"
     }
   ],
-  "网络服务提供者": [
-    {
-      "id": "network_tort",
-      "kind": "concept",
-      "name": "网络侵权"
-    }
-  ],
   "网络诽谤": [
     {
       "id": "reputation_infringe",
@@ -5137,13 +5042,6 @@
       "id": "financing_lease_contract",
       "kind": "concept",
       "name": "融资租赁合同"
-    }
-  ],
-  "行纪人": [
-    {
-      "id": "brokerage_contract",
-      "kind": "concept",
-      "name": "行纪合同"
     }
   ],
   "行纪合同": [

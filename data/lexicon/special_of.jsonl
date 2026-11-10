@@ -3,6 +3,7 @@
 {"child":"project_term_contract","parent":"labor_contract","relation":"SPECIAL_OF","provenance":"manual","confidence":0.95}
 {"child":"part_time_employment","parent":"labor_contract","relation":"SPECIAL_OF","provenance":"manual","confidence":0.95}
 {"child":"labor_dispatch","parent":"labor_contract","relation":"SPECIAL_OF","provenance":"manual","confidence":0.95}
+{"child":"dispatch_unit","parent":"employer","relation":"SPECIAL_OF","provenance":"manual","confidence":0.95}
 {"child":"collective_contract","parent":"labor_contract","relation":"SPECIAL_OF","provenance":"manual","confidence":0.95}
 {"child":"probation_period","parent":"contract_terms","relation":"SPECIAL_OF","provenance":"manual","confidence":0.95}
 {"child":"service_period","parent":"contract_terms","relation":"SPECIAL_OF","provenance":"manual","confidence":0.95}
@@ -18,6 +19,7 @@
 {"child":"pension_insurance","parent":"social_insurance","relation":"SPECIAL_OF","provenance":"manual","confidence":0.95}
 {"child":"work_injury_insurance","parent":"social_insurance","relation":"SPECIAL_OF","provenance":"manual","confidence":0.95}
 {"child":"unemployment_insurance","parent":"social_insurance","relation":"SPECIAL_OF","provenance":"manual","confidence":0.95}
+{"child":"minor_worker","parent":"worker","relation":"SPECIAL_OF","provenance":"manual","confidence":0.95}
 {"child":"unilateral_rescission_by_worker","parent":"contract_rescission","relation":"SPECIAL_OF","provenance":"manual","confidence":0.95}
 {"child":"immediate_rescission","parent":"unilateral_rescission_by_worker","relation":"SPECIAL_OF","provenance":"manual","confidence":0.95}
 {"child":"rescission_by_employer","parent":"contract_rescission","relation":"SPECIAL_OF","provenance":"manual","confidence":0.95}

@@ -1,0 +1,1445 @@
+{
+ "criterion": "需语义判断/字面锚点缺失，故不计入机械可验证达标数",
+ "categories": [
+  {
+   "name": "gold APPLIES_TO 无字面锚点",
+   "count": 20,
+   "items": [
+    {
+     "scenario": "tort_product",
+     "scenario_name": "产品责任",
+     "concept": "sales_contract",
+     "concept_name": "买卖合同",
+     "gold": "g47",
+     "anchor_article": "cc#613",
+     "reason": "gold 标注该场景用到该概念，但锚点条文未独立命中概念名/别名"
+    },
+    {
+     "scenario": "contract_terms_missing",
+     "scenario_name": "合同条款缺失",
+     "concept": "contract_establishment",
+     "concept_name": "合同成立",
+     "gold": "g51",
+     "anchor_article": "lcl#16",
+     "reason": "gold 标注该场景用到该概念，但锚点条文未独立命中概念名/别名"
+    },
+    {
+     "scenario": "severance_calculation",
+     "scenario_name": "经济补偿计算",
+     "concept": "breach_of_contract",
+     "concept_name": "违约责任",
+     "gold": "g52",
+     "anchor_article": "cc#585",
+     "reason": "gold 标注该场景用到该概念，但锚点条文未独立命中概念名/别名"
+    },
+    {
+     "scenario": "occupational_disease",
+     "scenario_name": "职业病",
+     "concept": "tort_liability",
+     "concept_name": "侵权责任",
+     "gold": "g58",
+     "anchor_article": "cc#1173",
+     "reason": "gold 标注该场景用到该概念，但锚点条文未独立命中概念名/别名"
+    },
+    {
+     "scenario": "occupational_disease",
+     "scenario_name": "职业病",
+     "concept": "fault_liability",
+     "concept_name": "过错责任",
+     "gold": "g58",
+     "anchor_article": "cc#1173",
+     "reason": "gold 标注该场景用到该概念，但锚点条文未独立命中概念名/别名"
+    },
+    {
+     "scenario": "economic_layoff",
+     "scenario_name": "经济性裁员",
+     "concept": "breach_of_contract",
+     "concept_name": "违约责任",
+     "gold": "g59",
+     "anchor_article": "cc#585",
+     "reason": "gold 标注该场景用到该概念，但锚点条文未独立命中概念名/别名"
+    },
+    {
+     "scenario": "probation_dismissal",
+     "scenario_name": "试用期辞退",
+     "concept": "contract_terms",
+     "concept_name": "劳动合同条款",
+     "gold": "g66",
+     "anchor_article": "lcl#16",
+     "reason": "gold 标注该场景用到该概念，但锚点条文未独立命中概念名/别名"
+    },
+    {
+     "scenario": "immediate_resignation",
+     "scenario_name": "被迫即时解除",
+     "concept": "unilateral_rescission_by_worker",
+     "concept_name": "劳动者单方解除",
+     "gold": "g85",
+     "anchor_article": "lcl#37",
+     "reason": "gold 标注该场景用到该概念，但锚点条文未独立命中概念名/别名"
+    },
+    {
+     "scenario": "social_insurance_dispute",
+     "scenario_name": "社保争议",
+     "concept": "survivor_benefit",
+     "concept_name": "遗属待遇",
+     "gold": "g97",
+     "anchor_article": "ll#73",
+     "reason": "gold 标注该场景用到该概念，但锚点条文未独立命中概念名/别名"
+    },
+    {
+     "scenario": "working_hours_dispute",
+     "scenario_name": "工时与休息",
+     "concept": "rest_period",
+     "concept_name": "休息休假",
+     "gold": "g105",
+     "anchor_article": "ll#40",
+     "reason": "gold 标注该场景用到该概念，但锚点条文未独立命中概念名/别名"
+    },
+    {
+     "scenario": "working_hours_dispute",
+     "scenario_name": "工时与休息",
+     "concept": "rest_period",
+     "concept_name": "休息休假",
+     "gold": "g107",
+     "anchor_article": "ll#40",
+     "reason": "gold 标注该场景用到该概念，但锚点条文未独立命中概念名/别名"
+    },
+    {
+     "scenario": "immediate_resignation",
+     "scenario_name": "被迫即时解除",
+     "concept": "pension_insurance",
+     "concept_name": "养老保险",
+     "gold": "g144",
+     "anchor_article": "ll#73",
+     "reason": "gold 标注该场景用到该概念，但锚点条文未独立命中概念名/别名"
+    },
+    {
+     "scenario": "working_hours_dispute",
+     "scenario_name": "工时与休息",
+     "concept": "rest_period",
+     "concept_name": "休息休假",
+     "gold": "g159",
+     "anchor_article": "ll#40",
+     "reason": "gold 标注该场景用到该概念，但锚点条文未独立命中概念名/别名"
+    },
+    {
+     "scenario": "sick_leave",
+     "scenario_name": "病假与医疗期",
+     "concept": "female_worker_protection",
+     "concept_name": "女职工特殊保护",
+     "gold": "g176",
+     "anchor_article": "ll#61",
+     "reason": "gold 标注该场景用到该概念，但锚点条文未独立命中概念名/别名"
+    },
+    {
+     "scenario": "remote_work",
+     "scenario_name": "远程办公",
+     "concept": "contract_performance",
+     "concept_name": "合同履行",
+     "gold": "g185",
+     "anchor_article": "cc#525",
+     "reason": "gold 标注该场景用到该概念，但锚点条文未独立命中概念名/别名"
+    },
+    {
+     "scenario": "minor_worker",
+     "scenario_name": "未成年工与童工",
+     "concept": "tort_liability",
+     "concept_name": "侵权责任",
+     "gold": "g192",
+     "anchor_article": "cc#1182",
+     "reason": "gold 标注该场景用到该概念，但锚点条文未独立命中概念名/别名"
+    },
+    {
+     "scenario": "service_period_training",
+     "scenario_name": "服务期与培训",
+     "concept": "liquidated_damages_civil",
+     "concept_name": "违约金",
+     "gold": "g194",
+     "anchor_article": "cc#588",
+     "reason": "gold 标注该场景用到该概念，但锚点条文未独立命中概念名/别名"
+    },
+    {
+     "scenario": "illegal_dismissal",
+     "scenario_name": "违法解除",
+     "concept": "breach_of_contract",
+     "concept_name": "违约责任",
+     "gold": "g196",
+     "anchor_article": "cc#585",
+     "reason": "gold 标注该场景用到该概念，但锚点条文未独立命中概念名/别名"
+    },
+    {
+     "scenario": "economic_layoff",
+     "scenario_name": "经济性裁员",
+     "concept": "contract_performance",
+     "concept_name": "合同履行",
+     "gold": "g197",
+     "anchor_article": "cc#525",
+     "reason": "gold 标注该场景用到该概念，但锚点条文未独立命中概念名/别名"
+    },
+    {
+     "scenario": "work_injury",
+     "scenario_name": "工伤认定与待遇",
+     "concept": "fault_liability",
+     "concept_name": "过错责任",
+     "gold": "g198",
+     "anchor_article": "cc#157",
+     "reason": "gold 标注该场景用到该概念，但锚点条文未独立命中概念名/别名"
+    }
+   ]
+  },
+  {
+   "name": "gold 路径非相邻对（无同条双端共现）",
+   "count": 67,
+   "items": [
+    {
+     "a": "probation_period",
+     "a_name": "试用期",
+     "b": "illegal_rescission",
+     "b_name": "违法解除",
+     "gold": "g33",
+     "path": [
+      "probation_period",
+      "trial_dismissal",
+      "illegal_rescission"
+     ],
+     "reason": "gold 路径内跨越概念对，但无任一条文同时独立出现两端"
+    },
+    {
+     "a": "economic_layoff",
+     "a_name": "经济性裁员",
+     "b": "severance",
+     "b_name": "经济补偿",
+     "gold": "g34",
+     "path": [
+      "economic_layoff",
+      "labor_union",
+      "severance"
+     ],
+     "reason": "gold 路径内跨越概念对，但无任一条文同时独立出现两端"
+    },
+    {
+     "a": "labor_relationship",
+     "a_name": "劳动关系",
+     "b": "pension_insurance",
+     "b_name": "养老保险",
+     "gold": "g36",
+     "path": [
+      "labor_relationship",
+      "social_insurance",
+      "pension_insurance"
+     ],
+     "reason": "gold 路径内跨越概念对，但无任一条文同时独立出现两端"
+    },
+    {
+     "a": "female_worker_protection",
+     "a_name": "女职工特殊保护",
+     "b": "illegal_rescission",
+     "b_name": "违法解除",
+     "gold": "g37",
+     "path": [
+      "female_worker_protection",
+      "labor_protection",
+      "illegal_rescission"
+     ],
+     "reason": "gold 路径内跨越概念对，但无任一条文同时独立出现两端"
+    },
+    {
+     "a": "part_time_employment",
+     "a_name": "非全日制用工",
+     "b": "labor_dispute",
+     "b_name": "劳动争议",
+     "gold": "g39",
+     "path": [
+      "part_time_employment",
+      "part_time_wage_settlement",
+      "labor_dispute"
+     ],
+     "reason": "gold 路径内跨越概念对，但无任一条文同时独立出现两端"
+    },
+    {
+     "a": "sick_leave",
+     "a_name": "病假与医疗期",
+     "b": "severance",
+     "b_name": "经济补偿",
+     "gold": "g42",
+     "path": [
+      "sick_leave",
+      "contract_termination",
+      "severance"
+     ],
+     "reason": "gold 路径内跨越概念对，但无任一条文同时独立出现两端"
+    },
+    {
+     "a": "labor_dispute",
+     "a_name": "劳动争议",
+     "b": "limitation_period",
+     "b_name": "诉讼时效",
+     "gold": "g43",
+     "path": [
+      "labor_dispute",
+      "arbitration",
+      "limitation_period"
+     ],
+     "reason": "gold 路径内跨越概念对，但无任一条文同时独立出现两端"
+    },
+    {
+     "a": "guarantee_contract",
+     "a_name": "保证合同",
+     "b": "security_interest",
+     "b_name": "担保物权",
+     "gold": "g44",
+     "path": [
+      "guarantee_contract",
+      "joint_liability",
+      "security_interest"
+     ],
+     "reason": "gold 路径内跨越概念对，但无任一条文同时独立出现两端"
+    },
+    {
+     "a": "traffic_accident_liability",
+     "a_name": "机动车交通事故责任",
+     "b": "damages_civil",
+     "b_name": "损害赔偿",
+     "gold": "g46",
+     "path": [
+      "traffic_accident_liability",
+      "no_fault_liability",
+      "damages_civil"
+     ],
+     "reason": "gold 路径内跨越概念对，但无任一条文同时独立出现两端"
+    },
+    {
+     "a": "product_liability",
+     "a_name": "产品责任",
+     "b": "sales_contract",
+     "b_name": "买卖合同",
+     "gold": "g47",
+     "path": [
+      "product_liability",
+      "no_fault_liability",
+      "sales_contract"
+     ],
+     "reason": "gold 路径内跨越概念对，但无任一条文同时独立出现两端"
+    },
+    {
+     "a": "right_of_privacy",
+     "a_name": "隐私权",
+     "b": "network_tort",
+     "b_name": "网络侵权",
+     "gold": "g48",
+     "path": [
+      "right_of_privacy",
+      "personal_information",
+      "network_tort"
+     ],
+     "reason": "gold 路径内跨越概念对，但无任一条文同时独立出现两端"
+    },
+    {
+     "a": "labor_contract",
+     "a_name": "劳动合同",
+     "b": "standard_terms",
+     "b_name": "格式条款",
+     "gold": "g51",
+     "path": [
+      "labor_contract",
+      "contract_establishment",
+      "standard_terms"
+     ],
+     "reason": "gold 路径内跨越概念对，但无任一条文同时独立出现两端"
+    },
+    {
+     "a": "illegal_rescission",
+     "a_name": "违法解除",
+     "b": "damages_civil",
+     "b_name": "损害赔偿",
+     "gold": "g53",
+     "path": [
+      "illegal_rescission",
+      "damages",
+      "damages_civil"
+     ],
+     "reason": "gold 路径内跨越概念对，但无任一条文同时独立出现两端"
+    },
+    {
+     "a": "work_injury",
+     "a_name": "工伤",
+     "b": "no_fault_liability",
+     "b_name": "无过错责任",
+     "gold": "g55",
+     "path": [
+      "work_injury",
+      "tort_liability",
+      "no_fault_liability"
+     ],
+     "reason": "gold 路径内跨越概念对，但无任一条文同时独立出现两端"
+    },
+    {
+     "a": "part_time_employment",
+     "a_name": "非全日制用工",
+     "b": "contract_establishment",
+     "b_name": "合同成立",
+     "gold": "g56",
+     "path": [
+      "part_time_employment",
+      "offer",
+      "contract_establishment"
+     ],
+     "reason": "gold 路径内跨越概念对，但无任一条文同时独立出现两端"
+    },
+    {
+     "a": "labor_protection",
+     "a_name": "劳动保护",
+     "b": "fault_liability",
+     "b_name": "过错责任",
+     "gold": "g58",
+     "path": [
+      "labor_protection",
+      "tort_liability",
+      "fault_liability"
+     ],
+     "reason": "gold 路径内跨越概念对，但无任一条文同时独立出现两端"
+    },
+    {
+     "a": "labor_relationship",
+     "a_name": "劳动关系",
+     "b": "apparent_agency",
+     "b_name": "表见代理",
+     "gold": "g60",
+     "path": [
+      "labor_relationship",
+      "agency",
+      "apparent_agency"
+     ],
+     "reason": "gold 路径内跨越概念对，但无任一条文同时独立出现两端"
+    },
+    {
+     "a": "wage_payment",
+     "a_name": "工资支付",
+     "b": "labor_quota",
+     "b_name": "劳动定额",
+     "gold": "g131",
+     "path": [
+      "wage_payment",
+      "wage_deduction",
+      "labor_quota"
+     ],
+     "reason": "gold 路径内跨越概念对，但无任一条文同时独立出现两端"
+    },
+    {
+     "a": "wage_priority_payment",
+     "a_name": "工资优先支付",
+     "b": "severance",
+     "b_name": "经济补偿",
+     "gold": "g132",
+     "path": [
+      "wage_priority_payment",
+      "wage",
+      "severance"
+     ],
+     "reason": "gold 路径内跨越概念对，但无任一条文同时独立出现两端"
+    },
+    {
+     "a": "overtime_pay",
+     "a_name": "加班工资",
+     "b": "emergency_overtime",
+     "b_name": "紧急情况加班",
+     "gold": "g133",
+     "path": [
+      "overtime_pay",
+      "work_hour_extension",
+      "emergency_overtime"
+     ],
+     "reason": "gold 路径内跨越概念对，但无任一条文同时独立出现两端"
+    },
+    {
+     "a": "working_hours",
+     "a_name": "工时制度",
+     "b": "wage_payment",
+     "b_name": "工资支付",
+     "gold": "g134",
+     "path": [
+      "working_hours",
+      "overtime_pay",
+      "wage_payment"
+     ],
+     "reason": "gold 路径内跨越概念对，但无任一条文同时独立出现两端"
+    },
+    {
+     "a": "fault_dismissal",
+     "a_name": "过失性辞退",
+     "b": "illegal_rescission",
+     "b_name": "违法解除",
+     "gold": "g135",
+     "path": [
+      "fault_dismissal",
+      "rescission_by_employer",
+      "illegal_rescission"
+     ],
+     "reason": "gold 路径内跨越概念对，但无任一条文同时独立出现两端"
+    },
+    {
+     "a": "contract_termination",
+     "a_name": "劳动合同终止",
+     "b": "severance_standard",
+     "b_name": "经济补偿计算标准",
+     "gold": "g137",
+     "path": [
+      "contract_termination",
+      "severance",
+      "severance_standard"
+     ],
+     "reason": "gold 路径内跨越概念对，但无任一条文同时独立出现两端"
+    },
+    {
+     "a": "contract_rescission",
+     "a_name": "劳动合同解除",
+     "b": "separation_certificate",
+     "b_name": "解除终止证明",
+     "gold": "g142",
+     "path": [
+      "contract_rescission",
+      "handover",
+      "separation_certificate"
+     ],
+     "reason": "gold 路径内跨越概念对，但无任一条文同时独立出现两端"
+    },
+    {
+     "a": "immediate_rescission",
+     "a_name": "劳动者即时解除",
+     "b": "labor_quota",
+     "b_name": "劳动定额",
+     "gold": "g143",
+     "path": [
+      "immediate_rescission",
+      "wage_deduction",
+      "labor_quota"
+     ],
+     "reason": "gold 路径内跨越概念对，但无任一条文同时独立出现两端"
+    },
+    {
+     "a": "immediate_rescission",
+     "a_name": "劳动者即时解除",
+     "b": "pension_insurance",
+     "b_name": "养老保险",
+     "gold": "g144",
+     "path": [
+      "immediate_rescission",
+      "social_insurance",
+      "pension_insurance"
+     ],
+     "reason": "gold 路径内跨越概念对，但无任一条文同时独立出现两端"
+    },
+    {
+     "a": "labor_union",
+     "a_name": "工会",
+     "b": "severance_standard",
+     "b_name": "经济补偿计算标准",
+     "gold": "g145",
+     "path": [
+      "labor_union",
+      "severance",
+      "severance_standard"
+     ],
+     "reason": "gold 路径内跨越概念对，但无任一条文同时独立出现两端"
+    },
+    {
+     "a": "economic_layoff",
+     "a_name": "经济性裁员",
+     "b": "damages",
+     "b_name": "赔偿金",
+     "gold": "g146",
+     "path": [
+      "economic_layoff",
+      "severance_standard",
+      "damages"
+     ],
+     "reason": "gold 路径内跨越概念对，但无任一条文同时独立出现两端"
+    },
+    {
+     "a": "illegal_rescission",
+     "a_name": "违法解除",
+     "b": "fault_dismissal",
+     "b_name": "过失性辞退",
+     "gold": "g147",
+     "path": [
+      "illegal_rescission",
+      "rescission_by_employer",
+      "fault_dismissal"
+     ],
+     "reason": "gold 路径内跨越概念对，但无任一条文同时独立出现两端"
+    },
+    {
+     "a": "illegal_rescission",
+     "a_name": "违法解除",
+     "b": "severance_standard",
+     "b_name": "经济补偿计算标准",
+     "gold": "g148",
+     "path": [
+      "illegal_rescission",
+      "damages",
+      "severance_standard"
+     ],
+     "reason": "gold 路径内跨越概念对，但无任一条文同时独立出现两端"
+    },
+    {
+     "a": "severance_standard",
+     "a_name": "经济补偿计算标准",
+     "b": "labor_union",
+     "b_name": "工会",
+     "gold": "g150",
+     "path": [
+      "severance_standard",
+      "severance",
+      "labor_union"
+     ],
+     "reason": "gold 路径内跨越概念对，但无任一条文同时独立出现两端"
+    },
+    {
+     "a": "double_wage",
+     "a_name": "二倍工资",
+     "b": "wage_payment",
+     "b_name": "工资支付",
+     "gold": "g152",
+     "path": [
+      "double_wage",
+      "wage",
+      "wage_payment"
+     ],
+     "reason": "gold 路径内跨越概念对，但无任一条文同时独立出现两端"
+    },
+    {
+     "a": "pension_insurance",
+     "a_name": "养老保险",
+     "b": "file_transfer",
+     "b_name": "档案和社保转移",
+     "gold": "g153",
+     "path": [
+      "pension_insurance",
+      "social_insurance",
+      "file_transfer"
+     ],
+     "reason": "gold 路径内跨越概念对，但无任一条文同时独立出现两端"
+    },
+    {
+     "a": "unemployment_insurance",
+     "a_name": "失业保险",
+     "b": "labor_relationship",
+     "b_name": "劳动关系",
+     "gold": "g154",
+     "path": [
+      "unemployment_insurance",
+      "social_insurance",
+      "labor_relationship"
+     ],
+     "reason": "gold 路径内跨越概念对，但无任一条文同时独立出现两端"
+    },
+    {
+     "a": "pension_insurance",
+     "a_name": "养老保险",
+     "b": "work_injury_insurance",
+     "b_name": "工伤保险",
+     "gold": "g155",
+     "path": [
+      "pension_insurance",
+      "social_insurance",
+      "work_injury_insurance"
+     ],
+     "reason": "gold 路径内跨越概念对，但无任一条文同时独立出现两端"
+    },
+    {
+     "a": "illegal_rescission",
+     "a_name": "违法解除",
+     "b": "sick_leave",
+     "b_name": "病假与医疗期",
+     "gold": "g156",
+     "path": [
+      "illegal_rescission",
+      "labor_protection",
+      "sick_leave"
+     ],
+     "reason": "gold 路径内跨越概念对，但无任一条文同时独立出现两端"
+    },
+    {
+     "a": "annual_leave",
+     "a_name": "年休假",
+     "b": "statutory_holiday",
+     "b_name": "法定休假日",
+     "gold": "g157",
+     "path": [
+      "annual_leave",
+      "rest_period",
+      "statutory_holiday"
+     ],
+     "reason": "gold 路径内跨越概念对，但无任一条文同时独立出现两端"
+    },
+    {
+     "a": "annual_leave",
+     "a_name": "年休假",
+     "b": "overtime_pay",
+     "b_name": "加班工资",
+     "gold": "g158",
+     "path": [
+      "annual_leave",
+      "working_hours",
+      "overtime_pay"
+     ],
+     "reason": "gold 路径内跨越概念对，但无任一条文同时独立出现两端"
+    },
+    {
+     "a": "work_hour_extension",
+     "a_name": "延长工作时间",
+     "b": "wage_payment",
+     "b_name": "工资支付",
+     "gold": "g160",
+     "path": [
+      "work_hour_extension",
+      "overtime_pay",
+      "wage_payment"
+     ],
+     "reason": "gold 路径内跨越概念对，但无任一条文同时独立出现两端"
+    },
+    {
+     "a": "collective_contract",
+     "a_name": "集体合同",
+     "b": "severance",
+     "b_name": "经济补偿",
+     "gold": "g163",
+     "path": [
+      "collective_contract",
+      "labor_union",
+      "severance"
+     ],
+     "reason": "gold 路径内跨越概念对，但无任一条文同时独立出现两端"
+    },
+    {
+     "a": "occupational_health_check",
+     "a_name": "职业健康检查",
+     "b": "illegal_rescission",
+     "b_name": "违法解除",
+     "gold": "g167",
+     "path": [
+      "occupational_health_check",
+      "labor_protection",
+      "illegal_rescission"
+     ],
+     "reason": "gold 路径内跨越概念对，但无任一条文同时独立出现两端"
+    },
+    {
+     "a": "child_labor",
+     "a_name": "童工",
+     "b": "labor_protection",
+     "b_name": "劳动保护",
+     "gold": "g168",
+     "path": [
+      "child_labor",
+      "minor_worker",
+      "labor_protection"
+     ],
+     "reason": "gold 路径内跨越概念对，但无任一条文同时独立出现两端"
+    },
+    {
+     "a": "labor_dispute",
+     "a_name": "劳动争议",
+     "b": "part_time_employment",
+     "b_name": "非全日制用工",
+     "gold": "g171",
+     "path": [
+      "labor_dispute",
+      "part_time_wage_settlement",
+      "part_time_employment"
+     ],
+     "reason": "gold 路径内跨越概念对，但无任一条文同时独立出现两端"
+    },
+    {
+     "a": "labor_relationship",
+     "a_name": "劳动关系",
+     "b": "wage_payment",
+     "b_name": "工资支付",
+     "gold": "g174",
+     "path": [
+      "labor_relationship",
+      "wage",
+      "wage_payment"
+     ],
+     "reason": "gold 路径内跨越概念对，但无任一条文同时独立出现两端"
+    },
+    {
+     "a": "labor_relationship",
+     "a_name": "劳动关系",
+     "b": "arbitration",
+     "b_name": "劳动仲裁",
+     "gold": "g175",
+     "path": [
+      "labor_relationship",
+      "labor_dispute",
+      "arbitration"
+     ],
+     "reason": "gold 路径内跨越概念对，但无任一条文同时独立出现两端"
+    },
+    {
+     "a": "probation_period",
+     "a_name": "试用期",
+     "b": "contract_establishment",
+     "b_name": "合同成立",
+     "gold": "g177",
+     "path": [
+      "probation_period",
+      "labor_contract",
+      "contract_establishment"
+     ],
+     "reason": "gold 路径内跨越概念对，但无任一条文同时独立出现两端"
+    },
+    {
+     "a": "fixed_term_contract",
+     "a_name": "固定期限劳动合同",
+     "b": "contract_establishment",
+     "b_name": "合同成立",
+     "gold": "g178",
+     "path": [
+      "fixed_term_contract",
+      "labor_contract",
+      "contract_establishment"
+     ],
+     "reason": "gold 路径内跨越概念对，但无任一条文同时独立出现两端"
+    },
+    {
+     "a": "service_period",
+     "a_name": "服务期",
+     "b": "contract_establishment",
+     "b_name": "合同成立",
+     "gold": "g180",
+     "path": [
+      "service_period",
+      "labor_contract",
+      "contract_establishment"
+     ],
+     "reason": "gold 路径内跨越概念对，但无任一条文同时独立出现两端"
+    },
+    {
+     "a": "liquidated_damages",
+     "a_name": "违约金",
+     "b": "contract_establishment",
+     "b_name": "合同成立",
+     "gold": "g181",
+     "path": [
+      "liquidated_damages",
+      "labor_contract",
+      "contract_establishment"
+     ],
+     "reason": "gold 路径内跨越概念对，但无任一条文同时独立出现两端"
+    },
+    {
+     "a": "labor_contract",
+     "a_name": "劳动合同",
+     "b": "offer",
+     "b_name": "要约",
+     "gold": "g182",
+     "path": [
+      "labor_contract",
+      "contract_establishment",
+      "offer"
+     ],
+     "reason": "gold 路径内跨越概念对，但无任一条文同时独立出现两端"
+    },
+    {
+     "a": "labor_contract",
+     "a_name": "劳动合同",
+     "b": "acceptance",
+     "b_name": "承诺",
+     "gold": "g183",
+     "path": [
+      "labor_contract",
+      "contract_establishment",
+      "acceptance"
+     ],
+     "reason": "gold 路径内跨越概念对，但无任一条文同时独立出现两端"
+    },
+    {
+     "a": "labor_contract",
+     "a_name": "劳动合同",
+     "b": "precontractual_liability",
+     "b_name": "缔约过失责任",
+     "gold": "g184",
+     "path": [
+      "labor_contract",
+      "contract_establishment",
+      "precontractual_liability"
+     ],
+     "reason": "gold 路径内跨越概念对，但无任一条文同时独立出现两端"
+    },
+    {
+     "a": "wage",
+     "a_name": "工资",
+     "b": "agency",
+     "b_name": "代理",
+     "gold": "g186",
+     "path": [
+      "wage",
+      "labor_relationship",
+      "agency"
+     ],
+     "reason": "gold 路径内跨越概念对，但无任一条文同时独立出现两端"
+    },
+    {
+     "a": "double_wage",
+     "a_name": "二倍工资",
+     "b": "agency",
+     "b_name": "代理",
+     "gold": "g187",
+     "path": [
+      "double_wage",
+      "labor_relationship",
+      "agency"
+     ],
+     "reason": "gold 路径内跨越概念对，但无任一条文同时独立出现两端"
+    },
+    {
+     "a": "contract_rescission",
+     "a_name": "劳动合同解除",
+     "b": "agency",
+     "b_name": "代理",
+     "gold": "g188",
+     "path": [
+      "contract_rescission",
+      "labor_relationship",
+      "agency"
+     ],
+     "reason": "gold 路径内跨越概念对，但无任一条文同时独立出现两端"
+    },
+    {
+     "a": "social_insurance",
+     "a_name": "社会保险",
+     "b": "agency",
+     "b_name": "代理",
+     "gold": "g189",
+     "path": [
+      "social_insurance",
+      "labor_relationship",
+      "agency"
+     ],
+     "reason": "gold 路径内跨越概念对，但无任一条文同时独立出现两端"
+    },
+    {
+     "a": "labor_dispute",
+     "a_name": "劳动争议",
+     "b": "agency",
+     "b_name": "代理",
+     "gold": "g190",
+     "path": [
+      "labor_dispute",
+      "labor_relationship",
+      "agency"
+     ],
+     "reason": "gold 路径内跨越概念对，但无任一条文同时独立出现两端"
+    },
+    {
+     "a": "illegal_rescission",
+     "a_name": "违法解除",
+     "b": "tort_liability",
+     "b_name": "侵权责任",
+     "gold": "g191",
+     "path": [
+      "illegal_rescission",
+      "labor_protection",
+      "tort_liability"
+     ],
+     "reason": "gold 路径内跨越概念对，但无任一条文同时独立出现两端"
+    },
+    {
+     "a": "minor_worker",
+     "a_name": "未成年工",
+     "b": "tort_liability",
+     "b_name": "侵权责任",
+     "gold": "g192",
+     "path": [
+      "minor_worker",
+      "labor_protection",
+      "tort_liability"
+     ],
+     "reason": "gold 路径内跨越概念对，但无任一条文同时独立出现两端"
+    },
+    {
+     "a": "severance_standard",
+     "a_name": "经济补偿计算标准",
+     "b": "damages_civil",
+     "b_name": "损害赔偿",
+     "gold": "g193",
+     "path": [
+      "severance_standard",
+      "damages",
+      "damages_civil"
+     ],
+     "reason": "gold 路径内跨越概念对，但无任一条文同时独立出现两端"
+    },
+    {
+     "a": "service_period",
+     "a_name": "服务期",
+     "b": "liquidated_damages_civil",
+     "b_name": "违约金",
+     "gold": "g194",
+     "path": [
+      "service_period",
+      "liquidated_damages",
+      "liquidated_damages_civil"
+     ],
+     "reason": "gold 路径内跨越概念对，但无任一条文同时独立出现两端"
+    },
+    {
+     "a": "non_compete_compensation",
+     "a_name": "竞业限制经济补偿",
+     "b": "liquidated_damages_civil",
+     "b_name": "违约金",
+     "gold": "g195",
+     "path": [
+      "non_compete_compensation",
+      "liquidated_damages",
+      "liquidated_damages_civil"
+     ],
+     "reason": "gold 路径内跨越概念对，但无任一条文同时独立出现两端"
+    },
+    {
+     "a": "severance",
+     "a_name": "经济补偿",
+     "b": "liquidated_damages_civil",
+     "b_name": "违约金",
+     "gold": "g196",
+     "path": [
+      "severance",
+      "breach_of_contract",
+      "liquidated_damages_civil"
+     ],
+     "reason": "gold 路径内跨越概念对，但无任一条文同时独立出现两端"
+    },
+    {
+     "a": "severance",
+     "a_name": "经济补偿",
+     "b": "contract_performance",
+     "b_name": "合同履行",
+     "gold": "g197",
+     "path": [
+      "severance",
+      "breach_of_contract",
+      "contract_performance"
+     ],
+     "reason": "gold 路径内跨越概念对，但无任一条文同时独立出现两端"
+    },
+    {
+     "a": "work_injury",
+     "a_name": "工伤",
+     "b": "fault_liability",
+     "b_name": "过错责任",
+     "gold": "g198",
+     "path": [
+      "work_injury",
+      "tort_liability",
+      "fault_liability"
+     ],
+     "reason": "gold 路径内跨越概念对，但无任一条文同时独立出现两端"
+    },
+    {
+     "a": "labor_protection",
+     "a_name": "劳动保护",
+     "b": "no_fault_liability",
+     "b_name": "无过错责任",
+     "gold": "g199",
+     "path": [
+      "labor_protection",
+      "tort_liability",
+      "no_fault_liability"
+     ],
+     "reason": "gold 路径内跨越概念对，但无任一条文同时独立出现两端"
+    },
+    {
+     "a": "labor_protection",
+     "a_name": "劳动保护",
+     "b": "fair_liability",
+     "b_name": "公平责任",
+     "gold": "g200",
+     "path": [
+      "labor_protection",
+      "tort_liability",
+      "fair_liability"
+     ],
+     "reason": "gold 路径内跨越概念对，但无任一条文同时独立出现两端"
+    }
+   ]
+  },
+  {
+   "name": "分句级依赖线索未采纳",
+   "count": 24,
+   "items": [
+    {
+     "source": "employer",
+     "target": "worker",
+     "cue": "由",
+     "article": "lcl#25",
+     "article_no": "第二十五条",
+     "clause": "用人单位不得与劳动者约定由劳动者承担违约金",
+     "reason": "线索词命中但关系方向/类型需语义判断，未采纳"
+    },
+    {
+     "source": "employer",
+     "target": "labor_contract",
+     "cue": "按照",
+     "article": "lcl#29",
+     "article_no": "第二十九条",
+     "clause": "用人单位与劳动者应当按照劳动合同的约定",
+     "reason": "线索词命中但关系方向/类型需语义判断，未采纳"
+    },
+    {
+     "source": "worker",
+     "target": "contract_rescission",
+     "cue": "以",
+     "article": "lcl#38",
+     "article_no": "第三十八条",
+     "clause": "劳动者可以解除劳动合同",
+     "reason": "线索词命中但关系方向/类型需语义判断，未采纳"
+    },
+    {
+     "source": "worker",
+     "target": "immediate_rescission",
+     "cue": "以",
+     "article": "lcl#38",
+     "article_no": "第三十八条",
+     "clause": "劳动者可以立即解除劳动合同",
+     "reason": "线索词命中但关系方向/类型需语义判断，未采纳"
+    },
+    {
+     "source": "employer",
+     "target": "contract_rescission",
+     "cue": "以",
+     "article": "lcl#39",
+     "article_no": "第三十九条",
+     "clause": "用人单位可以解除劳动合同",
+     "reason": "线索词命中但关系方向/类型需语义判断，未采纳"
+    },
+    {
+     "source": "accepting_unit",
+     "target": "labor_dispatch",
+     "cue": "以",
+     "article": "lcl#59",
+     "article_no": "第五十九条",
+     "clause": "劳务派遣单位派遣劳动者应当与接受以劳务派遣形式用工的单位（以下称用工单位）订立劳务派遣协议",
+     "reason": "线索词命中但关系方向/类型需语义判断，未采纳"
+    },
+    {
+     "source": "collective_contract",
+     "target": "worker",
+     "cue": "由",
+     "article": "ll#33",
+     "article_no": "第三十三条",
+     "clause": "集体合同由工会代表职工与企业签订",
+     "reason": "线索词命中但关系方向/类型需语义判断，未采纳"
+    },
+    {
+     "source": "debtor_party",
+     "target": "pledge",
+     "cue": "以",
+     "article": "cc#440",
+     "article_no": "第四百四十条",
+     "clause": "债务人或者第三人有权处分的下列权利可以出质",
+     "reason": "线索词命中但关系方向/类型需语义判断，未采纳"
+    },
+    {
+     "source": "third_party",
+     "target": "debt_obligation",
+     "cue": "由",
+     "article": "cc#522",
+     "article_no": "第五百二十二条",
+     "clause": "当事人约定由债务人向第三人履行债务",
+     "reason": "线索词命中但关系方向/类型需语义判断，未采纳"
+    },
+    {
+     "source": "third_party",
+     "target": "debtor_party",
+     "cue": "由",
+     "article": "cc#522",
+     "article_no": "第五百二十二条",
+     "clause": "当事人约定由债务人向第三人履行债务",
+     "reason": "线索词命中但关系方向/类型需语义判断，未采纳"
+    },
+    {
+     "source": "debt_obligation",
+     "target": "third_party",
+     "cue": "由",
+     "article": "cc#523",
+     "article_no": "第五百二十三条",
+     "clause": "当事人约定由第三人向债权人履行债务",
+     "reason": "线索词命中但关系方向/类型需语义判断，未采纳"
+    },
+    {
+     "source": "debtor_party",
+     "target": "insecurity_defense",
+     "cue": "以",
+     "article": "cc#529",
+     "article_no": "第五百二十九条",
+     "clause": "债务人可以中止履行或者将标的物提存",
+     "reason": "线索词命中但关系方向/类型需语义判断，未采纳"
+    },
+    {
+     "source": "creditor_party",
+     "target": "creditor_right",
+     "cue": "以",
+     "article": "cc#535",
+     "article_no": "第五百三十五条",
+     "clause": "代位权的行使范围以债权人的到期债权为限",
+     "reason": "线索词命中但关系方向/类型需语义判断，未采纳"
+    },
+    {
+     "source": "debt_obligation",
+     "target": "performance",
+     "cue": "以",
+     "article": "cc#561",
+     "article_no": "第五百六十一条",
+     "clause": "其给付不足以清偿全部债务的",
+     "reason": "线索词命中但关系方向/类型需语义判断，未采纳"
+    },
+    {
+     "source": "seller",
+     "target": "buyer",
+     "cue": "由",
+     "article": "cc#643",
+     "article_no": "第六百四十三条",
+     "clause": "消除出卖人取回标的物的事由的",
+     "reason": "线索词命中但关系方向/类型需语义判断，未采纳"
+    },
+    {
+     "source": "guarantee",
+     "target": "written_form",
+     "cue": "以",
+     "article": "cc#685",
+     "article_no": "第六百八十五条",
+     "clause": "第三人单方以书面形式向债权人作出保证",
+     "reason": "线索词命中但关系方向/类型需语义判断，未采纳"
+    },
+    {
+     "source": "guarantee",
+     "target": "guarantee_contract",
+     "cue": "按照",
+     "article": "cc#699",
+     "article_no": "第六百九十九条",
+     "clause": "保证人应当按照保证合同约定的保证份额",
+     "reason": "线索词命中但关系方向/类型需语义判断，未采纳"
+    },
+    {
+     "source": "seller",
+     "target": "lessee",
+     "cue": "根据",
+     "article": "cc#739",
+     "article_no": "第七百三十九条",
+     "clause": "出租人根据承租人对出卖人",
+     "reason": "线索词命中但关系方向/类型需语义判断，未采纳"
+    },
+    {
+     "source": "work_contractor",
+     "target": "third_party",
+     "cue": "由",
+     "article": "cc#772",
+     "article_no": "第七百七十二条",
+     "clause": "承揽人将其承揽的主要工作交由第三人完成的",
+     "reason": "线索词命中但关系方向/类型需语义判断，未采纳"
+    },
+    {
+     "source": "warehouse_contract",
+     "target": "custodian",
+     "cue": "经",
+     "article": "cc#910",
+     "article_no": "第九百一十条",
+     "clause": "存货人或者仓单持有人在仓单上背书并经保管人签名或者盖章的",
+     "reason": "线索词命中但关系方向/类型需语义判断，未采纳"
+    },
+    {
+     "source": "custodian",
+     "target": "deposit_escrow",
+     "cue": "以",
+     "article": "cc#916",
+     "article_no": "第九百一十六条",
+     "clause": "保管人可以提存仓储物",
+     "reason": "线索词命中但关系方向/类型需语义判断，未采纳"
+    },
+    {
+     "source": "inheritance",
+     "target": "decedent",
+     "cue": "由",
+     "article": "cc#1128",
+     "article_no": "第一千一百二十八条",
+     "clause": "由被继承人的子女的直系晚辈血亲代位继承",
+     "reason": "线索词命中但关系方向/类型需语义判断，未采纳"
+    },
+    {
+     "source": "natural_person",
+     "target": "statutory_inheritance",
+     "cue": "由",
+     "article": "cc#1133",
+     "article_no": "第一千一百三十三条",
+     "clause": "自然人可以立遗嘱将个人财产指定由法定继承人中的一人或者数人继承",
+     "reason": "线索词命中但关系方向/类型需语义判断，未采纳"
+    },
+    {
+     "source": "inheritance",
+     "target": "testament",
+     "cue": "按照",
+     "article": "cc#1147",
+     "article_no": "第一千一百四十七条",
+     "clause": "（五）按照遗嘱或者依照法律规定分割遗产",
+     "reason": "线索词命中但关系方向/类型需语义判断，未采纳"
+    }
+   ]
+  },
+  {
+   "name": "SPECIAL_OF 枚举式未采纳",
+   "count": 10,
+   "items": [
+    {
+     "child": "fixed_term_contract",
+     "parent": "labor_contract",
+     "article_no": "第十二条",
+     "clause": "劳动合同分为固定期限劳动合同",
+     "reason": "「包括」多为内容清单（内容一般包括…），非上下位分类，未采纳"
+    },
+    {
+     "child": "open_ended_contract",
+     "parent": "labor_contract",
+     "article_no": "第十二条",
+     "clause": "劳动合同分为固定期限劳动合同",
+     "reason": "「包括」多为内容清单（内容一般包括…），非上下位分类，未采纳"
+    },
+    {
+     "child": "project_term_contract",
+     "parent": "labor_contract",
+     "article_no": "第十二条",
+     "clause": "劳动合同分为固定期限劳动合同",
+     "reason": "「包括」多为内容清单（内容一般包括…），非上下位分类，未采纳"
+    },
+    {
+     "child": "legal_person",
+     "parent": "unincorporated_organization",
+     "article_no": "第一百零二条",
+     "clause": "非法人组织包括个人独资企业",
+     "reason": "「包括」多为内容清单（内容一般包括…），非上下位分类，未采纳"
+    },
+    {
+     "child": "pledge",
+     "parent": "security_contract",
+     "article_no": "第三百八十八条",
+     "clause": "担保合同包括抵押合同",
+     "reason": "「包括」多为内容清单（内容一般包括…），非上下位分类，未采纳"
+    },
+    {
+     "child": "period_calculation",
+     "parent": "financing_lease_contract",
+     "article_no": "第七百三十六条",
+     "clause": "融资租赁合同的内容一般包括租赁物的名称",
+     "reason": "「包括」多为内容清单（内容一般包括…），非上下位分类，未采纳"
+    },
+    {
+     "child": "service_period",
+     "parent": "factoring_contract",
+     "article_no": "第七百六十二条",
+     "clause": "保理合同的内容一般包括业务类型",
+     "reason": "「包括」多为内容清单（内容一般包括…），非上下位分类，未采纳"
+    },
+    {
+     "child": "depositor",
+     "parent": "warehouse_contract",
+     "article_no": "第九百零九条",
+     "clause": "仓单包括下列事项",
+     "reason": "「包括」多为内容清单（内容一般包括…），非上下位分类，未采纳"
+    },
+    {
+     "child": "employer",
+     "parent": "property_service_provider",
+     "article_no": "第九百三十七条",
+     "clause": "物业服务人包括物业服务企业和其他管理人",
+     "reason": "「包括」多为内容清单（内容一般包括…），非上下位分类，未采纳"
+    },
+    {
+     "child": "service_period",
+     "parent": "property_service_contract",
+     "article_no": "第九百三十八条",
+     "clause": "物业服务合同的内容一般包括服务事项",
+     "reason": "「包括」多为内容清单（内容一般包括…），非上下位分类，未采纳"
+    }
+   ]
+  },
+  {
+   "name": "场景词共现未采纳",
+   "count": 12,
+   "items": [
+    {
+     "scenario": "arbitration_procedure",
+     "concept": "labor_union",
+     "article_no": "第五十六条",
+     "reason": "场景别名通用词（申请仲裁/质量不符/担保责任）导致跨语域误配，未采纳"
+    },
+    {
+     "scenario": "arbitration_procedure",
+     "concept": "labor_union",
+     "article_no": "第七十八条",
+     "reason": "场景别名通用词（申请仲裁/质量不符/担保责任）导致跨语域误配，未采纳"
+    },
+    {
+     "scenario": "arbitration_procedure",
+     "concept": "labor_union",
+     "article_no": "第三十条",
+     "reason": "场景别名通用词（申请仲裁/质量不符/担保责任）导致跨语域误配，未采纳"
+    },
+    {
+     "scenario": "guarantee_dispute",
+     "concept": "creditor_party",
+     "article_no": "第三百九十二条",
+     "reason": "场景别名通用词（申请仲裁/质量不符/担保责任）导致跨语域误配，未采纳"
+    },
+    {
+     "scenario": "guarantee_dispute",
+     "concept": "creditor_right",
+     "article_no": "第三百九十二条",
+     "reason": "场景别名通用词（申请仲裁/质量不符/担保责任）导致跨语域误配，未采纳"
+    },
+    {
+     "scenario": "guarantee_dispute",
+     "concept": "mortgage",
+     "article_no": "第四百零九条",
+     "reason": "场景别名通用词（申请仲裁/质量不符/担保责任）导致跨语域误配，未采纳"
+    },
+    {
+     "scenario": "guarantee_dispute",
+     "concept": "pledge",
+     "article_no": "第四百三十五条",
+     "reason": "场景别名通用词（申请仲裁/质量不符/担保责任）导致跨语域误配，未采纳"
+    },
+    {
+     "scenario": "sales_breach",
+     "concept": "buyer",
+     "article_no": "第六百二十一条",
+     "reason": "场景别名通用词（申请仲裁/质量不符/担保责任）导致跨语域误配，未采纳"
+    },
+    {
+     "scenario": "sales_breach",
+     "concept": "seller",
+     "article_no": "第六百二十一条",
+     "reason": "场景别名通用词（申请仲裁/质量不符/担保责任）导致跨语域误配，未采纳"
+    },
+    {
+     "scenario": "sales_breach",
+     "concept": "employer_party",
+     "article_no": "第八百零一条",
+     "reason": "场景别名通用词（申请仲裁/质量不符/担保责任）导致跨语域误配，未采纳"
+    },
+    {
+     "scenario": "sales_breach",
+     "concept": "custodian",
+     "article_no": "第九百零七条",
+     "reason": "场景别名通用词（申请仲裁/质量不符/担保责任）导致跨语域误配，未采纳"
+    },
+    {
+     "scenario": "arbitration_procedure",
+     "concept": "property_service_provider",
+     "article_no": "第九百四十四条",
+     "reason": "场景别名通用词（申请仲裁/质量不符/担保责任）导致跨语域误配，未采纳"
+    }
+   ]
+  }
+ ],
+ "total": 133
+}

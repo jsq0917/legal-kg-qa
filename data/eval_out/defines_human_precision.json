@@ -1,0 +1,103 @@
+{
+  "version": "v2-20261031",
+  "generated_at": "2026-10-31 10:56",
+  "source_csv": "data/eval_out/defines_human_labels.csv",
+  "csv_sha256": "21440562ddecfa15",
+  "annotator": "本人（100/100 逐条人工判定）",
+  "n": 100,
+  "n_effective": 100,
+  "human_precision": 0.49,
+  "human_precision_wilson95": [
+    0.3942,
+    0.5865
+  ],
+  "label_counts": {
+    "1": 49,
+    "0": 51,
+    "?": 0
+  },
+  "by_law": {
+    "民法典": {
+      "n": 82,
+      "pass": 37,
+      "rate": 0.4512
+    },
+    "劳动法系": {
+      "n": 18,
+      "pass": 12,
+      "rate": 0.6667
+    }
+  },
+  "vs_llm_blind_review": {
+    "n": 100,
+    "llm_pass_rate": 0.63,
+    "human_pass_rate": 0.49,
+    "agreement": 0.8,
+    "cohen_kappa": 0.602,
+    "llm_overestimate": 17,
+    "llm_underestimate": 3
+  },
+  "error_taxonomy": {
+    "role_error_出现但角色或位置不对": {
+      "n": 27,
+      "share_of_errors": 0.529,
+      "examples": [
+        "借款合同",
+        "肖像权",
+        "占有",
+        "提存",
+        "法人",
+        "意思表示"
+      ]
+    },
+    "absent_概念串完全不出现": {
+      "n": 17,
+      "share_of_errors": 0.333,
+      "examples": [
+        "土地承包经营权",
+        "担保物权",
+        "租赁合同",
+        "保管合同",
+        "借款合同",
+        "租赁合同"
+      ]
+    },
+    "derived_only_只以派生形式出现": {
+      "n": 7,
+      "share_of_errors": 0.137,
+      "examples": [
+        "地役权",
+        "债权",
+        "债权",
+        "留置权",
+        "债权",
+        "土地承包经营权"
+      ]
+    }
+  },
+  "rules_tested": {
+    "A_只排除派生形式": {
+      "kills_false_edges": 7,
+      "kills_true_edges": 0,
+      "false_kill_examples": [],
+      "precision_after_if_adopted": 0.5269
+    },
+    "B_再加只作长词后缀": {
+      "kills_false_edges": 20,
+      "kills_true_edges": 5,
+      "false_kill_examples": [
+        "保证人｜典第六百九十二条",
+        "技术许可合同｜典第八百六十四条",
+        "委托人｜典第八百五十二条",
+        "劳动者｜合同法第六十九条",
+        "债权人｜典第九百七十五条"
+      ],
+      "precision_after_if_adopted": 0.6125
+    }
+  },
+  "acceptance": {
+    "B1_target": 0.85,
+    "verdict": "未达标",
+    "gap_pt": 36.0
+  }
+}

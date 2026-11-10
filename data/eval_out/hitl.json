@@ -1,52 +1,121 @@
 {
   "cases": [
     {
-      "id": "e2e-1",
-      "query": "公司股东之间转让股权需要缴什么税？",
+      "id": "in-1",
+      "topic": "工伤认定",
+      "gold_id": "g55",
+      "query": "我工伤后向第三人要侵权赔偿，还能不能同时领工伤待遇？对方没过错也得担责吗？",
       "suspended": true,
       "resumed": true,
-      "answer_len": 389,
+      "resolution": "accept",
+      "answer_len": 614,
+      "answer_head": "结论：根据中华人民共和国民法典第一千一百六十五条（中华人民共和国民法典），相关行为需要依照该条规定处理。\n依据：\n- 中华人民共和国民法典第一千一百六十五条（中",
       "citations": [
-        "中华人民共和国民法典第一千一百六十一条",
-        "中华人民共和国民法典第一千一百六十三条",
-        "中华人民共和国民法典第一千一百五十九条"
+        "中华人民共和国民法典第一千一百六十五条",
+        "中华人民共和国民法典第一千一百九十二条",
+        "中华人民共和国民法典第一千一百九十条",
+        "中华人民共和国民法典第一千二百三十三条"
       ],
+      "citations_match_gold": true,
+      "used_llm": false,
+      "refused": false,
+      "retrieval_top_score": 0.7159,
+      "off_domain_threshold": 0.62,
       "ok": true
     },
     {
-      "id": "e2e-2",
-      "query": "公司股东之间转让股权需要缴什么税？",
+      "id": "in-2",
+      "topic": "经济补偿",
+      "gold_id": "g08",
+      "query": "公司一次裁三十人算不算合法裁员，补偿按工作年限怎么算？",
       "suspended": true,
       "resumed": true,
+      "resolution": "accept",
+      "answer_len": 802,
+      "answer_head": "结论：根据中华人民共和国劳动合同法第四十七条（中华人民共和国劳动合同法），相关行为需要依照该条规定处理。\n依据：\n- 中华人民共和国劳动合同法第四十七条（中华人",
       "citations": [
-        "中华人民共和国劳动合同法第八十五条",
-        "中华人民共和国劳动法第九十一条"
+        "中华人民共和国劳动合同法第四十七条",
+        "中华人民共和国劳动合同法第四十一条",
+        "中华人民共和国劳动合同法第九十七条",
+        "中华人民共和国劳动法第二十七条"
       ],
-      "citations_swapped": true,
+      "citations_match_gold": true,
+      "used_llm": false,
+      "refused": false,
+      "retrieval_top_score": 0.6336,
+      "off_domain_threshold": 0.62,
       "ok": true
     },
     {
-      "id": "e2e-3",
-      "query": "公司拖了我两个月工资，我能要回来吗？",
+      "id": "in-3",
+      "topic": "竞业限制补偿",
+      "gold_id": "g05",
+      "query": "我离职时签了竞业限制协议，但公司一直不给补偿，这协议对我这种普通员工还有约束力吗？",
       "suspended": true,
-      "restart_resumed": true,
-      "answer": "结论：拖欠工资违法，可要求足额支付并可主张赔偿。",
+      "resumed": true,
+      "resolution": "edit_articles",
+      "answer_len": 438,
+      "answer_head": "结论：根据中华人民共和国劳动合同法第二十三条（中华人民共和国劳动合同法），相关行为需要依照该条规定处理。\n依据：\n- 中华人民共和国劳动合同法第二十三条（中华人",
+      "citations": [
+        "中华人民共和国劳动合同法第二十三条",
+        "中华人民共和国劳动合同法第二十四条"
+      ],
+      "citations_match_gold": true,
+      "used_llm": false,
+      "refused": false,
+      "retrieval_top_score": 0.6673,
+      "off_domain_threshold": 0.62,
+      "ok": true
+    },
+    {
+      "id": "out-1",
+      "topic": "离婚财产分割",
+      "query": "夫妻离婚时房子和存款怎么分割？",
+      "suspended": false,
+      "resumed": false,
+      "refused": true,
+      "status": "refused",
+      "answer": "该问题超出劳动法咨询范围，建议咨询其他领域专业人士。",
+      "answer_has_article_no": false,
+      "citations": [],
+      "used_llm": false,
+      "reason": "未链接到劳动法域概念",
+      "retrieval_top_score": 0.6753,
+      "off_domain_threshold": 0.62,
+      "ok": true
+    },
+    {
+      "id": "out-2",
+      "topic": "房屋买卖合同违约",
+      "query": "签了房屋买卖合同，卖方违约不配合过户，我能要违约金吗？",
+      "suspended": false,
+      "resumed": false,
+      "refused": true,
+      "status": "refused",
+      "answer": "该问题超出劳动法咨询范围，建议咨询其他领域专业人士。",
+      "answer_has_article_no": false,
+      "citations": [],
+      "used_llm": false,
+      "reason": "未链接到劳动法域概念",
+      "retrieval_top_score": 0.7107,
+      "off_domain_threshold": 0.62,
       "ok": true
     }
   ],
   "all_pass": true,
   "stats": {
-    "total_tasks": 3,
+    "total_tasks": 5,
     "reviewed_tasks": 3,
-    "intervention_rate": 1.0,
+    "intervention_rate": 0.6,
     "correction_types": {
-      "accept": 1,
-      "edit_articles": 1,
-      "provide_answer": 1
+      "accept": 2,
+      "edit_articles": 1
     },
     "corrections": 3,
     "pending": 0,
     "completed": 3
   },
-  "checkpoint_files": 3
+  "checkpoint_files": 3,
+  "off_domain_threshold": 0.62,
+  "generation": "deterministic"
 }

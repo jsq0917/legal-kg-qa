@@ -1,0 +1,325 @@
+{
+ "generated_at": "2026-10-31",
+ "task": "l / T02 规模-精度取舍定稿",
+ "caliber_note": "精度只用机械口径；不含任何人工精度；defines_human_labels.csv 为 AI 预填，不作金标。",
+ "reproduce_cmd": "python scripts/check_defines_edges.py --baseline data/eval_out/defines_human_labels.csv --dump-rows --json data/eval_out/defines_edges_check_post.json",
+ "source_edges": "data/extracted/mentions_typed.jsonl#DEFINES",
+ "selection": "C 双口径并存（默认 819 给召回 + 严口径 660 作可信子集）",
+ "default_819": {
+  "total": 819,
+  "rule": 814,
+  "manual": 5,
+  "buckets": {
+   "absent": 163,
+   "derived_only": 47,
+   "pending_semantic": 225,
+   "normal": 384
+  },
+  "absent_rate": 0.199,
+  "absent_composition": {
+   "absent_total": 163,
+   "manual_no_literal": 5,
+   "alias_orphan": 90,
+   "other_supported_absent": 68
+  },
+  "mechanically_supported": 724,
+  "mechanically_supported_buckets": {
+   "absent": 68,
+   "derived_only": 47,
+   "pending_semantic": 225,
+   "normal": 384
+  },
+  "absent_rate_of_supported": 0.0939,
+  "pending_semantic": {
+   "n": 225,
+   "rate_of_total": 0.2747,
+   "rate_of_supported": 0.3108,
+   "concepts": 81,
+   "matched_by_canonical_name": 172,
+   "matched_by_alias": 53,
+   "alias_addition_can_recover": 0
+  },
+  "baseline_100": {
+   "n": 100,
+   "buckets": {
+    "absent": 17,
+    "derived_only": 7,
+    "pending_semantic": 33,
+    "normal": 43
+   },
+   "absent_rate": 0.17,
+   "absent_by_matched_alias_top": [
+    [
+     "承租",
+     3
+    ],
+    [
+     "承包",
+     2
+    ],
+    [
+     "业主",
+     2
+    ],
+    [
+     "担保",
+     1
+    ],
+    [
+     "保管人",
+     1
+    ],
+    [
+     "借款",
+     1
+    ],
+    [
+     "承揽",
+     1
+    ],
+    [
+     "医疗机构",
+     1
+    ],
+    [
+     "企业",
+     1
+    ],
+    [
+     "善意受让人",
+     1
+    ],
+    [
+     "劳动报酬",
+     1
+    ],
+    [
+     "承运人",
+     1
+    ],
+    [
+     "职工",
+     1
+    ]
+   ]
+  },
+  "baseline_100_supported": {
+   "n": 90,
+   "buckets": {
+    "absent": 7,
+    "derived_only": 7,
+    "pending_semantic": 33,
+    "normal": 43
+   },
+   "absent_rate": 0.0778,
+   "absent_by_matched_alias_top": [
+    [
+     "担保",
+     1
+    ],
+    [
+     "借款",
+     1
+    ],
+    [
+     "承揽",
+     1
+    ],
+    [
+     "业主",
+     1
+    ],
+    [
+     "企业",
+     1
+    ],
+    [
+     "劳动报酬",
+     1
+    ],
+    [
+     "职工",
+     1
+    ]
+   ]
+  },
+  "baseline_100_prefill_note": "ai_prefill_label 是 AI 预填，不是人工标注，仅作并列参考"
+ },
+ "strict_660": {
+  "recorded_defines": 660,
+  "recorded_with_manual": 665,
+  "drop_ratio": 0.1892,
+  "dropped": 154,
+  "gained": 0,
+  "drop_causes": {
+   "不在分句首（宾语位、介词短语或词内匹配）": 116,
+   "偏正/并列结构（别名后紧跟 的/与/和/及/或/、）": 38
+  },
+  "by_family": {
+   "copula": {
+    "old": 49,
+    "kept": 49,
+    "dropped": 0,
+    "retention": 1.0
+   },
+   "definition_cue": {
+    "old": 19,
+    "kept": 19,
+    "dropped": 0,
+    "retention": 1.0
+   },
+   "designation": {
+    "old": 2,
+    "kept": 2,
+    "dropped": 0,
+    "retention": 1.0
+   },
+   "first_clause_wide": {
+    "old": 426,
+    "kept": 272,
+    "dropped": 154,
+    "retention": 0.6385
+   },
+   "subject_position": {
+    "old": 318,
+    "kept": 318,
+    "dropped": 0,
+    "retention": 1.0
+   }
+  },
+  "gate_marginal": {
+   "strict_defines_without_gate": 660,
+   "blocked_by_gate": 0,
+   "note": "闸门只在「别名起于分句首但模态词落在后面的分句」时起作用；为 0 说明该分支本身已按分句切分，闸门是纯防御性代码"
+  },
+  "buckets_on_recorded": {
+   "absent": 124,
+   "derived_only": 45,
+   "pending_semantic": 107,
+   "normal": 384
+  },
+  "mechanically_supported": 576,
+  "mechanically_supported_buckets": {
+   "absent": 40,
+   "derived_only": 45,
+   "pending_semantic": 107,
+   "normal": 384
+  },
+  "absent_rate_of_supported": 0.0694,
+  "pending_semantic": {
+   "n": 107,
+   "rate_of_recorded": 0.1621,
+   "rate_of_supported": 0.1858
+  },
+  "orphaned_by_alias_cleanup": 84,
+  "concept_coverage": {
+   "old_with_defines": 160,
+   "strict_with_defines": 139,
+   "lost_all_defines": 21,
+   "total_concepts": 281
+  },
+  "gold200_concept_coverage": {
+   "total_gold_concepts": 116,
+   "covered_default": 54,
+   "covered_strict": 44,
+   "lost_all_defines": 10,
+   "lost_concepts": [
+    "labor_relationship",
+    "part_time_wage_settlement",
+    "minimum_wage_standard",
+    "trade_secret",
+    "arbitration",
+    "liquidated_damages_civil",
+    "minimum_wage",
+    "fault_liability",
+    "liquidated_damages",
+    "contract_performance"
+   ],
+   "dropped_edges_on_gold": 42
+  },
+  "caveat": "660 在 2026-10-30 17:32 以清理前 822 别名词典计算；84 条边的别名已于 10-31 删除，用当前 811 别名重生成 typed 后应以 576 条机械支撑口径为准，需实测。"
+ },
+ "manual_5_edges": [
+  {
+   "article_id": "lcl#37",
+   "concept_id": "unilateral_rescission_by_worker",
+   "alias": "劳动者提前三十日以书面形式通知用人单位",
+   "confidence": 0.95
+  },
+  {
+   "article_id": "ll#38",
+   "concept_id": "rest_day",
+   "alias": "每周至少休息一日",
+   "confidence": 0.95
+  },
+  {
+   "article_id": "cc#610",
+   "concept_id": "sales_contract",
+   "alias": "标的物不符合质量要求",
+   "confidence": 0.9
+  },
+  {
+   "article_id": "ll#73",
+   "concept_id": "pension_insurance",
+   "alias": "退休",
+   "confidence": 0.9
+  },
+  {
+   "article_id": "lcl#16",
+   "concept_id": "contract_establishment",
+   "alias": "签字或者盖章生效",
+   "confidence": 0.9
+  }
+ ],
+ "scheme_costs": {
+  "A_only_strict": {
+   "scale": [
+    "660 (+5 manual=665)",
+    "mechanical-supported 576 (+5=581)"
+   ],
+   "mechanically_supported_absent_rate": 0.0694,
+   "pending_semantic": 107,
+   "graph_impact": "预期 top-5 重排下降；未实测（n 未做）；候选池不消失，DEFINES 降级为 REFERS_TO（score 0.45）",
+   "maintenance": "低，需重生成 typed + 一次重建图"
+  },
+  "B_strict_plus_lexicon": {
+   "scale_upper_bound": 885,
+   "edges_needed_to_800": 140,
+   "alias_recovery_of_pending": 0,
+   "pending_semantic": 225,
+   "graph_impact": "预期但不明确；需 split 出主语位概念",
+   "maintenance": "最高；需 140+ 条语义判断；data/lexicon 为 m 独占"
+  },
+  "C_dual_track": {
+   "scale": [
+    "default 819 (rule 814 + manual 5; supported 724)",
+    "strict 660 (with manual 665; supported 576)"
+   ],
+   "absent_rates": {
+    "default_supported": 0.0939,
+    "strict_supported": 0.0694
+   },
+   "pending_semantic": {
+    "default": 225,
+    "strict": 107
+   },
+   "graph_impact": "默认图不变，graph R@5 0.4417 基线保留；strict 子集作置信标签，对答案影响未实测",
+   "maintenance": "中；两口径文档 + strict 视图/标签；不改词典"
+  }
+ },
+ "graph_baseline": {
+  "text_r5": 0.7472,
+  "graph_r5": 0.4417,
+  "hybrid_r5": 0.7556,
+  "graph_path_recall": 0.5694,
+  "graph_latency_median_ms": 131.8,
+  "source": "data/eval_out/retrieval.json (n=60, DEFINES 819)",
+  "note": "n（PPR/2-hop）未做，strict 对检索的影响只能是预期"
+ },
+ "caveats": [
+  "819 vs 814 的 5 条差 = data/lexicon/manual_mentions.jsonl 的 5 条人工语义边（offset=-1，无字面命中）",
+  "严口径未落图：build_graph.py 读预生成的 mentions_typed.jsonl，不重跑 edge_typing",
+  "本文件不覆盖任何旧同名文件；生成时 data/eval_out/defines_precision.json 不存在",
+  "未改 graph/lexicon/README/判据，未做 git 写操作"
+ ]
+}

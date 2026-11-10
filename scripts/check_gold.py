@@ -14,6 +14,7 @@
 
 from __future__ import annotations
 
+import argparse
 import json
 import sys
 from pathlib import Path
@@ -83,7 +84,19 @@ def check_path(store: Any, row: dict, articles: dict[str, dict]) -> list[str]:
 
 
 def main() -> None:
-    rows = read_jsonl("data/gold/gold_60.jsonl")
+    ap = argparse.ArgumentParser()
+    # T07：扩容后同时要能检查 gold_200.jsonl，故文件路径改为参数。
+    # 不传参数时取 settings.gold_path（GOLD_FILE 环境变量，默认仍指 gold_60），
+    # 与 build_gold.py 的落点一致，避免「参数」和「config 开关」各说各话。
+    ap.add_argument("--gold-file", default=None, help="金标文件；默认取 settings.gold_path（GOLD_FILE 开关）")
+    ap.add_argument("--out", default="data/eval_out/gold.json")
+    args = ap.parse_args()
+
+    from config import settings
+
+    gold_file = Path(args.gold_file) if args.gold_file else settings.gold_path
+
+    rows = read_jsonl(gold_file)
     articles = {a["article_id"]: a for a in read_jsonl("data/extracted/articles.jsonl")}
     store = get_graph_store()
 
@@ -181,7 +194,7 @@ def main() -> None:
     for r in rows:
         r.pop("_leak", None)
 
-    write_json("data/eval_out/gold.json", report)
+    write_json(args.out, report)
     print(json.dumps({k: v for k, v in report.items() if k not in ("necessity", "path_integrity")}, ensure_ascii=False, indent=1))
     print("必要性（概念层）未通过：", need_fail)
     print("必要性（条文层）未通过：", art_need_fail[:8])

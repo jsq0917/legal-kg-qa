@@ -1,0 +1,2236 @@
+{
+  "meta": {
+    "gold_file": "data/gold/gold_60.jsonl",
+    "corpus_file": "data/corpus/articles.jsonl",
+    "metric": "reuse eval/common.py::bigram_overlap（分母为题面二元组数）",
+    "threshold": 0.45,
+    "edit_distance_definition": "字符级 Levenshtein；norm = 距离 / max(题面长度, 条文长度)",
+    "missing_articles": []
+  },
+  "summary": {
+    "n_questions": 60,
+    "n_article_pairs": 121,
+    "bigram": {
+      "mean_of_max": 0.1214,
+      "max": 0.2727,
+      "median": 0.1058,
+      "p90": 0.2083,
+      "all_below_0.45": true,
+      "n_at_or_above_0.45": 0,
+      "at_or_above_ids": [],
+      "distribution": {
+        "[0,0.05)": 6,
+        "[0.05,0.10)": 21,
+        "[0.10,0.20)": 25,
+        "[0.20,0.30)": 8,
+        "[0.30,0.45)": 0,
+        ">=0.45": 0
+      }
+    },
+    "edit_distance": {
+      "mean": 82.4,
+      "median": 55.5,
+      "min": 30,
+      "max": 303,
+      "mean_norm": 0.9365
+    },
+    "article_no": {
+      "questions_mentioning_any_article_no": 0,
+      "questions_mentioning_locked_article_no": 0,
+      "ids_mentioning_locked": []
+    }
+  },
+  "per_question": [
+    {
+      "id": "g01",
+      "hop_type": "two_hop",
+      "question": "公司拖了我两个月工资，合同就算有问题我干的活也得给钱吧？这么一直拖着不给，算不算违法，我还能不能要回来？",
+      "question_chars": 52,
+      "locked_articles": [
+        "lcl#30",
+        "ll#50"
+      ],
+      "bigram_overlap_max": 0.0217,
+      "bigram_overlap_max_article": "lcl#30",
+      "bigram_overlap_mean": 0.0217,
+      "edit_distance_min": 48,
+      "edit_distance_min_article": "ll#50",
+      "edit_distance_norm": 0.9231,
+      "mentions_article_no": false,
+      "article_nos_in_question": [],
+      "mentions_locked_article_no": false,
+      "pairs": [
+        {
+          "article_id": "lcl#30",
+          "article_no": "第三十条",
+          "bigram_overlap": 0.0217,
+          "edit_distance": 83,
+          "edit_distance_norm": 0.9432
+        },
+        {
+          "article_id": "ll#50",
+          "article_no": "第五十条",
+          "bigram_overlap": 0.0217,
+          "edit_distance": 48,
+          "edit_distance_norm": 0.9231
+        }
+      ]
+    },
+    {
+      "id": "g02",
+      "hop_type": "two_hop",
+      "question": "公司天天让加班三小时只给正常工资，这加班费该怎么算，公司不付的话能找劳动部门催吗？",
+      "question_chars": 41,
+      "locked_articles": [
+        "ll#44",
+        "lcl#85"
+      ],
+      "bigram_overlap_max": 0.1714,
+      "bigram_overlap_max_article": "lcl#85",
+      "bigram_overlap_mean": 0.1429,
+      "edit_distance_min": 146,
+      "edit_distance_min_article": "ll#44",
+      "edit_distance_norm": 0.9359,
+      "mentions_article_no": false,
+      "article_nos_in_question": [],
+      "mentions_locked_article_no": false,
+      "pairs": [
+        {
+          "article_id": "ll#44",
+          "article_no": "第四十四条",
+          "bigram_overlap": 0.1143,
+          "edit_distance": 146,
+          "edit_distance_norm": 0.9359
+        },
+        {
+          "article_id": "lcl#85",
+          "article_no": "第八十五条",
+          "bigram_overlap": 0.1714,
+          "edit_distance": 205,
+          "edit_distance_norm": 0.9491
+        }
+      ]
+    },
+    {
+      "id": "g03",
+      "hop_type": "two_hop",
+      "question": "我还在试用期，公司说我不符合录用条件就把我辞了，这合法吗？试用期工资给得对不对？",
+      "question_chars": 40,
+      "locked_articles": [
+        "lcl#20",
+        "lcl#39"
+      ],
+      "bigram_overlap_max": 0.2727,
+      "bigram_overlap_max_article": "lcl#39",
+      "bigram_overlap_mean": 0.197,
+      "edit_distance_min": 56,
+      "edit_distance_min_article": "lcl#20",
+      "edit_distance_norm": 0.8889,
+      "mentions_article_no": false,
+      "article_nos_in_question": [],
+      "mentions_locked_article_no": false,
+      "pairs": [
+        {
+          "article_id": "lcl#20",
+          "article_no": "第二十条",
+          "bigram_overlap": 0.1212,
+          "edit_distance": 56,
+          "edit_distance_norm": 0.8889
+        },
+        {
+          "article_id": "lcl#39",
+          "article_no": "第三十九条",
+          "bigram_overlap": 0.2727,
+          "edit_distance": 177,
+          "edit_distance_norm": 0.9267
+        }
+      ]
+    },
+    {
+      "id": "g04",
+      "hop_type": "two_hop",
+      "question": "我签了两次有结束日期的合同，现在到期公司不续，我能要求签那种没结束日期的合同吗？",
+      "question_chars": 40,
+      "locked_articles": [
+        "lcl#14"
+      ],
+      "bigram_overlap_max": 0.0333,
+      "bigram_overlap_max_article": "lcl#14",
+      "bigram_overlap_mean": 0.0333,
+      "edit_distance_min": 303,
+      "edit_distance_min_article": "lcl#14",
+      "edit_distance_norm": 0.9589,
+      "mentions_article_no": false,
+      "article_nos_in_question": [],
+      "mentions_locked_article_no": false,
+      "pairs": [
+        {
+          "article_id": "lcl#14",
+          "article_no": "第十四条",
+          "bigram_overlap": 0.0333,
+          "edit_distance": 303,
+          "edit_distance_norm": 0.9589
+        }
+      ]
+    },
+    {
+      "id": "g05",
+      "hop_type": "two_hop",
+      "question": "我离职时签了竞业限制协议，但公司一直不给补偿，这协议对我这种普通员工还有约束力吗？",
+      "question_chars": 41,
+      "locked_articles": [
+        "lcl#23"
+      ],
+      "bigram_overlap_max": 0.1389,
+      "bigram_overlap_max_article": "lcl#23",
+      "bigram_overlap_mean": 0.1389,
+      "edit_distance_min": 143,
+      "edit_distance_min_article": "lcl#23",
+      "edit_distance_norm": 0.9408,
+      "mentions_article_no": false,
+      "article_nos_in_question": [],
+      "mentions_locked_article_no": false,
+      "pairs": [
+        {
+          "article_id": "lcl#23",
+          "article_no": "第二十三条",
+          "bigram_overlap": 0.1389,
+          "edit_distance": 143,
+          "edit_distance_norm": 0.9408
+        }
+      ]
+    },
+    {
+      "id": "g06",
+      "hop_type": "two_hop",
+      "question": "我想主动辞职，公司非让干满两个月，我提前多久书面通知才能合法走人？",
+      "question_chars": 33,
+      "locked_articles": [
+        "lcl#37"
+      ],
+      "bigram_overlap_max": 0.1034,
+      "bigram_overlap_max_article": "lcl#37",
+      "bigram_overlap_mean": 0.1034,
+      "edit_distance_min": 54,
+      "edit_distance_min_article": "lcl#37",
+      "edit_distance_norm": 0.9474,
+      "mentions_article_no": false,
+      "article_nos_in_question": [],
+      "mentions_locked_article_no": false,
+      "pairs": [
+        {
+          "article_id": "lcl#37",
+          "article_no": "第三十七条",
+          "bigram_overlap": 0.1034,
+          "edit_distance": 54,
+          "edit_distance_norm": 0.9474
+        }
+      ]
+    },
+    {
+      "id": "g07",
+      "hop_type": "two_hop",
+      "question": "公司一直不给我交社保，我能马上辞职走人并要求补偿吗？",
+      "question_chars": 26,
+      "locked_articles": [
+        "lcl#38"
+      ],
+      "bigram_overlap_max": 0.0,
+      "bigram_overlap_max_article": "lcl#38",
+      "bigram_overlap_mean": 0.0,
+      "edit_distance_min": 256,
+      "edit_distance_min_article": "lcl#38",
+      "edit_distance_norm": 0.9808,
+      "mentions_article_no": false,
+      "article_nos_in_question": [],
+      "mentions_locked_article_no": false,
+      "pairs": [
+        {
+          "article_id": "lcl#38",
+          "article_no": "第三十八条",
+          "bigram_overlap": 0.0,
+          "edit_distance": 256,
+          "edit_distance_norm": 0.9808
+        }
+      ]
+    },
+    {
+      "id": "g08",
+      "hop_type": "two_hop",
+      "question": "公司一次裁三十人算不算合法裁员，补偿按工作年限怎么算？",
+      "question_chars": 27,
+      "locked_articles": [
+        "lcl#41",
+        "lcl#47"
+      ],
+      "bigram_overlap_max": 0.2083,
+      "bigram_overlap_max_article": "lcl#47",
+      "bigram_overlap_mean": 0.1458,
+      "edit_distance_min": 198,
+      "edit_distance_min_article": "lcl#47",
+      "edit_distance_norm": 0.9519,
+      "mentions_article_no": false,
+      "article_nos_in_question": [],
+      "mentions_locked_article_no": false,
+      "pairs": [
+        {
+          "article_id": "lcl#41",
+          "article_no": "第四十一条",
+          "bigram_overlap": 0.0833,
+          "edit_distance": 358,
+          "edit_distance_norm": 0.9702
+        },
+        {
+          "article_id": "lcl#47",
+          "article_no": "第四十七条",
+          "bigram_overlap": 0.2083,
+          "edit_distance": 198,
+          "edit_distance_norm": 0.9519
+        }
+      ]
+    },
+    {
+      "id": "g09",
+      "hop_type": "two_hop",
+      "question": "我没犯错就被突然开除，想继续干下去或者要双倍赔偿，能拿多少？",
+      "question_chars": 30,
+      "locked_articles": [
+        "lcl#87"
+      ],
+      "bigram_overlap_max": 0.0769,
+      "bigram_overlap_max_article": "lcl#87",
+      "bigram_overlap_mean": 0.0769,
+      "edit_distance_min": 52,
+      "edit_distance_min_article": "lcl#87",
+      "edit_distance_norm": 0.9455,
+      "mentions_article_no": false,
+      "article_nos_in_question": [],
+      "mentions_locked_article_no": false,
+      "pairs": [
+        {
+          "article_id": "lcl#87",
+          "article_no": "第八十七条",
+          "bigram_overlap": 0.0769,
+          "edit_distance": 52,
+          "edit_distance_norm": 0.9455
+        }
+      ]
+    },
+    {
+      "id": "g10",
+      "hop_type": "two_hop",
+      "question": "上班半年公司一直没跟我签书面合同，我能不能要双倍工资？",
+      "question_chars": 27,
+      "locked_articles": [
+        "lcl#10",
+        "lcl#82"
+      ],
+      "bigram_overlap_max": 0.125,
+      "bigram_overlap_max_article": "lcl#82",
+      "bigram_overlap_mean": 0.1041,
+      "edit_distance_min": 87,
+      "edit_distance_min_article": "lcl#10",
+      "edit_distance_norm": 0.9355,
+      "mentions_article_no": false,
+      "article_nos_in_question": [],
+      "mentions_locked_article_no": false,
+      "pairs": [
+        {
+          "article_id": "lcl#10",
+          "article_no": "第十条",
+          "bigram_overlap": 0.0833,
+          "edit_distance": 87,
+          "edit_distance_norm": 0.9355
+        },
+        {
+          "article_id": "lcl#82",
+          "article_no": "第八十二条",
+          "bigram_overlap": 0.125,
+          "edit_distance": 99,
+          "edit_distance_norm": 0.9083
+        }
+      ]
+    },
+    {
+      "id": "g11",
+      "hop_type": "two_hop",
+      "question": "我干了三年没休过年假，想知道能休几天、没休的怎么补，这休息休假到底咋算？",
+      "question_chars": 36,
+      "locked_articles": [
+        "ll#45"
+      ],
+      "bigram_overlap_max": 0.0333,
+      "bigram_overlap_max_article": "ll#45",
+      "bigram_overlap_mean": 0.0333,
+      "edit_distance_min": 41,
+      "edit_distance_min_article": "ll#45",
+      "edit_distance_norm": 0.9318,
+      "mentions_article_no": false,
+      "article_nos_in_question": [],
+      "mentions_locked_article_no": false,
+      "pairs": [
+        {
+          "article_id": "ll#45",
+          "article_no": "第四十五条",
+          "bigram_overlap": 0.0333,
+          "edit_distance": 41,
+          "edit_distance_norm": 0.9318
+        }
+      ]
+    },
+    {
+      "id": "g12",
+      "hop_type": "two_hop",
+      "question": "公司让我单休每天干十小时，这每天和每周的上班时间长度、还有每周到底能休几天，到底合不合规矩？",
+      "question_chars": 46,
+      "locked_articles": [
+        "ll#36",
+        "ll#38"
+      ],
+      "bigram_overlap_max": 0.0789,
+      "bigram_overlap_max_article": "ll#36",
+      "bigram_overlap_mean": 0.0526,
+      "edit_distance_min": 42,
+      "edit_distance_min_article": "ll#38",
+      "edit_distance_norm": 0.913,
+      "mentions_article_no": false,
+      "article_nos_in_question": [],
+      "mentions_locked_article_no": false,
+      "pairs": [
+        {
+          "article_id": "ll#36",
+          "article_no": "第三十六条",
+          "bigram_overlap": 0.0789,
+          "edit_distance": 44,
+          "edit_distance_norm": 0.9565
+        },
+        {
+          "article_id": "ll#38",
+          "article_no": "第三十八条",
+          "bigram_overlap": 0.0263,
+          "edit_distance": 42,
+          "edit_distance_norm": 0.913
+        }
+      ]
+    },
+    {
+      "id": "g13",
+      "hop_type": "two_hop",
+      "question": "公司拿内部定额当理由扣我工资，这算不算克扣拖欠？他们定的定额标准合理吗？",
+      "question_chars": 36,
+      "locked_articles": [
+        "ll#50",
+        "lcl#31"
+      ],
+      "bigram_overlap_max": 0.0968,
+      "bigram_overlap_max_article": "ll#50",
+      "bigram_overlap_mean": 0.0968,
+      "edit_distance_min": 36,
+      "edit_distance_min_article": "ll#50",
+      "edit_distance_norm": 0.973,
+      "mentions_article_no": false,
+      "article_nos_in_question": [],
+      "mentions_locked_article_no": false,
+      "pairs": [
+        {
+          "article_id": "ll#50",
+          "article_no": "第五十条",
+          "bigram_overlap": 0.0968,
+          "edit_distance": 36,
+          "edit_distance_norm": 0.973
+        },
+        {
+          "article_id": "lcl#31",
+          "article_no": "第三十一条",
+          "bigram_overlap": 0.0968,
+          "edit_distance": 59,
+          "edit_distance_norm": 0.9365
+        }
+      ]
+    },
+    {
+      "id": "g14",
+      "hop_type": "two_hop",
+      "question": "老板发的工资比咱这儿最低工资还低，那少给的差额还能要回来不？",
+      "question_chars": 30,
+      "locked_articles": [
+        "ll#48"
+      ],
+      "bigram_overlap_max": 0.1538,
+      "bigram_overlap_max_article": "ll#48",
+      "bigram_overlap_mean": 0.1538,
+      "edit_distance_min": 63,
+      "edit_distance_min_article": "ll#48",
+      "edit_distance_norm": 0.8873,
+      "mentions_article_no": false,
+      "article_nos_in_question": [],
+      "mentions_locked_article_no": false,
+      "pairs": [
+        {
+          "article_id": "ll#48",
+          "article_no": "第四十八条",
+          "bigram_overlap": 0.1538,
+          "edit_distance": 63,
+          "edit_distance_norm": 0.8873
+        }
+      ]
+    },
+    {
+      "id": "g15",
+      "hop_type": "two_hop",
+      "question": "我做每天四小时的小时工，公司说口头约定就行，但工资要拖到月底才发一次，这样合法吗？",
+      "question_chars": 41,
+      "locked_articles": [
+        "lcl#69",
+        "lcl#72"
+      ],
+      "bigram_overlap_max": 0.0857,
+      "bigram_overlap_max_article": "lcl#72",
+      "bigram_overlap_mean": 0.0571,
+      "edit_distance_min": 59,
+      "edit_distance_min_article": "lcl#72",
+      "edit_distance_norm": 0.9077,
+      "mentions_article_no": false,
+      "article_nos_in_question": [],
+      "mentions_locked_article_no": false,
+      "pairs": [
+        {
+          "article_id": "lcl#69",
+          "article_no": "第六十九条",
+          "bigram_overlap": 0.0286,
+          "edit_distance": 75,
+          "edit_distance_norm": 0.9259
+        },
+        {
+          "article_id": "lcl#72",
+          "article_no": "第七十二条",
+          "bigram_overlap": 0.0857,
+          "edit_distance": 59,
+          "edit_distance_norm": 0.9077
+        }
+      ]
+    },
+    {
+      "id": "g16",
+      "hop_type": "two_hop",
+      "question": "我被劳务公司派到别的公司上班出了纠纷，该找劳务公司还是上班那家公司负责？",
+      "question_chars": 36,
+      "locked_articles": [
+        "lcl#58",
+        "lcl#92"
+      ],
+      "bigram_overlap_max": 0.037,
+      "bigram_overlap_max_article": "lcl#58",
+      "bigram_overlap_mean": 0.037,
+      "edit_distance_min": 105,
+      "edit_distance_min_article": "lcl#92",
+      "edit_distance_norm": 0.9375,
+      "mentions_article_no": false,
+      "article_nos_in_question": [],
+      "mentions_locked_article_no": false,
+      "pairs": [
+        {
+          "article_id": "lcl#58",
+          "article_no": "第五十八条",
+          "bigram_overlap": 0.037,
+          "edit_distance": 183,
+          "edit_distance_norm": 0.9581
+        },
+        {
+          "article_id": "lcl#92",
+          "article_no": "第九十二条",
+          "bigram_overlap": 0.037,
+          "edit_distance": 105,
+          "edit_distance_norm": 0.9375
+        }
+      ]
+    },
+    {
+      "id": "g17",
+      "hop_type": "two_hop",
+      "question": "没签合同但天天上班，算不算有劳动关系？公司不签书面合同要担什么责？",
+      "question_chars": 33,
+      "locked_articles": [
+        "lcl#10"
+      ],
+      "bigram_overlap_max": 0.1786,
+      "bigram_overlap_max_article": "lcl#10",
+      "bigram_overlap_mean": 0.1786,
+      "edit_distance_min": 84,
+      "edit_distance_min_article": "lcl#10",
+      "edit_distance_norm": 0.9032,
+      "mentions_article_no": false,
+      "article_nos_in_question": [],
+      "mentions_locked_article_no": false,
+      "pairs": [
+        {
+          "article_id": "lcl#10",
+          "article_no": "第十条",
+          "bigram_overlap": 0.1786,
+          "edit_distance": 84,
+          "edit_distance_norm": 0.9032
+        }
+      ]
+    },
+    {
+      "id": "g18",
+      "hop_type": "two_hop",
+      "question": "公司要改薪酬方案，工会和集体合同能管住公司吗？",
+      "question_chars": 23,
+      "locked_articles": [
+        "ll#33",
+        "lcl#4"
+      ],
+      "bigram_overlap_max": 0.2105,
+      "bigram_overlap_max_article": "ll#33",
+      "bigram_overlap_mean": 0.1579,
+      "edit_distance_min": 109,
+      "edit_distance_min_article": "ll#33",
+      "edit_distance_norm": 0.9316,
+      "mentions_article_no": false,
+      "article_nos_in_question": [],
+      "mentions_locked_article_no": false,
+      "pairs": [
+        {
+          "article_id": "ll#33",
+          "article_no": "第三十三条",
+          "bigram_overlap": 0.2105,
+          "edit_distance": 109,
+          "edit_distance_norm": 0.9316
+        },
+        {
+          "article_id": "lcl#4",
+          "article_no": "第四条",
+          "bigram_overlap": 0.1053,
+          "edit_distance": 250,
+          "edit_distance_norm": 0.9653
+        }
+      ]
+    },
+    {
+      "id": "g19",
+      "hop_type": "two_hop",
+      "question": "员工离职带走客户名单，公司想问：他这样算不算违反了保密约定、侵犯了商业秘密，能不能追究他的责任？",
+      "question_chars": 48,
+      "locked_articles": [
+        "lcl#90",
+        "lcl#23"
+      ],
+      "bigram_overlap_max": 0.1429,
+      "bigram_overlap_max_article": "lcl#23",
+      "bigram_overlap_mean": 0.1191,
+      "edit_distance_min": 54,
+      "edit_distance_min_article": "lcl#90",
+      "edit_distance_norm": 0.9153,
+      "mentions_article_no": false,
+      "article_nos_in_question": [],
+      "mentions_locked_article_no": false,
+      "pairs": [
+        {
+          "article_id": "lcl#90",
+          "article_no": "第九十条",
+          "bigram_overlap": 0.0952,
+          "edit_distance": 54,
+          "edit_distance_norm": 0.9153
+        },
+        {
+          "article_id": "lcl#23",
+          "article_no": "第二十三条",
+          "bigram_overlap": 0.1429,
+          "edit_distance": 145,
+          "edit_distance_norm": 0.9539
+        }
+      ]
+    },
+    {
+      "id": "g20",
+      "hop_type": "two_hop",
+      "question": "公司花钱让我去学专业技术，还签了服务期，我现在想提前走，得赔多少钱？",
+      "question_chars": 34,
+      "locked_articles": [
+        "lcl#22"
+      ],
+      "bigram_overlap_max": 0.1724,
+      "bigram_overlap_max_article": "lcl#22",
+      "bigram_overlap_mean": 0.1724,
+      "edit_distance_min": 171,
+      "edit_distance_min_article": "lcl#22",
+      "edit_distance_norm": 0.9396,
+      "mentions_article_no": false,
+      "article_nos_in_question": [],
+      "mentions_locked_article_no": false,
+      "pairs": [
+        {
+          "article_id": "lcl#22",
+          "article_no": "第二十二条",
+          "bigram_overlap": 0.1724,
+          "edit_distance": 171,
+          "edit_distance_norm": 0.9396
+        }
+      ]
+    },
+    {
+      "id": "g21",
+      "hop_type": "two_hop",
+      "question": "员工长期病假，医疗期还没满公司就停发工资还想解除合同，这算不算违法终止？我该咋办？",
+      "question_chars": 41,
+      "locked_articles": [
+        "lcl#40",
+        "lcl#87"
+      ],
+      "bigram_overlap_max": 0.1389,
+      "bigram_overlap_max_article": "lcl#40",
+      "bigram_overlap_mean": 0.1111,
+      "edit_distance_min": 55,
+      "edit_distance_min_article": "lcl#87",
+      "edit_distance_norm": 1.0,
+      "mentions_article_no": false,
+      "article_nos_in_question": [],
+      "mentions_locked_article_no": false,
+      "pairs": [
+        {
+          "article_id": "lcl#40",
+          "article_no": "第四十条",
+          "bigram_overlap": 0.1389,
+          "edit_distance": 196,
+          "edit_distance_norm": 0.9469
+        },
+        {
+          "article_id": "lcl#87",
+          "article_no": "第八十七条",
+          "bigram_overlap": 0.0833,
+          "edit_distance": 55,
+          "edit_distance_norm": 1.0
+        }
+      ]
+    },
+    {
+      "id": "g22",
+      "hop_type": "two_hop",
+      "question": "招聘启事写不招女性，这算不算就业歧视？我还能不能平等地找工作？",
+      "question_chars": 31,
+      "locked_articles": [
+        "ll#12",
+        "ll#3"
+      ],
+      "bigram_overlap_max": 0.0741,
+      "bigram_overlap_max_article": "ll#12",
+      "bigram_overlap_mean": 0.0741,
+      "edit_distance_min": 30,
+      "edit_distance_min_article": "ll#12",
+      "edit_distance_norm": 0.9677,
+      "mentions_article_no": false,
+      "article_nos_in_question": [],
+      "mentions_locked_article_no": false,
+      "pairs": [
+        {
+          "article_id": "ll#12",
+          "article_no": "第十二条",
+          "bigram_overlap": 0.0741,
+          "edit_distance": 30,
+          "edit_distance_norm": 0.9677
+        },
+        {
+          "article_id": "ll#3",
+          "article_no": "第三条",
+          "bigram_overlap": 0.0741,
+          "edit_distance": 140,
+          "edit_distance_norm": 0.9859
+        }
+      ]
+    },
+    {
+      "id": "g23",
+      "hop_type": "two_hop",
+      "question": "店里想招个十五岁的孩子做帮工，这算不算用童工？那未成年工的特殊保护又该怎么算？",
+      "question_chars": 39,
+      "locked_articles": [
+        "ll#58",
+        "ll#94"
+      ],
+      "bigram_overlap_max": 0.1714,
+      "bigram_overlap_max_article": "ll#58",
+      "bigram_overlap_mean": 0.1285,
+      "edit_distance_min": 42,
+      "edit_distance_min_article": "ll#58",
+      "edit_distance_norm": 0.9767,
+      "mentions_article_no": false,
+      "article_nos_in_question": [],
+      "mentions_locked_article_no": false,
+      "pairs": [
+        {
+          "article_id": "ll#58",
+          "article_no": "第五十八条",
+          "bigram_overlap": 0.1714,
+          "edit_distance": 42,
+          "edit_distance_norm": 0.9767
+        },
+        {
+          "article_id": "ll#94",
+          "article_no": "第九十四条",
+          "bigram_overlap": 0.0857,
+          "edit_distance": 54,
+          "edit_distance_norm": 0.9
+        }
+      ]
+    },
+    {
+      "id": "g24",
+      "hop_type": "two_hop",
+      "question": "我离职时公司扣着档案不给离职证明，工作交接也卡着，我该怎么办？",
+      "question_chars": 31,
+      "locked_articles": [
+        "lcl#50"
+      ],
+      "bigram_overlap_max": 0.1923,
+      "bigram_overlap_max_article": "lcl#50",
+      "bigram_overlap_mean": 0.1923,
+      "edit_distance_min": 138,
+      "edit_distance_min_article": "lcl#50",
+      "edit_distance_norm": 0.9388,
+      "mentions_article_no": false,
+      "article_nos_in_question": [],
+      "mentions_locked_article_no": false,
+      "pairs": [
+        {
+          "article_id": "lcl#50",
+          "article_no": "第五十条",
+          "bigram_overlap": 0.1923,
+          "edit_distance": 138,
+          "edit_distance_norm": 0.9388
+        }
+      ]
+    },
+    {
+      "id": "g25",
+      "hop_type": "two_hop",
+      "question": "我交了定金后反悔不想买了，这钱还能不能退？对方要是追究我违约，我得赔多少？",
+      "question_chars": 37,
+      "locked_articles": [
+        "cc#587",
+        "cc#577"
+      ],
+      "bigram_overlap_max": 0.0625,
+      "bigram_overlap_max_article": "cc#587",
+      "bigram_overlap_mean": 0.0469,
+      "edit_distance_min": 52,
+      "edit_distance_min_article": "cc#577",
+      "edit_distance_norm": 0.963,
+      "mentions_article_no": false,
+      "article_nos_in_question": [],
+      "mentions_locked_article_no": false,
+      "pairs": [
+        {
+          "article_id": "cc#587",
+          "article_no": "第五百八十七条",
+          "bigram_overlap": 0.0625,
+          "edit_distance": 104,
+          "edit_distance_norm": 0.9286
+        },
+        {
+          "article_id": "cc#577",
+          "article_no": "第五百七十七条",
+          "bigram_overlap": 0.0312,
+          "edit_distance": 52,
+          "edit_distance_norm": 0.963
+        }
+      ]
+    },
+    {
+      "id": "g26",
+      "hop_type": "two_hop",
+      "question": "租约到期我搬走时，房东是不是必须把房子收回去，我交的那笔定金能不能直接抵房租或者退给我？",
+      "question_chars": 44,
+      "locked_articles": [
+        "cc#733",
+        "cc#587"
+      ],
+      "bigram_overlap_max": 0.1,
+      "bigram_overlap_max_article": "cc#587",
+      "bigram_overlap_mean": 0.0625,
+      "edit_distance_min": 47,
+      "edit_distance_min_article": "cc#733",
+      "edit_distance_norm": 0.9592,
+      "mentions_article_no": false,
+      "article_nos_in_question": [],
+      "mentions_locked_article_no": false,
+      "pairs": [
+        {
+          "article_id": "cc#733",
+          "article_no": "第七百三十三条",
+          "bigram_overlap": 0.025,
+          "edit_distance": 47,
+          "edit_distance_norm": 0.9592
+        },
+        {
+          "article_id": "cc#587",
+          "article_no": "第五百八十七条",
+          "bigram_overlap": 0.1,
+          "edit_distance": 103,
+          "edit_distance_norm": 0.9196
+        }
+      ]
+    },
+    {
+      "id": "g27",
+      "hop_type": "two_hop",
+      "question": "朋友借钱到期不还，当初没约定利息，现在能不能要逾期利息，利率有没有上限，他不还钱算不算违约该赔我损失？",
+      "question_chars": 51,
+      "locked_articles": [
+        "cc#680",
+        "cc#577"
+      ],
+      "bigram_overlap_max": 0.1395,
+      "bigram_overlap_max_article": "cc#680",
+      "bigram_overlap_mean": 0.1047,
+      "edit_distance_min": 51,
+      "edit_distance_min_article": "cc#577",
+      "edit_distance_norm": 0.9444,
+      "mentions_article_no": false,
+      "article_nos_in_question": [],
+      "mentions_locked_article_no": false,
+      "pairs": [
+        {
+          "article_id": "cc#680",
+          "article_no": "第六百八十条",
+          "bigram_overlap": 0.1395,
+          "edit_distance": 108,
+          "edit_distance_norm": 0.8926
+        },
+        {
+          "article_id": "cc#577",
+          "article_no": "第五百七十七条",
+          "bigram_overlap": 0.0698,
+          "edit_distance": 51,
+          "edit_distance_norm": 0.9444
+        }
+      ]
+    },
+    {
+      "id": "g28",
+      "hop_type": "two_hop",
+      "question": "我买的货质量太差根本没法用，能不能退货？退货的话损失该找谁赔？",
+      "question_chars": 31,
+      "locked_articles": [
+        "cc#610",
+        "cc#584"
+      ],
+      "bigram_overlap_max": 0.0769,
+      "bigram_overlap_max_article": "cc#610",
+      "bigram_overlap_mean": 0.0577,
+      "edit_distance_min": 72,
+      "edit_distance_min_article": "cc#610",
+      "edit_distance_norm": 0.9114,
+      "mentions_article_no": false,
+      "article_nos_in_question": [],
+      "mentions_locked_article_no": false,
+      "pairs": [
+        {
+          "article_id": "cc#610",
+          "article_no": "第六百一十条",
+          "bigram_overlap": 0.0769,
+          "edit_distance": 72,
+          "edit_distance_norm": 0.9114
+        },
+        {
+          "article_id": "cc#584",
+          "article_no": "第五百八十四条",
+          "bigram_overlap": 0.0385,
+          "edit_distance": 103,
+          "edit_distance_norm": 0.9626
+        }
+      ]
+    },
+    {
+      "id": "g29",
+      "hop_type": "two_hop",
+      "question": "朋友借钱让我员工做保证人，我想知道保证人能不能要求朋友提供反担保，还有保证合同是单独写还是写在借款合同里就行？",
+      "question_chars": 55,
+      "locked_articles": [
+        "cc#689",
+        "cc#685"
+      ],
+      "bigram_overlap_max": 0.1522,
+      "bigram_overlap_max_article": "cc#689",
+      "bigram_overlap_mean": 0.1305,
+      "edit_distance_min": 46,
+      "edit_distance_min_article": "cc#689",
+      "edit_distance_norm": 0.8364,
+      "mentions_article_no": false,
+      "article_nos_in_question": [],
+      "mentions_locked_article_no": false,
+      "pairs": [
+        {
+          "article_id": "cc#689",
+          "article_no": "第六百八十九条",
+          "bigram_overlap": 0.1522,
+          "edit_distance": 46,
+          "edit_distance_norm": 0.8364
+        },
+        {
+          "article_id": "cc#685",
+          "article_no": "第六百八十五条",
+          "bigram_overlap": 0.1087,
+          "edit_distance": 68,
+          "edit_distance_norm": 0.9189
+        }
+      ]
+    },
+    {
+      "id": "g30",
+      "hop_type": "two_hop",
+      "question": "手术后出了并发症，医院手术前没把风险和别的方案讲清楚，这算不算医院有过错、该不该担责？",
+      "question_chars": 43,
+      "locked_articles": [
+        "cc#1219",
+        "cc#1165"
+      ],
+      "bigram_overlap_max": 0.0833,
+      "bigram_overlap_max_article": "cc#1219",
+      "bigram_overlap_mean": 0.0694,
+      "edit_distance_min": 59,
+      "edit_distance_min_article": "cc#1165",
+      "edit_distance_norm": 0.8939,
+      "mentions_article_no": false,
+      "article_nos_in_question": [],
+      "mentions_locked_article_no": false,
+      "pairs": [
+        {
+          "article_id": "cc#1219",
+          "article_no": "第一千二百一十九条",
+          "bigram_overlap": 0.0833,
+          "edit_distance": 136,
+          "edit_distance_norm": 0.9128
+        },
+        {
+          "article_id": "cc#1165",
+          "article_no": "第一千一百六十五条",
+          "bigram_overlap": 0.0556,
+          "edit_distance": 59,
+          "edit_distance_norm": 0.8939
+        }
+      ]
+    },
+    {
+      "id": "g31",
+      "hop_type": "three_hop",
+      "question": "公司一直拖着不发工资，我想知道他们到底该不该按时给钱、合同就算有问题我干了活是不是也得给，还有这种克扣拖欠的情况我能找谁投诉？",
+      "question_chars": 63,
+      "locked_articles": [
+        "lcl#30",
+        "ll#50"
+      ],
+      "bigram_overlap_max": 0.0517,
+      "bigram_overlap_max_article": "ll#50",
+      "bigram_overlap_mean": 0.0431,
+      "edit_distance_min": 56,
+      "edit_distance_min_article": "ll#50",
+      "edit_distance_norm": 0.8889,
+      "mentions_article_no": false,
+      "article_nos_in_question": [],
+      "mentions_locked_article_no": false,
+      "pairs": [
+        {
+          "article_id": "lcl#30",
+          "article_no": "第三十条",
+          "bigram_overlap": 0.0345,
+          "edit_distance": 86,
+          "edit_distance_norm": 0.9773
+        },
+        {
+          "article_id": "ll#50",
+          "article_no": "第五十条",
+          "bigram_overlap": 0.0517,
+          "edit_distance": 56,
+          "edit_distance_norm": 0.8889
+        }
+      ]
+    },
+    {
+      "id": "g32",
+      "hop_type": "three_hop",
+      "question": "公司总让我们超时加班还不给钱，我想问每天最多干几小时、安排加班有啥规矩、加班费该怎么算？",
+      "question_chars": 44,
+      "locked_articles": [
+        "ll#36",
+        "ll#41",
+        "lcl#31"
+      ],
+      "bigram_overlap_max": 0.1081,
+      "bigram_overlap_max_article": "lcl#31",
+      "bigram_overlap_mean": 0.054,
+      "edit_distance_min": 44,
+      "edit_distance_min_article": "ll#36",
+      "edit_distance_norm": 1.0,
+      "mentions_article_no": false,
+      "article_nos_in_question": [],
+      "mentions_locked_article_no": false,
+      "pairs": [
+        {
+          "article_id": "ll#36",
+          "article_no": "第三十六条",
+          "bigram_overlap": 0.027,
+          "edit_distance": 44,
+          "edit_distance_norm": 1.0
+        },
+        {
+          "article_id": "ll#41",
+          "article_no": "第四十一条",
+          "bigram_overlap": 0.027,
+          "edit_distance": 100,
+          "edit_distance_norm": 0.9615
+        },
+        {
+          "article_id": "lcl#31",
+          "article_no": "第三十一条",
+          "bigram_overlap": 0.1081,
+          "edit_distance": 56,
+          "edit_distance_norm": 0.8889
+        }
+      ]
+    },
+    {
+      "id": "g33",
+      "hop_type": "three_hop",
+      "question": "试用期最后一天被说“不符合录用条件”辞退，我想问试用期工资该拿多少、他们这样辞退算不算违法解除？",
+      "question_chars": 48,
+      "locked_articles": [
+        "lcl#21",
+        "lcl#87"
+      ],
+      "bigram_overlap_max": 0.0769,
+      "bigram_overlap_max_article": "lcl#21",
+      "bigram_overlap_mean": 0.0512,
+      "edit_distance_min": 54,
+      "edit_distance_min_article": "lcl#87",
+      "edit_distance_norm": 0.9818,
+      "mentions_article_no": false,
+      "article_nos_in_question": [],
+      "mentions_locked_article_no": false,
+      "pairs": [
+        {
+          "article_id": "lcl#21",
+          "article_no": "第二十一条",
+          "bigram_overlap": 0.0769,
+          "edit_distance": 70,
+          "edit_distance_norm": 0.9091
+        },
+        {
+          "article_id": "lcl#87",
+          "article_no": "第八十七条",
+          "bigram_overlap": 0.0256,
+          "edit_distance": 54,
+          "edit_distance_norm": 0.9818
+        }
+      ]
+    },
+    {
+      "id": "g34",
+      "hop_type": "three_hop",
+      "question": "公司没通知工会就宣布裁员，这算经济性裁员吗？工会该起什么作用？我还能拿到补偿吗？",
+      "question_chars": 40,
+      "locked_articles": [
+        "lcl#41",
+        "lcl#43",
+        "lcl#46"
+      ],
+      "bigram_overlap_max": 0.0909,
+      "bigram_overlap_max_article": "lcl#41",
+      "bigram_overlap_mean": 0.0808,
+      "edit_distance_min": 83,
+      "edit_distance_min_article": "lcl#43",
+      "edit_distance_norm": 0.9222,
+      "mentions_article_no": false,
+      "article_nos_in_question": [],
+      "mentions_locked_article_no": false,
+      "pairs": [
+        {
+          "article_id": "lcl#41",
+          "article_no": "第四十一条",
+          "bigram_overlap": 0.0909,
+          "edit_distance": 359,
+          "edit_distance_norm": 0.9729
+        },
+        {
+          "article_id": "lcl#43",
+          "article_no": "第四十三条",
+          "bigram_overlap": 0.0909,
+          "edit_distance": 83,
+          "edit_distance_norm": 0.9222
+        },
+        {
+          "article_id": "lcl#46",
+          "article_no": "第四十六条",
+          "bigram_overlap": 0.0606,
+          "edit_distance": 264,
+          "edit_distance_norm": 0.9888
+        }
+      ]
+    },
+    {
+      "id": "g35",
+      "hop_type": "three_hop",
+      "question": "我签了竞业协议，离职后公司不按月给补偿，还让我赔违约金，这协议对我这种普通员工还有约束力吗？",
+      "question_chars": 46,
+      "locked_articles": [
+        "lcl#23"
+      ],
+      "bigram_overlap_max": 0.175,
+      "bigram_overlap_max_article": "lcl#23",
+      "bigram_overlap_mean": 0.175,
+      "edit_distance_min": 141,
+      "edit_distance_min_article": "lcl#23",
+      "edit_distance_norm": 0.9276,
+      "mentions_article_no": false,
+      "article_nos_in_question": [],
+      "mentions_locked_article_no": false,
+      "pairs": [
+        {
+          "article_id": "lcl#23",
+          "article_no": "第二十三条",
+          "bigram_overlap": 0.175,
+          "edit_distance": 141,
+          "edit_distance_norm": 0.9276
+        }
+      ]
+    },
+    {
+      "id": "g36",
+      "hop_type": "three_hop",
+      "question": "公司按最低基数给我缴社保，那我跟公司算不算有正式劳动关系，社保是不是必须给我交，将来退休养老金会不会受影响？",
+      "question_chars": 54,
+      "locked_articles": [
+        "lcl#7",
+        "ll#72",
+        "ll#73"
+      ],
+      "bigram_overlap_max": 0.0652,
+      "bigram_overlap_max_article": "lcl#7",
+      "bigram_overlap_mean": 0.058,
+      "edit_distance_min": 50,
+      "edit_distance_min_article": "lcl#7",
+      "edit_distance_norm": 0.9259,
+      "mentions_article_no": false,
+      "article_nos_in_question": [],
+      "mentions_locked_article_no": false,
+      "pairs": [
+        {
+          "article_id": "lcl#7",
+          "article_no": "第七条",
+          "bigram_overlap": 0.0652,
+          "edit_distance": 50,
+          "edit_distance_norm": 0.9259
+        },
+        {
+          "article_id": "ll#72",
+          "article_no": "第七十二条",
+          "bigram_overlap": 0.0435,
+          "edit_distance": 53,
+          "edit_distance_norm": 0.9636
+        },
+        {
+          "article_id": "ll#73",
+          "article_no": "第七十三条",
+          "bigram_overlap": 0.0652,
+          "edit_distance": 119,
+          "edit_distance_norm": 0.937
+        }
+      ]
+    },
+    {
+      "id": "g37",
+      "hop_type": "three_hop",
+      "question": "我怀孕后被调岗降薪还辞退了，想知道哺乳期能不能被安排干重活、国家对我们女职工有没有特殊保护，这算不算违法解除？",
+      "question_chars": 55,
+      "locked_articles": [
+        "ll#63",
+        "ll#58",
+        "lcl#87"
+      ],
+      "bigram_overlap_max": 0.12,
+      "bigram_overlap_max_article": "ll#63",
+      "bigram_overlap_mean": 0.0867,
+      "edit_distance_min": 55,
+      "edit_distance_min_article": "ll#58",
+      "edit_distance_norm": 1.0,
+      "mentions_article_no": false,
+      "article_nos_in_question": [],
+      "mentions_locked_article_no": false,
+      "pairs": [
+        {
+          "article_id": "ll#63",
+          "article_no": "第六十三条",
+          "bigram_overlap": 0.12,
+          "edit_distance": 69,
+          "edit_distance_norm": 0.9857
+        },
+        {
+          "article_id": "ll#58",
+          "article_no": "第五十八条",
+          "bigram_overlap": 0.12,
+          "edit_distance": 55,
+          "edit_distance_norm": 1.0
+        },
+        {
+          "article_id": "lcl#87",
+          "article_no": "第八十七条",
+          "bigram_overlap": 0.02,
+          "edit_distance": 55,
+          "edit_distance_norm": 1.0
+        }
+      ]
+    },
+    {
+      "id": "g38",
+      "hop_type": "three_hop",
+      "question": "我在劳务派遣中受伤，派遣公司和用工单位都不管，我该找谁负责？",
+      "question_chars": 30,
+      "locked_articles": [
+        "lcl#58",
+        "lcl#92"
+      ],
+      "bigram_overlap_max": 0.24,
+      "bigram_overlap_max_article": "lcl#58",
+      "bigram_overlap_mean": 0.24,
+      "edit_distance_min": 104,
+      "edit_distance_min_article": "lcl#92",
+      "edit_distance_norm": 0.9286,
+      "mentions_article_no": false,
+      "article_nos_in_question": [],
+      "mentions_locked_article_no": false,
+      "pairs": [
+        {
+          "article_id": "lcl#58",
+          "article_no": "第五十八条",
+          "bigram_overlap": 0.24,
+          "edit_distance": 179,
+          "edit_distance_norm": 0.9372
+        },
+        {
+          "article_id": "lcl#92",
+          "article_no": "第九十二条",
+          "bigram_overlap": 0.24,
+          "edit_distance": 104,
+          "edit_distance_norm": 0.9286
+        }
+      ]
+    },
+    {
+      "id": "g39",
+      "hop_type": "three_hop",
+      "question": "我做小时工被拖欠工资，想问非全日制用工的工资多久结一次，还有跟老板起了争议该怎么维权？",
+      "question_chars": 43,
+      "locked_articles": [
+        "lcl#72",
+        "ll#77"
+      ],
+      "bigram_overlap_max": 0.2105,
+      "bigram_overlap_max_article": "lcl#72",
+      "bigram_overlap_mean": 0.1184,
+      "edit_distance_min": 56,
+      "edit_distance_min_article": "ll#77",
+      "edit_distance_norm": 0.9655,
+      "mentions_article_no": false,
+      "article_nos_in_question": [],
+      "mentions_locked_article_no": false,
+      "pairs": [
+        {
+          "article_id": "lcl#72",
+          "article_no": "第七十二条",
+          "bigram_overlap": 0.2105,
+          "edit_distance": 58,
+          "edit_distance_norm": 0.8923
+        },
+        {
+          "article_id": "ll#77",
+          "article_no": "第七十七条",
+          "bigram_overlap": 0.0263,
+          "edit_distance": 56,
+          "edit_distance_norm": 0.9655
+        }
+      ]
+    },
+    {
+      "id": "g40",
+      "hop_type": "three_hop",
+      "question": "入职时被逼着签空白合同还遭威胁，这种算不算欺诈胁迫、合同能不能算无效？",
+      "question_chars": 35,
+      "locked_articles": [
+        "lcl#26"
+      ],
+      "bigram_overlap_max": 0.1667,
+      "bigram_overlap_max_article": "lcl#26",
+      "bigram_overlap_mean": 0.1667,
+      "edit_distance_min": 135,
+      "edit_distance_min_article": "lcl#26",
+      "edit_distance_norm": 0.9507,
+      "mentions_article_no": false,
+      "article_nos_in_question": [],
+      "mentions_locked_article_no": false,
+      "pairs": [
+        {
+          "article_id": "lcl#26",
+          "article_no": "第二十六条",
+          "bigram_overlap": 0.1667,
+          "edit_distance": 135,
+          "edit_distance_norm": 0.9507
+        }
+      ]
+    },
+    {
+      "id": "g41",
+      "hop_type": "three_hop",
+      "question": "公司花钱让我去学了专业技术培训，签了服务期协议，现在协议里的违约金比培训费还高，这个违约金到底有没有上限？",
+      "question_chars": 53,
+      "locked_articles": [
+        "lcl#22"
+      ],
+      "bigram_overlap_max": 0.2727,
+      "bigram_overlap_max_article": "lcl#22",
+      "bigram_overlap_mean": 0.2727,
+      "edit_distance_min": 162,
+      "edit_distance_min_article": "lcl#22",
+      "edit_distance_norm": 0.8901,
+      "mentions_article_no": false,
+      "article_nos_in_question": [],
+      "mentions_locked_article_no": false,
+      "pairs": [
+        {
+          "article_id": "lcl#22",
+          "article_no": "第二十二条",
+          "bigram_overlap": 0.2727,
+          "edit_distance": 162,
+          "edit_distance_norm": 0.8901
+        }
+      ]
+    },
+    {
+      "id": "g42",
+      "hop_type": "three_hop",
+      "question": "我病假休完医疗期了，公司要终止合同，这算合同到期终止吗？要不要给经济补偿？",
+      "question_chars": 37,
+      "locked_articles": [
+        "lcl#40",
+        "lcl#44",
+        "lcl#46"
+      ],
+      "bigram_overlap_max": 0.1667,
+      "bigram_overlap_max_article": "lcl#46",
+      "bigram_overlap_mean": 0.1111,
+      "edit_distance_min": 142,
+      "edit_distance_min_article": "lcl#44",
+      "edit_distance_norm": 0.966,
+      "mentions_article_no": false,
+      "article_nos_in_question": [],
+      "mentions_locked_article_no": false,
+      "pairs": [
+        {
+          "article_id": "lcl#40",
+          "article_no": "第四十条",
+          "bigram_overlap": 0.1,
+          "edit_distance": 197,
+          "edit_distance_norm": 0.9517
+        },
+        {
+          "article_id": "lcl#44",
+          "article_no": "第四十四条",
+          "bigram_overlap": 0.0667,
+          "edit_distance": 142,
+          "edit_distance_norm": 0.966
+        },
+        {
+          "article_id": "lcl#46",
+          "article_no": "第四十六条",
+          "bigram_overlap": 0.1667,
+          "edit_distance": 260,
+          "edit_distance_norm": 0.9738
+        }
+      ]
+    },
+    {
+      "id": "g43",
+      "hop_type": "three_hop",
+      "question": "我离职一年半了才想为之前的劳动争议去申请劳动仲裁，是不是已经过了诉讼时效？",
+      "question_chars": 37,
+      "locked_articles": [
+        "ll#82",
+        "cc#198"
+      ],
+      "bigram_overlap_max": 0.1515,
+      "bigram_overlap_max_article": "ll#82",
+      "bigram_overlap_mean": 0.1363,
+      "edit_distance_min": 35,
+      "edit_distance_min_article": "cc#198",
+      "edit_distance_norm": 0.9459,
+      "mentions_article_no": false,
+      "article_nos_in_question": [],
+      "mentions_locked_article_no": false,
+      "pairs": [
+        {
+          "article_id": "ll#82",
+          "article_no": "第八十二条",
+          "bigram_overlap": 0.1515,
+          "edit_distance": 72,
+          "edit_distance_norm": 0.878
+        },
+        {
+          "article_id": "cc#198",
+          "article_no": "第一百九十八条",
+          "bigram_overlap": 0.1212,
+          "edit_distance": 35,
+          "edit_distance_norm": 0.9459
+        }
+      ]
+    },
+    {
+      "id": "g44",
+      "hop_type": "three_hop",
+      "question": "我签的保证合同算不算数，现在债主让我连带还全款，有抵押物的情况下该先拿抵押物抵债还是直接找我？",
+      "question_chars": 47,
+      "locked_articles": [
+        "cc#688",
+        "cc#392"
+      ],
+      "bigram_overlap_max": 0.122,
+      "bigram_overlap_max_article": "cc#688",
+      "bigram_overlap_mean": 0.0976,
+      "edit_distance_min": 94,
+      "edit_distance_min_article": "cc#688",
+      "edit_distance_norm": 0.8952,
+      "mentions_article_no": false,
+      "article_nos_in_question": [],
+      "mentions_locked_article_no": false,
+      "pairs": [
+        {
+          "article_id": "cc#688",
+          "article_no": "第六百八十八条",
+          "bigram_overlap": 0.122,
+          "edit_distance": 94,
+          "edit_distance_norm": 0.8952
+        },
+        {
+          "article_id": "cc#392",
+          "article_no": "第三百九十二条",
+          "bigram_overlap": 0.0732,
+          "edit_distance": 161,
+          "edit_distance_norm": 0.936
+        }
+      ]
+    },
+    {
+      "id": "g45",
+      "hop_type": "three_hop",
+      "question": "我提前退租，房东扣着押金说是定金不给退，还让我赔损失，这合理吗？",
+      "question_chars": 32,
+      "locked_articles": [
+        "cc#733",
+        "cc#587",
+        "cc#584"
+      ],
+      "bigram_overlap_max": 0.037,
+      "bigram_overlap_max_article": "cc#587",
+      "bigram_overlap_mean": 0.0247,
+      "edit_distance_min": 47,
+      "edit_distance_min_article": "cc#733",
+      "edit_distance_norm": 0.9592,
+      "mentions_article_no": false,
+      "article_nos_in_question": [],
+      "mentions_locked_article_no": false,
+      "pairs": [
+        {
+          "article_id": "cc#733",
+          "article_no": "第七百三十三条",
+          "bigram_overlap": 0.0,
+          "edit_distance": 47,
+          "edit_distance_norm": 0.9592
+        },
+        {
+          "article_id": "cc#587",
+          "article_no": "第五百八十七条",
+          "bigram_overlap": 0.037,
+          "edit_distance": 104,
+          "edit_distance_norm": 0.9286
+        },
+        {
+          "article_id": "cc#584",
+          "article_no": "第五百八十四条",
+          "bigram_overlap": 0.037,
+          "edit_distance": 100,
+          "edit_distance_norm": 0.9346
+        }
+      ]
+    },
+    {
+      "id": "g46",
+      "hop_type": "three_hop",
+      "question": "我免费搭朋友车出事故受伤，自己没责任，朋友要不要赔？没过错也得担责吗？伤得重能要精神赔偿吗？",
+      "question_chars": 46,
+      "locked_articles": [
+        "cc#1217",
+        "cc#1166",
+        "cc#1183"
+      ],
+      "bigram_overlap_max": 0.0769,
+      "bigram_overlap_max_article": "cc#1217",
+      "bigram_overlap_mean": 0.0598,
+      "edit_distance_min": 44,
+      "edit_distance_min_article": "cc#1166",
+      "edit_distance_norm": 0.9565,
+      "mentions_article_no": false,
+      "article_nos_in_question": [],
+      "mentions_locked_article_no": false,
+      "pairs": [
+        {
+          "article_id": "cc#1217",
+          "article_no": "第一千二百一十七条",
+          "bigram_overlap": 0.0769,
+          "edit_distance": 58,
+          "edit_distance_norm": 0.8923
+        },
+        {
+          "article_id": "cc#1166",
+          "article_no": "第一千一百六十六条",
+          "bigram_overlap": 0.0513,
+          "edit_distance": 44,
+          "edit_distance_norm": 0.9565
+        },
+        {
+          "article_id": "cc#1183",
+          "article_no": "第一千一百八十三条",
+          "bigram_overlap": 0.0513,
+          "edit_distance": 76,
+          "edit_distance_norm": 0.9157
+        }
+      ]
+    },
+    {
+      "id": "g47",
+      "hop_type": "three_hop",
+      "question": "我买的缺陷家电炸伤了我，该找商家还是厂家赔，他们能不能说没过错就不担责，我能不能要求惩罚性赔偿？",
+      "question_chars": 48,
+      "locked_articles": [
+        "cc#1203",
+        "cc#1166",
+        "cc#613"
+      ],
+      "bigram_overlap_max": 0.0732,
+      "bigram_overlap_max_article": "cc#1203",
+      "bigram_overlap_mean": 0.0325,
+      "edit_distance_min": 47,
+      "edit_distance_min_article": "cc#1166",
+      "edit_distance_norm": 0.9792,
+      "mentions_article_no": false,
+      "article_nos_in_question": [],
+      "mentions_locked_article_no": false,
+      "pairs": [
+        {
+          "article_id": "cc#1203",
+          "article_no": "第一千二百零三条",
+          "bigram_overlap": 0.0732,
+          "edit_distance": 99,
+          "edit_distance_norm": 0.9167
+        },
+        {
+          "article_id": "cc#1166",
+          "article_no": "第一千一百六十六条",
+          "bigram_overlap": 0.0244,
+          "edit_distance": 47,
+          "edit_distance_norm": 0.9792
+        },
+        {
+          "article_id": "cc#613",
+          "article_no": "第六百一十三条",
+          "bigram_overlap": 0.0,
+          "edit_distance": 47,
+          "edit_distance_norm": 0.9792
+        }
+      ]
+    },
+    {
+      "id": "g48",
+      "hop_type": "three_hop",
+      "question": "公司把我的人脸信息卖给第三方还传到网上，这算侵犯我的隐私和个人信息吧？网站知道了也不删，能一起追责吗？",
+      "question_chars": 51,
+      "locked_articles": [
+        "cc#1032",
+        "cc#1034",
+        "cc#1194"
+      ],
+      "bigram_overlap_max": 0.0909,
+      "bigram_overlap_max_article": "cc#1032",
+      "bigram_overlap_mean": 0.0606,
+      "edit_distance_min": 49,
+      "edit_distance_min_article": "cc#1194",
+      "edit_distance_norm": 0.9608,
+      "mentions_article_no": false,
+      "article_nos_in_question": [],
+      "mentions_locked_article_no": false,
+      "pairs": [
+        {
+          "article_id": "cc#1032",
+          "article_no": "第一千零三十二条",
+          "bigram_overlap": 0.0909,
+          "edit_distance": 73,
+          "edit_distance_norm": 0.9125
+        },
+        {
+          "article_id": "cc#1034",
+          "article_no": "第一千零三十四条",
+          "bigram_overlap": 0.0909,
+          "edit_distance": 140,
+          "edit_distance_norm": 0.9272
+        },
+        {
+          "article_id": "cc#1194",
+          "article_no": "第一千一百九十四条",
+          "bigram_overlap": 0.0,
+          "edit_distance": 49,
+          "edit_distance_norm": 0.9608
+        }
+      ]
+    },
+    {
+      "id": "g49",
+      "hop_type": "three_hop",
+      "question": "老人留下遗嘱和债务，我们几个继承人怎么商量分遗产、谁先还债，没劳动能力的亲属要不要留一份？",
+      "question_chars": 45,
+      "locked_articles": [
+        "cc#1132",
+        "cc#1163",
+        "cc#1159"
+      ],
+      "bigram_overlap_max": 0.2,
+      "bigram_overlap_max_article": "cc#1159",
+      "bigram_overlap_mean": 0.1417,
+      "edit_distance_min": 50,
+      "edit_distance_min_article": "cc#1159",
+      "edit_distance_norm": 0.8772,
+      "mentions_article_no": false,
+      "article_nos_in_question": [],
+      "mentions_locked_article_no": false,
+      "pairs": [
+        {
+          "article_id": "cc#1132",
+          "article_no": "第一千一百三十二条",
+          "bigram_overlap": 0.075,
+          "edit_distance": 73,
+          "edit_distance_norm": 0.8902
+        },
+        {
+          "article_id": "cc#1163",
+          "article_no": "第一千一百六十三条",
+          "bigram_overlap": 0.15,
+          "edit_distance": 70,
+          "edit_distance_norm": 0.8861
+        },
+        {
+          "article_id": "cc#1159",
+          "article_no": "第一千一百五十九条",
+          "bigram_overlap": 0.2,
+          "edit_distance": 50,
+          "edit_distance_norm": 0.8772
+        }
+      ]
+    },
+    {
+      "id": "g50",
+      "hop_type": "three_hop",
+      "question": "业务员没经公司同意就签了合同，公司能不认吗？对方说业务员看着像有代理权，这算不算数？",
+      "question_chars": 42,
+      "locked_articles": [
+        "cc#171",
+        "cc#172"
+      ],
+      "bigram_overlap_max": 0.0882,
+      "bigram_overlap_max_article": "cc#171",
+      "bigram_overlap_mean": 0.0882,
+      "edit_distance_min": 48,
+      "edit_distance_min_article": "cc#172",
+      "edit_distance_norm": 0.8571,
+      "mentions_article_no": false,
+      "article_nos_in_question": [],
+      "mentions_locked_article_no": false,
+      "pairs": [
+        {
+          "article_id": "cc#171",
+          "article_no": "第一百七十一条",
+          "bigram_overlap": 0.0882,
+          "edit_distance": 241,
+          "edit_distance_norm": 0.9563
+        },
+        {
+          "article_id": "cc#172",
+          "article_no": "第一百七十二条",
+          "bigram_overlap": 0.0882,
+          "edit_distance": 48,
+          "edit_distance_norm": 0.8571
+        }
+      ]
+    },
+    {
+      "id": "g51",
+      "hop_type": "cross_law",
+      "question": "公司单方拟的竞业条款没跟我商量，这合同算成立吗？这种格式条款有效吗？",
+      "question_chars": 34,
+      "locked_articles": [
+        "lcl#26",
+        "lcl#16",
+        "cc#497"
+      ],
+      "bigram_overlap_max": 0.1034,
+      "bigram_overlap_max_article": "cc#497",
+      "bigram_overlap_mean": 0.0575,
+      "edit_distance_min": 61,
+      "edit_distance_min_article": "lcl#16",
+      "edit_distance_norm": 0.9385,
+      "mentions_article_no": false,
+      "article_nos_in_question": [],
+      "mentions_locked_article_no": false,
+      "pairs": [
+        {
+          "article_id": "lcl#26",
+          "article_no": "第二十六条",
+          "bigram_overlap": 0.0345,
+          "edit_distance": 137,
+          "edit_distance_norm": 0.9648
+        },
+        {
+          "article_id": "lcl#16",
+          "article_no": "第十六条",
+          "bigram_overlap": 0.0345,
+          "edit_distance": 61,
+          "edit_distance_norm": 0.9385
+        },
+        {
+          "article_id": "cc#497",
+          "article_no": "第四百九十七条",
+          "bigram_overlap": 0.1034,
+          "edit_distance": 103,
+          "edit_distance_norm": 0.9279
+        }
+      ]
+    },
+    {
+      "id": "g52",
+      "hop_type": "cross_law",
+      "question": "劳动合同里写了员工违约要赔十万，这培训违约金能调低吗？普通合同违约金过高能要求减少吗？违约责任又该怎么算？",
+      "question_chars": 53,
+      "locked_articles": [
+        "cc#585"
+      ],
+      "bigram_overlap_max": 0.093,
+      "bigram_overlap_max_article": "cc#585",
+      "bigram_overlap_mean": 0.093,
+      "edit_distance_min": 157,
+      "edit_distance_min_article": "cc#585",
+      "edit_distance_norm": 0.9075,
+      "mentions_article_no": false,
+      "article_nos_in_question": [],
+      "mentions_locked_article_no": false,
+      "pairs": [
+        {
+          "article_id": "cc#585",
+          "article_no": "第五百八十五条",
+          "bigram_overlap": 0.093,
+          "edit_distance": 157,
+          "edit_distance_norm": 0.9075
+        }
+      ]
+    },
+    {
+      "id": "g53",
+      "hop_type": "cross_law",
+      "question": "公司把我违法辞退，我能不能既要辞退赔偿金，又要精神损害赔偿？",
+      "question_chars": 30,
+      "locked_articles": [
+        "lcl#87",
+        "cc#1183"
+      ],
+      "bigram_overlap_max": 0.2083,
+      "bigram_overlap_max_article": "cc#1183",
+      "bigram_overlap_mean": 0.1458,
+      "edit_distance_min": 49,
+      "edit_distance_min_article": "lcl#87",
+      "edit_distance_norm": 0.8909,
+      "mentions_article_no": false,
+      "article_nos_in_question": [],
+      "mentions_locked_article_no": false,
+      "pairs": [
+        {
+          "article_id": "lcl#87",
+          "article_no": "第八十七条",
+          "bigram_overlap": 0.0833,
+          "edit_distance": 49,
+          "edit_distance_norm": 0.8909
+        },
+        {
+          "article_id": "cc#1183",
+          "article_no": "第一千一百八十三条",
+          "bigram_overlap": 0.2083,
+          "edit_distance": 73,
+          "edit_distance_norm": 0.8795
+        }
+      ]
+    },
+    {
+      "id": "g54",
+      "hop_type": "cross_law",
+      "question": "跟单位闹了矛盾想申请调解，劳动仲裁听说得在六十天内提，可普通民事纠纷的诉讼时效是三年，这两者到底有啥不同？",
+      "question_chars": 53,
+      "locked_articles": [
+        "ll#79",
+        "ll#82",
+        "cc#188"
+      ],
+      "bigram_overlap_max": 0.1458,
+      "bigram_overlap_max_article": "ll#79",
+      "bigram_overlap_mean": 0.125,
+      "edit_distance_min": 76,
+      "edit_distance_min_article": "ll#82",
+      "edit_distance_norm": 0.9268,
+      "mentions_article_no": false,
+      "article_nos_in_question": [],
+      "mentions_locked_article_no": false,
+      "pairs": [
+        {
+          "article_id": "ll#79",
+          "article_no": "第七十九条",
+          "bigram_overlap": 0.1458,
+          "edit_distance": 97,
+          "edit_distance_norm": 0.8818
+        },
+        {
+          "article_id": "ll#82",
+          "article_no": "第八十二条",
+          "bigram_overlap": 0.0833,
+          "edit_distance": 76,
+          "edit_distance_norm": 0.9268
+        },
+        {
+          "article_id": "cc#188",
+          "article_no": "第一百八十八条",
+          "bigram_overlap": 0.1458,
+          "edit_distance": 134,
+          "edit_distance_norm": 0.9437
+        }
+      ]
+    },
+    {
+      "id": "g55",
+      "hop_type": "cross_law",
+      "question": "我工伤后向第三人要侵权赔偿，还能不能同时领工伤待遇？对方没过错也得担责吗？",
+      "question_chars": 37,
+      "locked_articles": [
+        "ll#73",
+        "cc#1165",
+        "cc#1166"
+      ],
+      "bigram_overlap_max": 0.0938,
+      "bigram_overlap_max_article": "cc#1165",
+      "bigram_overlap_mean": 0.0729,
+      "edit_distance_min": 41,
+      "edit_distance_min_article": "cc#1166",
+      "edit_distance_norm": 0.9318,
+      "mentions_article_no": false,
+      "article_nos_in_question": [],
+      "mentions_locked_article_no": false,
+      "pairs": [
+        {
+          "article_id": "ll#73",
+          "article_no": "第七十三条",
+          "bigram_overlap": 0.0625,
+          "edit_distance": 122,
+          "edit_distance_norm": 0.9606
+        },
+        {
+          "article_id": "cc#1165",
+          "article_no": "第一千一百六十五条",
+          "bigram_overlap": 0.0938,
+          "edit_distance": 58,
+          "edit_distance_norm": 0.8788
+        },
+        {
+          "article_id": "cc#1166",
+          "article_no": "第一千一百六十六条",
+          "bigram_overlap": 0.0625,
+          "edit_distance": 41,
+          "edit_distance_norm": 0.9318
+        }
+      ]
+    },
+    {
+      "id": "g56",
+      "hop_type": "cross_law",
+      "question": "我做小时工没签书面合同，只口头谈了报酬，这算不算数、合同成没成立，对方之前说的报酬还能反悔吗？",
+      "question_chars": 47,
+      "locked_articles": [
+        "lcl#69",
+        "cc#476",
+        "cc#483"
+      ],
+      "bigram_overlap_max": 0.0769,
+      "bigram_overlap_max_article": "cc#483",
+      "bigram_overlap_mean": 0.0513,
+      "edit_distance_min": 43,
+      "edit_distance_min_article": "cc#483",
+      "edit_distance_norm": 0.9149,
+      "mentions_article_no": false,
+      "article_nos_in_question": [],
+      "mentions_locked_article_no": false,
+      "pairs": [
+        {
+          "article_id": "lcl#69",
+          "article_no": "第六十九条",
+          "bigram_overlap": 0.0513,
+          "edit_distance": 74,
+          "edit_distance_norm": 0.9136
+        },
+        {
+          "article_id": "cc#476",
+          "article_no": "第四百七十六条",
+          "bigram_overlap": 0.0256,
+          "edit_distance": 84,
+          "edit_distance_norm": 0.9767
+        },
+        {
+          "article_id": "cc#483",
+          "article_no": "第四百八十三条",
+          "bigram_overlap": 0.0769,
+          "edit_distance": 43,
+          "edit_distance_norm": 0.9149
+        }
+      ]
+    },
+    {
+      "id": "g57",
+      "hop_type": "cross_law",
+      "question": "公司拿假材料骗我签合同还威胁我，这合同算不算无效？欺诈和胁迫能一起说吗？",
+      "question_chars": 36,
+      "locked_articles": [
+        "lcl#26",
+        "cc#148",
+        "cc#150"
+      ],
+      "bigram_overlap_max": 0.129,
+      "bigram_overlap_max_article": "lcl#26",
+      "bigram_overlap_mean": 0.0645,
+      "edit_distance_min": 53,
+      "edit_distance_min_article": "cc#148",
+      "edit_distance_norm": 0.9636,
+      "mentions_article_no": false,
+      "article_nos_in_question": [],
+      "mentions_locked_article_no": false,
+      "pairs": [
+        {
+          "article_id": "lcl#26",
+          "article_no": "第二十六条",
+          "bigram_overlap": 0.129,
+          "edit_distance": 136,
+          "edit_distance_norm": 0.9577
+        },
+        {
+          "article_id": "cc#148",
+          "article_no": "第一百四十八条",
+          "bigram_overlap": 0.0323,
+          "edit_distance": 53,
+          "edit_distance_norm": 0.9636
+        },
+        {
+          "article_id": "cc#150",
+          "article_no": "第一百五十条",
+          "bigram_overlap": 0.0323,
+          "edit_distance": 58,
+          "edit_distance_norm": 0.9667
+        }
+      ]
+    },
+    {
+      "id": "g58",
+      "hop_type": "cross_law",
+      "question": "公司没给合格防护让我得了职业病，我走了工伤还能不能告公司有过错要赔偿？",
+      "question_chars": 35,
+      "locked_articles": [
+        "ll#54",
+        "cc#1165"
+      ],
+      "bigram_overlap_max": 0.0968,
+      "bigram_overlap_max_article": "cc#1165",
+      "bigram_overlap_mean": 0.0806,
+      "edit_distance_min": 60,
+      "edit_distance_min_article": "ll#54",
+      "edit_distance_norm": 0.9524,
+      "mentions_article_no": false,
+      "article_nos_in_question": [],
+      "mentions_locked_article_no": false,
+      "pairs": [
+        {
+          "article_id": "ll#54",
+          "article_no": "第五十四条",
+          "bigram_overlap": 0.0645,
+          "edit_distance": 60,
+          "edit_distance_norm": 0.9524
+        },
+        {
+          "article_id": "cc#1165",
+          "article_no": "第一千一百六十五条",
+          "bigram_overlap": 0.0968,
+          "edit_distance": 60,
+          "edit_distance_norm": 0.9091
+        }
+      ]
+    },
+    {
+      "id": "g59",
+      "hop_type": "cross_law",
+      "question": "公司裁员只给一个月补偿，这补偿到底该怎么算，公司还让我付违约金和赔偿损失，这两笔钱又该怎么算？",
+      "question_chars": 47,
+      "locked_articles": [
+        "lcl#47",
+        "cc#585"
+      ],
+      "bigram_overlap_max": 0.1351,
+      "bigram_overlap_max_article": "cc#585",
+      "bigram_overlap_mean": 0.1081,
+      "edit_distance_min": 163,
+      "edit_distance_min_article": "cc#585",
+      "edit_distance_norm": 0.9422,
+      "mentions_article_no": false,
+      "article_nos_in_question": [],
+      "mentions_locked_article_no": false,
+      "pairs": [
+        {
+          "article_id": "lcl#47",
+          "article_no": "第四十七条",
+          "bigram_overlap": 0.0811,
+          "edit_distance": 198,
+          "edit_distance_norm": 0.9519
+        },
+        {
+          "article_id": "cc#585",
+          "article_no": "第五百八十五条",
+          "bigram_overlap": 0.1351,
+          "edit_distance": 163,
+          "edit_distance_norm": 0.9422
+        }
+      ]
+    },
+    {
+      "id": "g60",
+      "hop_type": "cross_law",
+      "question": "骑手被外包公司管着，平台算不算他的用人单位？外包公司没权还替平台管事，平台要不要认这个账？",
+      "question_chars": 45,
+      "locked_articles": [
+        "lcl#7",
+        "cc#172"
+      ],
+      "bigram_overlap_max": 0.0857,
+      "bigram_overlap_max_article": "lcl#7",
+      "bigram_overlap_mean": 0.0428,
+      "edit_distance_min": 45,
+      "edit_distance_min_article": "lcl#7",
+      "edit_distance_norm": 1.0,
+      "mentions_article_no": false,
+      "article_nos_in_question": [],
+      "mentions_locked_article_no": false,
+      "pairs": [
+        {
+          "article_id": "lcl#7",
+          "article_no": "第七条",
+          "bigram_overlap": 0.0857,
+          "edit_distance": 45,
+          "edit_distance_norm": 1.0
+        },
+        {
+          "article_id": "cc#172",
+          "article_no": "第一百七十二条",
+          "bigram_overlap": 0.0,
+          "edit_distance": 56,
+          "edit_distance_norm": 1.0
+        }
+      ]
+    }
+  ],
+  "manual_spot_check_sample": [
+    {
+      "id": "g01",
+      "question": "公司拖了我两个月工资，合同就算有问题我干的活也得给钱吧？这么一直拖着不给，算不算违法，我还能不能要回来？",
+      "bigram_overlap_max": 0.0217,
+      "edit_distance_min": 48,
+      "mentions_article_no": false,
+      "note": "请人工判断：只读题面，能不能猜到是哪一条法条"
+    },
+    {
+      "id": "g07",
+      "question": "公司一直不给我交社保，我能马上辞职走人并要求补偿吗？",
+      "bigram_overlap_max": 0.0,
+      "edit_distance_min": 256,
+      "mentions_article_no": false,
+      "note": "请人工判断：只读题面，能不能猜到是哪一条法条"
+    },
+    {
+      "id": "g13",
+      "question": "公司拿内部定额当理由扣我工资，这算不算克扣拖欠？他们定的定额标准合理吗？",
+      "bigram_overlap_max": 0.0968,
+      "edit_distance_min": 36,
+      "mentions_article_no": false,
+      "note": "请人工判断：只读题面，能不能猜到是哪一条法条"
+    },
+    {
+      "id": "g19",
+      "question": "员工离职带走客户名单，公司想问：他这样算不算违反了保密约定、侵犯了商业秘密，能不能追究他的责任？",
+      "bigram_overlap_max": 0.1429,
+      "edit_distance_min": 54,
+      "mentions_article_no": false,
+      "note": "请人工判断：只读题面，能不能猜到是哪一条法条"
+    },
+    {
+      "id": "g25",
+      "question": "我交了定金后反悔不想买了，这钱还能不能退？对方要是追究我违约，我得赔多少？",
+      "bigram_overlap_max": 0.0625,
+      "edit_distance_min": 52,
+      "mentions_article_no": false,
+      "note": "请人工判断：只读题面，能不能猜到是哪一条法条"
+    },
+    {
+      "id": "g31",
+      "question": "公司一直拖着不发工资，我想知道他们到底该不该按时给钱、合同就算有问题我干了活是不是也得给，还有这种克扣拖欠的情况我能找谁投诉？",
+      "bigram_overlap_max": 0.0517,
+      "edit_distance_min": 56,
+      "mentions_article_no": false,
+      "note": "请人工判断：只读题面，能不能猜到是哪一条法条"
+    },
+    {
+      "id": "g37",
+      "question": "我怀孕后被调岗降薪还辞退了，想知道哺乳期能不能被安排干重活、国家对我们女职工有没有特殊保护，这算不算违法解除？",
+      "bigram_overlap_max": 0.12,
+      "edit_distance_min": 55,
+      "mentions_article_no": false,
+      "note": "请人工判断：只读题面，能不能猜到是哪一条法条"
+    },
+    {
+      "id": "g43",
+      "question": "我离职一年半了才想为之前的劳动争议去申请劳动仲裁，是不是已经过了诉讼时效？",
+      "bigram_overlap_max": 0.1515,
+      "edit_distance_min": 35,
+      "mentions_article_no": false,
+      "note": "请人工判断：只读题面，能不能猜到是哪一条法条"
+    },
+    {
+      "id": "g49",
+      "question": "老人留下遗嘱和债务，我们几个继承人怎么商量分遗产、谁先还债，没劳动能力的亲属要不要留一份？",
+      "bigram_overlap_max": 0.2,
+      "edit_distance_min": 50,
+      "mentions_article_no": false,
+      "note": "请人工判断：只读题面，能不能猜到是哪一条法条"
+    },
+    {
+      "id": "g55",
+      "question": "我工伤后向第三人要侵权赔偿，还能不能同时领工伤待遇？对方没过错也得担责吗？",
+      "bigram_overlap_max": 0.0938,
+      "edit_distance_min": 41,
+      "mentions_article_no": false,
+      "note": "请人工判断：只读题面，能不能猜到是哪一条法条"
+    }
+  ],
+  "conclusion": "60 条题面的最坏二元组重合率最高 0.2727，全部低于 0.45。 题面直接出现条号的有 0 条，出现被锁条号的有 0 条。"
+}

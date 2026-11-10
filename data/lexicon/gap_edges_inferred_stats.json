@@ -1,0 +1,40 @@
+{
+ "raw": 742,
+ "raw_by_type": {
+  "same_clause": 664,
+  "definitional": 14,
+  "chapter_structure": 2,
+  "gold_path": 62
+ },
+ "dedup_dropped": 476,
+ "cross_domain_dropped": 16,
+ "net": 250,
+ "net_by_type": {
+  "same_clause": 180,
+  "definitional": 12,
+  "chapter_structure": 1,
+  "gold_path": 57
+ },
+ "net_by_conf": {
+  "medium": 229,
+  "low": 21
+ },
+ "low_dropped": 21,
+ "usable": 229,
+ "selected": 194,
+ "selected_by_type": {
+  "definitional": 12,
+  "gold_path": 57,
+  "same_clause": 124,
+  "chapter_structure": 1
+ },
+ "selected_by_conf": {
+  "medium": 194
+ },
+ "selected_by_relation": {
+  "REQUIRES": 192,
+  "SPECIAL_OF": 2
+ },
+ "quota_dropped": 35,
+ "target": 194
+}

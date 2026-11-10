@@ -36,6 +36,12 @@ from eval.gold_combos import (  # noqa: E402
 
 log = get_logger("build_gold")
 
+
+def _id_key(rid: str) -> tuple[int, int]:
+    """金标 id 形如 g01/g61/g200：按数字排，避免 g100 被字典序排到 g11 前面。"""
+    digits = "".join(ch for ch in rid if ch.isdigit())
+    return (0, int(digits)) if digits else (1, 0)
+
 LEAK_THRESHOLD = 0.45
 DISTRACTORS = 2
 CANDIDATE_LIMIT = 3
@@ -216,7 +222,9 @@ def pass_b(question: str, candidates: list[str], articles: dict, cache: JsonCach
     key = cache.key("passb", salt, question, listing)
     cached = cache.get(key)
     if cached is not None:
-        return {i: int(v) for i, v in cached["labels"].items()}
+        # 缓存里 labels 的键是 json 序列化后的字符串（"0".."n"），必须转回 int，
+        # 否则缓存命中时调用方按 int 取键会全部读成 0（g01 就是这样被写成 [0,0,0,0] 的）。
+        return {int(i): int(v) for i, v in cached["labels"].items()}
     res = get_llm().try_json(
         [{"role": "system", "content": PASSB_SYSTEM}, {"role": "user", "content": user}],
         default={"necessary": []},
@@ -232,8 +240,20 @@ def pass_b(question: str, candidates: list[str], articles: dict, cache: JsonCach
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--no-llm", action="store_true", help="只用模板题面，跳过 LLM 标注（会如实标注 κ 为空")
-    ap.add_argument("--only", nargs="+", default=None, help="只重建这些 id（题面用 v2 严格版），并与既有 gold_60.jsonl 合并")
+    ap.add_argument("--only", nargs="+", default=None, help="只重建这些 id（题面用 v2 严格版），并与既有金标合并")
+    # T07：扩容到 200 条时不能覆盖 gold_60.jsonl，故输出文件改为命令行参数。
+    # 不传参数时取 settings.gold_path（GOLD_FILE 环境变量，默认仍指 gold_60），
+    # 保证「命令行参数」与「config 开关」解析到同一个文件，不会各说各话。
+    # 合并基线：输出文件已存在就用它自己续跑；否则回落到 gold_60.jsonl（60 条母本）。
+    ap.add_argument("--gold-file", default=None, help="金标输出文件；默认取 settings.gold_path（GOLD_FILE 开关）")
+    ap.add_argument("--report-file", default=None, help="报告输出文件，默认与金标同目录的 gold_report.json")
     args = ap.parse_args()
+
+    from config import settings
+
+    gold_file = Path(args.gold_file) if args.gold_file else settings.gold_path
+    report_file = Path(args.report_file) if args.report_file else gold_file.with_name("gold_report.json")
+    merge_base = gold_file if gold_file.exists() else Path("data/gold/gold_60.jsonl")
     strict_ids = {x.lower() for x in (args.only or [])}
     # 全量重建也一律用 v2 严格题面：v1 题面常常只问一半争点，会让「按条文判必要性」整片失败，
     # 那是题面写窄了，不是条文多余。
@@ -257,7 +277,7 @@ def main() -> None:
     concepts = {c["id"]: c for c in read_jsonl("data/lexicon/concepts.jsonl")}
     scenarios = {s["id"]: s for s in read_jsonl("data/lexicon/scenarios.jsonl")}
     requires = {(r["source"], r["target"]) for r in read_jsonl("data/lexicon/requires.jsonl")}
-    prev_rows = {r["id"]: r for r in read_jsonl("data/gold/gold_60.jsonl")} if Path("data/gold/gold_60.jsonl").exists() else {}
+    prev_rows = {r["id"]: r for r in read_jsonl(merge_base)} if merge_base.exists() else {}
     store = get_graph_store()
     cache = JsonCache(Path("data/gold/llm_cache.json"))
     rng = random.Random(SEED)
@@ -418,11 +438,11 @@ def main() -> None:
             except Exception as exc:
                 log.error("构建失败 %s: %s", combo[0], exc)
 
-    rows.sort(key=lambda r: r["id"])
+    rows.sort(key=lambda r: _id_key(r["id"]))
     if strict_ids:
-        merged = {r["id"]: r for r in read_jsonl("data/gold/gold_60.jsonl")}
+        merged = {r["id"]: r for r in read_jsonl(merge_base)} if merge_base.exists() else {}
         merged.update({r["id"]: r for r in rows})
-        rows = [merged[k] for k in sorted(merged)]
+        rows = [merged[k] for k in sorted(merged, key=_id_key)]
         log.info("子集重建 %d 条，合并后共 %d 条", len(combos), len(rows))
 
     all_a, all_b1, all_b2 = [], [], []
@@ -451,8 +471,8 @@ def main() -> None:
         "mean_articles": round(sum(len(r["expected_articles"]) for r in rows) / max(len(rows), 1), 2),
         "laws_covered": sorted({l for r in rows for l in r["laws"]}),
     }
-    write_jsonl("data/gold/gold_60.jsonl", rows)
-    write_json("data/gold/gold_report.json", report)
+    write_jsonl(gold_file, rows)
+    write_json(report_file, report)
     log.info("金标 %s", report)
 
     # B7：把「概念→条文」修正的 before→after 与理由落盘，供复核（不冒充人工标注）。

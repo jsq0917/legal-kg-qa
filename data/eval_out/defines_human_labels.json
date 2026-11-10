@@ -1,0 +1,702 @@
+[
+  {
+    "concept": "定作人",
+    "article_id": "cc#781",
+    "citation": "中华人民共和国民法典第七百八十一条",
+    "human_label": "",
+    "note": ""
+  },
+  {
+    "concept": "地役权",
+    "article_id": "cc#376",
+    "citation": "中华人民共和国民法典第三百七十六条",
+    "human_label": "",
+    "note": ""
+  },
+  {
+    "concept": "土地承包经营权",
+    "article_id": "cc#791",
+    "citation": "中华人民共和国民法典第七百九十一条",
+    "human_label": "",
+    "note": ""
+  },
+  {
+    "concept": "担保物权",
+    "article_id": "cc#566",
+    "citation": "中华人民共和国民法典第五百六十六条",
+    "human_label": "",
+    "note": ""
+  },
+  {
+    "concept": "借款合同",
+    "article_id": "cc#669",
+    "citation": "中华人民共和国民法典第六百六十九条",
+    "human_label": "",
+    "note": ""
+  },
+  {
+    "concept": "劳动合同",
+    "article_id": "lcl#45",
+    "citation": "中华人民共和国劳动合同法第四十五条",
+    "human_label": "",
+    "note": ""
+  },
+  {
+    "concept": "肖像权",
+    "article_id": "cc#1018",
+    "citation": "中华人民共和国民法典第一千零一十八条",
+    "human_label": "",
+    "note": ""
+  },
+  {
+    "concept": "租赁合同",
+    "article_id": "cc#752",
+    "citation": "中华人民共和国民法典第七百五十二条",
+    "human_label": "",
+    "note": ""
+  },
+  {
+    "concept": "托运人",
+    "article_id": "cc#825",
+    "citation": "中华人民共和国民法典第八百二十五条",
+    "human_label": "",
+    "note": ""
+  },
+  {
+    "concept": "债权",
+    "article_id": "cc#447",
+    "citation": "中华人民共和国民法典第四百四十七条",
+    "human_label": "",
+    "note": ""
+  },
+  {
+    "concept": "保管合同",
+    "article_id": "cc#892",
+    "citation": "中华人民共和国民法典第八百九十二条",
+    "human_label": "",
+    "note": ""
+  },
+  {
+    "concept": "占有",
+    "article_id": "cc#461",
+    "citation": "中华人民共和国民法典第四百六十一条",
+    "human_label": "",
+    "note": ""
+  },
+  {
+    "concept": "未成年工",
+    "article_id": "ll#58",
+    "citation": "中华人民共和国劳动法第五十八条",
+    "human_label": "",
+    "note": ""
+  },
+  {
+    "concept": "提存",
+    "article_id": "cc#574",
+    "citation": "中华人民共和国民法典第五百七十四条",
+    "human_label": "",
+    "note": ""
+  },
+  {
+    "concept": "债权人",
+    "article_id": "cc#514",
+    "citation": "中华人民共和国民法典第五百一十四条",
+    "human_label": "",
+    "note": ""
+  },
+  {
+    "concept": "借款人",
+    "article_id": "cc#669",
+    "citation": "中华人民共和国民法典第六百六十九条",
+    "human_label": "",
+    "note": ""
+  },
+  {
+    "concept": "法人",
+    "article_id": "cc#80",
+    "citation": "中华人民共和国民法典第八十条",
+    "human_label": "",
+    "note": ""
+  },
+  {
+    "concept": "保管人",
+    "article_id": "cc#908",
+    "citation": "中华人民共和国民法典第九百零八条",
+    "human_label": "",
+    "note": ""
+  },
+  {
+    "concept": "非法人组织",
+    "article_id": "cc#102",
+    "citation": "中华人民共和国民法典第一百零二条",
+    "human_label": "",
+    "note": ""
+  },
+  {
+    "concept": "意思表示",
+    "article_id": "cc#141",
+    "citation": "中华人民共和国民法典第一百四十一条",
+    "human_label": "",
+    "note": ""
+  },
+  {
+    "concept": "用人单位",
+    "article_id": "ll#4",
+    "citation": "中华人民共和国劳动法第四条",
+    "human_label": "",
+    "note": ""
+  },
+  {
+    "concept": "劳动者",
+    "article_id": "lcl#23",
+    "citation": "中华人民共和国劳动合同法第二十三条",
+    "human_label": "",
+    "note": ""
+  },
+  {
+    "concept": "债权人",
+    "article_id": "cc#511",
+    "citation": "中华人民共和国民法典第五百一十一条",
+    "human_label": "",
+    "note": ""
+  },
+  {
+    "concept": "法人",
+    "article_id": "cc#79",
+    "citation": "中华人民共和国民法典第七十九条",
+    "human_label": "",
+    "note": ""
+  },
+  {
+    "concept": "委托人",
+    "article_id": "cc#920",
+    "citation": "中华人民共和国民法典第九百二十条",
+    "human_label": "",
+    "note": ""
+  },
+  {
+    "concept": "出卖人",
+    "article_id": "cc#595",
+    "citation": "中华人民共和国民法典第五百九十五条",
+    "human_label": "",
+    "note": ""
+  },
+  {
+    "concept": "自然人",
+    "article_id": "cc#1037",
+    "citation": "中华人民共和国民法典第一千零三十七条",
+    "human_label": "",
+    "note": ""
+  },
+  {
+    "concept": "保证人",
+    "article_id": "cc#692",
+    "citation": "中华人民共和国民法典第六百九十二条",
+    "human_label": "",
+    "note": ""
+  },
+  {
+    "concept": "定作人",
+    "article_id": "cc#775",
+    "citation": "中华人民共和国民法典第七百七十五条",
+    "human_label": "",
+    "note": ""
+  },
+  {
+    "concept": "借款合同",
+    "article_id": "cc#672",
+    "citation": "中华人民共和国民法典第六百七十二条",
+    "human_label": "",
+    "note": ""
+  },
+  {
+    "concept": "债务人",
+    "article_id": "cc#549",
+    "citation": "中华人民共和国民法典第五百四十九条",
+    "human_label": "",
+    "note": ""
+  },
+  {
+    "concept": "用人单位",
+    "article_id": "ll#25",
+    "citation": "中华人民共和国劳动法第二十五条",
+    "human_label": "",
+    "note": ""
+  },
+  {
+    "concept": "劳务派遣单位",
+    "article_id": "lcl#58",
+    "citation": "中华人民共和国劳动合同法第五十八条",
+    "human_label": "",
+    "note": ""
+  },
+  {
+    "concept": "租赁合同",
+    "article_id": "cc#728",
+    "citation": "中华人民共和国民法典第七百二十八条",
+    "human_label": "",
+    "note": ""
+  },
+  {
+    "concept": "债务人",
+    "article_id": "cc#572",
+    "citation": "中华人民共和国民法典第五百七十二条",
+    "human_label": "",
+    "note": ""
+  },
+  {
+    "concept": "出卖人",
+    "article_id": "cc#641",
+    "citation": "中华人民共和国民法典第六百四十一条",
+    "human_label": "",
+    "note": ""
+  },
+  {
+    "concept": "出卖人",
+    "article_id": "cc#739",
+    "citation": "中华人民共和国民法典第七百三十九条",
+    "human_label": "",
+    "note": ""
+  },
+  {
+    "concept": "物业服务合同",
+    "article_id": "cc#281",
+    "citation": "中华人民共和国民法典第二百八十一条",
+    "human_label": "",
+    "note": ""
+  },
+  {
+    "concept": "技术许可合同",
+    "article_id": "cc#864",
+    "citation": "中华人民共和国民法典第八百六十四条",
+    "human_label": "",
+    "note": ""
+  },
+  {
+    "concept": "抵押权",
+    "article_id": "cc#410",
+    "citation": "中华人民共和国民法典第四百一十条",
+    "human_label": "",
+    "note": ""
+  },
+  {
+    "concept": "债权",
+    "article_id": "cc#530",
+    "citation": "中华人民共和国民法典第五百三十条",
+    "human_label": "",
+    "note": ""
+  },
+  {
+    "concept": "委托人",
+    "article_id": "cc#928",
+    "citation": "中华人民共和国民法典第九百二十八条",
+    "human_label": "",
+    "note": ""
+  },
+  {
+    "concept": "买受人",
+    "article_id": "cc#627",
+    "citation": "中华人民共和国民法典第六百二十七条",
+    "human_label": "",
+    "note": ""
+  },
+  {
+    "concept": "承揽合同",
+    "article_id": "cc#787",
+    "citation": "中华人民共和国民法典第七百八十七条",
+    "human_label": "",
+    "note": ""
+  },
+  {
+    "concept": "委托人",
+    "article_id": "cc#852",
+    "citation": "中华人民共和国民法典第八百五十二条",
+    "human_label": "",
+    "note": ""
+  },
+  {
+    "concept": "保管人",
+    "article_id": "cc#900",
+    "citation": "中华人民共和国民法典第九百条",
+    "human_label": "",
+    "note": ""
+  },
+  {
+    "concept": "债权",
+    "article_id": "cc#118",
+    "citation": "中华人民共和国民法典第一百一十八条",
+    "human_label": "",
+    "note": ""
+  },
+  {
+    "concept": "医疗损害责任",
+    "article_id": "cc#1227",
+    "citation": "中华人民共和国民法典第一千二百二十七条",
+    "human_label": "",
+    "note": ""
+  },
+  {
+    "concept": "物业服务合同",
+    "article_id": "cc#286",
+    "citation": "中华人民共和国民法典第二百八十六条",
+    "human_label": "",
+    "note": ""
+  },
+  {
+    "concept": "劳动合同",
+    "article_id": "lcl#12",
+    "citation": "中华人民共和国劳动合同法第十二条",
+    "human_label": "",
+    "note": ""
+  },
+  {
+    "concept": "出租人",
+    "article_id": "cc#711",
+    "citation": "中华人民共和国民法典第七百一十一条",
+    "human_label": "",
+    "note": ""
+  },
+  {
+    "concept": "劳动者",
+    "article_id": "lcl#69",
+    "citation": "中华人民共和国劳动合同法第六十九条",
+    "human_label": "",
+    "note": ""
+  },
+  {
+    "concept": "用人单位",
+    "article_id": "cc#261",
+    "citation": "中华人民共和国民法典第二百六十一条",
+    "human_label": "",
+    "note": ""
+  },
+  {
+    "concept": "合伙人",
+    "article_id": "cc#975",
+    "citation": "中华人民共和国民法典第九百七十五条",
+    "human_label": "",
+    "note": ""
+  },
+  {
+    "concept": "留置权",
+    "article_id": "cc#452",
+    "citation": "中华人民共和国民法典第四百五十二条",
+    "human_label": "",
+    "note": ""
+  },
+  {
+    "concept": "承租人",
+    "article_id": "cc#724",
+    "citation": "中华人民共和国民法典第七百二十四条",
+    "human_label": "",
+    "note": ""
+  },
+  {
+    "concept": "土地承包经营权",
+    "article_id": "cc#803",
+    "citation": "中华人民共和国民法典第八百零三条",
+    "human_label": "",
+    "note": ""
+  },
+  {
+    "concept": "善意取得",
+    "article_id": "cc#313",
+    "citation": "中华人民共和国民法典第三百一十三条",
+    "human_label": "",
+    "note": ""
+  },
+  {
+    "concept": "债权人",
+    "article_id": "cc#975",
+    "citation": "中华人民共和国民法典第九百七十五条",
+    "human_label": "",
+    "note": ""
+  },
+  {
+    "concept": "社会保险",
+    "article_id": "ll#73",
+    "citation": "中华人民共和国劳动法第七十三条",
+    "human_label": "",
+    "note": ""
+  },
+  {
+    "concept": "发包人",
+    "article_id": "cc#804",
+    "citation": "中华人民共和国民法典第八百零四条",
+    "human_label": "",
+    "note": ""
+  },
+  {
+    "concept": "行纪合同",
+    "article_id": "cc#951",
+    "citation": "中华人民共和国民法典第九百五十一条",
+    "human_label": "",
+    "note": ""
+  },
+  {
+    "concept": "劳动关系",
+    "article_id": "ll#16",
+    "citation": "中华人民共和国劳动法第十六条",
+    "human_label": "",
+    "note": ""
+  },
+  {
+    "concept": "工资",
+    "article_id": "ll#35",
+    "citation": "中华人民共和国劳动法第三十五条",
+    "human_label": "",
+    "note": ""
+  },
+  {
+    "concept": "承租人",
+    "article_id": "cc#725",
+    "citation": "中华人民共和国民法典第七百二十五条",
+    "human_label": "",
+    "note": ""
+  },
+  {
+    "concept": "抵押权",
+    "article_id": "cc#419",
+    "citation": "中华人民共和国民法典第四百一十九条",
+    "human_label": "",
+    "note": ""
+  },
+  {
+    "concept": "非全日制用工",
+    "article_id": "lcl#69",
+    "citation": "中华人民共和国劳动合同法第六十九条",
+    "human_label": "",
+    "note": ""
+  },
+  {
+    "concept": "租赁合同",
+    "article_id": "cc#740",
+    "citation": "中华人民共和国民法典第七百四十条",
+    "human_label": "",
+    "note": ""
+  },
+  {
+    "concept": "标的物",
+    "article_id": "cc#641",
+    "citation": "中华人民共和国民法典第六百四十一条",
+    "human_label": "",
+    "note": ""
+  },
+  {
+    "concept": "承租人",
+    "article_id": "cc#740",
+    "citation": "中华人民共和国民法典第七百四十条",
+    "human_label": "",
+    "note": ""
+  },
+  {
+    "concept": "运输合同",
+    "article_id": "cc#820",
+    "citation": "中华人民共和国民法典第八百二十条",
+    "human_label": "",
+    "note": ""
+  },
+  {
+    "concept": "集体合同",
+    "article_id": "lcl#55",
+    "citation": "中华人民共和国劳动合同法第五十五条",
+    "human_label": "",
+    "note": ""
+  },
+  {
+    "concept": "物权",
+    "article_id": "cc#114",
+    "citation": "中华人民共和国民法典第一百一十四条",
+    "human_label": "",
+    "note": ""
+  },
+  {
+    "concept": "债权",
+    "article_id": "cc#396",
+    "citation": "中华人民共和国民法典第三百九十六条",
+    "human_label": "",
+    "note": ""
+  },
+  {
+    "concept": "用人单位",
+    "article_id": "ll#29",
+    "citation": "中华人民共和国劳动法第二十九条",
+    "human_label": "",
+    "note": ""
+  },
+  {
+    "concept": "民事主体",
+    "article_id": "cc#1031",
+    "citation": "中华人民共和国民法典第一千零三十一条",
+    "human_label": "",
+    "note": ""
+  },
+  {
+    "concept": "贷款人",
+    "article_id": "cc#672",
+    "citation": "中华人民共和国民法典第六百七十二条",
+    "human_label": "",
+    "note": ""
+  },
+  {
+    "concept": "保管人",
+    "article_id": "cc#913",
+    "citation": "中华人民共和国民法典第九百一十三条",
+    "human_label": "",
+    "note": ""
+  },
+  {
+    "concept": "标的物",
+    "article_id": "cc#620",
+    "citation": "中华人民共和国民法典第六百二十条",
+    "human_label": "",
+    "note": ""
+  },
+  {
+    "concept": "非全日制用工",
+    "article_id": "lcl#68",
+    "citation": "中华人民共和国劳动合同法第六十八条",
+    "human_label": "",
+    "note": ""
+  },
+  {
+    "concept": "委托合同",
+    "article_id": "cc#935",
+    "citation": "中华人民共和国民法典第九百三十五条",
+    "human_label": "",
+    "note": ""
+  },
+  {
+    "concept": "收养",
+    "article_id": "cc#1109",
+    "citation": "中华人民共和国民法典第一千一百零九条",
+    "human_label": "",
+    "note": ""
+  },
+  {
+    "concept": "用人单位",
+    "article_id": "ll#37",
+    "citation": "中华人民共和国劳动法第三十七条",
+    "human_label": "",
+    "note": ""
+  },
+  {
+    "concept": "土地承包经营权",
+    "article_id": "cc#338",
+    "citation": "中华人民共和国民法典第三百三十八条",
+    "human_label": "",
+    "note": ""
+  },
+  {
+    "concept": "保证人",
+    "article_id": "cc#689",
+    "citation": "中华人民共和国民法典第六百八十九条",
+    "human_label": "",
+    "note": ""
+  },
+  {
+    "concept": "技术转让合同",
+    "article_id": "cc#870",
+    "citation": "中华人民共和国民法典第八百七十条",
+    "human_label": "",
+    "note": ""
+  },
+  {
+    "concept": "债务",
+    "article_id": "cc#454",
+    "citation": "中华人民共和国民法典第四百五十四条",
+    "human_label": "",
+    "note": ""
+  },
+  {
+    "concept": "地役权",
+    "article_id": "cc#381",
+    "citation": "中华人民共和国民法典第三百八十一条",
+    "human_label": "",
+    "note": ""
+  },
+  {
+    "concept": "债权",
+    "article_id": "cc#539",
+    "citation": "中华人民共和国民法典第五百三十九条",
+    "human_label": "",
+    "note": ""
+  },
+  {
+    "concept": "劳动者",
+    "article_id": "ll#33",
+    "citation": "中华人民共和国劳动法第三十三条",
+    "human_label": "",
+    "note": ""
+  },
+  {
+    "concept": "要约",
+    "article_id": "cc#472",
+    "citation": "中华人民共和国民法典第四百七十二条",
+    "human_label": "",
+    "note": ""
+  },
+  {
+    "concept": "托运人",
+    "article_id": "cc#826",
+    "citation": "中华人民共和国民法典第八百二十六条",
+    "human_label": "",
+    "note": ""
+  },
+  {
+    "concept": "质权",
+    "article_id": "cc#439",
+    "citation": "中华人民共和国民法典第四百三十九条",
+    "human_label": "",
+    "note": ""
+  },
+  {
+    "concept": "出租人",
+    "article_id": "cc#755",
+    "citation": "中华人民共和国民法典第七百五十五条",
+    "human_label": "",
+    "note": ""
+  },
+  {
+    "concept": "占有",
+    "article_id": "cc#462",
+    "citation": "中华人民共和国民法典第四百六十二条",
+    "human_label": "",
+    "note": ""
+  },
+  {
+    "concept": "收养",
+    "article_id": "cc#1044",
+    "citation": "中华人民共和国民法典第一千零四十四条",
+    "human_label": "",
+    "note": ""
+  },
+  {
+    "concept": "租赁合同",
+    "article_id": "cc#756",
+    "citation": "中华人民共和国民法典第七百五十六条",
+    "human_label": "",
+    "note": ""
+  },
+  {
+    "concept": "承揽人",
+    "article_id": "cc#775",
+    "citation": "中华人民共和国民法典第七百七十五条",
+    "human_label": "",
+    "note": ""
+  },
+  {
+    "concept": "集体合同",
+    "article_id": "lcl#51",
+    "citation": "中华人民共和国劳动合同法第五十一条",
+    "human_label": "",
+    "note": ""
+  },
+  {
+    "concept": "留置权",
+    "article_id": "cc#453",
+    "citation": "中华人民共和国民法典第四百五十三条",
+    "human_label": "",
+    "note": ""
+  }
+]

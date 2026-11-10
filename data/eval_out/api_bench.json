@@ -1,0 +1,322 @@
+{
+  "generated_at": "2026-10-30 18:50:32",
+  "git_sha": "754f0a5",
+  "server": "uvicorn 127.0.0.1:64605（单进程，非 ASGITransport）",
+  "llm": {
+    "enabled": true,
+    "model": "deepseek-chat",
+    "base_url": "https://api.deepseek.com/v1",
+    "run_mode": "llm"
+  },
+  "initial_cache": {
+    "entries": 0,
+    "max_entries": 256,
+    "ttl_s": 3600.0,
+    "hits": 0,
+    "misses": 0,
+    "sets": 0,
+    "evictions": 0,
+    "expired": 0,
+    "hit_rate": 0.0
+  },
+  "notes": {
+    "first_token": "请求发出 -> 第一个 event: token，含检索时间",
+    "concurrency": "llm=false 的确定性路径，只测服务不崩与延迟",
+    "cold_start": "首请求含 embedding/reranker 模型加载，单独计段"
+  },
+  "health": {
+    "status": 200,
+    "graph_backend": "neo4j"
+  },
+  "cold_start_ms": 30335.6,
+  "cold_first_token_ms": 26747.2,
+  "streaming": {
+    "runs": [
+      {
+        "query": "公司拖欠我两个月工资，我可以直接解除劳动合同吗？",
+        "status": 200,
+        "first_event_ms": 23737.3,
+        "first_token_ms": 26747.2,
+        "total_ms": 27081.1,
+        "cache": "miss",
+        "answer_chars": 257,
+        "checks": [
+          {
+            "gate": "cite_exists",
+            "ok": true,
+            "detail": "全部条号可查"
+          },
+          {
+            "gate": "cite_in_retrieval",
+            "ok": true,
+            "detail": "引用均在检索结果内"
+          },
+          {
+            "gate": "path_support",
+            "ok": true,
+            "detail": "coverage=0.80, 有图连接的被引条文=3/3"
+          },
+          {
+            "gate": "evidence_span",
+            "ok": true,
+            "detail": "依据均有原文片段"
+          },
+          {
+            "gate": "low_conf_handoff",
+            "ok": true,
+            "detail": "low_confidence=False, handoff=False"
+          }
+        ],
+        "grounded": true
+      },
+      {
+        "query": "试用期最长可以约定多久？",
+        "status": 200,
+        "first_event_ms": 395.6,
+        "first_token_ms": 1734.0,
+        "total_ms": 2438.4,
+        "cache": "miss",
+        "answer_chars": 316,
+        "checks": [
+          {
+            "gate": "cite_exists",
+            "ok": true,
+            "detail": "全部条号可查"
+          },
+          {
+            "gate": "cite_in_retrieval",
+            "ok": true,
+            "detail": "引用均在检索结果内"
+          },
+          {
+            "gate": "path_support",
+            "ok": true,
+            "detail": "coverage=1.00, 有图连接的被引条文=2/2"
+          },
+          {
+            "gate": "evidence_span",
+            "ok": true,
+            "detail": "依据均有原文片段"
+          },
+          {
+            "gate": "low_conf_handoff",
+            "ok": true,
+            "detail": "low_confidence=False, handoff=False"
+          }
+        ],
+        "grounded": true
+      },
+      {
+        "query": "用人单位单方解除劳动合同需要提前多少天通知？",
+        "status": 200,
+        "first_event_ms": 430.8,
+        "first_token_ms": 1921.3,
+        "total_ms": 3418.7,
+        "cache": "miss",
+        "answer_chars": 625,
+        "checks": [
+          {
+            "gate": "cite_exists",
+            "ok": true,
+            "detail": "全部条号可查"
+          },
+          {
+            "gate": "cite_in_retrieval",
+            "ok": false,
+            "detail": "越界引用: ['中华人民共和国劳动合同法第三十一条', '中华人民共和国民法典第三十一条']"
+          },
+          {
+            "gate": "path_support",
+            "ok": true,
+            "detail": "coverage=1.00, 有图连接的被引条文=3/3"
+          },
+          {
+            "gate": "evidence_span",
+            "ok": true,
+            "detail": "依据均有原文片段"
+          },
+          {
+            "gate": "low_conf_handoff",
+            "ok": true,
+            "detail": "low_confidence=False, handoff=False"
+          }
+        ],
+        "grounded": false
+      },
+      {
+        "query": "加班费的计算基数怎么确定？",
+        "status": 200,
+        "first_event_ms": 282.1,
+        "first_token_ms": 912.5,
+        "total_ms": 1735.8,
+        "cache": "miss",
+        "answer_chars": 288,
+        "checks": [
+          {
+            "gate": "cite_exists",
+            "ok": false,
+            "detail": "不存在的条号: ['位应当根据本法第三十六条']"
+          },
+          {
+            "gate": "cite_in_retrieval",
+            "ok": false,
+            "detail": "越界引用: ['中华人民共和国劳动合同法第三十七条', '中华人民共和国民法典第三十七条', '位应当根据本法第三十六条']"
+          },
+          {
+            "gate": "path_support",
+            "ok": true,
+            "detail": "coverage=1.00, 有图连接的被引条文=0/3"
+          },
+          {
+            "gate": "evidence_span",
+            "ok": true,
+            "detail": "依据均有原文片段"
+          },
+          {
+            "gate": "low_conf_handoff",
+            "ok": true,
+            "detail": "low_confidence=False, handoff=False"
+          }
+        ],
+        "grounded": false
+      },
+      {
+        "query": "女职工产假期间的工资由谁支付？",
+        "status": 200,
+        "first_event_ms": 261.3,
+        "first_token_ms": 967.6,
+        "total_ms": 1757.1,
+        "cache": "miss",
+        "answer_chars": 319,
+        "checks": [
+          {
+            "gate": "cite_exists",
+            "ok": true,
+            "detail": "全部条号可查"
+          },
+          {
+            "gate": "cite_in_retrieval",
+            "ok": true,
+            "detail": "引用均在检索结果内"
+          },
+          {
+            "gate": "path_support",
+            "ok": true,
+            "detail": "coverage=1.00, 有图连接的被引条文=3/3"
+          },
+          {
+            "gate": "evidence_span",
+            "ok": true,
+            "detail": "依据均有原文片段"
+          },
+          {
+            "gate": "low_conf_handoff",
+            "ok": true,
+            "detail": "low_confidence=False, handoff=False"
+          }
+        ],
+        "grounded": true
+      }
+    ],
+    "first_token_ms": [
+      1734.0,
+      1921.3,
+      912.5,
+      967.6
+    ],
+    "first_token_median_ms": 1734.0,
+    "first_token_max_ms": 1921.3,
+    "all_within_2s": true
+  },
+  "cache": {
+    "ask_miss_ms": 4953.6,
+    "ask_hit_ms": 2.5,
+    "ask_speedup": 1981.4,
+    "ask_miss_cache": "miss",
+    "ask_hit_cache": "hit",
+    "stream_miss_first_token_ms": 1999.0,
+    "stream_hit_first_token_ms": 2.7,
+    "stream_hit_cache": "hit",
+    "stats": {
+      "entries": 1,
+      "max_entries": 256,
+      "ttl_s": 3600.0,
+      "hits": 2,
+      "misses": 7,
+      "sets": 7,
+      "evictions": 0,
+      "expired": 0,
+      "hit_rate": 0.2222
+    }
+  },
+  "concurrency_10": {
+    "sent": 10,
+    "ok": 10,
+    "non_200": [],
+    "errors": [],
+    "wall_ms": 3079.2,
+    "p50_ms": 3051.5,
+    "p95_ms": 3078.2,
+    "max_ms": 3078.2,
+    "cache_stats": {
+      "entries": 11,
+      "max_entries": 256,
+      "ttl_s": 3600.0,
+      "hits": 2,
+      "misses": 17,
+      "sets": 17,
+      "evictions": 0,
+      "expired": 0,
+      "hit_rate": 0.1053
+    }
+  },
+  "rate_limit_ip": {
+    "config": {
+      "enabled": true,
+      "ip_rps": 1.0,
+      "ip_burst": 5,
+      "key_rps": 1000,
+      "key_burst": 1000
+    },
+    "sent": 12,
+    "allowed": 5,
+    "denied": 7,
+    "dimensions": [
+      "ip"
+    ],
+    "retry_after_values": [
+      "1"
+    ],
+    "all_with_retry_after": true
+  },
+  "rate_limit_key": {
+    "config": {
+      "enabled": true,
+      "ip_rps": 1000,
+      "ip_burst": 1000,
+      "key_rps": 1.0,
+      "key_burst": 2
+    },
+    "sent": 6,
+    "allowed": 2,
+    "denied": 4,
+    "dimensions": [
+      "key"
+    ],
+    "all_with_retry_after": true
+  },
+  "rate_limit_stats": {
+    "config": {
+      "enabled": true,
+      "ip_rps": 1000,
+      "ip_burst": 1000,
+      "key_rps": 1.0,
+      "key_burst": 2
+    },
+    "allowed": 26,
+    "denied": 11,
+    "denied_ip": 7,
+    "denied_key": 4,
+    "buckets": 2
+  }
+}

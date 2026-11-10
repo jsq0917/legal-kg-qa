@@ -1,9 +1,9 @@
 """从 data/eval_out/ 与 data/graph/ 出结果图（README 用）。
 
-三张图全部从已落盘的评测产物读取，不写死任何数字：
+四张图全部从已落盘的评测产物读取，不写死任何数字：
   fig1_b3_retrieval.png   三档检索 R@5 / 路径准确率 / 分跳数
   fig2_b6_bootstrap.png   B6 质量指标的配对差值 95% CI（森林图）
-  fig3_graph_composition.png  4,259 条边的类型与 provenance 构成
+  fig3_graph_composition.png  5,826 条边的类型与 provenance 构成
 
 用法：
     .venv\\Scripts\\python.exe scripts\\make_figures.py
@@ -78,7 +78,11 @@ def fig_retrieval(out: Path) -> None:
     ax.set_xticklabels([n for _, n in metrics], fontsize=10.5)
     ax.set_ylim(0, 0.95)
     ax.set_ylabel("得分（60 条金标）", fontsize=10.5, color="#5B6673")
-    ax.set_title("三档检索主指标：hybrid 相对纯文本 +3.9pt（目标 15pt）", fontsize=11.5, pad=10, color="#1B2733")
+    ax.set_title(
+        f"三档 R@5：文本 {res['text']['recall@5']:.4f} / "
+        f"单跳图 {res['graph']['recall@5']:.4f} / 混合 {res['hybrid']['recall@5']:.4f}",
+        fontsize=11.2, pad=10, color="#1B2733",
+    )
     ax.legend(frameon=False, fontsize=9.5, ncol=3, loc="upper left", bbox_to_anchor=(0, 1.0))
     style(ax)
 
@@ -96,13 +100,16 @@ def fig_retrieval(out: Path) -> None:
     ax.set_xticklabels([n for _, n in hops], fontsize=10.5)
     ax.set_ylim(0, 1.0)
     ax.set_ylabel("R@5", fontsize=10.5, color="#5B6673")
-    ax.set_title("分跳数 R@5：跳数越多，图路掉得越快", fontsize=11.5, pad=10, color="#1B2733")
+    ax.set_title("分跳 R@5：二跳 / 三跳 / 跨法", fontsize=11.5, pad=10, color="#1B2733")
     style(ax)
 
+    n = res["text"]["n"]
+    diff_pp = (res["hybrid"]["recall@5"] - res["text"]["recall@5"]) * 100
     fig.text(
         0.01, 0.01,
-        "数据来源：data/eval_out/retrieval.json（scripts/eval_retrieval.py 产出）。"
-        "hybrid 未达 15pt 的原因见 README §5 / §12 第 1 条。",
+        f"数据来源：data/eval_out/retrieval.json#results.text/graph/hybrid"
+        f"（scripts/eval_retrieval.py 产出，{n} 条金标，in-sample，无留出集）。"
+        f"文本 vs 混合差 {diff_pp:.2f}pt。",
         fontsize=8.4, color=C_NEUTRAL,
     )
     fig.tight_layout(rect=(0, 0.04, 1, 1))
@@ -148,10 +155,10 @@ def fig_bootstrap(out: Path) -> None:
     ax.set_yticks(y)
     ax.set_yticklabels([n for _, n in metrics], fontsize=10.5)
     ax.set_xlabel("相邻两档的配对差值（bootstrap 100 次，95% CI）", fontsize=10.5, color="#5B6673")
-    ax.set_title("加多 Agent 只买到延迟；再加闸门换来精度方向，但 60 条样本撑不起显著性",
+    ax.set_title("加多 Agent：调用与延迟都涨，精度反而降；再加五道闸门才把精度拉回来",
                  fontsize=11.8, pad=12, color="#1B2733")
     ax.legend(frameon=False, fontsize=9.3, loc="upper right", bbox_to_anchor=(1.0, 1.02))
-    ax.set_xlim(-0.06, 0.235)
+    ax.set_xlim(-0.10, 0.26)
     style(ax)
     ax.grid(axis="x", color="#EDF1F5", linewidth=0.9)
     ax.grid(axis="y", visible=False)
@@ -159,11 +166,14 @@ def fig_bootstrap(out: Path) -> None:
     # 右侧贴成本注记
     lat = boot["B-A:latency_ms"]["delta"]
     calls = boot["B-A:llm_calls"]["delta"]
+    sig_ba = [n for m, n in metrics if boot[f"B-A:{m}"]["excludes_zero"]]
+    sig_cb = [n for m, n in metrics if boot[f"C-B:{m}"]["excludes_zero"]]
     fig.text(
         0.01, 0.01,
         f"同一批 60 条上：B 档相对 A 档多 {int(calls)} 次 LLM 调用、延迟 +{lat:.0f} ms"
-        f"（{tiers['A']['latency_median_ms']:.0f} → {tiers['B']['latency_median_ms']:.0f} ms），"
-        "这两个区间不含 0；质量指标全部含 0。",
+        f"（{tiers['A']['latency_median_ms']:.0f} → {tiers['B']['latency_median_ms']:.0f} ms）。"
+        f"B-A 区间不含 0 的质量项：{'、'.join(sig_ba) or '无'}（方向为下降）；"
+        f"C-B 不含 0 的只有：{'、'.join(sig_cb) or '无'}。",
         fontsize=8.4, color=C_NEUTRAL,
     )
     fig.tight_layout(rect=(0, 0.04, 1, 1))
@@ -175,14 +185,14 @@ def fig_graph(out: Path) -> None:
     g = load("data/graph/graph.json")
     pairs = Counter((e["relation"], e["provenance"]) for e in g["edges"])
     order = ["DEFINES", "REFERS_TO", "APPLIES_TO", "REQUIRES", "SPECIAL_OF", "CITES"]
-    prov_cn = {"rule": "规则抽取", "manual": "人工编写", "regex": "正则抽取"}
-    prov_color = {"rule": "#8FB6D9", "manual": "#C2705A", "regex": "#9DBFAE"}
+    prov_cn = {"rule": "规则抽取", "manual": "人工编写", "regex": "正则抽取", "inferred": "推断补边"}
+    prov_color = {"rule": "#8FB6D9", "manual": "#C2705A", "regex": "#9DBFAE", "inferred": "#9A86C4"}
     total = len(g["edges"])
 
     fig, ax = plt.subplots(figsize=(9.6, 3.8))
     y = np.arange(len(order))[::-1]
     left = np.zeros(len(order))
-    for prov in ["rule", "manual", "regex"]:
+    for prov in ["rule", "manual", "regex", "inferred"]:
         vals = np.array([pairs[(r, prov)] for r in order], dtype=float)
         ax.barh(y, vals, left=left, height=0.55, color=prov_color[prov],
                 label=f"{prov_cn[prov]}（{int(vals.sum())}）", zorder=3)
@@ -217,6 +227,73 @@ def fig_graph(out: Path) -> None:
     plt.close(fig)
 
 
+def fig_hybrid_rerank(out: Path) -> bool:
+    """T12 / o 任务：融合方式 × 是否 rerank 的 2×2 对照（R@5 与延迟）。"""
+    res = load("data/eval_out/retrieval.json")["results"].get("hybrid_rerank")
+    if not res:
+        print("  [skip] retrieval.json 尚无 results.hybrid_rerank")
+        return False
+
+    cells = res["cells"]
+    order = ["rrf_norerank", "rrf_rerank", "weighted_norerank", "weighted_rerank"]
+    labels = ["RRF\n不过精排", "RRF\n过精排", "加权\n不过精排", "加权\n过精排"]
+    colors = [C_TEXT, C_TEXT, C_GRAPH, C_GRAPH]
+    hatches = ["", "//", "", "//"]
+    r5 = [cells[k]["recall@5"] for k in order]
+    lolos = [cells[k]["recall@5"] - cells[k]["recall@5_ci95"][0] for k in order]
+    his = [cells[k]["recall@5_ci95"][1] - cells[k]["recall@5"] for k in order]
+    med = [cells[k]["latency_median_ms"] for k in order]
+    p90 = [cells[k]["latency_p90_ms"] for k in order]
+
+    fig, axes = plt.subplots(1, 2, figsize=(11.6, 4.4), gridspec_kw={"width_ratios": [1.15, 1]})
+
+    ax = axes[0]
+    x = np.arange(len(order))
+    ax.bar(x, r5, 0.56, color=colors, hatch=hatches, edgecolor="#3D4650", linewidth=0.6, zorder=3)
+    ax.errorbar(x, r5, yerr=[lolos, his], fmt="none", ecolor="#3D4650", elinewidth=1.1, capsize=4, zorder=4)
+    for i, (p, v) in enumerate(zip(x, r5)):
+        ax.text(p, v + his[i] + 0.02, f"{v:.3f}", ha="center", va="bottom", fontsize=9, color="#3D4650")
+    ax.axhline(res["target"]["recall@5"], color="#C2705A", linestyle=(0, (4, 3)), linewidth=1.1, zorder=2)
+    ax.text(3.42, res["target"]["recall@5"], "目标 0.78", ha="right", va="bottom", fontsize=8.8, color="#C2705A")
+    ax.set_xticks(x)
+    ax.set_xticklabels(labels, fontsize=9.5)
+    ax.set_ylim(0, 1.0)
+    ax.set_ylabel("R@5（60 条金标，误差棒为 95% CI）", fontsize=10.2, color="#5B6673")
+    ax.set_title("2×2 四格：融合方式 × reranker", fontsize=11.5, pad=10, color="#1B2733")
+    style(ax)
+
+    ax = axes[1]
+    width = 0.36
+    ax.bar(x - width / 2, med, width, color="#9DBFAE", label="median", zorder=3)
+    ax.bar(x + width / 2, p90, width, color="#8A94A0", label="p90", zorder=3)
+    for p, v in zip(x - width / 2, med):
+        ax.text(p, v * 1.08, f"{v:.0f}" if v < 1000 else f"{v/1000:.1f}s", ha="center", va="bottom", fontsize=8.2, color="#3D4650")
+    for p, v in zip(x + width / 2, p90):
+        ax.text(p, v * 1.08, f"{v:.0f}" if v < 1000 else f"{v/1000:.1f}s", ha="center", va="bottom", fontsize=8.2, color="#3D4650")
+    ax.set_yscale("log")
+    ax.set_xticks(x)
+    ax.set_xticklabels(labels, fontsize=9.5)
+    ax.set_ylabel("单题检索延迟 ms（对数轴）", fontsize=10.2, color="#5B6673")
+    ax.set_title("精排的代价：CPU 上每题多出十秒级", fontsize=11.5, pad=10, color="#1B2733")
+    ax.legend(frameon=False, fontsize=9.3, loc="upper left")
+    style(ax)
+    ax.grid(axis="x", visible=False)
+
+    best = res["target"]["best_cell"]
+    fig.text(
+        0.01, 0.01,
+        f"数据来源：data/eval_out/retrieval.json#results.hybrid_rerank（scripts/eval_hybrid_rerank.py，"
+        f"60 条金标、bootstrap seed={res['bootstrap']['seed']}）。最好格 {best} = "
+        f"{res['target']['best_recall@5']:.3f}，目标 0.78 {'达到' if res['target']['reached'] else '未达到'}。"
+        "延迟为 CPU 实测，含文本路/图路组件，不含模型加载。",
+        fontsize=8.4, color=C_NEUTRAL,
+    )
+    fig.tight_layout(rect=(0, 0.05, 1, 1))
+    fig.savefig(out / "fig4_hybrid_rerank.png", bbox_inches="tight", facecolor="white")
+    plt.close(fig)
+    return True
+
+
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--outdir", default="docs/figures")
@@ -227,6 +304,7 @@ def main() -> None:
     fig_retrieval(out)
     fig_bootstrap(out)
     fig_graph(out)
+    fig_hybrid_rerank(out)
     for p in sorted(out.glob("*.png")):
         print(f"  {p.relative_to(ROOT)}  {p.stat().st_size / 1024:.0f} KB")
 

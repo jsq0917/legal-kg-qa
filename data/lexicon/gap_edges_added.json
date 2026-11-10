@@ -1,0 +1,3510 @@
+{
+ "generated_by": "work/m/verify_edges.py（判据同 scripts/check_defines_edges.py）",
+ "criterion": "概念名原样出现且非派生后缀（人/权/物/方/者），或登记别名出现且不被其它概念的更长术语包裹",
+ "added_total": 129,
+ "added_by_relation": {
+  "APPLIES_TO": 93,
+  "REQUIRES": 34,
+  "SPECIAL_OF": 2
+ },
+ "mech_verified_total": 129,
+ "mech_by_relation": {
+  "APPLIES_TO": 93,
+  "REQUIRES": 34,
+  "SPECIAL_OF": 2
+ },
+ "failed": [],
+ "edges": [
+  {
+   "relation": "APPLIES_TO",
+   "source": "maternity_leave",
+   "source_name": "生育与产假",
+   "target": "labor_protection",
+   "target_name": "劳动保护",
+   "article": "ll#58",
+   "article_no": "第五十八条",
+   "citation": "中华人民共和国劳动法第五十八条",
+   "gold": [
+    "g37",
+    "g102",
+    "g103",
+    "g156"
+   ],
+   "note": "gold g37/g102/g103/g156 把「劳动保护」列入场景「生育与产假」的标注路径；中华人民共和国劳动法第五十八条 原文独立出现「劳动保护」，场景-概念适用有字面锚点。",
+   "hits_source": [
+    {
+     "term": "劳动保护",
+     "snippet": "女职工和未成年工实行特殊劳动保护。未成年工是指年满十六周"
+    }
+   ],
+   "scenario_alias_in_article": [],
+   "mech": true
+  },
+  {
+   "relation": "APPLIES_TO",
+   "source": "part_time_job",
+   "source_name": "非全日制用工",
+   "target": "labor_dispute",
+   "target_name": "劳动争议",
+   "article": "ll#77",
+   "article_no": "第七十七条",
+   "citation": "中华人民共和国劳动法第七十七条",
+   "gold": [
+    "g39",
+    "g110",
+    "g162"
+   ],
+   "note": "gold g39/g110/g162 把「劳动争议」列入场景「非全日制用工」的标注路径；中华人民共和国劳动法第七十七条 原文独立出现「劳动争议」，场景-概念适用有字面锚点。",
+   "hits_source": [
+    {
+     "term": "劳动争议",
+     "snippet": "用人单位与劳动者发生劳动争议，当事人可以依法申请调解"
+    }
+   ],
+   "scenario_alias_in_article": [],
+   "mech": true
+  },
+  {
+   "relation": "APPLIES_TO",
+   "source": "sick_leave",
+   "source_name": "病假与医疗期",
+   "target": "severance",
+   "target_name": "经济补偿",
+   "article": "lcl#46",
+   "article_no": "第四十六条",
+   "citation": "中华人民共和国劳动合同法第四十六条",
+   "gold": [
+    "g42"
+   ],
+   "note": "gold g42 把「经济补偿」列入场景「病假与医疗期」的标注路径；中华人民共和国劳动合同法第四十六条 原文独立出现「经济补偿」，场景-概念适用有字面锚点。",
+   "hits_source": [
+    {
+     "term": "经济补偿",
+     "snippet": "用人单位应当向劳动者支付经济补偿：（一）劳动者依照本法第"
+    }
+   ],
+   "scenario_alias_in_article": [],
+   "mech": true
+  },
+  {
+   "relation": "APPLIES_TO",
+   "source": "contract_terms_missing",
+   "source_name": "合同条款缺失",
+   "target": "standard_terms",
+   "target_name": "格式条款",
+   "article": "cc#497",
+   "article_no": "第四百九十七条",
+   "citation": "中华人民共和国民法典第四百九十七条",
+   "gold": [
+    "g51"
+   ],
+   "note": "gold g51 把「格式条款」列入场景「合同条款缺失」的标注路径；中华人民共和国民法典第四百九十七条 原文独立出现「格式条款」，场景-概念适用有字面锚点。",
+   "hits_source": [
+    {
+     "term": "格式条款",
+     "snippet": "有下列情形之一的，该格式条款无效：（一）具有本法第一"
+    },
+    {
+     "term": "提供格式条款",
+     "snippet": "条规定的无效情形；（二）提供格式条款一方不合理地免除或者减轻"
+    }
+   ],
+   "scenario_alias_in_article": [],
+   "mech": true
+  },
+  {
+   "relation": "APPLIES_TO",
+   "source": "severance_calculation",
+   "source_name": "经济补偿计算",
+   "target": "liquidated_damages_civil",
+   "target_name": "违约金",
+   "article": "cc#585",
+   "article_no": "第五百八十五条",
+   "citation": "中华人民共和国民法典第五百八十五条",
+   "gold": [
+    "g52"
+   ],
+   "note": "gold g52 把「违约金」列入场景「经济补偿计算」的标注路径；中华人民共和国民法典第五百八十五条 原文独立出现「违约金」，场景-概念适用有字面锚点。",
+   "hits_source": [
+    {
+     "term": "违约金",
+     "snippet": "情况向对方支付一定数额的违约金，也可以约定因违约产生的"
+    },
+    {
+     "term": "约定的违约金",
+     "snippet": "的损失赔偿额的计算方法。约定的违约金低于造成的损失的，人民法"
+    }
+   ],
+   "scenario_alias_in_article": [],
+   "mech": true
+  },
+  {
+   "relation": "APPLIES_TO",
+   "source": "illegal_dismissal",
+   "source_name": "违法解除",
+   "target": "damages_civil",
+   "target_name": "损害赔偿",
+   "article": "cc#1183",
+   "article_no": "第一千一百八十三条",
+   "citation": "中华人民共和国民法典第一千一百八十三条",
+   "gold": [
+    "g53"
+   ],
+   "note": "gold g53 把「损害赔偿」列入场景「违法解除」的标注路径；中华人民共和国民法典第一千一百八十三条 原文独立出现「损害赔偿」，场景-概念适用有字面锚点。",
+   "hits_source": [
+    {
+     "term": "损害赔偿",
+     "snippet": "的，被侵权人有权请求精神损害赔偿。因故意或者重大过失侵害"
+    },
+    {
+     "term": "损害赔偿",
+     "snippet": "的，被侵权人有权请求精神损害赔偿。"
+    }
+   ],
+   "scenario_alias_in_article": [],
+   "mech": true
+  },
+  {
+   "relation": "APPLIES_TO",
+   "source": "work_injury",
+   "source_name": "工伤认定与待遇",
+   "target": "tort_liability",
+   "target_name": "侵权责任",
+   "article": "cc#1175",
+   "article_no": "第一千一百七十五条",
+   "citation": "中华人民共和国民法典第一千一百七十五条",
+   "gold": [
+    "g55",
+    "g198"
+   ],
+   "note": "gold g55/g198 把「侵权责任」列入场景「工伤认定与待遇」的标注路径；中华人民共和国民法典第一千一百七十五条 原文独立出现「侵权责任」，场景-概念适用有字面锚点。",
+   "hits_source": [
+    {
+     "term": "侵权责任",
+     "snippet": "人造成的，第三人应当承担侵权责任。"
+    }
+   ],
+   "scenario_alias_in_article": [],
+   "mech": true
+  },
+  {
+   "relation": "APPLIES_TO",
+   "source": "work_injury",
+   "source_name": "工伤认定与待遇",
+   "target": "no_fault_liability",
+   "target_name": "无过错责任",
+   "article": "cc#1166",
+   "article_no": "第一千一百六十六条",
+   "citation": "中华人民共和国民法典第一千一百六十六条",
+   "gold": [
+    "g55"
+   ],
+   "note": "gold g55 把「无过错责任」列入场景「工伤认定与待遇」的标注路径；中华人民共和国民法典第一千一百六十六条 原文独立出现「不论行为人有无过错」，场景-概念适用有字面锚点。",
+   "hits_source": [
+    {
+     "term": "不论行为人有无过错",
+     "snippet": "人造成他人民事权益损害，不论行为人有无过错，法律规定应当承担侵权责"
+    }
+   ],
+   "scenario_alias_in_article": [],
+   "mech": true
+  },
+  {
+   "relation": "APPLIES_TO",
+   "source": "part_time_job",
+   "source_name": "非全日制用工",
+   "target": "offer",
+   "target_name": "要约",
+   "article": "cc#476",
+   "article_no": "第四百七十六条",
+   "citation": "中华人民共和国民法典第四百七十六条",
+   "gold": [
+    "g56"
+   ],
+   "note": "gold g56 把「要约」列入场景「非全日制用工」的标注路径；中华人民共和国民法典第四百七十六条 原文独立出现「要约」，场景-概念适用有字面锚点。",
+   "hits_source": [
+    {
+     "term": "要约",
+     "snippet": "要约可以撤销，但是有下列情形"
+    },
+    {
+     "term": "要约人",
+     "snippet": "列情形之一的除外：（一）要约人以确定承诺期限或者其他形"
+    }
+   ],
+   "scenario_alias_in_article": [],
+   "mech": true
+  },
+  {
+   "relation": "APPLIES_TO",
+   "source": "part_time_job",
+   "source_name": "非全日制用工",
+   "target": "contract_establishment",
+   "target_name": "合同成立",
+   "article": "cc#483",
+   "article_no": "第四百八十三条",
+   "citation": "中华人民共和国民法典第四百八十三条",
+   "gold": [
+    "g56",
+    "g179"
+   ],
+   "note": "gold g56/g179 把「合同成立」列入场景「非全日制用工」的标注路径；中华人民共和国民法典第四百八十三条 原文独立出现「合同成立」，场景-概念适用有字面锚点。",
+   "hits_source": [
+    {
+     "term": "合同成立",
+     "snippet": "承诺生效时合同成立，但是法律另有规定或者当"
+    }
+   ],
+   "scenario_alias_in_article": [],
+   "mech": true
+  },
+  {
+   "relation": "APPLIES_TO",
+   "source": "economic_layoff",
+   "source_name": "经济性裁员",
+   "target": "damages_civil",
+   "target_name": "损害赔偿",
+   "article": "cc#585",
+   "article_no": "第五百八十五条",
+   "citation": "中华人民共和国民法典第五百八十五条",
+   "gold": [
+    "g59",
+    "g193"
+   ],
+   "note": "gold g59/g193 把「损害赔偿」列入场景「经济性裁员」的标注路径；中华人民共和国民法典第五百八十五条 原文独立出现「损失赔偿」，场景-概念适用有字面锚点。",
+   "hits_source": [
+    {
+     "term": "损失赔偿",
+     "snippet": "，也可以约定因违约产生的损失赔偿额的计算方法。约定的违约"
+    }
+   ],
+   "scenario_alias_in_article": [],
+   "mech": true
+  },
+  {
+   "relation": "APPLIES_TO",
+   "source": "platform_worker",
+   "source_name": "平台用工",
+   "target": "agency",
+   "target_name": "代理",
+   "article": "cc#172",
+   "article_no": "第一百七十二条",
+   "citation": "中华人民共和国民法典第一百七十二条",
+   "gold": [
+    "g60"
+   ],
+   "note": "gold g60 把「代理」列入场景「平台用工」的标注路径；中华人民共和国民法典第一百七十二条 原文独立出现「代理」，场景-概念适用有字面锚点。",
+   "hits_source": [
+    {
+     "term": "代理",
+     "snippet": "者代理权终止后，仍然实施代理行为，相对人有理由相信行"
+    },
+    {
+     "term": "代理",
+     "snippet": "由相信行为人有代理权的，代理行为有效。"
+    }
+   ],
+   "scenario_alias_in_article": [],
+   "mech": true
+  },
+  {
+   "relation": "APPLIES_TO",
+   "source": "platform_worker",
+   "source_name": "平台用工",
+   "target": "apparent_agency",
+   "target_name": "表见代理",
+   "article": "cc#172",
+   "article_no": "第一百七十二条",
+   "citation": "中华人民共和国民法典第一百七十二条",
+   "gold": [
+    "g60"
+   ],
+   "note": "gold g60 把「表见代理」列入场景「平台用工」的标注路径；中华人民共和国民法典第一百七十二条 原文独立出现「相对人有理由相信」，场景-概念适用有字面锚点。",
+   "hits_source": [
+    {
+     "term": "相对人有理由相信",
+     "snippet": "止后，仍然实施代理行为，相对人有理由相信行为人有代理权的，代理行"
+    }
+   ],
+   "scenario_alias_in_article": [],
+   "mech": true
+  },
+  {
+   "relation": "APPLIES_TO",
+   "source": "probation_dismissal",
+   "source_name": "试用期辞退",
+   "target": "rescission_by_employer",
+   "target_name": "用人单位单方解除",
+   "article": "lcl#43",
+   "article_no": "第四十三条",
+   "citation": "中华人民共和国劳动合同法第四十三条",
+   "gold": [
+    "g68",
+    "g135"
+   ],
+   "note": "gold g68/g135 把「用人单位单方解除」列入场景「试用期辞退」的标注路径；中华人民共和国劳动合同法第四十三条 原文独立出现「用人单位单方解除」，场景-概念适用有字面锚点。",
+   "hits_source": [
+    {
+     "term": "用人单位单方解除",
+     "snippet": "用人单位单方解除劳动合同，应当事先将理由"
+    }
+   ],
+   "scenario_alias_in_article": [],
+   "mech": true
+  },
+  {
+   "relation": "APPLIES_TO",
+   "source": "probation_dismissal",
+   "source_name": "试用期辞退",
+   "target": "labor_contract",
+   "target_name": "劳动合同",
+   "article": "lcl#15",
+   "article_no": "第十五条",
+   "citation": "中华人民共和国劳动合同法第十五条",
+   "gold": [
+    "g69",
+    "g177"
+   ],
+   "note": "gold g69/g177 把「劳动合同」列入场景「试用期辞退」的标注路径；中华人民共和国劳动合同法第十五条 原文独立出现「劳动合同」，场景-概念适用有字面锚点。",
+   "hits_source": [
+    {
+     "term": "劳动合同",
+     "snippet": "完成一定工作任务为期限的劳动合同，是指用人单位与劳动者约"
+    },
+    {
+     "term": "劳动合同",
+     "snippet": "项工作的完成为合同期限的劳动合同。用人单位与劳动者协商一"
+    }
+   ],
+   "scenario_alias_in_article": [],
+   "mech": true
+  },
+  {
+   "relation": "APPLIES_TO",
+   "source": "open_ended_contract_request",
+   "source_name": "要求签无固定期限",
+   "target": "labor_contract",
+   "target_name": "劳动合同",
+   "article": "lcl#13",
+   "article_no": "第十三条",
+   "citation": "中华人民共和国劳动合同法第十三条",
+   "gold": [
+    "g71",
+    "g74",
+    "g178"
+   ],
+   "note": "gold g71/g74/g178 把「劳动合同」列入场景「要求签无固定期限」的标注路径；中华人民共和国劳动合同法第十三条 原文独立出现「劳动合同」，场景-概念适用有字面锚点。",
+   "hits_source": [
+    {
+     "term": "劳动合同",
+     "snippet": "固定期限劳动合同，是指用人单位与劳动者约"
+    },
+    {
+     "term": "劳动合同",
+     "snippet": "劳动者约定合同终止时间的劳动合同。用人单位与劳动者协商一"
+    }
+   ],
+   "scenario_alias_in_article": [],
+   "mech": true
+  },
+  {
+   "relation": "APPLIES_TO",
+   "source": "non_compete_dispute",
+   "source_name": "竞业限制纠纷",
+   "target": "trade_secret",
+   "target_name": "商业秘密",
+   "article": "lcl#23",
+   "article_no": "第二十三条",
+   "citation": "中华人民共和国劳动合同法第二十三条",
+   "gold": [
+    "g76",
+    "g139",
+    "g140"
+   ],
+   "note": "gold g76/g139/g140 把「商业秘密」列入场景「竞业限制纠纷」的标注路径；中华人民共和国劳动合同法第二十三条 原文独立出现「商业秘密」，场景-概念适用有字面锚点。",
+   "hits_source": [
+    {
+     "term": "商业秘密",
+     "snippet": "合同中约定保守用人单位的商业秘密和与知识产权相关的保密事"
+    }
+   ],
+   "scenario_alias_in_article": [
+    "竞业限制"
+   ],
+   "mech": true
+  },
+  {
+   "relation": "APPLIES_TO",
+   "source": "contractor_vs_employee",
+   "source_name": "劳动关系认定",
+   "target": "contract_rescission",
+   "target_name": "劳动合同解除",
+   "article": "lcl#36",
+   "article_no": "第三十六条",
+   "citation": "中华人民共和国劳动合同法第三十六条",
+   "gold": [
+    "g80"
+   ],
+   "note": "gold g80 把「劳动合同解除」列入场景「劳动关系认定」的标注路径；中华人民共和国劳动合同法第三十六条 原文独立出现「解除劳动合同」，场景-概念适用有字面锚点。",
+   "hits_source": [
+    {
+     "term": "解除劳动合同",
+     "snippet": "位与劳动者协商一致，可以解除劳动合同。"
+    }
+   ],
+   "scenario_alias_in_article": [],
+   "mech": true
+  },
+  {
+   "relation": "APPLIES_TO",
+   "source": "resignation_notice",
+   "source_name": "主动辞职",
+   "target": "non_fault_dismissal",
+   "target_name": "非过失性辞退",
+   "article": "lcl#40",
+   "article_no": "第四十条",
+   "citation": "中华人民共和国劳动合同法第四十条",
+   "gold": [
+    "g82",
+    "g141"
+   ],
+   "note": "gold g82/g141 把「非过失性辞退」列入场景「主动辞职」的标注路径；中华人民共和国劳动合同法第四十条 原文独立出现「提前三十日以书面形式通知」，场景-概念适用有字面锚点。",
+   "hits_source": [
+    {
+     "term": "提前三十日以书面形式通知",
+     "snippet": "下列情形之一的，用人单位提前三十日以书面形式通知劳动者本人或者额外支付劳"
+    },
+    {
+     "term": "不能胜任工作",
+     "snippet": "排的工作的；（二）劳动者不能胜任工作，经过培训或者调整工作岗"
+    }
+   ],
+   "scenario_alias_in_article": [],
+   "mech": true
+  },
+  {
+   "relation": "APPLIES_TO",
+   "source": "resignation_notice",
+   "source_name": "主动辞职",
+   "target": "severance",
+   "target_name": "经济补偿",
+   "article": "lcl#46",
+   "article_no": "第四十六条",
+   "citation": "中华人民共和国劳动合同法第四十六条",
+   "gold": [
+    "g83"
+   ],
+   "note": "gold g83 把「经济补偿」列入场景「主动辞职」的标注路径；中华人民共和国劳动合同法第四十六条 原文独立出现「经济补偿」，场景-概念适用有字面锚点。",
+   "hits_source": [
+    {
+     "term": "经济补偿",
+     "snippet": "用人单位应当向劳动者支付经济补偿：（一）劳动者依照本法第"
+    }
+   ],
+   "scenario_alias_in_article": [],
+   "mech": true
+  },
+  {
+   "relation": "APPLIES_TO",
+   "source": "immediate_resignation",
+   "source_name": "被迫即时解除",
+   "target": "file_transfer",
+   "target_name": "档案和社保转移",
+   "article": "lcl#50",
+   "article_no": "第五十条",
+   "citation": "中华人民共和国劳动合同法第五十条",
+   "gold": [
+    "g86"
+   ],
+   "note": "gold g86 把「档案和社保转移」列入场景「被迫即时解除」的标注路径；中华人民共和国劳动合同法第五十条 原文独立出现「社会保险关系转移」，场景-概念适用有字面锚点。",
+   "hits_source": [
+    {
+     "term": "社会保险关系转移",
+     "snippet": "五日内为劳动者办理档案和社会保险关系转移手续。劳动者应当按照双方"
+    },
+    {
+     "term": "转移手续",
+     "snippet": "者办理档案和社会保险关系转移手续。劳动者应当按照双方约定"
+    }
+   ],
+   "scenario_alias_in_article": [],
+   "mech": true
+  },
+  {
+   "relation": "APPLIES_TO",
+   "source": "economic_layoff",
+   "source_name": "经济性裁员",
+   "target": "rescission_by_employer",
+   "target_name": "用人单位单方解除",
+   "article": "lcl#43",
+   "article_no": "第四十三条",
+   "citation": "中华人民共和国劳动合同法第四十三条",
+   "gold": [
+    "g89"
+   ],
+   "note": "gold g89 把「用人单位单方解除」列入场景「经济性裁员」的标注路径；中华人民共和国劳动合同法第四十三条 原文独立出现「用人单位单方解除」，场景-概念适用有字面锚点。",
+   "hits_source": [
+    {
+     "term": "用人单位单方解除",
+     "snippet": "用人单位单方解除劳动合同，应当事先将理由"
+    }
+   ],
+   "scenario_alias_in_article": [],
+   "mech": true
+  },
+  {
+   "relation": "APPLIES_TO",
+   "source": "illegal_dismissal",
+   "source_name": "违法解除",
+   "target": "severance_standard",
+   "target_name": "经济补偿计算标准",
+   "article": "lcl#47",
+   "article_no": "第四十七条",
+   "citation": "中华人民共和国劳动合同法第四十七条",
+   "gold": [
+    "g90",
+    "g148"
+   ],
+   "note": "gold g90/g148 把「经济补偿计算标准」列入场景「违法解除」的标注路径；中华人民共和国劳动合同法第四十七条 原文独立出现「按劳动者在本单位工作的年限」，场景-概念适用有字面锚点。",
+   "hits_source": [
+    {
+     "term": "按劳动者在本单位工作的年限",
+     "snippet": "经济补偿按劳动者在本单位工作的年限，每满一年支付一个月工资"
+    },
+    {
+     "term": "每满一年支付一个月工资",
+     "snippet": "动者在本单位工作的年限，每满一年支付一个月工资的标准向劳动者支付。六个"
+    }
+   ],
+   "scenario_alias_in_article": [],
+   "mech": true
+  },
+  {
+   "relation": "APPLIES_TO",
+   "source": "severance_calculation",
+   "source_name": "经济补偿计算",
+   "target": "labor_relationship",
+   "target_name": "劳动关系",
+   "article": "lcl#7",
+   "article_no": "第七条",
+   "citation": "中华人民共和国劳动合同法第七条",
+   "gold": [
+    "g94",
+    "g149"
+   ],
+   "note": "gold g94/g149 把「劳动关系」列入场景「经济补偿计算」的标注路径；中华人民共和国劳动合同法第七条 原文独立出现「劳动关系」，场景-概念适用有字面锚点。",
+   "hits_source": [
+    {
+     "term": "劳动关系",
+     "snippet": "用工之日起即与劳动者建立劳动关系。用人单位应当建立职工名"
+    }
+   ],
+   "scenario_alias_in_article": [],
+   "mech": true
+  },
+  {
+   "relation": "APPLIES_TO",
+   "source": "service_period_training",
+   "source_name": "服务期与培训",
+   "target": "labor_contract",
+   "target_name": "劳动合同",
+   "article": "lcl#13",
+   "article_no": "第十三条",
+   "citation": "中华人民共和国劳动合同法第十三条",
+   "gold": [
+    "g95",
+    "g180"
+   ],
+   "note": "gold g95/g180 把「劳动合同」列入场景「服务期与培训」的标注路径；中华人民共和国劳动合同法第十三条 原文独立出现「劳动合同」，场景-概念适用有字面锚点。",
+   "hits_source": [
+    {
+     "term": "劳动合同",
+     "snippet": "固定期限劳动合同，是指用人单位与劳动者约"
+    },
+    {
+     "term": "劳动合同",
+     "snippet": "劳动者约定合同终止时间的劳动合同。用人单位与劳动者协商一"
+    }
+   ],
+   "scenario_alias_in_article": [],
+   "mech": true
+  },
+  {
+   "relation": "APPLIES_TO",
+   "source": "work_injury",
+   "source_name": "工伤认定与待遇",
+   "target": "social_insurance",
+   "target_name": "社会保险",
+   "article": "ll#72",
+   "article_no": "第七十二条",
+   "citation": "中华人民共和国劳动法第七十二条",
+   "gold": [
+    "g100"
+   ],
+   "note": "gold g100 把「社会保险」列入场景「工伤认定与待遇」的标注路径；中华人民共和国劳动法第七十二条 原文独立出现「社会保险」，场景-概念适用有字面锚点。",
+   "hits_source": [
+    {
+     "term": "社会保险",
+     "snippet": "社会保险基金按照保险类型确定资金"
+    },
+    {
+     "term": "社会保险",
+     "snippet": "单位和劳动者必须依法参加社会保险，缴纳社会保险费。"
+    }
+   ],
+   "scenario_alias_in_article": [],
+   "mech": true
+  },
+  {
+   "relation": "APPLIES_TO",
+   "source": "annual_leave",
+   "source_name": "年休假",
+   "target": "working_hours",
+   "target_name": "工时制度",
+   "article": "ll#36",
+   "article_no": "第三十六条",
+   "citation": "中华人民共和国劳动法第三十六条",
+   "gold": [
+    "g104",
+    "g158"
+   ],
+   "note": "gold g104/g158 把「工时制度」列入场景「年休假」的标注路径；中华人民共和国劳动法第三十六条 原文独立出现「每日工作时间」，场景-概念适用有字面锚点。",
+   "hits_source": [
+    {
+     "term": "每日工作时间",
+     "snippet": "国家实行劳动者每日工作时间不超过八小时、平均每周工"
+    },
+    {
+     "term": "工作时间",
+     "snippet": "间不超过八小时、平均每周工作时间不超过四十四小时的工时制"
+    }
+   ],
+   "scenario_alias_in_article": [],
+   "mech": true
+  },
+  {
+   "relation": "APPLIES_TO",
+   "source": "working_hours_dispute",
+   "source_name": "工时与休息",
+   "target": "emergency_overtime",
+   "target_name": "紧急情况加班",
+   "article": "ll#42",
+   "article_no": "第四十二条",
+   "citation": "中华人民共和国劳动法第四十二条",
+   "gold": [
+    "g106"
+   ],
+   "note": "gold g106 把「紧急情况加班」列入场景「工时与休息」的标注路径；中华人民共和国劳动法第四十二条 原文独立出现「发生自然灾害」，场景-概念适用有字面锚点。",
+   "hits_source": [
+    {
+     "term": "发生自然灾害",
+     "snippet": "十一条规定的限制：（一）发生自然灾害、事故或者因其他原因，威"
+    },
+    {
+     "term": "抢修",
+     "snippet": "生产和公众利益，必须及时抢修的；（三）法律、行政法规"
+    }
+   ],
+   "scenario_alias_in_article": [
+    "工作时间"
+   ],
+   "mech": true
+  },
+  {
+   "relation": "APPLIES_TO",
+   "source": "wage_deduction",
+   "source_name": "扣罚工资",
+   "target": "piece_rate",
+   "target_name": "计件工资",
+   "article": "ll#37",
+   "article_no": "第三十七条",
+   "citation": "中华人民共和国劳动法第三十七条",
+   "gold": [
+    "g108"
+   ],
+   "note": "gold g108 把「计件工资」列入场景「扣罚工资」的标注路径；中华人民共和国劳动法第三十七条 原文独立出现「计件报酬」，场景-概念适用有字面锚点。",
+   "hits_source": [
+    {
+     "term": "计件报酬",
+     "snippet": "制度合理确定其劳动定额和计件报酬标准。"
+    }
+   ],
+   "scenario_alias_in_article": [],
+   "mech": true
+  },
+  {
+   "relation": "APPLIES_TO",
+   "source": "wage_deduction",
+   "source_name": "扣罚工资",
+   "target": "immediate_rescission",
+   "target_name": "劳动者即时解除",
+   "article": "lcl#38",
+   "article_no": "第三十八条",
+   "citation": "中华人民共和国劳动合同法第三十八条",
+   "gold": [
+    "g109",
+    "g161"
+   ],
+   "note": "gold g109/g161 把「劳动者即时解除」列入场景「扣罚工资」的标注路径；中华人民共和国劳动合同法第三十八条 原文独立出现「立即解除」，场景-概念适用有字面锚点。",
+   "hits_source": [
+    {
+     "term": "立即解除",
+     "snippet": "者人身安全的，劳动者可以立即解除劳动合同，不需事先告知用"
+    }
+   ],
+   "scenario_alias_in_article": [],
+   "mech": true
+  },
+  {
+   "relation": "APPLIES_TO",
+   "source": "part_time_job",
+   "source_name": "非全日制用工",
+   "target": "labor_contract",
+   "target_name": "劳动合同",
+   "article": "ll#19",
+   "article_no": "第十九条",
+   "citation": "中华人民共和国劳动法第十九条",
+   "gold": [
+    "g111",
+    "g179"
+   ],
+   "note": "gold g111/g179 把「劳动合同」列入场景「非全日制用工」的标注路径；中华人民共和国劳动法第十九条 原文独立出现「劳动合同」，场景-概念适用有字面锚点。",
+   "hits_source": [
+    {
+     "term": "劳动合同",
+     "snippet": "劳动合同应当以书面形式订立，并具"
+    },
+    {
+     "term": "劳动合同",
+     "snippet": "，并具备以下条款：（一）劳动合同期限；（二）工作内容；（"
+    }
+   ],
+   "scenario_alias_in_article": [],
+   "mech": true
+  },
+  {
+   "relation": "APPLIES_TO",
+   "source": "contractor_vs_employee",
+   "source_name": "劳动关系认定",
+   "target": "labor_dispute",
+   "target_name": "劳动争议",
+   "article": "ll#77",
+   "article_no": "第七十七条",
+   "citation": "中华人民共和国劳动法第七十七条",
+   "gold": [
+    "g114"
+   ],
+   "note": "gold g114 把「劳动争议」列入场景「劳动关系认定」的标注路径；中华人民共和国劳动法第七十七条 原文独立出现「劳动争议」，场景-概念适用有字面锚点。",
+   "hits_source": [
+    {
+     "term": "劳动争议",
+     "snippet": "用人单位与劳动者发生劳动争议，当事人可以依法申请调解"
+    }
+   ],
+   "scenario_alias_in_article": [],
+   "mech": true
+  },
+  {
+   "relation": "APPLIES_TO",
+   "source": "confidentiality_breach",
+   "source_name": "泄密纠纷",
+   "target": "non_compete",
+   "target_name": "竞业限制",
+   "article": "lcl#23",
+   "article_no": "第二十三条",
+   "citation": "中华人民共和国劳动合同法第二十三条",
+   "gold": [
+    "g117",
+    "g165",
+    "g166"
+   ],
+   "note": "gold g117/g165/g166 把「竞业限制」列入场景「泄密纠纷」的标注路径；中华人民共和国劳动合同法第二十三条 原文独立出现「竞业限制」，场景-概念适用有字面锚点。",
+   "hits_source": [
+    {
+     "term": "竞业限制",
+     "snippet": "者保密协议中与劳动者约定竞业限制条款，并约定在解除或者终"
+    },
+    {
+     "term": "竞业限制",
+     "snippet": "除或者终止劳动合同后，在竞业限制期限内按月给予劳动者经济"
+    }
+   ],
+   "scenario_alias_in_article": [
+    "保密协议"
+   ],
+   "mech": true
+  },
+  {
+   "relation": "APPLIES_TO",
+   "source": "labor_litigation",
+   "source_name": "劳动争议诉讼",
+   "target": "arbitration",
+   "target_name": "劳动仲裁",
+   "article": "ll#79",
+   "article_no": "第七十九条",
+   "citation": "中华人民共和国劳动法第七十九条",
+   "gold": [
+    "g122",
+    "g123"
+   ],
+   "note": "gold g122/g123 把「劳动仲裁」列入场景「劳动争议诉讼」的标注路径；中华人民共和国劳动法第七十九条 原文独立出现「劳动争议仲裁」，场景-概念适用有字面锚点。",
+   "hits_source": [
+    {
+     "term": "劳动争议仲裁",
+     "snippet": "人一方要求仲裁的，可以向劳动争议仲裁委员会申请仲裁。当事人一"
+    },
+    {
+     "term": "劳动争议仲裁",
+     "snippet": "。当事人一方也可以直接向劳动争议仲裁委员会申请仲裁。对仲裁裁"
+    }
+   ],
+   "scenario_alias_in_article": [],
+   "mech": true
+  },
+  {
+   "relation": "APPLIES_TO",
+   "source": "handover_dispute",
+   "source_name": "离职交接与证明",
+   "target": "social_insurance",
+   "target_name": "社会保险",
+   "article": "ll#72",
+   "article_no": "第七十二条",
+   "citation": "中华人民共和国劳动法第七十二条",
+   "gold": [
+    "g125"
+   ],
+   "note": "gold g125 把「社会保险」列入场景「离职交接与证明」的标注路径；中华人民共和国劳动法第七十二条 原文独立出现「社会保险」，场景-概念适用有字面锚点。",
+   "hits_source": [
+    {
+     "term": "社会保险",
+     "snippet": "社会保险基金按照保险类型确定资金"
+    },
+    {
+     "term": "社会保险",
+     "snippet": "单位和劳动者必须依法参加社会保险，缴纳社会保险费。"
+    }
+   ],
+   "scenario_alias_in_article": [],
+   "mech": true
+  },
+  {
+   "relation": "APPLIES_TO",
+   "source": "remote_work",
+   "source_name": "远程办公",
+   "target": "work_hour_extension",
+   "target_name": "延长工作时间",
+   "article": "ll#41",
+   "article_no": "第四十一条",
+   "citation": "中华人民共和国劳动法第四十一条",
+   "gold": [
+    "g127"
+   ],
+   "note": "gold g127 把「延长工作时间」列入场景「远程办公」的标注路径；中华人民共和国劳动法第四十一条 原文独立出现「延长工作时间」，场景-概念适用有字面锚点。",
+   "hits_source": [
+    {
+     "term": "延长工作时间",
+     "snippet": "与工会和劳动者协商后可以延长工作时间，一般每日不得超过一小时"
+    },
+    {
+     "term": "延长工作时间",
+     "snippet": "过一小时；因特殊原因需要延长工作时间的，在保障劳动者身体健康"
+    }
+   ],
+   "scenario_alias_in_article": [],
+   "mech": true
+  },
+  {
+   "relation": "APPLIES_TO",
+   "source": "remote_work",
+   "source_name": "远程办公",
+   "target": "overtime_pay",
+   "target_name": "加班工资",
+   "article": "lcl#31",
+   "article_no": "第三十一条",
+   "citation": "中华人民共和国劳动合同法第三十一条",
+   "gold": [
+    "g128"
+   ],
+   "note": "gold g128 把「加班工资」列入场景「远程办公」的标注路径；中华人民共和国劳动合同法第三十一条 原文独立出现「加班费」，场景-概念适用有字面锚点。",
+   "hits_source": [
+    {
+     "term": "加班费",
+     "snippet": "国家有关规定向劳动者支付加班费。"
+    }
+   ],
+   "scenario_alias_in_article": [],
+   "mech": true
+  },
+  {
+   "relation": "APPLIES_TO",
+   "source": "remote_work",
+   "source_name": "远程办公",
+   "target": "contract_modification",
+   "target_name": "劳动合同变更",
+   "article": "lcl#35",
+   "article_no": "第三十五条",
+   "citation": "中华人民共和国劳动合同法第三十五条",
+   "gold": [
+    "g129"
+   ],
+   "note": "gold g129 把「劳动合同变更」列入场景「远程办公」的标注路径；中华人民共和国劳动合同法第三十五条 原文独立出现「变更劳动合同」，场景-概念适用有字面锚点。",
+   "hits_source": [
+    {
+     "term": "变更劳动合同",
+     "snippet": "位与劳动者协商一致，可以变更劳动合同约定的内容。变更劳动合同"
+    },
+    {
+     "term": "变更劳动合同",
+     "snippet": "变更劳动合同约定的内容。变更劳动合同，应当采用书面形式。变更"
+    }
+   ],
+   "scenario_alias_in_article": [],
+   "mech": true
+  },
+  {
+   "relation": "APPLIES_TO",
+   "source": "platform_worker",
+   "source_name": "平台用工",
+   "target": "social_insurance",
+   "target_name": "社会保险",
+   "article": "ll#72",
+   "article_no": "第七十二条",
+   "citation": "中华人民共和国劳动法第七十二条",
+   "gold": [
+    "g130"
+   ],
+   "note": "gold g130 把「社会保险」列入场景「平台用工」的标注路径；中华人民共和国劳动法第七十二条 原文独立出现「社会保险」，场景-概念适用有字面锚点。",
+   "hits_source": [
+    {
+     "term": "社会保险",
+     "snippet": "社会保险基金按照保险类型确定资金"
+    },
+    {
+     "term": "社会保险",
+     "snippet": "单位和劳动者必须依法参加社会保险，缴纳社会保险费。"
+    }
+   ],
+   "scenario_alias_in_article": [],
+   "mech": true
+  },
+  {
+   "relation": "APPLIES_TO",
+   "source": "overtime_pay_dispute",
+   "source_name": "加班费争议",
+   "target": "emergency_overtime",
+   "target_name": "紧急情况加班",
+   "article": "ll#42",
+   "article_no": "第四十二条",
+   "citation": "中华人民共和国劳动法第四十二条",
+   "gold": [
+    "g133"
+   ],
+   "note": "gold g133 把「紧急情况加班」列入场景「加班费争议」的标注路径；中华人民共和国劳动法第四十二条 原文独立出现「发生自然灾害」，场景-概念适用有字面锚点。",
+   "hits_source": [
+    {
+     "term": "发生自然灾害",
+     "snippet": "十一条规定的限制：（一）发生自然灾害、事故或者因其他原因，威"
+    },
+    {
+     "term": "抢修",
+     "snippet": "生产和公众利益，必须及时抢修的；（三）法律、行政法规"
+    }
+   ],
+   "scenario_alias_in_article": [],
+   "mech": true
+  },
+  {
+   "relation": "APPLIES_TO",
+   "source": "contract_renewal",
+   "source_name": "合同到期续签",
+   "target": "severance_standard",
+   "target_name": "经济补偿计算标准",
+   "article": "lcl#47",
+   "article_no": "第四十七条",
+   "citation": "中华人民共和国劳动合同法第四十七条",
+   "gold": [
+    "g137"
+   ],
+   "note": "gold g137 把「经济补偿计算标准」列入场景「合同到期续签」的标注路径；中华人民共和国劳动合同法第四十七条 原文独立出现「按劳动者在本单位工作的年限」，场景-概念适用有字面锚点。",
+   "hits_source": [
+    {
+     "term": "按劳动者在本单位工作的年限",
+     "snippet": "经济补偿按劳动者在本单位工作的年限，每满一年支付一个月工资"
+    },
+    {
+     "term": "每满一年支付一个月工资",
+     "snippet": "动者在本单位工作的年限，每满一年支付一个月工资的标准向劳动者支付。六个"
+    }
+   ],
+   "scenario_alias_in_article": [],
+   "mech": true
+  },
+  {
+   "relation": "APPLIES_TO",
+   "source": "contract_renewal",
+   "source_name": "合同到期续签",
+   "target": "retirement",
+   "target_name": "退休",
+   "article": "ll#73",
+   "article_no": "第七十三条",
+   "citation": "中华人民共和国劳动法第七十三条",
+   "gold": [
+    "g138"
+   ],
+   "note": "gold g138 把「退休」列入场景「合同到期续签」的标注路径；中华人民共和国劳动法第七十三条 原文独立出现「退休」，场景-概念适用有字面锚点。",
+   "hits_source": [
+    {
+     "term": "退休",
+     "snippet": "享受社会保险待遇：（一）退休；（二）患病、负伤；（三"
+    }
+   ],
+   "scenario_alias_in_article": [],
+   "mech": true
+  },
+  {
+   "relation": "APPLIES_TO",
+   "source": "resignation_notice",
+   "source_name": "主动辞职",
+   "target": "separation_certificate",
+   "target_name": "解除终止证明",
+   "article": "lcl#50",
+   "article_no": "第五十条",
+   "citation": "中华人民共和国劳动合同法第五十条",
+   "gold": [
+    "g142"
+   ],
+   "note": "gold g142 把「解除终止证明」列入场景「主动辞职」的标注路径；中华人民共和国劳动合同法第五十条 原文独立出现「解除或者终止劳动合同的证明」，场景-概念适用有字面锚点。",
+   "hits_source": [
+    {
+     "term": "解除或者终止劳动合同的证明",
+     "snippet": "除或者终止劳动合同时出具解除或者终止劳动合同的证明，并在十五日内为劳动者办"
+    }
+   ],
+   "scenario_alias_in_article": [],
+   "mech": true
+  },
+  {
+   "relation": "APPLIES_TO",
+   "source": "immediate_resignation",
+   "source_name": "被迫即时解除",
+   "target": "labor_quota",
+   "target_name": "劳动定额",
+   "article": "lcl#4",
+   "article_no": "第四条",
+   "citation": "中华人民共和国劳动合同法第四条",
+   "gold": [
+    "g143"
+   ],
+   "note": "gold g143 把「劳动定额」列入场景「被迫即时解除」的标注路径；中华人民共和国劳动合同法第四条 原文独立出现「劳动定额」，场景-概念适用有字面锚点。",
+   "hits_source": [
+    {
+     "term": "劳动定额",
+     "snippet": "、职工培训、劳动纪律以及劳动定额管理等直接涉及劳动者切身"
+    }
+   ],
+   "scenario_alias_in_article": [],
+   "mech": true
+  },
+  {
+   "relation": "APPLIES_TO",
+   "source": "economic_layoff",
+   "source_name": "经济性裁员",
+   "target": "damages",
+   "target_name": "赔偿金",
+   "article": "lcl#85",
+   "article_no": "第八十五条",
+   "citation": "中华人民共和国劳动合同法第八十五条",
+   "gold": [
+    "g146",
+    "g193"
+   ],
+   "note": "gold g146/g193 把「赔偿金」列入场景「经济性裁员」的标注路径；中华人民共和国劳动合同法第八十五条 原文独立出现「赔偿金」，场景-概念适用有字面锚点。",
+   "hits_source": [
+    {
+     "term": "赔偿金",
+     "snippet": "百以下的标准向劳动者加付赔偿金：（一）未按照劳动合同的"
+    }
+   ],
+   "scenario_alias_in_article": [],
+   "mech": true
+  },
+  {
+   "relation": "APPLIES_TO",
+   "source": "illegal_dismissal",
+   "source_name": "违法解除",
+   "target": "fault_dismissal",
+   "target_name": "过失性辞退",
+   "article": "lcl#39",
+   "article_no": "第三十九条",
+   "citation": "中华人民共和国劳动合同法第三十九条",
+   "gold": [
+    "g147"
+   ],
+   "note": "gold g147 把「过失性辞退」列入场景「违法解除」的标注路径；中华人民共和国劳动合同法第三十九条 原文独立出现「严重违反用人单位的规章制度」，场景-概念适用有字面锚点。",
+   "hits_source": [
+    {
+     "term": "严重违反用人单位的规章制度",
+     "snippet": "不符合录用条件的；（二）严重违反用人单位的规章制度的；（三）严重失职，营私"
+    },
+    {
+     "term": "严重失职",
+     "snippet": "单位的规章制度的；（三）严重失职，营私舞弊，给用人单位造"
+    }
+   ],
+   "scenario_alias_in_article": [],
+   "mech": true
+  },
+  {
+   "relation": "APPLIES_TO",
+   "source": "severance_calculation",
+   "source_name": "经济补偿计算",
+   "target": "labor_union",
+   "target_name": "工会",
+   "article": "lcl#6",
+   "article_no": "第六条",
+   "citation": "中华人民共和国劳动合同法第六条",
+   "gold": [
+    "g150"
+   ],
+   "note": "gold g150 把「工会」列入场景「经济补偿计算」的标注路径；中华人民共和国劳动合同法第六条 原文独立出现「工会」，场景-概念适用有字面锚点。",
+   "hits_source": [
+    {
+     "term": "工会",
+     "snippet": "工会应当帮助、指导劳动者与用"
+    }
+   ],
+   "scenario_alias_in_article": [],
+   "mech": true
+  },
+  {
+   "relation": "APPLIES_TO",
+   "source": "double_wage_claim",
+   "source_name": "二倍工资",
+   "target": "wage",
+   "target_name": "工资",
+   "article": "ll#50",
+   "article_no": "第五十条",
+   "citation": "中华人民共和国劳动法第五十条",
+   "gold": [
+    "g152"
+   ],
+   "note": "gold g152 把「工资」列入场景「二倍工资」的标注路径；中华人民共和国劳动法第五十条 原文独立出现「工资」，场景-概念适用有字面锚点。",
+   "hits_source": [
+    {
+     "term": "工资",
+     "snippet": "工资应当以货币形式按月支付给"
+    },
+    {
+     "term": "工资",
+     "snippet": "克扣或者无故拖欠劳动者的工资。"
+    }
+   ],
+   "scenario_alias_in_article": [],
+   "mech": true
+  },
+  {
+   "relation": "APPLIES_TO",
+   "source": "double_wage_claim",
+   "source_name": "二倍工资",
+   "target": "wage_payment",
+   "target_name": "工资支付",
+   "article": "lcl#30",
+   "article_no": "第三十条",
+   "citation": "中华人民共和国劳动合同法第三十条",
+   "gold": [
+    "g152"
+   ],
+   "note": "gold g152 把「工资支付」列入场景「二倍工资」的标注路径；中华人民共和国劳动合同法第三十条 原文独立出现「足额支付」，场景-概念适用有字面锚点。",
+   "hits_source": [
+    {
+     "term": "足额支付",
+     "snippet": "和国家规定，向劳动者及时足额支付劳动报酬。用人单位拖欠或"
+    },
+    {
+     "term": "支付劳动报酬",
+     "snippet": "家规定，向劳动者及时足额支付劳动报酬。用人单位拖欠或者未足额"
+    }
+   ],
+   "scenario_alias_in_article": [],
+   "mech": true
+  },
+  {
+   "relation": "APPLIES_TO",
+   "source": "social_insurance_dispute",
+   "source_name": "社保争议",
+   "target": "file_transfer",
+   "target_name": "档案和社保转移",
+   "article": "lcl#50",
+   "article_no": "第五十条",
+   "citation": "中华人民共和国劳动合同法第五十条",
+   "gold": [
+    "g153"
+   ],
+   "note": "gold g153 把「档案和社保转移」列入场景「社保争议」的标注路径；中华人民共和国劳动合同法第五十条 原文独立出现「社会保险关系转移」，场景-概念适用有字面锚点。",
+   "hits_source": [
+    {
+     "term": "社会保险关系转移",
+     "snippet": "五日内为劳动者办理档案和社会保险关系转移手续。劳动者应当按照双方"
+    },
+    {
+     "term": "转移手续",
+     "snippet": "者办理档案和社会保险关系转移手续。劳动者应当按照双方约定"
+    }
+   ],
+   "scenario_alias_in_article": [],
+   "mech": true
+  },
+  {
+   "relation": "APPLIES_TO",
+   "source": "maternity_leave",
+   "source_name": "生育与产假",
+   "target": "sick_leave",
+   "target_name": "病假与医疗期",
+   "article": "lcl#42",
+   "article_no": "第四十二条",
+   "citation": "中华人民共和国劳动合同法第四十二条",
+   "gold": [
+    "g156"
+   ],
+   "note": "gold g156 把「病假与医疗期」列入场景「生育与产假」的标注路径；中华人民共和国劳动合同法第四十二条 原文独立出现「患病或者非因工负伤」，场景-概念适用有字面锚点。",
+   "hits_source": [
+    {
+     "term": "患病或者非因工负伤",
+     "snippet": "分丧失劳动能力的；（三）患病或者非因工负伤，在规定的医疗期内的；（"
+    }
+   ],
+   "scenario_alias_in_article": [
+    "哺乳期"
+   ],
+   "mech": true
+  },
+  {
+   "relation": "APPLIES_TO",
+   "source": "annual_leave",
+   "source_name": "年休假",
+   "target": "statutory_holiday",
+   "target_name": "法定休假日",
+   "article": "ll#51",
+   "article_no": "第五十一条",
+   "citation": "中华人民共和国劳动法第五十一条",
+   "gold": [
+    "g157"
+   ],
+   "note": "gold g157 把「法定休假日」列入场景「年休假」的标注路径；中华人民共和国劳动法第五十一条 原文独立出现「法定休假日」，场景-概念适用有字面锚点。",
+   "hits_source": [
+    {
+     "term": "法定休假日",
+     "snippet": "劳动者在法定休假日和婚丧假期间以及依法参加"
+    }
+   ],
+   "scenario_alias_in_article": [],
+   "mech": true
+  },
+  {
+   "relation": "APPLIES_TO",
+   "source": "annual_leave",
+   "source_name": "年休假",
+   "target": "overtime_pay",
+   "target_name": "加班工资",
+   "article": "lcl#31",
+   "article_no": "第三十一条",
+   "citation": "中华人民共和国劳动合同法第三十一条",
+   "gold": [
+    "g158"
+   ],
+   "note": "gold g158 把「加班工资」列入场景「年休假」的标注路径；中华人民共和国劳动合同法第三十一条 原文独立出现「加班费」，场景-概念适用有字面锚点。",
+   "hits_source": [
+    {
+     "term": "加班费",
+     "snippet": "国家有关规定向劳动者支付加班费。"
+    }
+   ],
+   "scenario_alias_in_article": [],
+   "mech": true
+  },
+  {
+   "relation": "APPLIES_TO",
+   "source": "working_hours_dispute",
+   "source_name": "工时与休息",
+   "target": "overtime_pay",
+   "target_name": "加班工资",
+   "article": "lcl#31",
+   "article_no": "第三十一条",
+   "citation": "中华人民共和国劳动合同法第三十一条",
+   "gold": [
+    "g160"
+   ],
+   "note": "gold g160 把「加班工资」列入场景「工时与休息」的标注路径；中华人民共和国劳动合同法第三十一条 原文独立出现「加班费」，场景-概念适用有字面锚点。",
+   "hits_source": [
+    {
+     "term": "加班费",
+     "snippet": "国家有关规定向劳动者支付加班费。"
+    }
+   ],
+   "scenario_alias_in_article": [],
+   "mech": true
+  },
+  {
+   "relation": "APPLIES_TO",
+   "source": "working_hours_dispute",
+   "source_name": "工时与休息",
+   "target": "wage_payment",
+   "target_name": "工资支付",
+   "article": "lcl#85",
+   "article_no": "第八十五条",
+   "citation": "中华人民共和国劳动合同法第八十五条",
+   "gold": [
+    "g160"
+   ],
+   "note": "gold g160 把「工资支付」列入场景「工时与休息」的标注路径；中华人民共和国劳动合同法第八十五条 原文独立出现「支付劳动报酬」，场景-概念适用有字面锚点。",
+   "hits_source": [
+    {
+     "term": "支付劳动报酬",
+     "snippet": "，由劳动行政部门责令限期支付劳动报酬、加班费或者经济补偿；劳"
+    },
+    {
+     "term": "足额支付",
+     "snippet": "同的约定或者国家规定及时足额支付劳动者劳动报酬的；（二）"
+    }
+   ],
+   "scenario_alias_in_article": [],
+   "mech": true
+  },
+  {
+   "relation": "APPLIES_TO",
+   "source": "part_time_job",
+   "source_name": "非全日制用工",
+   "target": "arbitration",
+   "target_name": "劳动仲裁",
+   "article": "ll#82",
+   "article_no": "第八十二条",
+   "citation": "中华人民共和国劳动法第八十二条",
+   "gold": [
+    "g162"
+   ],
+   "note": "gold g162 把「劳动仲裁」列入场景「非全日制用工」的标注路径；中华人民共和国劳动法第八十二条 原文独立出现「劳动争议仲裁」，场景-概念适用有字面锚点。",
+   "hits_source": [
+    {
+     "term": "劳动争议仲裁",
+     "snippet": "争议发生之日起六十日内向劳动争议仲裁委员会提出书面申请。仲裁"
+    }
+   ],
+   "scenario_alias_in_article": [],
+   "mech": true
+  },
+  {
+   "relation": "APPLIES_TO",
+   "source": "collective_contract",
+   "source_name": "集体合同",
+   "target": "severance",
+   "target_name": "经济补偿",
+   "article": "lcl#46",
+   "article_no": "第四十六条",
+   "citation": "中华人民共和国劳动合同法第四十六条",
+   "gold": [
+    "g163"
+   ],
+   "note": "gold g163 把「经济补偿」列入场景「集体合同」的标注路径；中华人民共和国劳动合同法第四十六条 原文独立出现「经济补偿」，场景-概念适用有字面锚点。",
+   "hits_source": [
+    {
+     "term": "经济补偿",
+     "snippet": "用人单位应当向劳动者支付经济补偿：（一）劳动者依照本法第"
+    }
+   ],
+   "scenario_alias_in_article": [],
+   "mech": true
+  },
+  {
+   "relation": "APPLIES_TO",
+   "source": "confidentiality_breach",
+   "source_name": "泄密纠纷",
+   "target": "non_compete_compensation",
+   "target_name": "竞业限制经济补偿",
+   "article": "lcl#23",
+   "article_no": "第二十三条",
+   "citation": "中华人民共和国劳动合同法第二十三条",
+   "gold": [
+    "g165",
+    "g166"
+   ],
+   "note": "gold g165/g166 把「竞业限制经济补偿」列入场景「泄密纠纷」的标注路径；中华人民共和国劳动合同法第二十三条 原文独立出现「按月给予劳动者经济补偿」，场景-概念适用有字面锚点。",
+   "hits_source": [
+    {
+     "term": "按月给予劳动者经济补偿",
+     "snippet": "合同后，在竞业限制期限内按月给予劳动者经济补偿。劳动者违反竞业限制约定"
+    }
+   ],
+   "scenario_alias_in_article": [
+    "保密协议"
+   ],
+   "mech": true
+  },
+  {
+   "relation": "APPLIES_TO",
+   "source": "occupational_disease",
+   "source_name": "职业病",
+   "target": "illegal_rescission",
+   "target_name": "违法解除",
+   "article": "lcl#87",
+   "article_no": "第八十七条",
+   "citation": "中华人民共和国劳动合同法第八十七条",
+   "gold": [
+    "g167"
+   ],
+   "note": "gold g167 把「违法解除」列入场景「职业病」的标注路径；中华人民共和国劳动合同法第八十七条 原文独立出现「违反本法规定解除或者终止劳动合同」，场景-概念适用有字面锚点。",
+   "hits_source": [
+    {
+     "term": "违反本法规定解除或者终止劳动合同",
+     "snippet": "用人单位违反本法规定解除或者终止劳动合同的，应当依照本法第四十七"
+    }
+   ],
+   "scenario_alias_in_article": [],
+   "mech": true
+  },
+  {
+   "relation": "APPLIES_TO",
+   "source": "arbitration_procedure",
+   "source_name": "劳动仲裁流程",
+   "target": "labor_dispute_litigation",
+   "target_name": "劳动争议诉讼",
+   "article": "ll#79",
+   "article_no": "第七十九条",
+   "citation": "中华人民共和国劳动法第七十九条",
+   "gold": [
+    "g169"
+   ],
+   "note": "gold g169 把「劳动争议诉讼」列入场景「劳动仲裁流程」的标注路径；中华人民共和国劳动法第七十九条 原文独立出现「向人民法院提起诉讼」，场景-概念适用有字面锚点。",
+   "hits_source": [
+    {
+     "term": "向人民法院提起诉讼",
+     "snippet": "。对仲裁裁决不服的，可以向人民法院提起诉讼。"
+    }
+   ],
+   "scenario_alias_in_article": [
+    "申请仲裁"
+   ],
+   "mech": true
+  },
+  {
+   "relation": "APPLIES_TO",
+   "source": "arbitration_procedure",
+   "source_name": "劳动仲裁流程",
+   "target": "part_time_wage_settlement",
+   "target_name": "非全日制工资结算",
+   "article": "lcl#72",
+   "article_no": "第七十二条",
+   "citation": "中华人民共和国劳动合同法第七十二条",
+   "gold": [
+    "g171"
+   ],
+   "note": "gold g171 把「非全日制工资结算」列入场景「劳动仲裁流程」的标注路径；中华人民共和国劳动合同法第七十二条 原文独立出现「小时计酬」，场景-概念适用有字面锚点。",
+   "hits_source": [
+    {
+     "term": "小时计酬",
+     "snippet": "非全日制用工小时计酬标准不得低于用人单位所在"
+    },
+    {
+     "term": "结算支付周期",
+     "snippet": "准。非全日制用工劳动报酬结算支付周期最长不得超过十五日。"
+    }
+   ],
+   "scenario_alias_in_article": [],
+   "mech": true
+  },
+  {
+   "relation": "APPLIES_TO",
+   "source": "arbitration_procedure",
+   "source_name": "劳动仲裁流程",
+   "target": "part_time_employment",
+   "target_name": "非全日制用工",
+   "article": "lcl#69",
+   "article_no": "第六十九条",
+   "citation": "中华人民共和国劳动合同法第六十九条",
+   "gold": [
+    "g171"
+   ],
+   "note": "gold g171 把「非全日制用工」列入场景「劳动仲裁流程」的标注路径；中华人民共和国劳动合同法第六十九条 原文独立出现「非全日制用工」，场景-概念适用有字面锚点。",
+   "hits_source": [
+    {
+     "term": "非全日制用工",
+     "snippet": "非全日制用工双方当事人可以订立口头协"
+    },
+    {
+     "term": "非全日制用工",
+     "snippet": "人可以订立口头协议。从事非全日制用工的劳动者可以与一个或者一"
+    }
+   ],
+   "scenario_alias_in_article": [],
+   "mech": true
+  },
+  {
+   "relation": "APPLIES_TO",
+   "source": "handover_dispute",
+   "source_name": "离职交接与证明",
+   "target": "contract_rescission",
+   "target_name": "劳动合同解除",
+   "article": "lcl#37",
+   "article_no": "第三十七条",
+   "citation": "中华人民共和国劳动合同法第三十七条",
+   "gold": [
+    "g173"
+   ],
+   "note": "gold g173 把「劳动合同解除」列入场景「离职交接与证明」的标注路径；中华人民共和国劳动合同法第三十七条 原文独立出现「解除劳动合同」，场景-概念适用有字面锚点。",
+   "hits_source": [
+    {
+     "term": "解除劳动合同",
+     "snippet": "面形式通知用人单位，可以解除劳动合同。劳动者在试用期内提前三"
+    },
+    {
+     "term": "解除劳动合同",
+     "snippet": "前三日通知用人单位，可以解除劳动合同。"
+    }
+   ],
+   "scenario_alias_in_article": [],
+   "mech": true
+  },
+  {
+   "relation": "APPLIES_TO",
+   "source": "handover_dispute",
+   "source_name": "离职交接与证明",
+   "target": "severance",
+   "target_name": "经济补偿",
+   "article": "lcl#46",
+   "article_no": "第四十六条",
+   "citation": "中华人民共和国劳动合同法第四十六条",
+   "gold": [
+    "g173"
+   ],
+   "note": "gold g173 把「经济补偿」列入场景「离职交接与证明」的标注路径；中华人民共和国劳动合同法第四十六条 原文独立出现「经济补偿」，场景-概念适用有字面锚点。",
+   "hits_source": [
+    {
+     "term": "经济补偿",
+     "snippet": "用人单位应当向劳动者支付经济补偿：（一）劳动者依照本法第"
+    }
+   ],
+   "scenario_alias_in_article": [],
+   "mech": true
+  },
+  {
+   "relation": "APPLIES_TO",
+   "source": "remote_work",
+   "source_name": "远程办公",
+   "target": "wage",
+   "target_name": "工资",
+   "article": "ll#50",
+   "article_no": "第五十条",
+   "citation": "中华人民共和国劳动法第五十条",
+   "gold": [
+    "g174"
+   ],
+   "note": "gold g174 把「工资」列入场景「远程办公」的标注路径；中华人民共和国劳动法第五十条 原文独立出现「工资」，场景-概念适用有字面锚点。",
+   "hits_source": [
+    {
+     "term": "工资",
+     "snippet": "工资应当以货币形式按月支付给"
+    },
+    {
+     "term": "工资",
+     "snippet": "克扣或者无故拖欠劳动者的工资。"
+    }
+   ],
+   "scenario_alias_in_article": [],
+   "mech": true
+  },
+  {
+   "relation": "APPLIES_TO",
+   "source": "platform_worker",
+   "source_name": "平台用工",
+   "target": "labor_dispute",
+   "target_name": "劳动争议",
+   "article": "ll#79",
+   "article_no": "第七十九条",
+   "citation": "中华人民共和国劳动法第七十九条",
+   "gold": [
+    "g175"
+   ],
+   "note": "gold g175 把「劳动争议」列入场景「平台用工」的标注路径；中华人民共和国劳动法第七十九条 原文独立出现「劳动争议」，场景-概念适用有字面锚点。",
+   "hits_source": [
+    {
+     "term": "劳动争议",
+     "snippet": "劳动争议发生后，当事人可以向本单"
+    },
+    {
+     "term": "劳动争议",
+     "snippet": "生后，当事人可以向本单位劳动争议调解委员会申请调解；调解"
+    }
+   ],
+   "scenario_alias_in_article": [],
+   "mech": true
+  },
+  {
+   "relation": "APPLIES_TO",
+   "source": "platform_worker",
+   "source_name": "平台用工",
+   "target": "arbitration",
+   "target_name": "劳动仲裁",
+   "article": "ll#82",
+   "article_no": "第八十二条",
+   "citation": "中华人民共和国劳动法第八十二条",
+   "gold": [
+    "g175"
+   ],
+   "note": "gold g175 把「劳动仲裁」列入场景「平台用工」的标注路径；中华人民共和国劳动法第八十二条 原文独立出现「劳动争议仲裁」，场景-概念适用有字面锚点。",
+   "hits_source": [
+    {
+     "term": "劳动争议仲裁",
+     "snippet": "争议发生之日起六十日内向劳动争议仲裁委员会提出书面申请。仲裁"
+    }
+   ],
+   "scenario_alias_in_article": [],
+   "mech": true
+  },
+  {
+   "relation": "APPLIES_TO",
+   "source": "probation_dismissal",
+   "source_name": "试用期辞退",
+   "target": "contract_establishment",
+   "target_name": "合同成立",
+   "article": "cc#483",
+   "article_no": "第四百八十三条",
+   "citation": "中华人民共和国民法典第四百八十三条",
+   "gold": [
+    "g177"
+   ],
+   "note": "gold g177 把「合同成立」列入场景「试用期辞退」的标注路径；中华人民共和国民法典第四百八十三条 原文独立出现「合同成立」，场景-概念适用有字面锚点。",
+   "hits_source": [
+    {
+     "term": "合同成立",
+     "snippet": "承诺生效时合同成立，但是法律另有规定或者当"
+    }
+   ],
+   "scenario_alias_in_article": [],
+   "mech": true
+  },
+  {
+   "relation": "APPLIES_TO",
+   "source": "open_ended_contract_request",
+   "source_name": "要求签无固定期限",
+   "target": "contract_establishment",
+   "target_name": "合同成立",
+   "article": "cc#483",
+   "article_no": "第四百八十三条",
+   "citation": "中华人民共和国民法典第四百八十三条",
+   "gold": [
+    "g178"
+   ],
+   "note": "gold g178 把「合同成立」列入场景「要求签无固定期限」的标注路径；中华人民共和国民法典第四百八十三条 原文独立出现「合同成立」，场景-概念适用有字面锚点。",
+   "hits_source": [
+    {
+     "term": "合同成立",
+     "snippet": "承诺生效时合同成立，但是法律另有规定或者当"
+    }
+   ],
+   "scenario_alias_in_article": [],
+   "mech": true
+  },
+  {
+   "relation": "APPLIES_TO",
+   "source": "service_period_training",
+   "source_name": "服务期与培训",
+   "target": "contract_establishment",
+   "target_name": "合同成立",
+   "article": "cc#483",
+   "article_no": "第四百八十三条",
+   "citation": "中华人民共和国民法典第四百八十三条",
+   "gold": [
+    "g180"
+   ],
+   "note": "gold g180 把「合同成立」列入场景「服务期与培训」的标注路径；中华人民共和国民法典第四百八十三条 原文独立出现「合同成立」，场景-概念适用有字面锚点。",
+   "hits_source": [
+    {
+     "term": "合同成立",
+     "snippet": "承诺生效时合同成立，但是法律另有规定或者当"
+    }
+   ],
+   "scenario_alias_in_article": [],
+   "mech": true
+  },
+  {
+   "relation": "APPLIES_TO",
+   "source": "confidentiality_breach",
+   "source_name": "泄密纠纷",
+   "target": "labor_contract",
+   "target_name": "劳动合同",
+   "article": "lcl#15",
+   "article_no": "第十五条",
+   "citation": "中华人民共和国劳动合同法第十五条",
+   "gold": [
+    "g181"
+   ],
+   "note": "gold g181 把「劳动合同」列入场景「泄密纠纷」的标注路径；中华人民共和国劳动合同法第十五条 原文独立出现「劳动合同」，场景-概念适用有字面锚点。",
+   "hits_source": [
+    {
+     "term": "劳动合同",
+     "snippet": "完成一定工作任务为期限的劳动合同，是指用人单位与劳动者约"
+    },
+    {
+     "term": "劳动合同",
+     "snippet": "项工作的完成为合同期限的劳动合同。用人单位与劳动者协商一"
+    }
+   ],
+   "scenario_alias_in_article": [],
+   "mech": true
+  },
+  {
+   "relation": "APPLIES_TO",
+   "source": "confidentiality_breach",
+   "source_name": "泄密纠纷",
+   "target": "contract_establishment",
+   "target_name": "合同成立",
+   "article": "cc#483",
+   "article_no": "第四百八十三条",
+   "citation": "中华人民共和国民法典第四百八十三条",
+   "gold": [
+    "g181"
+   ],
+   "note": "gold g181 把「合同成立」列入场景「泄密纠纷」的标注路径；中华人民共和国民法典第四百八十三条 原文独立出现「合同成立」，场景-概念适用有字面锚点。",
+   "hits_source": [
+    {
+     "term": "合同成立",
+     "snippet": "承诺生效时合同成立，但是法律另有规定或者当"
+    }
+   ],
+   "scenario_alias_in_article": [],
+   "mech": true
+  },
+  {
+   "relation": "APPLIES_TO",
+   "source": "contract_terms_missing",
+   "source_name": "合同条款缺失",
+   "target": "contract_establishment",
+   "target_name": "合同成立",
+   "article": "cc#483",
+   "article_no": "第四百八十三条",
+   "citation": "中华人民共和国民法典第四百八十三条",
+   "gold": [
+    "g182",
+    "g183",
+    "g184"
+   ],
+   "note": "gold g182/g183/g184 把「合同成立」列入场景「合同条款缺失」的标注路径；中华人民共和国民法典第四百八十三条 原文独立出现「合同成立」，场景-概念适用有字面锚点。",
+   "hits_source": [
+    {
+     "term": "合同成立",
+     "snippet": "承诺生效时合同成立，但是法律另有规定或者当"
+    }
+   ],
+   "scenario_alias_in_article": [],
+   "mech": true
+  },
+  {
+   "relation": "APPLIES_TO",
+   "source": "contract_terms_missing",
+   "source_name": "合同条款缺失",
+   "target": "offer",
+   "target_name": "要约",
+   "article": "cc#475",
+   "article_no": "第四百七十五条",
+   "citation": "中华人民共和国民法典第四百七十五条",
+   "gold": [
+    "g182"
+   ],
+   "note": "gold g182 把「要约」列入场景「合同条款缺失」的标注路径；中华人民共和国民法典第四百七十五条 原文独立出现「要约」，场景-概念适用有字面锚点。",
+   "hits_source": [
+    {
+     "term": "要约",
+     "snippet": "要约可以撤回。要约的撤回适用"
+    },
+    {
+     "term": "要约",
+     "snippet": "要约可以撤回。要约的撤回适用本法第一百四十"
+    }
+   ],
+   "scenario_alias_in_article": [],
+   "mech": true
+  },
+  {
+   "relation": "APPLIES_TO",
+   "source": "contract_terms_missing",
+   "source_name": "合同条款缺失",
+   "target": "acceptance",
+   "target_name": "承诺",
+   "article": "cc#488",
+   "article_no": "第四百八十八条",
+   "citation": "中华人民共和国民法典第四百八十八条",
+   "gold": [
+    "g183"
+   ],
+   "note": "gold g183 把「承诺」列入场景「合同条款缺失」的标注路径；中华人民共和国民法典第四百八十八条 原文独立出现「承诺」，场景-概念适用有字面锚点。",
+   "hits_source": [
+    {
+     "term": "承诺",
+     "snippet": "承诺的内容应当与要约的内容一"
+    },
+    {
+     "term": "受要约人",
+     "snippet": "容应当与要约的内容一致。受要约人对要约的内容作出实质性变"
+    }
+   ],
+   "scenario_alias_in_article": [],
+   "mech": true
+  },
+  {
+   "relation": "APPLIES_TO",
+   "source": "contract_terms_missing",
+   "source_name": "合同条款缺失",
+   "target": "precontractual_liability",
+   "target_name": "缔约过失责任",
+   "article": "cc#500",
+   "article_no": "第五百条",
+   "citation": "中华人民共和国民法典第五百条",
+   "gold": [
+    "g184"
+   ],
+   "note": "gold g184 把「缔约过失责任」列入场景「合同条款缺失」的标注路径；中华人民共和国民法典第五百条 原文独立出现「假借订立合同」，场景-概念适用有字面锚点。",
+   "hits_source": [
+    {
+     "term": "假借订立合同",
+     "snippet": "应当承担赔偿责任：（一）假借订立合同，恶意进行磋商；（二）故"
+    }
+   ],
+   "scenario_alias_in_article": [],
+   "mech": true
+  },
+  {
+   "relation": "APPLIES_TO",
+   "source": "remote_work",
+   "source_name": "远程办公",
+   "target": "contract_establishment",
+   "target_name": "合同成立",
+   "article": "cc#483",
+   "article_no": "第四百八十三条",
+   "citation": "中华人民共和国民法典第四百八十三条",
+   "gold": [
+    "g185"
+   ],
+   "note": "gold g185 把「合同成立」列入场景「远程办公」的标注路径；中华人民共和国民法典第四百八十三条 原文独立出现「合同成立」，场景-概念适用有字面锚点。",
+   "hits_source": [
+    {
+     "term": "合同成立",
+     "snippet": "承诺生效时合同成立，但是法律另有规定或者当"
+    }
+   ],
+   "scenario_alias_in_article": [],
+   "mech": true
+  },
+  {
+   "relation": "APPLIES_TO",
+   "source": "unpaid_wages",
+   "source_name": "拖欠工资",
+   "target": "labor_relationship",
+   "target_name": "劳动关系",
+   "article": "lcl#7",
+   "article_no": "第七条",
+   "citation": "中华人民共和国劳动合同法第七条",
+   "gold": [
+    "g186"
+   ],
+   "note": "gold g186 把「劳动关系」列入场景「拖欠工资」的标注路径；中华人民共和国劳动合同法第七条 原文独立出现「劳动关系」，场景-概念适用有字面锚点。",
+   "hits_source": [
+    {
+     "term": "劳动关系",
+     "snippet": "用工之日起即与劳动者建立劳动关系。用人单位应当建立职工名"
+    }
+   ],
+   "scenario_alias_in_article": [],
+   "mech": true
+  },
+  {
+   "relation": "APPLIES_TO",
+   "source": "unpaid_wages",
+   "source_name": "拖欠工资",
+   "target": "agency",
+   "target_name": "代理",
+   "article": "cc#169",
+   "article_no": "第一百六十九条",
+   "citation": "中华人民共和国民法典第一百六十九条",
+   "gold": [
+    "g186"
+   ],
+   "note": "gold g186 把「代理」列入场景「拖欠工资」的标注路径；中华人民共和国民法典第一百六十九条 原文独立出现「代理人」，场景-概念适用有字面锚点。",
+   "hits_source": [
+    {
+     "term": "代理人",
+     "snippet": "代理人需要转委托第三人代理的，"
+    },
+    {
+     "term": "代理",
+     "snippet": "代理人需要转委托第三人代理的，应当取得被代理人的同"
+    }
+   ],
+   "scenario_alias_in_article": [],
+   "mech": true
+  },
+  {
+   "relation": "APPLIES_TO",
+   "source": "double_wage_claim",
+   "source_name": "二倍工资",
+   "target": "agency",
+   "target_name": "代理",
+   "article": "cc#163",
+   "article_no": "第一百六十三条",
+   "citation": "中华人民共和国民法典第一百六十三条",
+   "gold": [
+    "g187"
+   ],
+   "note": "gold g187 把「代理」列入场景「二倍工资」的标注路径；中华人民共和国民法典第一百六十三条 原文独立出现「代理」，场景-概念适用有字面锚点。",
+   "hits_source": [
+    {
+     "term": "代理",
+     "snippet": "代理包括委托代理和法定代理。"
+    },
+    {
+     "term": "委托代理",
+     "snippet": "代理包括委托代理和法定代理。委托代理人按"
+    }
+   ],
+   "scenario_alias_in_article": [],
+   "mech": true
+  },
+  {
+   "relation": "APPLIES_TO",
+   "source": "resignation_notice",
+   "source_name": "主动辞职",
+   "target": "labor_relationship",
+   "target_name": "劳动关系",
+   "article": "lcl#7",
+   "article_no": "第七条",
+   "citation": "中华人民共和国劳动合同法第七条",
+   "gold": [
+    "g188"
+   ],
+   "note": "gold g188 把「劳动关系」列入场景「主动辞职」的标注路径；中华人民共和国劳动合同法第七条 原文独立出现「劳动关系」，场景-概念适用有字面锚点。",
+   "hits_source": [
+    {
+     "term": "劳动关系",
+     "snippet": "用工之日起即与劳动者建立劳动关系。用人单位应当建立职工名"
+    }
+   ],
+   "scenario_alias_in_article": [],
+   "mech": true
+  },
+  {
+   "relation": "APPLIES_TO",
+   "source": "resignation_notice",
+   "source_name": "主动辞职",
+   "target": "agency",
+   "target_name": "代理",
+   "article": "cc#163",
+   "article_no": "第一百六十三条",
+   "citation": "中华人民共和国民法典第一百六十三条",
+   "gold": [
+    "g188"
+   ],
+   "note": "gold g188 把「代理」列入场景「主动辞职」的标注路径；中华人民共和国民法典第一百六十三条 原文独立出现「代理」，场景-概念适用有字面锚点。",
+   "hits_source": [
+    {
+     "term": "代理",
+     "snippet": "代理包括委托代理和法定代理。"
+    },
+    {
+     "term": "委托代理",
+     "snippet": "代理包括委托代理和法定代理。委托代理人按"
+    }
+   ],
+   "scenario_alias_in_article": [],
+   "mech": true
+  },
+  {
+   "relation": "APPLIES_TO",
+   "source": "social_insurance_dispute",
+   "source_name": "社保争议",
+   "target": "agency",
+   "target_name": "代理",
+   "article": "cc#169",
+   "article_no": "第一百六十九条",
+   "citation": "中华人民共和国民法典第一百六十九条",
+   "gold": [
+    "g189"
+   ],
+   "note": "gold g189 把「代理」列入场景「社保争议」的标注路径；中华人民共和国民法典第一百六十九条 原文独立出现「代理人」，场景-概念适用有字面锚点。",
+   "hits_source": [
+    {
+     "term": "代理人",
+     "snippet": "代理人需要转委托第三人代理的，"
+    },
+    {
+     "term": "代理",
+     "snippet": "代理人需要转委托第三人代理的，应当取得被代理人的同"
+    }
+   ],
+   "scenario_alias_in_article": [],
+   "mech": true
+  },
+  {
+   "relation": "APPLIES_TO",
+   "source": "arbitration_procedure",
+   "source_name": "劳动仲裁流程",
+   "target": "labor_relationship",
+   "target_name": "劳动关系",
+   "article": "lcl#7",
+   "article_no": "第七条",
+   "citation": "中华人民共和国劳动合同法第七条",
+   "gold": [
+    "g190"
+   ],
+   "note": "gold g190 把「劳动关系」列入场景「劳动仲裁流程」的标注路径；中华人民共和国劳动合同法第七条 原文独立出现「劳动关系」，场景-概念适用有字面锚点。",
+   "hits_source": [
+    {
+     "term": "劳动关系",
+     "snippet": "用工之日起即与劳动者建立劳动关系。用人单位应当建立职工名"
+    }
+   ],
+   "scenario_alias_in_article": [],
+   "mech": true
+  },
+  {
+   "relation": "APPLIES_TO",
+   "source": "arbitration_procedure",
+   "source_name": "劳动仲裁流程",
+   "target": "agency",
+   "target_name": "代理",
+   "article": "cc#169",
+   "article_no": "第一百六十九条",
+   "citation": "中华人民共和国民法典第一百六十九条",
+   "gold": [
+    "g190"
+   ],
+   "note": "gold g190 把「代理」列入场景「劳动仲裁流程」的标注路径；中华人民共和国民法典第一百六十九条 原文独立出现「代理人」，场景-概念适用有字面锚点。",
+   "hits_source": [
+    {
+     "term": "代理人",
+     "snippet": "代理人需要转委托第三人代理的，"
+    },
+    {
+     "term": "代理",
+     "snippet": "代理人需要转委托第三人代理的，应当取得被代理人的同"
+    }
+   ],
+   "scenario_alias_in_article": [],
+   "mech": true
+  },
+  {
+   "relation": "APPLIES_TO",
+   "source": "illegal_dismissal",
+   "source_name": "违法解除",
+   "target": "labor_protection",
+   "target_name": "劳动保护",
+   "article": "ll#58",
+   "article_no": "第五十八条",
+   "citation": "中华人民共和国劳动法第五十八条",
+   "gold": [
+    "g191"
+   ],
+   "note": "gold g191 把「劳动保护」列入场景「违法解除」的标注路径；中华人民共和国劳动法第五十八条 原文独立出现「劳动保护」，场景-概念适用有字面锚点。",
+   "hits_source": [
+    {
+     "term": "劳动保护",
+     "snippet": "女职工和未成年工实行特殊劳动保护。未成年工是指年满十六周"
+    }
+   ],
+   "scenario_alias_in_article": [],
+   "mech": true
+  },
+  {
+   "relation": "APPLIES_TO",
+   "source": "illegal_dismissal",
+   "source_name": "违法解除",
+   "target": "tort_liability",
+   "target_name": "侵权责任",
+   "article": "cc#1166",
+   "article_no": "第一千一百六十六条",
+   "citation": "中华人民共和国民法典第一千一百六十六条",
+   "gold": [
+    "g191"
+   ],
+   "note": "gold g191 把「侵权责任」列入场景「违法解除」的标注路径；中华人民共和国民法典第一千一百六十六条 原文独立出现「侵权责任」，场景-概念适用有字面锚点。",
+   "hits_source": [
+    {
+     "term": "侵权责任",
+     "snippet": "无过错，法律规定应当承担侵权责任的，依照其规定。"
+    }
+   ],
+   "scenario_alias_in_article": [],
+   "mech": true
+  },
+  {
+   "relation": "APPLIES_TO",
+   "source": "non_compete_dispute",
+   "source_name": "竞业限制纠纷",
+   "target": "liquidated_damages_civil",
+   "target_name": "违约金",
+   "article": "cc#585",
+   "article_no": "第五百八十五条",
+   "citation": "中华人民共和国民法典第五百八十五条",
+   "gold": [
+    "g195"
+   ],
+   "note": "gold g195 把「违约金」列入场景「竞业限制纠纷」的标注路径；中华人民共和国民法典第五百八十五条 原文独立出现「违约金」，场景-概念适用有字面锚点。",
+   "hits_source": [
+    {
+     "term": "违约金",
+     "snippet": "情况向对方支付一定数额的违约金，也可以约定因违约产生的"
+    },
+    {
+     "term": "约定的违约金",
+     "snippet": "的损失赔偿额的计算方法。约定的违约金低于造成的损失的，人民法"
+    }
+   ],
+   "scenario_alias_in_article": [],
+   "mech": true
+  },
+  {
+   "relation": "APPLIES_TO",
+   "source": "illegal_dismissal",
+   "source_name": "违法解除",
+   "target": "liquidated_damages_civil",
+   "target_name": "违约金",
+   "article": "cc#585",
+   "article_no": "第五百八十五条",
+   "citation": "中华人民共和国民法典第五百八十五条",
+   "gold": [
+    "g196"
+   ],
+   "note": "gold g196 把「违约金」列入场景「违法解除」的标注路径；中华人民共和国民法典第五百八十五条 原文独立出现「违约金」，场景-概念适用有字面锚点。",
+   "hits_source": [
+    {
+     "term": "违约金",
+     "snippet": "情况向对方支付一定数额的违约金，也可以约定因违约产生的"
+    },
+    {
+     "term": "约定的违约金",
+     "snippet": "的损失赔偿额的计算方法。约定的违约金低于造成的损失的，人民法"
+    }
+   ],
+   "scenario_alias_in_article": [],
+   "mech": true
+  },
+  {
+   "relation": "APPLIES_TO",
+   "source": "economic_layoff",
+   "source_name": "经济性裁员",
+   "target": "breach_of_contract",
+   "target_name": "违约责任",
+   "article": "cc#577",
+   "article_no": "第五百七十七条",
+   "citation": "中华人民共和国民法典第五百七十七条",
+   "gold": [
+    "g197"
+   ],
+   "note": "gold g197 把「违约责任」列入场景「经济性裁员」的标注路径；中华人民共和国民法典第五百七十七条 原文独立出现「违约责任」，场景-概念适用有字面锚点。",
+   "hits_source": [
+    {
+     "term": "违约责任",
+     "snippet": "取补救措施或者赔偿损失等违约责任。"
+    }
+   ],
+   "scenario_alias_in_article": [],
+   "mech": true
+  },
+  {
+   "relation": "APPLIES_TO",
+   "source": "occupational_disease",
+   "source_name": "职业病",
+   "target": "tort_liability",
+   "target_name": "侵权责任",
+   "article": "cc#1166",
+   "article_no": "第一千一百六十六条",
+   "citation": "中华人民共和国民法典第一千一百六十六条",
+   "gold": [
+    "g199",
+    "g200"
+   ],
+   "note": "gold g199/g200 把「侵权责任」列入场景「职业病」的标注路径；中华人民共和国民法典第一千一百六十六条 原文独立出现「侵权责任」，场景-概念适用有字面锚点。",
+   "hits_source": [
+    {
+     "term": "侵权责任",
+     "snippet": "无过错，法律规定应当承担侵权责任的，依照其规定。"
+    }
+   ],
+   "scenario_alias_in_article": [],
+   "mech": true
+  },
+  {
+   "relation": "APPLIES_TO",
+   "source": "occupational_disease",
+   "source_name": "职业病",
+   "target": "no_fault_liability",
+   "target_name": "无过错责任",
+   "article": "cc#1166",
+   "article_no": "第一千一百六十六条",
+   "citation": "中华人民共和国民法典第一千一百六十六条",
+   "gold": [
+    "g199"
+   ],
+   "note": "gold g199 把「无过错责任」列入场景「职业病」的标注路径；中华人民共和国民法典第一千一百六十六条 原文独立出现「不论行为人有无过错」，场景-概念适用有字面锚点。",
+   "hits_source": [
+    {
+     "term": "不论行为人有无过错",
+     "snippet": "人造成他人民事权益损害，不论行为人有无过错，法律规定应当承担侵权责"
+    }
+   ],
+   "scenario_alias_in_article": [],
+   "mech": true
+  },
+  {
+   "relation": "APPLIES_TO",
+   "source": "occupational_disease",
+   "source_name": "职业病",
+   "target": "fair_liability",
+   "target_name": "公平责任",
+   "article": "cc#1186",
+   "article_no": "第一千一百八十六条",
+   "citation": "中华人民共和国民法典第一千一百八十六条",
+   "gold": [
+    "g200"
+   ],
+   "note": "gold g200 把「公平责任」列入场景「职业病」的标注路径；中华人民共和国民法典第一千一百八十六条 原文独立出现「分担损失」，场景-概念适用有字面锚点。",
+   "hits_source": [
+    {
+     "term": "分担损失",
+     "snippet": "的，依照法律的规定由双方分担损失。"
+    }
+   ],
+   "scenario_alias_in_article": [],
+   "mech": true
+  },
+  {
+   "relation": "REQUIRES",
+   "subtype": "gold_path_shortcut",
+   "source": "wage",
+   "source_name": "工资",
+   "target": "wage_deduction",
+   "target_name": "克扣或拖欠工资",
+   "article": "ll#50",
+   "article_no": "第五十条",
+   "citation": "中华人民共和国劳动法第五十条",
+   "gold": [
+    "g31"
+   ],
+   "path": [
+    "wage",
+    "wage_payment",
+    "wage_deduction"
+   ],
+   "note": "gold g31 路径 wage -> wage_payment -> wage_deduction；中华人民共和国劳动法第五十条 同条独立出现「工资」与「无故拖欠」，补 A→B 直达依赖以缩短跳数。",
+   "hits_source": [
+    {
+     "term": "工资",
+     "snippet": "工资应当以货币形式按月支付给"
+    },
+    {
+     "term": "工资",
+     "snippet": "克扣或者无故拖欠劳动者的工资。"
+    }
+   ],
+   "hits_target": [
+    {
+     "term": "无故拖欠",
+     "snippet": "劳动者本人。不得克扣或者无故拖欠劳动者的工资。"
+    }
+   ],
+   "mech": true
+  },
+  {
+   "relation": "REQUIRES",
+   "subtype": "gold_path_shortcut",
+   "source": "non_compete",
+   "source_name": "竞业限制",
+   "target": "liquidated_damages",
+   "target_name": "违约金",
+   "article": "lcl#23",
+   "article_no": "第二十三条",
+   "citation": "中华人民共和国劳动合同法第二十三条",
+   "gold": [
+    "g35"
+   ],
+   "path": [
+    "non_compete",
+    "non_compete_compensation",
+    "liquidated_damages"
+   ],
+   "note": "gold g35 路径 non_compete -> non_compete_compensation -> liquidated_damages；中华人民共和国劳动合同法第二十三条 同条独立出现「竞业限制」与「支付违约金」，补 A→B 直达依赖以缩短跳数。",
+   "hits_source": [
+    {
+     "term": "竞业限制",
+     "snippet": "者保密协议中与劳动者约定竞业限制条款，并约定在解除或者终"
+    },
+    {
+     "term": "竞业限制",
+     "snippet": "除或者终止劳动合同后，在竞业限制期限内按月给予劳动者经济"
+    }
+   ],
+   "hits_target": [
+    {
+     "term": "支付违约金",
+     "snippet": "，应当按照约定向用人单位支付违约金。"
+    },
+    {
+     "term": "违约金",
+     "snippet": "当按照约定向用人单位支付违约金。"
+    }
+   ],
+   "mech": true
+  },
+  {
+   "relation": "REQUIRES",
+   "subtype": "gold_path_shortcut",
+   "source": "invalid_contract",
+   "source_name": "无效劳动合同",
+   "target": "coercion",
+   "target_name": "胁迫",
+   "article": "lcl#26",
+   "article_no": "第二十六条",
+   "citation": "中华人民共和国劳动合同法第二十六条",
+   "gold": [
+    "g40"
+   ],
+   "path": [
+    "invalid_contract",
+    "fraud",
+    "coercion"
+   ],
+   "note": "gold g40 路径 invalid_contract -> fraud -> coercion；中华人民共和国劳动合同法第二十六条 同条独立出现「劳动合同无效」与「胁迫」，补 A→B 直达依赖以缩短跳数。",
+   "hits_source": [
+    {
+     "term": "劳动合同无效",
+     "snippet": "下列劳动合同无效或者部分无效：（一）以欺"
+    }
+   ],
+   "hits_target": [
+    {
+     "term": "胁迫",
+     "snippet": "部分无效：（一）以欺诈、胁迫的手段或者乘人之危，使对"
+    }
+   ],
+   "mech": true
+  },
+  {
+   "relation": "REQUIRES",
+   "subtype": "gold_path_shortcut",
+   "source": "training",
+   "source_name": "专业技术培训",
+   "target": "liquidated_damages",
+   "target_name": "违约金",
+   "article": "lcl#22",
+   "article_no": "第二十二条",
+   "citation": "中华人民共和国劳动合同法第二十二条",
+   "gold": [
+    "g41"
+   ],
+   "path": [
+    "training",
+    "service_period",
+    "liquidated_damages"
+   ],
+   "note": "gold g41 路径 training -> service_period -> liquidated_damages；中华人民共和国劳动合同法第二十二条 同条独立出现「专项培训」与「支付违约金」，补 A→B 直达依赖以缩短跳数。",
+   "hits_source": [
+    {
+     "term": "专项培训",
+     "snippet": "用人单位为劳动者提供专项培训费用，对其进行专业技术培"
+    },
+    {
+     "term": "培训费用",
+     "snippet": "用人单位为劳动者提供专项培训费用，对其进行专业技术培训的"
+    }
+   ],
+   "hits_target": [
+    {
+     "term": "支付违约金",
+     "snippet": "，应当按照约定向用人单位支付违约金。违约金的数额不得超过用"
+    },
+    {
+     "term": "违约金",
+     "snippet": "当按照约定向用人单位支付违约金。违约金的数额不得超过用"
+    }
+   ],
+   "mech": true
+  },
+  {
+   "relation": "REQUIRES",
+   "subtype": "gold_path_shortcut",
+   "source": "lease_contract",
+   "source_name": "租赁合同",
+   "target": "damages_civil",
+   "target_name": "损害赔偿",
+   "article": "cc#716",
+   "article_no": "第七百一十六条",
+   "citation": "中华人民共和国民法典第七百一十六条",
+   "gold": [
+    "g45"
+   ],
+   "path": [
+    "lease_contract",
+    "deposit",
+    "damages_civil"
+   ],
+   "note": "gold g45 路径 lease_contract -> deposit -> damages_civil；中华人民共和国民法典第七百一十六条 同条独立出现「租赁合同」与「赔偿损失」，补 A→B 直达依赖以缩短跳数。",
+   "hits_source": [
+    {
+     "term": "租赁合同",
+     "snippet": "的，承租人与出租人之间的租赁合同继续有效；第三人造成租赁"
+    }
+   ],
+   "hits_target": [
+    {
+     "term": "赔偿损失",
+     "snippet": "租赁物损失的，承租人应当赔偿损失。承租人未经出租人同意转"
+    }
+   ],
+   "mech": true
+  },
+  {
+   "relation": "REQUIRES",
+   "subtype": "gold_path_shortcut",
+   "source": "liquidated_damages",
+   "source_name": "违约金",
+   "target": "breach_of_contract",
+   "target_name": "违约责任",
+   "article": "cc#873",
+   "article_no": "第八百七十三条",
+   "citation": "中华人民共和国民法典第八百七十三条",
+   "gold": [
+    "g52"
+   ],
+   "path": [
+    "liquidated_damages",
+    "liquidated_damages_civil",
+    "breach_of_contract"
+   ],
+   "note": "gold g52 路径 liquidated_damages -> liquidated_damages_civil -> breach_of_contract；中华人民共和国民法典第八百七十三条 同条独立出现「支付违约金」与「违约责任」，补 A→B 直达依赖以缩短跳数。",
+   "hits_source": [
+    {
+     "term": "支付违约金",
+     "snippet": "应当补交使用费并按照约定支付违约金；不补交使用费或者支付违"
+    },
+    {
+     "term": "违约金",
+     "snippet": "补交使用费并按照约定支付违约金；不补交使用费或者支付违"
+    }
+   ],
+   "hits_target": [
+    {
+     "term": "违约责任",
+     "snippet": "秘密，交还技术资料，承担违约责任；实施专利或者使用技术秘"
+    },
+    {
+     "term": "违约责任",
+     "snippet": "，应当停止违约行为，承担违约责任；违反约定的保密义务的，"
+    }
+   ],
+   "mech": true
+  },
+  {
+   "relation": "REQUIRES",
+   "subtype": "gold_path_shortcut",
+   "source": "severance",
+   "source_name": "经济补偿",
+   "target": "damages_civil",
+   "target_name": "损害赔偿",
+   "article": "cc#461",
+   "article_no": "第四百六十一条",
+   "citation": "中华人民共和国民法典第四百六十一条",
+   "gold": [
+    "g59"
+   ],
+   "path": [
+    "severance",
+    "breach_of_contract",
+    "damages_civil"
+   ],
+   "note": "gold g59 路径 severance -> breach_of_contract -> damages_civil；中华人民共和国民法典第四百六十一条 同条独立出现「补偿金」与「赔偿损失」，补 A→B 直达依赖以缩短跳数。",
+   "hits_source": [
+    {
+     "term": "补偿金",
+     "snippet": "取得的保险金、赔偿金或者补偿金等返还给权利人；权利人的"
+    }
+   ],
+   "hits_target": [
+    {
+     "term": "赔偿损失",
+     "snippet": "弥补的，恶意占有人还应当赔偿损失。"
+    }
+   ],
+   "mech": true
+  },
+  {
+   "relation": "REQUIRES",
+   "subtype": "gold_path_shortcut",
+   "source": "fixed_term_contract",
+   "source_name": "固定期限劳动合同",
+   "target": "contract_termination",
+   "target_name": "劳动合同终止",
+   "article": "lcl#46",
+   "article_no": "第四十六条",
+   "citation": "中华人民共和国劳动合同法第四十六条",
+   "gold": [
+    "g136"
+   ],
+   "path": [
+    "fixed_term_contract",
+    "open_ended_contract",
+    "contract_termination"
+   ],
+   "note": "gold g136 路径 fixed_term_contract -> open_ended_contract -> contract_termination；中华人民共和国劳动合同法第四十六条 同条独立出现「固定期限劳动合同」与「终止劳动合同」，补 A→B 直达依赖以缩短跳数。",
+   "hits_source": [
+    {
+     "term": "固定期限劳动合同",
+     "snippet": "第四十四条第一项规定终止固定期限劳动合同的；（六）依照本法第四十"
+    }
+   ],
+   "hits_target": [
+    {
+     "term": "终止劳动合同",
+     "snippet": "十四条第四项、第五项规定终止劳动合同的；（七）法律、行政法规"
+    }
+   ],
+   "mech": true
+  },
+  {
+   "relation": "REQUIRES",
+   "subtype": "gold_path_shortcut",
+   "source": "open_ended_contract",
+   "source_name": "无固定期限劳动合同",
+   "target": "retirement",
+   "target_name": "退休",
+   "article": "lcl#14",
+   "article_no": "第十四条",
+   "citation": "中华人民共和国劳动合同法第十四条",
+   "gold": [
+    "g138"
+   ],
+   "path": [
+    "open_ended_contract",
+    "contract_termination",
+    "retirement"
+   ],
+   "note": "gold g138 路径 open_ended_contract -> contract_termination -> retirement；中华人民共和国劳动合同法第十四条 同条独立出现「无固定期限劳动合同」与「退休」，补 A→B 直达依赖以缩短跳数。",
+   "hits_source": [
+    {
+     "term": "无固定期限劳动合同",
+     "snippet": "无固定期限劳动合同，是指用人单位与劳动者约"
+    },
+    {
+     "term": "无固定期限劳动合同",
+     "snippet": "劳动者协商一致，可以订立无固定期限劳动合同。有下列情形之一，劳动者"
+    }
+   ],
+   "hits_target": [
+    {
+     "term": "退休",
+     "snippet": "位连续工作满十年且距法定退休年龄不足十年的；（三）连"
+    }
+   ],
+   "mech": true
+  },
+  {
+   "relation": "REQUIRES",
+   "subtype": "gold_path_shortcut",
+   "source": "non_compete_compensation",
+   "source_name": "竞业限制经济补偿",
+   "target": "trade_secret",
+   "target_name": "商业秘密",
+   "article": "lcl#23",
+   "article_no": "第二十三条",
+   "citation": "中华人民共和国劳动合同法第二十三条",
+   "gold": [
+    "g140"
+   ],
+   "path": [
+    "non_compete_compensation",
+    "non_compete",
+    "trade_secret"
+   ],
+   "note": "gold g140 路径 non_compete_compensation -> non_compete -> trade_secret；中华人民共和国劳动合同法第二十三条 同条独立出现「按月给予劳动者经济补偿」与「商业秘密」，补 A→B 直达依赖以缩短跳数。",
+   "hits_source": [
+    {
+     "term": "按月给予劳动者经济补偿",
+     "snippet": "合同后，在竞业限制期限内按月给予劳动者经济补偿。劳动者违反竞业限制约定"
+    }
+   ],
+   "hits_target": [
+    {
+     "term": "商业秘密",
+     "snippet": "合同中约定保守用人单位的商业秘密和与知识产权相关的保密事"
+    }
+   ],
+   "mech": true
+  },
+  {
+   "relation": "REQUIRES",
+   "subtype": "gold_path_shortcut",
+   "source": "unilateral_rescission_by_worker",
+   "source_name": "劳动者单方解除",
+   "target": "non_fault_dismissal",
+   "target_name": "非过失性辞退",
+   "article": "ll#31",
+   "article_no": "第三十一条",
+   "citation": "中华人民共和国劳动法第三十一条",
+   "gold": [
+    "g141"
+   ],
+   "path": [
+    "unilateral_rescission_by_worker",
+    "notice_period",
+    "non_fault_dismissal"
+   ],
+   "note": "gold g141 路径 unilateral_rescission_by_worker -> notice_period -> non_fault_dismissal；中华人民共和国劳动法第三十一条 同条独立出现「劳动者解除劳动合同」与「提前三十日以书面形式通知」，补 A→B 直达依赖以缩短跳数。",
+   "hits_source": [
+    {
+     "term": "劳动者解除劳动合同",
+     "snippet": "劳动者解除劳动合同，应当提前三十日以书面形"
+    }
+   ],
+   "hits_target": [
+    {
+     "term": "提前三十日以书面形式通知",
+     "snippet": "劳动者解除劳动合同，应当提前三十日以书面形式通知用人单位。"
+    }
+   ],
+   "mech": true
+  },
+  {
+   "relation": "REQUIRES",
+   "subtype": "gold_path_shortcut",
+   "source": "severance",
+   "source_name": "经济补偿",
+   "target": "labor_relationship",
+   "target_name": "劳动关系",
+   "article": "lcl#97",
+   "article_no": "第九十七条",
+   "citation": "中华人民共和国劳动合同法第九十七条",
+   "gold": [
+    "g149"
+   ],
+   "path": [
+    "severance",
+    "wage",
+    "labor_relationship"
+   ],
+   "note": "gold g149 路径 severance -> wage -> labor_relationship；中华人民共和国劳动合同法第九十七条 同条独立出现「经济补偿」与「劳动关系」，补 A→B 直达依赖以缩短跳数。",
+   "hits_source": [
+    {
+     "term": "经济补偿",
+     "snippet": "法第四十六条规定应当支付经济补偿的，经济补偿年限自本法施"
+    },
+    {
+     "term": "经济补偿",
+     "snippet": "规定应当支付经济补偿的，经济补偿年限自本法施行之日起计算"
+    }
+   ],
+   "hits_target": [
+    {
+     "term": "劳动关系",
+     "snippet": "始计算。本法施行前已建立劳动关系，尚未订立书面劳动合同的"
+    }
+   ],
+   "mech": true
+  },
+  {
+   "relation": "REQUIRES",
+   "subtype": "gold_path_shortcut",
+   "source": "statutory_holiday",
+   "source_name": "法定休假日",
+   "target": "rest_day",
+   "target_name": "休息日",
+   "article": "ll#44",
+   "article_no": "第四十四条",
+   "citation": "中华人民共和国劳动法第四十四条",
+   "gold": [
+    "g159"
+   ],
+   "path": [
+    "statutory_holiday",
+    "rest_period",
+    "rest_day"
+   ],
+   "note": "gold g159 路径 statutory_holiday -> rest_period -> rest_day；中华人民共和国劳动法第四十四条 同条独立出现「法定休假日」与「休息日」，补 A→B 直达依赖以缩短跳数。",
+   "hits_source": [
+    {
+     "term": "法定休假日",
+     "snippet": "之二百的工资报酬；（三）法定休假日安排劳动者工作的，支付不"
+    }
+   ],
+   "hits_target": [
+    {
+     "term": "休息日",
+     "snippet": "百五十的工资报酬；（二）休息日安排劳动者工作又不能安排"
+    }
+   ],
+   "mech": true
+  },
+  {
+   "relation": "REQUIRES",
+   "subtype": "gold_path_shortcut",
+   "source": "wage_payment",
+   "source_name": "工资支付",
+   "target": "immediate_rescission",
+   "target_name": "劳动者即时解除",
+   "article": "lcl#38",
+   "article_no": "第三十八条",
+   "citation": "中华人民共和国劳动合同法第三十八条",
+   "gold": [
+    "g161"
+   ],
+   "path": [
+    "wage_payment",
+    "wage_deduction",
+    "immediate_rescission"
+   ],
+   "note": "gold g161 路径 wage_payment -> wage_deduction -> immediate_rescission；中华人民共和国劳动合同法第三十八条 同条独立出现「足额支付」与「立即解除」，补 A→B 直达依赖以缩短跳数。",
+   "hits_source": [
+    {
+     "term": "足额支付",
+     "snippet": "劳动条件的；（二）未及时足额支付劳动报酬的；（三）未依法"
+    },
+    {
+     "term": "支付劳动报酬",
+     "snippet": "条件的；（二）未及时足额支付劳动报酬的；（三）未依法为劳动者"
+    }
+   ],
+   "hits_target": [
+    {
+     "term": "立即解除",
+     "snippet": "者人身安全的，劳动者可以立即解除劳动合同，不需事先告知用"
+    }
+   ],
+   "mech": true
+  },
+  {
+   "relation": "REQUIRES",
+   "subtype": "gold_path_shortcut",
+   "source": "part_time_wage_settlement",
+   "source_name": "非全日制工资结算",
+   "target": "arbitration",
+   "target_name": "劳动仲裁",
+   "article": "ll#84",
+   "article_no": "第八十四条",
+   "citation": "中华人民共和国劳动法第八十四条",
+   "gold": [
+    "g162"
+   ],
+   "path": [
+    "part_time_wage_settlement",
+    "labor_dispute",
+    "arbitration"
+   ],
+   "note": "gold g162 路径 part_time_wage_settlement -> labor_dispute -> arbitration；中华人民共和国劳动法第八十四条 同条独立出现「十五日」与「劳动争议仲裁」，补 A→B 直达依赖以缩短跳数。",
+   "hits_source": [
+    {
+     "term": "十五日",
+     "snippet": "以自收到仲裁裁决书之日起十五日内向人民法院提起诉讼。"
+    }
+   ],
+   "hits_target": [
+    {
+     "term": "劳动争议仲裁",
+     "snippet": "人协商解决不成的，可以向劳动争议仲裁委员会申请仲裁；对仲裁裁"
+    }
+   ],
+   "mech": true
+  },
+  {
+   "relation": "REQUIRES",
+   "subtype": "gold_path_shortcut",
+   "source": "labor_union",
+   "source_name": "工会",
+   "target": "collective_consultation",
+   "target_name": "集体协商",
+   "article": "lcl#6",
+   "article_no": "第六条",
+   "citation": "中华人民共和国劳动合同法第六条",
+   "gold": [
+    "g164"
+   ],
+   "path": [
+    "labor_union",
+    "collective_contract",
+    "collective_consultation"
+   ],
+   "note": "gold g164 路径 labor_union -> collective_contract -> collective_consultation；中华人民共和国劳动合同法第六条 同条独立出现「工会」与「集体协商」，补 A→B 直达依赖以缩短跳数。",
+   "hits_source": [
+    {
+     "term": "工会",
+     "snippet": "工会应当帮助、指导劳动者与用"
+    }
+   ],
+   "hits_target": [
+    {
+     "term": "集体协商",
+     "snippet": "动合同，并与用人单位建立集体协商机制，维护劳动者的合法权"
+    }
+   ],
+   "mech": true
+  },
+  {
+   "relation": "REQUIRES",
+   "subtype": "gold_path_shortcut",
+   "source": "confidentiality",
+   "source_name": "保密义务",
+   "target": "non_compete_compensation",
+   "target_name": "竞业限制经济补偿",
+   "article": "lcl#23",
+   "article_no": "第二十三条",
+   "citation": "中华人民共和国劳动合同法第二十三条",
+   "gold": [
+    "g165"
+   ],
+   "path": [
+    "confidentiality",
+    "non_compete",
+    "non_compete_compensation"
+   ],
+   "note": "gold g165 路径 confidentiality -> non_compete -> non_compete_compensation；中华人民共和国劳动合同法第二十三条 同条独立出现「保密义务」与「按月给予劳动者经济补偿」，补 A→B 直达依赖以缩短跳数。",
+   "hits_source": [
+    {
+     "term": "保密义务",
+     "snippet": "权相关的保密事项。对负有保密义务的劳动者，用人单位可以在"
+    },
+    {
+     "term": "保密协议",
+     "snippet": "人单位可以在劳动合同或者保密协议中与劳动者约定竞业限制条"
+    }
+   ],
+   "hits_target": [
+    {
+     "term": "按月给予劳动者经济补偿",
+     "snippet": "合同后，在竞业限制期限内按月给予劳动者经济补偿。劳动者违反竞业限制约定"
+    }
+   ],
+   "mech": true
+  },
+  {
+   "relation": "REQUIRES",
+   "subtype": "gold_path_shortcut",
+   "source": "trade_secret",
+   "source_name": "商业秘密",
+   "target": "non_compete_compensation",
+   "target_name": "竞业限制经济补偿",
+   "article": "lcl#23",
+   "article_no": "第二十三条",
+   "citation": "中华人民共和国劳动合同法第二十三条",
+   "gold": [
+    "g166"
+   ],
+   "path": [
+    "trade_secret",
+    "non_compete",
+    "non_compete_compensation"
+   ],
+   "note": "gold g166 路径 trade_secret -> non_compete -> non_compete_compensation；中华人民共和国劳动合同法第二十三条 同条独立出现「商业秘密」与「按月给予劳动者经济补偿」，补 A→B 直达依赖以缩短跳数。",
+   "hits_source": [
+    {
+     "term": "商业秘密",
+     "snippet": "合同中约定保守用人单位的商业秘密和与知识产权相关的保密事"
+    }
+   ],
+   "hits_target": [
+    {
+     "term": "按月给予劳动者经济补偿",
+     "snippet": "合同后，在竞业限制期限内按月给予劳动者经济补偿。劳动者违反竞业限制约定"
+    }
+   ],
+   "mech": true
+  },
+  {
+   "relation": "REQUIRES",
+   "subtype": "gold_path_shortcut",
+   "source": "labor_dispute",
+   "source_name": "劳动争议",
+   "target": "labor_dispute_litigation",
+   "target_name": "劳动争议诉讼",
+   "article": "ll#79",
+   "article_no": "第七十九条",
+   "citation": "中华人民共和国劳动法第七十九条",
+   "gold": [
+    "g169"
+   ],
+   "path": [
+    "labor_dispute",
+    "arbitration",
+    "labor_dispute_litigation"
+   ],
+   "note": "gold g169 路径 labor_dispute -> arbitration -> labor_dispute_litigation；中华人民共和国劳动法第七十九条 同条独立出现「劳动争议」与「向人民法院提起诉讼」，补 A→B 直达依赖以缩短跳数。",
+   "hits_source": [
+    {
+     "term": "劳动争议",
+     "snippet": "劳动争议发生后，当事人可以向本单"
+    },
+    {
+     "term": "劳动争议",
+     "snippet": "生后，当事人可以向本单位劳动争议调解委员会申请调解；调解"
+    }
+   ],
+   "hits_target": [
+    {
+     "term": "向人民法院提起诉讼",
+     "snippet": "。对仲裁裁决不服的，可以向人民法院提起诉讼。"
+    }
+   ],
+   "mech": true
+  },
+  {
+   "relation": "REQUIRES",
+   "subtype": "gold_path_shortcut",
+   "source": "labor_dispute_mediation",
+   "source_name": "劳动争议调解",
+   "target": "arbitration",
+   "target_name": "劳动仲裁",
+   "article": "ll#79",
+   "article_no": "第七十九条",
+   "citation": "中华人民共和国劳动法第七十九条",
+   "gold": [
+    "g170"
+   ],
+   "path": [
+    "labor_dispute_mediation",
+    "labor_dispute",
+    "arbitration"
+   ],
+   "note": "gold g170 路径 labor_dispute_mediation -> labor_dispute -> arbitration；中华人民共和国劳动法第七十九条 同条独立出现「劳动争议调解」与「劳动争议仲裁」，补 A→B 直达依赖以缩短跳数。",
+   "hits_source": [
+    {
+     "term": "劳动争议调解",
+     "snippet": "生后，当事人可以向本单位劳动争议调解委员会申请调解；调解不成"
+    }
+   ],
+   "hits_target": [
+    {
+     "term": "劳动争议仲裁",
+     "snippet": "人一方要求仲裁的，可以向劳动争议仲裁委员会申请仲裁。当事人一"
+    },
+    {
+     "term": "劳动争议仲裁",
+     "snippet": "。当事人一方也可以直接向劳动争议仲裁委员会申请仲裁。对仲裁裁"
+    }
+   ],
+   "mech": true
+  },
+  {
+   "relation": "REQUIRES",
+   "subtype": "gold_path_shortcut",
+   "source": "guarantee",
+   "source_name": "保证",
+   "target": "joint_liability",
+   "target_name": "连带责任",
+   "article": "cc#686",
+   "article_no": "第六百八十六条",
+   "citation": "中华人民共和国民法典第六百八十六条",
+   "gold": [
+    "g172"
+   ],
+   "path": [
+    "guarantee",
+    "guarantee_contract",
+    "joint_liability"
+   ],
+   "note": "gold g172 路径 guarantee -> guarantee_contract -> joint_liability；中华人民共和国民法典第六百八十六条 同条独立出现「保证」与「连带责任」，补 A→B 直达依赖以缩短跳数。",
+   "hits_source": [
+    {
+     "term": "保证",
+     "snippet": "保证的方式包括一般保证和连带"
+    },
+    {
+     "term": "保证",
+     "snippet": "保证的方式包括一般保证和连带责任保证。当事人在"
+    }
+   ],
+   "hits_target": [
+    {
+     "term": "连带责任",
+     "snippet": "保证的方式包括一般保证和连带责任保证。当事人在保证合同中"
+    }
+   ],
+   "mech": true
+  },
+  {
+   "relation": "REQUIRES",
+   "subtype": "gold_path_shortcut",
+   "source": "handover",
+   "source_name": "工作交接",
+   "target": "severance",
+   "target_name": "经济补偿",
+   "article": "lcl#50",
+   "article_no": "第五十条",
+   "citation": "中华人民共和国劳动合同法第五十条",
+   "gold": [
+    "g173"
+   ],
+   "path": [
+    "handover",
+    "contract_rescission",
+    "severance"
+   ],
+   "note": "gold g173 路径 handover -> contract_rescission -> severance；中华人民共和国劳动合同法第五十条 同条独立出现「工作交接」与「经济补偿」，补 A→B 直达依赖以缩短跳数。",
+   "hits_source": [
+    {
+     "term": "工作交接",
+     "snippet": "者应当按照双方约定，办理工作交接。用人单位依照本法有关规"
+    },
+    {
+     "term": "工作交接",
+     "snippet": "者支付经济补偿的，在办结工作交接时支付。用人单位对已经解"
+    }
+   ],
+   "hits_target": [
+    {
+     "term": "经济补偿",
+     "snippet": "有关规定应当向劳动者支付经济补偿的，在办结工作交接时支付"
+    }
+   ],
+   "mech": true
+  },
+  {
+   "relation": "REQUIRES",
+   "subtype": "gold_path_shortcut",
+   "source": "sick_leave",
+   "source_name": "病假与医疗期",
+   "target": "female_worker_protection",
+   "target_name": "女职工特殊保护",
+   "article": "lcl#42",
+   "article_no": "第四十二条",
+   "citation": "中华人民共和国劳动合同法第四十二条",
+   "gold": [
+    "g176"
+   ],
+   "path": [
+    "sick_leave",
+    "labor_protection",
+    "female_worker_protection"
+   ],
+   "note": "gold g176 路径 sick_leave -> labor_protection -> female_worker_protection；中华人民共和国劳动合同法第四十二条 同条独立出现「患病或者非因工负伤」与「哺乳期」，补 A→B 直达依赖以缩短跳数。",
+   "hits_source": [
+    {
+     "term": "患病或者非因工负伤",
+     "snippet": "分丧失劳动能力的；（三）患病或者非因工负伤，在规定的医疗期内的；（"
+    }
+   ],
+   "hits_target": [
+    {
+     "term": "哺乳期",
+     "snippet": "四）女职工在孕期、产期、哺乳期的；（五）在本单位连续工"
+    }
+   ],
+   "mech": true
+  },
+  {
+   "relation": "REQUIRES",
+   "subtype": "gold_path_shortcut",
+   "source": "labor_contract",
+   "source_name": "劳动合同",
+   "target": "contract_performance",
+   "target_name": "合同履行",
+   "article": "lcl#29",
+   "article_no": "第二十九条",
+   "citation": "中华人民共和国劳动合同法第二十九条",
+   "gold": [
+    "g185"
+   ],
+   "path": [
+    "labor_contract",
+    "contract_establishment",
+    "contract_performance"
+   ],
+   "note": "gold g185 路径 labor_contract -> contract_establishment -> contract_performance；中华人民共和国劳动合同法第二十九条 同条独立出现「劳动合同」与「全面履行」，补 A→B 直达依赖以缩短跳数。",
+   "hits_source": [
+    {
+     "term": "劳动合同",
+     "snippet": "用人单位与劳动者应当按照劳动合同的约定，全面履行各自的义"
+    }
+   ],
+   "hits_target": [
+    {
+     "term": "全面履行",
+     "snippet": "应当按照劳动合同的约定，全面履行各自的义务。"
+    }
+   ],
+   "mech": true
+  },
+  {
+   "relation": "REQUIRES",
+   "subtype": "clause_dependency",
+   "source": "labor_contract",
+   "source_name": "劳动合同",
+   "target": "written_form",
+   "target_name": "书面形式",
+   "article": "lcl#10",
+   "article_no": "第十条",
+   "citation": "中华人民共和国劳动合同法第十条",
+   "gold": null,
+   "cue": "以",
+   "note": "中华人民共和国劳动合同法第十条：「建立劳动关系，应当订立书面劳动合同」——A 依/按/经 B 方能成立或行使，故 A 依赖 B（机械锚点：同条独立出现「劳动合同」「订立书面」）。",
+   "hits_source": [
+    {
+     "term": "劳动合同",
+     "snippet": "立劳动关系，应当订立书面劳动合同。已建立劳动关系，未同时"
+    },
+    {
+     "term": "劳动合同",
+     "snippet": "劳动关系，未同时订立书面劳动合同的，应当自用工之日起一个"
+    }
+   ],
+   "hits_target": [
+    {
+     "term": "订立书面",
+     "snippet": "建立劳动关系，应当订立书面劳动合同。已建立劳动关系"
+    },
+    {
+     "term": "订立书面",
+     "snippet": "。已建立劳动关系，未同时订立书面劳动合同的，应当自用工之"
+    }
+   ],
+   "mech": true
+  },
+  {
+   "relation": "REQUIRES",
+   "subtype": "clause_dependency",
+   "source": "borrower",
+   "source_name": "借款人",
+   "target": "lender",
+   "target_name": "贷款人",
+   "article": "cc#669",
+   "article_no": "第六百六十九条",
+   "citation": "中华人民共和国民法典第六百六十九条",
+   "gold": null,
+   "cue": "按照",
+   "note": "中华人民共和国民法典第六百六十九条：「借款人应当按照贷款人的要求提供与借款有关的业务活动和财务状况的真实情况」——A 依/按/经 B 方能成立或行使，故 A 依赖 B（机械锚点：同条独立出现「借款人」「贷款人」）。",
+   "hits_source": [
+    {
+     "term": "借款人",
+     "snippet": "订立借款合同，借款人应当按照贷款人的要求提供"
+    }
+   ],
+   "hits_target": [
+    {
+     "term": "贷款人",
+     "snippet": "借款合同，借款人应当按照贷款人的要求提供与借款有关的业"
+    }
+   ],
+   "mech": true
+  },
+  {
+   "relation": "REQUIRES",
+   "subtype": "clause_dependency",
+   "source": "agent_party",
+   "source_name": "受托人",
+   "target": "principal",
+   "target_name": "委托人",
+   "article": "cc#924",
+   "article_no": "第九百二十四条",
+   "citation": "中华人民共和国民法典第九百二十四条",
+   "gold": null,
+   "cue": "按照",
+   "note": "中华人民共和国民法典第九百二十四条：「受托人应当按照委托人的要求」——A 依/按/经 B 方能成立或行使，故 A 依赖 B（机械锚点：同条独立出现「受托人」「委托人」）。",
+   "hits_source": [
+    {
+     "term": "受托人",
+     "snippet": "受托人应当按照委托人的要求，报"
+    },
+    {
+     "term": "受托人",
+     "snippet": "理情况。委托合同终止时，受托人应当报告委托事务的结果。"
+    }
+   ],
+   "hits_target": [
+    {
+     "term": "委托人",
+     "snippet": "受托人应当按照委托人的要求，报告委托事务的处"
+    }
+   ],
+   "mech": true
+  },
+  {
+   "relation": "REQUIRES",
+   "subtype": "clause_dependency",
+   "source": "contractor_party",
+   "source_name": "承包人",
+   "target": "employer_party",
+   "target_name": "发包人",
+   "article": "cc#791",
+   "article_no": "第七百九十一条",
+   "citation": "中华人民共和国民法典第七百九十一条",
+   "gold": null,
+   "cue": "经",
+   "note": "中华人民共和国民法典第七百九十一条：「施工承包人经发包人同意」——A 依/按/经 B 方能成立或行使，故 A 依赖 B（机械锚点：同条独立出现「承包人」「发包人」）。",
+   "hits_source": [
+    {
+     "term": "承包人",
+     "snippet": "发包人可以与总承包人订立建设工程合同，也可以"
+    },
+    {
+     "term": "承包人",
+     "snippet": "。发包人不得将应当由一个承包人完成的建设工程支解成若干"
+    }
+   ],
+   "hits_target": [
+    {
+     "term": "发包人",
+     "snippet": "发包人可以与总承包人订立建设工"
+    },
+    {
+     "term": "发包人",
+     "snippet": "察、设计、施工承包合同。发包人不得将应当由一个承包人完"
+    }
+   ],
+   "mech": true
+  },
+  {
+   "relation": "REQUIRES",
+   "subtype": "clause_dependency",
+   "source": "work_contractor",
+   "source_name": "承揽人",
+   "target": "ordering_party",
+   "target_name": "定作人",
+   "article": "cc#785",
+   "article_no": "第七百八十五条",
+   "citation": "中华人民共和国民法典第七百八十五条",
+   "gold": null,
+   "cue": "按照",
+   "note": "中华人民共和国民法典第七百八十五条：「承揽人应当按照定作人的要求保守秘密」——A 依/按/经 B 方能成立或行使，故 A 依赖 B（机械锚点：同条独立出现「承揽人」「定作人」）。",
+   "hits_source": [
+    {
+     "term": "承揽人",
+     "snippet": "承揽人应当按照定作人的要求保守"
+    }
+   ],
+   "hits_target": [
+    {
+     "term": "定作人",
+     "snippet": "承揽人应当按照定作人的要求保守秘密，未经定作"
+    },
+    {
+     "term": "定作人",
+     "snippet": "作人的要求保守秘密，未经定作人许可，不得留存复制品或者"
+    }
+   ],
+   "mech": true
+  },
+  {
+   "relation": "REQUIRES",
+   "subtype": "clause_dependency",
+   "source": "work_contract",
+   "source_name": "承揽合同",
+   "target": "ordering_party",
+   "target_name": "定作人",
+   "article": "cc#770",
+   "article_no": "第七百七十条",
+   "citation": "中华人民共和国民法典第七百七十条",
+   "gold": null,
+   "cue": "按照",
+   "note": "中华人民共和国民法典第七百七十条：「承揽合同是承揽人按照定作人的要求完成工作」——A 依/按/经 B 方能成立或行使，故 A 依赖 B（机械锚点：同条独立出现「承揽合同」「定作人」）。",
+   "hits_source": [
+    {
+     "term": "承揽合同",
+     "snippet": "承揽合同是承揽人按照定作人的要求"
+    }
+   ],
+   "hits_target": [
+    {
+     "term": "定作人",
+     "snippet": "承揽合同是承揽人按照定作人的要求完成工作，交付工作"
+    },
+    {
+     "term": "定作人",
+     "snippet": "完成工作，交付工作成果，定作人支付报酬的合同。承揽包括"
+    }
+   ],
+   "mech": true
+  },
+  {
+   "relation": "REQUIRES",
+   "subtype": "clause_dependency",
+   "source": "financing_lease_contract",
+   "source_name": "融资租赁合同",
+   "target": "lessee",
+   "target_name": "承租人",
+   "article": "cc#735",
+   "article_no": "第七百三十五条",
+   "citation": "中华人民共和国民法典第七百三十五条",
+   "gold": null,
+   "cue": "根据",
+   "note": "中华人民共和国民法典第七百三十五条：「融资租赁合同是出租人根据承租人对出卖人」——A 依/按/经 B 方能成立或行使，故 A 依赖 B（机械锚点：同条独立出现「融资租赁合同」「承租人」）。",
+   "hits_source": [
+    {
+     "term": "融资租赁合同",
+     "snippet": "融资租赁合同是出租人根据承租人对出卖"
+    }
+   ],
+   "hits_target": [
+    {
+     "term": "承租人",
+     "snippet": "融资租赁合同是出租人根据承租人对出卖人、租赁物的选择，"
+    },
+    {
+     "term": "承租人",
+     "snippet": "出卖人购买租赁物，提供给承租人使用，承租人支付租金的合"
+    }
+   ],
+   "mech": true
+  },
+  {
+   "relation": "REQUIRES",
+   "subtype": "clause_dependency",
+   "source": "lessor",
+   "source_name": "出租人",
+   "target": "lessee",
+   "target_name": "承租人",
+   "article": "cc#744",
+   "article_no": "第七百四十四条",
+   "citation": "中华人民共和国民法典第七百四十四条",
+   "gold": null,
+   "cue": "根据",
+   "note": "中华人民共和国民法典第七百四十四条：「出租人根据承租人对出卖人」——A 依/按/经 B 方能成立或行使，故 A 依赖 B（机械锚点：同条独立出现「出租人」「承租人」）。",
+   "hits_source": [
+    {
+     "term": "出租人",
+     "snippet": "出租人根据承租人对出卖人、租赁"
+    },
+    {
+     "term": "出租人",
+     "snippet": "卖合同，未经承租人同意，出租人不得变更与承租人有关的合"
+    }
+   ],
+   "hits_target": [
+    {
+     "term": "承租人",
+     "snippet": "出租人根据承租人对出卖人、租赁物的选择订"
+    },
+    {
+     "term": "承租人",
+     "snippet": "选择订立的买卖合同，未经承租人同意，出租人不得变更与承"
+    }
+   ],
+   "mech": true
+  },
+  {
+   "relation": "REQUIRES",
+   "subtype": "clause_dependency",
+   "source": "lessee",
+   "source_name": "承租人",
+   "target": "lessor",
+   "target_name": "出租人",
+   "article": "cc#716",
+   "article_no": "第七百一十六条",
+   "citation": "中华人民共和国民法典第七百一十六条",
+   "gold": null,
+   "cue": "经",
+   "note": "中华人民共和国民法典第七百一十六条：「承租人未经出租人同意转租的」——A 依/按/经 B 方能成立或行使，故 A 依赖 B（机械锚点：同条独立出现「承租人」「出租人」）。",
+   "hits_source": [
+    {
+     "term": "承租人",
+     "snippet": "承租人经出租人同意，可以将租赁"
+    },
+    {
+     "term": "承租人",
+     "snippet": "以将租赁物转租给第三人。承租人转租的，承租人与出租人之"
+    }
+   ],
+   "hits_target": [
+    {
+     "term": "出租人",
+     "snippet": "承租人经出租人同意，可以将租赁物转租给"
+    },
+    {
+     "term": "出租人",
+     "snippet": "。承租人转租的，承租人与出租人之间的租赁合同继续有效；"
+    }
+   ],
+   "mech": true
+  },
+  {
+   "relation": "REQUIRES",
+   "subtype": "clause_dependency",
+   "source": "dispatch_unit",
+   "source_name": "劳务派遣单位",
+   "target": "legal_person",
+   "target_name": "法人",
+   "article": "lcl#57",
+   "article_no": "第五十七条",
+   "citation": "中华人民共和国劳动合同法第五十七条",
+   "gold": null,
+   "cue": "依照",
+   "note": "中华人民共和国劳动合同法第五十七条：「劳务派遣单位应当依照公司法的有关规定设立」——A 依/按/经 B 方能成立或行使，故 A 依赖 B（机械锚点：同条独立出现「劳务派遣单位」「公司」）。",
+   "hits_source": [
+    {
+     "term": "劳务派遣单位",
+     "snippet": "劳务派遣单位应当依照公司法的有关规定"
+    }
+   ],
+   "hits_target": [
+    {
+     "term": "公司",
+     "snippet": "劳务派遣单位应当依照公司法的有关规定设立，注册资"
+    }
+   ],
+   "mech": true
+  },
+  {
+   "relation": "SPECIAL_OF",
+   "source": "minor_worker",
+   "source_name": "未成年工",
+   "target": "worker",
+   "target_name": "劳动者",
+   "article": "ll#58",
+   "article_no": "第五十八条",
+   "citation": "中华人民共和国劳动法第五十八条",
+   "gold": null,
+   "note": "中华人民共和国劳动法第五十八条「国家对女职工和未成年工实行特殊劳动保护。未成年工是指年满十六周岁未满十八周岁的劳动者。…」——未成年工 的定义式为「劳动者」的下位概念，构成 SPECIAL_OF。",
+   "hits_source": [
+    {
+     "term": "未成年工",
+     "snippet": "国家对女职工和未成年工实行特殊劳动保护。未成年"
+    },
+    {
+     "term": "未成年工",
+     "snippet": "成年工实行特殊劳动保护。未成年工是指年满十六周岁未满十八"
+    }
+   ],
+   "hits_target": [
+    {
+     "term": "劳动者",
+     "snippet": "满十六周岁未满十八周岁的劳动者。"
+    }
+   ],
+   "mech": true
+  },
+  {
+   "relation": "SPECIAL_OF",
+   "source": "dispatch_unit",
+   "source_name": "劳务派遣单位",
+   "target": "employer",
+   "target_name": "用人单位",
+   "article": "lcl#58",
+   "article_no": "第五十八条",
+   "citation": "中华人民共和国劳动合同法第五十八条",
+   "gold": null,
+   "note": "中华人民共和国劳动合同法第五十八条「劳务派遣单位是本法所称用人单位，应当履行用人单位对劳动者的义务。劳务派遣单位与被派遣劳动者订立的劳动合同，除应当载明本法…」——劳务派遣单位 的定义式为「用人单位」的下位概念，构成 SPECIAL_OF。",
+   "hits_source": [
+    {
+     "term": "劳务派遣单位",
+     "snippet": "劳务派遣单位是本法所称用人单位，应当"
+    },
+    {
+     "term": "劳务派遣单位",
+     "snippet": "用人单位对劳动者的义务。劳务派遣单位与被派遣劳动者订立的劳动"
+    }
+   ],
+   "hits_target": [
+    {
+     "term": "用人单位",
+     "snippet": "劳务派遣单位是本法所称用人单位，应当履行用人单位对劳动"
+    },
+    {
+     "term": "用人单位",
+     "snippet": "法所称用人单位，应当履行用人单位对劳动者的义务。劳务派遣"
+    }
+   ],
+   "mech": true
+  }
+ ]
+}

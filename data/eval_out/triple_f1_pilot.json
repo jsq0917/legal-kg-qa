@@ -1,0 +1,168 @@
+{
+ "task": "T15 / A6b 试点：三元组抽取器接到抽取链路（50 条可行性验证）",
+ "n": 50,
+ "seed": 20261030,
+ "pool": 60,
+ "test_set": "A1 test 60 条人工标注（未参与训练/选型）",
+ "excluded_ids": [
+  "CC-0097",
+  "CC-0156",
+  "CC-0217",
+  "CC-0411",
+  "CC-0776",
+  "CC-0854",
+  "CC-0889",
+  "CC-1231",
+  "LL-0094",
+  "LL-0098"
+ ],
+ "protocol": {
+  "prompt": "A1 prompt_test.jsonl 的 prompt_messages 原样复用（system + 条文，零样本）；SFT 训练与 A1 评测用的就是这一份",
+  "client": "LexWeave common/llm.py::LLMClient，两端同代码同参数，只换 base_url/model/key",
+  "temperature": 0.0,
+  "max_tokens": 700,
+  "response_format": "两端均不加（LLMClient 未透传 response_format）",
+  "parsing": "A1 scripts/eval_extract.py::parse_pred + evaluate（严格/宽松同口径）",
+  "metrics": "实体 strict/relaxed F1、关系 strict F1、json_parse_rate、exact_match，微平均",
+  "baseline": "DeepSeek 零样本（同 prompt）；不是 A1 报告里的 3-shot 0.6102，两者不可混用"
+ },
+ "external_reference_60items": {
+  "note": "A1 在全部 60 条上的历史落盘，仅作参照，不是本次 50 条的实测值",
+  "deepseek_zeroshot": {
+   "entity_F1": 0.4896,
+   "relation_F1": 0.1945,
+   "artifact": "work/a1-lora-sft/runs/deepseek-zeroshot/eval.json"
+  },
+  "deepseek_3shot": {
+   "entity_F1": 0.6102,
+   "relation_F1": 0.289,
+   "artifact": "work/a1-lora-sft/runs/deepseek-3shot/eval.json"
+  },
+  "lora_0.5B_lr5e4": {
+   "entity_F1": 0.4825,
+   "relation_F1": 0.0786,
+   "artifact": "work/a1-lora-sft/runs/test_lora_lr5e4/eval.json"
+  }
+ },
+ "local": {
+  "model": "qwen25-1.5b-triple:q4km",
+  "base_url": "http://127.0.0.1:11435/v1",
+  "latency_ms_median": 1118,
+  "latency_ms_mean": 1154.9,
+  "latency_ms_mean_ex_warmup": 1127.3,
+  "out_tok_mean": 67.2,
+  "wall_s": 57.8
+ },
+ "deepseek": {
+  "model": "deepseek-chat",
+  "latency_ms_mean_ex_warmup": 1156.9,
+  "out_tok_mean": 122.3,
+  "wall_s": 60.9
+ },
+ "metrics": {
+  "local": {
+   "n": 50,
+   "json_parse_rate": 1.0,
+   "entity_strict": {
+    "P": 0.5187,
+    "R": 0.4735,
+    "F1": 0.495,
+    "tp": 125,
+    "fp": 116,
+    "fn": 139,
+    "CI95_boot": [
+     0.4398,
+     0.5523
+    ]
+   },
+   "entity_relaxed": {
+    "P": 0.6183,
+    "R": 0.5644,
+    "F1": 0.5901
+   },
+   "relation": {
+    "P": 0.1765,
+    "R": 0.0828,
+    "F1": 0.1127,
+    "tp": 12,
+    "fp": 56,
+    "fn": 133,
+    "CI95_boot": [
+     0.0447,
+     0.1778
+    ]
+   },
+   "relation_relaxed": {
+    "P": 0.3088,
+    "R": 0.1448,
+    "F1": 0.1972
+   },
+   "exact_match": 0.0
+  },
+  "deepseek": {
+   "n": 50,
+   "json_parse_rate": 1.0,
+   "entity_strict": {
+    "P": 0.4286,
+    "R": 0.5,
+    "F1": 0.4615,
+    "tp": 132,
+    "fp": 176,
+    "fn": 132,
+    "CI95_boot": [
+     0.4036,
+     0.5198
+    ]
+   },
+   "entity_relaxed": {
+    "P": 0.6006,
+    "R": 0.7008,
+    "F1": 0.6469
+   },
+   "relation": {
+    "P": 0.16,
+    "R": 0.2207,
+    "F1": 0.1855,
+    "tp": 32,
+    "fp": 168,
+    "fn": 113,
+    "CI95_boot": [
+     0.1214,
+     0.2521
+    ]
+   },
+   "relation_relaxed": {
+    "P": 0.34,
+    "R": 0.469,
+    "F1": 0.3942
+   },
+   "exact_match": 0.0
+  }
+ },
+ "extrapolation": {
+  "per_item_s_local": 1.127,
+  "full_1430_min": 26.9,
+  "node_corpus_1465_min": 27.5,
+  "assumptions": "单进程串行、模型常驻（不含首次加载 2.0 s）、无并发、无重试"
+ },
+ "format_legality": {
+  "local": 1.0,
+  "deepseek": 1.0,
+  "threshold": 0.95,
+  "pass": true
+ },
+ "node_compatibility": {
+  "artifact": "work/a6b-pilot/runs/node_probe.json（探针原文逐条留档）",
+  "node_prompt": "app/__002__extract/__000__extract_graph_data_utils.py 的 _SYSTEM/_USER（闭集概念表 + 场景表）",
+  "n": 10,
+  "json_schema_pass_rate": 1.0,
+  "concept_closed_set_precision": 0.2812,
+  "scenario_closed_set_precision": 0.4545,
+  "concept_per_item": 3.2,
+  "scenario_per_item": 4.4,
+  "latency_ms_mean": 4969,
+  "reading": "JSON 合法 ≠ 节点能用：节点只保留闭集内的概念名，集合外的一律静默丢弃"
+ },
+ "delta_entity_f1_vs_deepseek": 0.0335,
+ "delta_relation_f1_vs_deepseek": -0.0728
+}

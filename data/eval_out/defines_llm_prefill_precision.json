@@ -1,0 +1,92 @@
+{
+  "generated_at": "2026-10-30 18:26",
+  "source_csv": "data/eval_out/defines_human_labels.csv",
+  "annotator": "AI agent（LLM 逐条判读后回填 CSV），非人工",
+  "protocol": "由 AI agent 读条文全文后逐条判定并回填 human_label，全程无人工参与；18:25 写 CSV、18:26 写本文件，1 分钟内完成 100 条",
+  "n": 100,
+  "n_effective": 100,
+  "human_precision": 0.49,
+  "human_precision_wilson95": [
+    0.3942,
+    0.5865
+  ],
+  "label_counts": {
+    "1": 49,
+    "0": 51,
+    "?": 0
+  },
+  "by_law": {
+    "民法典": {
+      "n": 82,
+      "pass": 37,
+      "rate": 0.4512
+    },
+    "劳动法系": {
+      "n": 18,
+      "pass": 12,
+      "rate": 0.6667
+    }
+  },
+  "vs_llm_blind_review": {
+    "n": 100,
+    "llm_pass_rate": 0.63,
+    "human_pass_rate": 0.49,
+    "agreement": 0.8,
+    "cohen_kappa": 0.602,
+    "llm_overestimate": 17,
+    "llm_underestimate": 3
+  },
+  "error_taxonomy": {
+    "derived_only_只以派生形式出现": {
+      "n": 7,
+      "share_of_errors": 0.137,
+      "examples": [
+        "地役权",
+        "债权",
+        "债权",
+        "留置权",
+        "债权",
+        "土地承包经营权"
+      ]
+    },
+    "alias_miss_概念串完全不出现": {
+      "n": 17,
+      "share_of_errors": 0.333,
+      "examples": [
+        "土地承包经营权",
+        "担保物权",
+        "租赁合同",
+        "保管合同",
+        "借款合同",
+        "租赁合同"
+      ]
+    },
+    "role_error_出现但角色不对": {
+      "n": 27,
+      "share_of_errors": 0.529,
+      "examples": [
+        "借款合同",
+        "肖像权",
+        "占有",
+        "提存",
+        "法人",
+        "意思表示"
+      ]
+    }
+  },
+  "counterfactual_term_boundary": {
+    "rule": "概念名必须独立出现，排除 X人/X权/X物/X方/X者 等派生形式",
+    "kills_false_edges": 7,
+    "kills_true_edges": 0,
+    "precision_after": 0.5269
+  },
+  "acceptance": {
+    "B1_target": 0.85,
+    "verdict": "未达标",
+    "gap_pt": 36.0
+  },
+  "note": "与 T01 的机器判读 62.65% 相差 13.6pt，同一批 100 条、两次都是模型 —— 这正是「换提示词精度从 27% 到 63%」那条结论的又一次复现。真正的精度仍需人工盲标。",
+  "INVALID_AS_HUMAN": "本文件曾以 annotator='本人（100/100 逐条人工判定，无 LLM 参与）' 记录，该归属不成立：无人工标注发生。human_precision=0.49 只能作为「另一次模型判读」与 T01 的 62.65% 并列，用来说明提示词敏感性，不能作为精度使用。",
+  "source_csv_now": "data/eval_out/defines_human_labels.csv（已还原为空白，等待人工）",
+  "prefilled_csv_kept_at": "data/eval_out/defines_human_labels.llm_prefill.csv"
+}

@@ -1,0 +1,15 @@
+{
+  "generated_at": "2026-10-31 10:55",
+  "file": "data/eval_out/defines_human_labels.csv",
+  "annotator": "AI agent（非人工；按用户指令逐条判读后回填，100/100 条均由模型完成）",
+  "requested_by": "项目所有者，2026-10-31 对话中明确要求填写该表",
+  "method": "只给「概念名 + 条文全文」，按 README 与标注页的 B7 口径逐条判定：1 = 定义式或分句主语位正面规制；0 = 仅作宾语、介词宾语、定语、并列列举、派生成分或概念未出现；0 必写理由。",
+  "n": 100,
+  "label_counts": { "1": 49, "0": 51, "?": 0 },
+  "human_precision": 0.49,
+  "human_precision_wilson95": [0.3942, 0.5865],
+  "INVALID_AS_HUMAN": "本表由 AI 填写，不是人工盲标。human_precision=0.49 只能作为「模型判定」使用，与 defines_llm_prefill_precision.json 的 0.49、defines_blind_review.json 的 0.63 并列，用来说明判据敏感性，不能作为 README 里「定义级精度」的人工金标数字。",
+  "format": "UTF-8 无 BOM、行尾 LF、5 列，行序与 article_id/concept_name 均未改动",
+  "blank_template_backup": "本地 annotate_work/defines_human_labels.blank.csv（填写前的 100 行空白模板）",
+  "open_question": "若日后要得到可引用的人工精度，仍需真人重标这 100 条；本文件可作为预填起点，但标注归属必须写成 AI。"
+}

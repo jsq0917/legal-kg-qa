@@ -1,0 +1,426 @@
+{
+ "method": "gold_200 中出现（freq≥1）且概念层度数（REQUIRES 进出 + SPECIAL_OF 进出 + APPLIES_TO 入）≤2",
+ "total": 23,
+ "gold_total_concepts": 116,
+ "edge_total_at_snapshot": {
+  "REQUIRES": 196,
+  "SPECIAL_OF": 183,
+  "APPLIES_TO": 198
+ },
+ "items": [
+  {
+   "id": "female_worker_protection",
+   "name": "女职工特殊保护",
+   "type": "obligation",
+   "gold_freq": 3,
+   "gold_ids": [
+    "g102",
+    "g176",
+    "g37"
+   ],
+   "gold_60_freq": 1,
+   "degree": 2,
+   "edges": [
+    "REQUIRES->labor_protection",
+    "<-APPLIES_TO:maternity_leave"
+   ],
+   "degree_after": 3,
+   "filled": true
+  },
+  {
+   "id": "file_transfer",
+   "name": "档案和社保转移",
+   "type": "procedure",
+   "gold_freq": 3,
+   "gold_ids": [
+    "g125",
+    "g153",
+    "g86"
+   ],
+   "gold_60_freq": 0,
+   "degree": 2,
+   "edges": [
+    "REQUIRES->social_insurance",
+    "<-APPLIES_TO:handover_dispute"
+   ],
+   "degree_after": 4,
+   "filled": true
+  },
+  {
+   "id": "emergency_overtime",
+   "name": "紧急情况加班",
+   "type": "procedure",
+   "gold_freq": 2,
+   "gold_ids": [
+    "g106",
+    "g133"
+   ],
+   "gold_60_freq": 0,
+   "degree": 1,
+   "edges": [
+    "REQUIRES->work_hour_extension"
+   ],
+   "degree_after": 3,
+   "filled": true
+  },
+  {
+   "id": "child_labor",
+   "name": "童工",
+   "type": "doctrine",
+   "gold_freq": 2,
+   "gold_ids": [
+    "g168",
+    "g23"
+   ],
+   "gold_60_freq": 1,
+   "degree": 2,
+   "edges": [
+    "REQUIRES->minor_worker",
+    "<-APPLIES_TO:minor_worker"
+   ],
+   "degree_after": 2,
+   "filled": false
+  },
+  {
+   "id": "collective_consultation",
+   "name": "集体协商",
+   "type": "procedure",
+   "gold_freq": 2,
+   "gold_ids": [
+    "g115",
+    "g164"
+   ],
+   "gold_60_freq": 0,
+   "degree": 2,
+   "edges": [
+    "<-REQUIRES:collective_contract",
+    "<-APPLIES_TO:collective_contract"
+   ],
+   "degree_after": 3,
+   "filled": true
+  },
+  {
+   "id": "invalid_contract",
+   "name": "无效劳动合同",
+   "type": "doctrine",
+   "gold_freq": 2,
+   "gold_ids": [
+    "g40",
+    "g57"
+   ],
+   "gold_60_freq": 2,
+   "degree": 2,
+   "edges": [
+    "REQUIRES->fraud",
+    "<-APPLIES_TO:contract_invalid"
+   ],
+   "degree_after": 3,
+   "filled": true
+  },
+  {
+   "id": "labor_dispute_litigation",
+   "name": "劳动争议诉讼",
+   "type": "procedure",
+   "gold_freq": 2,
+   "gold_ids": [
+    "g122",
+    "g169"
+   ],
+   "gold_60_freq": 0,
+   "degree": 2,
+   "edges": [
+    "REQUIRES->arbitration",
+    "<-APPLIES_TO:labor_litigation"
+   ],
+   "degree_after": 4,
+   "filled": true
+  },
+  {
+   "id": "occupational_health_check",
+   "name": "职业健康检查",
+   "type": "procedure",
+   "gold_freq": 2,
+   "gold_ids": [
+    "g119",
+    "g167"
+   ],
+   "gold_60_freq": 0,
+   "degree": 2,
+   "edges": [
+    "REQUIRES->labor_protection",
+    "<-APPLIES_TO:occupational_disease"
+   ],
+   "degree_after": 2,
+   "filled": false
+  },
+  {
+   "id": "separation_certificate",
+   "name": "解除终止证明",
+   "type": "document",
+   "gold_freq": 2,
+   "gold_ids": [
+    "g142",
+    "g24"
+   ],
+   "gold_60_freq": 1,
+   "degree": 2,
+   "edges": [
+    "REQUIRES->handover",
+    "<-APPLIES_TO:handover_dispute"
+   ],
+   "degree_after": 3,
+   "filled": true
+  },
+  {
+   "id": "training",
+   "name": "专业技术培训",
+   "type": "procedure",
+   "gold_freq": 2,
+   "gold_ids": [
+    "g20",
+    "g41"
+   ],
+   "gold_60_freq": 2,
+   "degree": 2,
+   "edges": [
+    "<-REQUIRES:service_period",
+    "<-APPLIES_TO:service_period_training"
+   ],
+   "degree_after": 3,
+   "filled": true
+  },
+  {
+   "id": "contract_modification",
+   "name": "劳动合同变更",
+   "type": "procedure",
+   "gold_freq": 1,
+   "gold_ids": [
+    "g129"
+   ],
+   "gold_60_freq": 0,
+   "degree": 1,
+   "edges": [
+    "REQUIRES->labor_contract"
+   ],
+   "degree_after": 2,
+   "filled": false
+  },
+  {
+   "id": "piece_rate",
+   "name": "计件工资",
+   "type": "right",
+   "gold_freq": 1,
+   "gold_ids": [
+    "g108"
+   ],
+   "gold_60_freq": 0,
+   "degree": 1,
+   "edges": [
+    "REQUIRES->labor_quota"
+   ],
+   "degree_after": 2,
+   "filled": false
+  },
+  {
+   "id": "acceptance",
+   "name": "承诺",
+   "type": "doctrine",
+   "gold_freq": 1,
+   "gold_ids": [
+    "g183"
+   ],
+   "gold_60_freq": 0,
+   "degree": 2,
+   "edges": [
+    "<-REQUIRES:contract_establishment",
+    "SPECIAL_OF->contract_establishment"
+   ],
+   "degree_after": 3,
+   "filled": true
+  },
+  {
+   "id": "employment_discrimination",
+   "name": "就业歧视",
+   "type": "doctrine",
+   "gold_freq": 1,
+   "gold_ids": [
+    "g22"
+   ],
+   "gold_60_freq": 1,
+   "degree": 2,
+   "edges": [
+    "REQUIRES->equal_employment_right",
+    "<-APPLIES_TO:employment_discrimination"
+   ],
+   "degree_after": 2,
+   "filled": false
+  },
+  {
+   "id": "equal_employment_right",
+   "name": "平等就业权",
+   "type": "right",
+   "gold_freq": 1,
+   "gold_ids": [
+    "g22"
+   ],
+   "gold_60_freq": 1,
+   "degree": 2,
+   "edges": [
+    "<-REQUIRES:employment_discrimination",
+    "<-APPLIES_TO:employment_discrimination"
+   ],
+   "degree_after": 2,
+   "filled": false
+  },
+  {
+   "id": "fair_liability",
+   "name": "公平责任",
+   "type": "liability",
+   "gold_freq": 1,
+   "gold_ids": [
+    "g200"
+   ],
+   "gold_60_freq": 0,
+   "degree": 2,
+   "edges": [
+    "REQUIRES->tort_liability",
+    "SPECIAL_OF->tort_liability"
+   ],
+   "degree_after": 3,
+   "filled": true
+  },
+  {
+   "id": "minimum_wage_standard",
+   "name": "最低工资标准",
+   "type": "document",
+   "gold_freq": 1,
+   "gold_ids": [
+    "g14"
+   ],
+   "gold_60_freq": 1,
+   "degree": 2,
+   "edges": [
+    "<-REQUIRES:minimum_wage",
+    "<-APPLIES_TO:minimum_wage"
+   ],
+   "degree_after": 2,
+   "filled": false
+  },
+  {
+   "id": "occupational_disease",
+   "name": "职业病",
+   "type": "status",
+   "gold_freq": 1,
+   "gold_ids": [
+    "g101"
+   ],
+   "gold_60_freq": 0,
+   "degree": 2,
+   "edges": [
+    "REQUIRES->work_injury",
+    "<-APPLIES_TO:occupational_disease"
+   ],
+   "degree_after": 2,
+   "filled": false
+  },
+  {
+   "id": "precontractual_liability",
+   "name": "缔约过失责任",
+   "type": "remedy",
+   "gold_freq": 1,
+   "gold_ids": [
+    "g184"
+   ],
+   "gold_60_freq": 0,
+   "degree": 2,
+   "edges": [
+    "REQUIRES->contract_establishment",
+    "SPECIAL_OF->contract_establishment"
+   ],
+   "degree_after": 3,
+   "filled": true
+  },
+  {
+   "id": "retirement",
+   "name": "退休",
+   "type": "status",
+   "gold_freq": 1,
+   "gold_ids": [
+    "g138"
+   ],
+   "gold_60_freq": 0,
+   "degree": 2,
+   "edges": [
+    "<-REQUIRES:contract_termination",
+    "<-APPLIES_TO:retirement_rehire"
+   ],
+   "degree_after": 4,
+   "filled": true
+  },
+  {
+   "id": "standard_terms",
+   "name": "格式条款",
+   "type": "doctrine",
+   "gold_freq": 1,
+   "gold_ids": [
+    "g51"
+   ],
+   "gold_60_freq": 1,
+   "degree": 2,
+   "edges": [
+    "REQUIRES->contract_establishment",
+    "SPECIAL_OF->contract_establishment"
+   ],
+   "degree_after": 3,
+   "filled": true
+  },
+  {
+   "id": "survivor_benefit",
+   "name": "遗属待遇",
+   "type": "right",
+   "gold_freq": 1,
+   "gold_ids": [
+    "g97"
+   ],
+   "gold_60_freq": 0,
+   "degree": 2,
+   "edges": [
+    "REQUIRES->work_injury_insurance",
+    "<-APPLIES_TO:work_injury"
+   ],
+   "degree_after": 2,
+   "filled": false
+  },
+  {
+   "id": "wage_priority_payment",
+   "name": "工资优先支付",
+   "type": "right",
+   "gold_freq": 1,
+   "gold_ids": [
+    "g132"
+   ],
+   "gold_60_freq": 0,
+   "degree": 2,
+   "edges": [
+    "REQUIRES->wage",
+    "<-APPLIES_TO:wage_priority"
+   ],
+   "degree_after": 2,
+   "filled": false
+  }
+ ],
+ "phase": {
+  "before": {
+   "REQUIRES": 196,
+   "SPECIAL_OF": 183,
+   "APPLIES_TO": 198
+  },
+  "after": {
+   "REQUIRES": 230,
+   "SPECIAL_OF": 185,
+   "APPLIES_TO": 291
+  },
+  "gap_before": 23,
+  "gap_after": 10
+ }
+}
