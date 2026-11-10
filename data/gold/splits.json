@@ -1,0 +1,57 @@
+{
+  "generated_by": "scripts/make_holdout.py",
+  "seed": 20261110,
+  "note": "角色划分的机器可读版本；数量与 id 摘要都由本脚本从 gold_200/gold_60 复算。",
+  "splits": {
+    "gold_200": {
+      "n": 200,
+      "by_hop": {
+        "cross_law": 34,
+        "three_hop": 66,
+        "two_hop": 100
+      },
+      "ids_sha256": "fa8f90bbecb4d4f1",
+      "role": "full_pool",
+      "usage": "题池来源；不直接作为评测分母"
+    },
+    "gold_60": {
+      "n": 60,
+      "by_hop": {
+        "cross_law": 10,
+        "three_hop": 20,
+        "two_hop": 30
+      },
+      "ids_sha256": "2ccaa788b4d20a41",
+      "role": "dev_in_sample",
+      "usage": "调参/校准（coverage 系数、RRF k、链接阈值）与 B3/B6 in-sample 报告"
+    },
+    "gold_140_holdout": {
+      "n": 140,
+      "by_hop": {
+        "cross_law": 24,
+        "three_hop": 46,
+        "two_hop": 70
+      },
+      "ids_sha256": "8ae5d9bc3c8637c7",
+      "role": "holdout",
+      "usage": "题级留出，未参与调参；B3 留出集与图路贡献评估的分母"
+    },
+    "gold_60_holdout": {
+      "n": 60,
+      "by_hop": {
+        "cross_law": 10,
+        "three_hop": 20,
+        "two_hop": 30
+      },
+      "ids_sha256": "d52e216416c75c3a",
+      "role": "holdout_balanced",
+      "usage": "从 140 条按 30/20/10 分层抽样，用作 B6 四档留出集"
+    },
+    "router_260": {
+      "n": 260,
+      "composition": "gold_200（200）+ 60 条词典模板合成的 simple 题",
+      "role": "routing_eval",
+      "usage": "路由评测的分母；simple 部分是合成题，不是真实金标"
+    }
+  }
+}
