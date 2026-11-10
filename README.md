@@ -1,4 +1,4 @@
-# LexWeave · 劳动法 / 民法典知识图谱多跳问答
+# 法律知识图谱多跳问答：图谱 + 向量双路检索
 
 ![license](https://img.shields.io/badge/license-MIT-5B9E7A)
 ![python](https://img.shields.io/badge/python-3.11%2B-4C7FB0)
