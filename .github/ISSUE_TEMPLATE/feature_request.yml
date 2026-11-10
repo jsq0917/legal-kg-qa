@@ -1,0 +1,62 @@
+name: 功能 / 实验提议
+description: 想加一个检索器、换一个后端、补一组评测时用这个模板。请写清「验证方式」，不接受无法证伪的提案。
+title: "[feat] "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        本项目的一条硬规矩：**每个结论都要能落到 `data/eval_out/` 的一个数字上**。
+        如果一个提案没法用现有 60 条金标（或说明要新增什么标注）来验证，请在下面写清楚为什么仍然值得做。
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: 要解决的问题
+      description: 现在哪里不行？用数字或复现现象说明（不要只写「效果不好」）。
+      placeholder: 图路 R@5 只有 0.442，纯文本路 0.747；单跳实体链接在口语说法上落空。
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: 提议方案
+      description: 改哪里、怎么改（文件级即可）。如果有多个方案，各自写一行代价。
+    validations:
+      required: true
+
+  - type: textarea
+    id: verification
+    attributes:
+      label: 怎么验证
+      description: 用哪个脚本、哪批题、和什么基线比、看哪个指标；预计数字变成多少算有效。
+      placeholder: |
+        uv run python scripts/eval_retrieval.py
+        对照：hybrid R@5 0.756 → 目标 ≥ 0.78；延迟不超过基线 2×。
+    validations:
+      required: true
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: 涉及模块
+      multiple: true
+      options:
+        - 图谱 / 抽取（app/__002__extract、app/__003__graph）
+        - 检索 / 路由（app/__004__retrieval）
+        - 对话 / 人在环（app/__005__dialog、app/__006__hitl）
+        - 编排 / 闸门（app/__007__agents）
+        - API / UI
+        - 评测与数据（scripts、data/）
+        - 工程化（CI、文档、部署）
+    validations:
+      required: true
+
+  - type: textarea
+    id: risks
+    attributes:
+      label: 风险与不做什么
+      description: 会不会改评测口径、会不会动金标、需要 GPU 或 LLM 额度吗？
+    validations:
+      required: false

@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 先看 README 的复现命令与已知局限
+    url: https://github.com/jsq0917/LexWeave/blob/main/README.md
+    about: README §10 是复现命令，§12 是已知局限（含未达标项，提 issue 前请先对照）
+  - name: 贡献流程与本地环境
+    url: https://github.com/jsq0917/LexWeave/blob/main/CONTRIBUTING.md
+    about: 含 40 分钟上手清单、评测口径约束、PR 验收要求

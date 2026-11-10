@@ -1,0 +1,80 @@
+name: Bug 报告
+description: 跑不出 README 里的结果、脚本报错、数字对不上时用这个模板。三栏（复现命令 / 期望 / 实际）请填满。
+title: "[bug] "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        提 issue 前请先确认：
+        1. 已经按 README §10.1 跑完三条命令（`uv sync --extra dev` → `build_graph.py` → `pytest`）；
+        2. 已经看过 README §12「已知局限」，你遇到的问题可能已在其中披露；
+        3. 不要贴 `LLM_API_KEY` / `DEEPSEEK_API_KEY` / `NEO4J_PASSWORD`，报错里如含密钥请先打码。
+
+  - type: textarea
+    id: repro
+    attributes:
+      label: 复现命令
+      description: 从干净 clone 开始，按顺序写能触发问题的最少命令（不要贴整段终端回滚）。
+      placeholder: |
+        uv sync --extra dev
+        uv run python scripts/build_graph.py
+        uv run python -m pytest tests -q
+      render: shell
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: 期望
+      description: 你按 README 的哪一句 / 哪个数认为它应该是什么？（写编号，如 README §3「nodes 1799 / edges 5697」）
+      placeholder: 期望输出 nodes 1799 / edges 5697；实际是 1736 / 4259。
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: 实际
+      description: 贴关键报错或关键数字，不要贴全文；涉及路径时把用户名等本地信息打码。
+      placeholder: |
+        FileNotFoundError: 概念索引不存在，先运行 scripts/build_index.py
+        或：pytest 收集到 0 个用例
+      render: shell
+    validations:
+      required: true
+
+  - type: dropdown
+    id: component
+    attributes:
+      label: 影响范围
+      multiple: true
+      options:
+        - 环境 / 依赖（uv sync、torch、模型下载）
+        - 建图（build_graph.py / data/graph）
+        - 检索与路由（app/__004__retrieval）
+        - 编排与闸门（app/__007__agents）
+        - API / UI（app/__008__api / app/__009__ui）
+        - 评测脚本（scripts/eval_*.py / data/eval_out）
+        - 文档与数字对不上（README）
+        - 不确定
+    validations:
+      required: true
+
+  - type: input
+    id: env
+    attributes:
+      label: 环境
+      description: 操作系统 + Python 版本 + 是 CPU 还是 GPU 路径（可用 `uv run python -V` 与 `uname -a` / `ver`）
+      placeholder: Windows 11 / Python 3.13.12 / CPU-only（按轻量路径安装）
+    validations:
+      required: true
+
+  - type: textarea
+    id: extra
+    attributes:
+      label: 其他上下文
+      description: 可选：commit sha、是否改过 data/、是否用过 LLM key、这张卡对应哪个任务编号（T01–T36）
+    validations:
+      required: false
