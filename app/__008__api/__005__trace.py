@@ -33,6 +33,7 @@ from threading import Lock
 from typing import Any
 
 from app.__007__agents.__000__state import normalize_tier
+from common.llm import reset_degradation_hook, set_degradation_hook
 from common.path_utils import append_jsonl, read_jsonl
 
 TRACE_DIR = os.getenv("TRACE_DIR", "data/observability")
@@ -229,9 +230,11 @@ def trace_request(
         graph_build_id=graph_build_id,
     )
     token = _CURRENT.set(trace)
+    hook_token = set_degradation_hook(trace.record_degradation)
     try:
         yield trace
     finally:
+        reset_degradation_hook(hook_token)
         _CURRENT.reset(token)
 
 

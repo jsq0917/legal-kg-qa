@@ -272,6 +272,7 @@ def route_llm(query: str) -> tuple[str | None, float]:
     out = llm.try_json(
         [{"role": "system", "content": ROUTE_LLM_SYSTEM_PROMPT}, {"role": "user", "content": query}],
         default=None,
+        schema={"level": str},
         temperature=0,
         max_tokens=64,
     )

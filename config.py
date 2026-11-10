@@ -54,6 +54,11 @@ class Settings(BaseSettings):
     # 而 try_chat 对空串不抛错 -> 静默回落模板，看起来像「key 没生效」。
     # auto: 仅百炼端点下发 enable_thinking=False；on/off: 强制。
     llm_thinking: Literal["auto", "on", "off"] = Field(default="auto", alias="LLM_THINKING")
+    # 错误治理：只对「可恢复」错误重试（429/超时/5xx/网络），鉴权与参数错误立即换 key 或失败。
+    llm_max_retries: int = Field(default=2, alias="LLM_MAX_RETRIES")
+    llm_retry_backoff_s: float = Field(default=0.5, alias="LLM_RETRY_BACKOFF_S")
+    # 备用模型：主模型重试耗尽后换模型（与「换 Key」区分开），留空表示不启用。
+    llm_fallback_model: str = Field(default="", alias="LLM_FALLBACK_MODEL")
 
     # ---------------- Neo4j ----------------
     neo4j_uri: str = Field(default="bolt://localhost:7687", alias="NEO4J_URI")
