@@ -2,7 +2,7 @@
 
 ![license](https://img.shields.io/badge/license-MIT-5B9E7A)
 ![python](https://img.shields.io/badge/python-3.11%2B-4C7FB0)
-![tests](https://img.shields.io/badge/tests-115%20passed-5B9E7A)
+![tests](https://img.shields.io/badge/tests-116%20passed-5B9E7A)
 ![edges](https://img.shields.io/badge/graph-1799%20nodes%20%2F%205632%20edges-8A94A0)
 
 面向「大模型算法岗」求职的作品项目：把一份**纯检索式**的法律问答 demo，改成一套可复现、可量化、
@@ -78,13 +78,14 @@ Neo4j 与 NetworkX 两套后端共享同一份 `QueryPlan`，也共享同一份�
 启动时与 manifest 比对，不一致时 `GRAPH_BACKEND=auto` 会**显式降级回 NetworkX**（`/health.graph.degraded_reason` 写明原因），
 显式 `GRAPH_BACKEND=neo4j` 则直接报错，不会静默拿旧图作答。
 
-当前状态：本机 Neo4j 里的数据是 2026-10-31 重建前的旧图（无 GraphMeta），因此 `auto` 模式下会降级到
-`g963749014664` 的 NetworkX 镜像；要让 Neo4j 生效，需重跑
-`docker compose up -d --wait && .venv\Scripts\python.exe scripts\build_graph.py --neo4j --clear`。
+当前状态：2026-11-11 已用当前图源重建并导入 Neo4j（`g963749014664`，库里含
+`(:GraphMeta {id:"__graph_meta__"})`），`auto` 模式直接命中 Neo4j：`/health.graph.backend="neo4j"`、
+`degraded=false`；`python scripts/check_graph_parity.py --require-neo4j` 六类 QueryPlan 全部 0 差异（live）。
+Neo4j 未启动或版本不一致时，`auto` 仍会显式降级到同一版本的 NetworkX 镜像，并写明原因。
+一键重导：`docker compose up -d --wait && .venv\Scripts\python.exe scripts\build_graph.py --neo4j --clear`。
 离线一致性检查是一条命令：`python scripts/check_graph_parity.py`（固定查询计划集比对节点/边数、标签计数、关系计数与查询结果；
 Neo4j 不可用时明确记为 `skipped`，并用注入差异自检证明「检测器不是永远返回 0 差异」）。
-README §3 的 3 条 Cypher 已在真实实例上跑过（原始输出见 `data/eval_out/neo4j_cypher_runs.json`），但那批结果对应旧图，
-**不能当作当前 `g963749014664` 的结果引用**。
+README §3 的 3 条 Cypher 已在新图上重跑（原始输出见 `data/eval_out/neo4j_cypher_runs.json`，带 `graph_build_id`）。
 
 ---
 
@@ -192,23 +193,25 @@ RETURN c.name AS concept, a.citation AS article ORDER BY a.article_num LIMIT 20
 
 // 2) 从「劳动关系」出发做两跳概念扩展
 MATCH (c1:Concept {id: 'labor_relationship'})-[:REQUIRES|SPECIAL_OF*1..2]->(c2:Concept)
-RETURN DISTINCT c2.name AS reached LIMIT 30
+RETURN DISTINCT c2.name AS reached ORDER BY reached LIMIT 30
 
 // 3) 条文之间的引用链（CITES）
 MATCH (a:Article)-[:CITES]->(b:Article)
-RETURN a.citation AS from_law, b.citation AS to_law LIMIT 10
+RETURN a.citation AS from_law, b.citation AS to_law ORDER BY from_law, to_law LIMIT 10
 ```
 
-真实执行结果（`data/eval_out/neo4j_cypher_runs.json`，`neo4j:5.26-community`，bolt://localhost:7687）：
+真实执行结果（`data/eval_out/neo4j_cypher_runs.json`，`graph_build_id=g963749014664`，`neo4j:5.26-community`，
+bolt://localhost:7687；先预热一次再计时，三条都显式 `ORDER BY`）：
 
 | 查询 | 返回行数 | 耗时 | 前几行 |
 |---|---|---|---|
-| 场景→概念→条文 | 20（触顶 LIMIT 20） | 2.6 ms | 劳动合同（劳动合同法第十二条）、劳动合同（第十三条）、劳动合同（第十四条）… |
-| 劳动关系两跳 | 2 | 51 ms | 代理、书面形式 |
-| CITES 引用链 | 10 | 2.7 ms | 劳动合同法第十四条 → 第三十九条 / 第四十条；第二十五条 → 第二十二条 / 第二十三条 |
+| 场景→概念→条文 | 20（触顶 LIMIT 20） | 2.7 ms | 劳动合同（劳动合同法第十二条）、劳动合同（第十三条）、劳动合同（第十四条）… |
+| 劳动关系两跳 | 2 | 1.8 ms | 书面形式、代理 |
+| CITES 引用链 | 10 | 3.6 ms | 劳动合同法第三十九条 → 第二十六条；第三十八条 → 第二十六条；第九十七条 → 第十四条 |
 
 > 说明：第一条原来写 `Scenario {id: 'unpaid_wages'}`，实际节点 id 带 `sc:` 前缀，已改为 `sc:unpaid_wages`；
-> 三条查询的完整返回与延迟都在 JSON 里，不是「照 schema 推演」。
+> 三条查询的完整返回与延迟都在 JSON 里，不是「照 schema 推演」。旧版两跳/引用链没有 `ORDER BY`，行序不稳定，
+> 这次一并补上，保证重跑可逐行比对。
 
 ---
 
@@ -348,6 +351,25 @@ g181 g182 g183 g184 g185 g186 g188 g189 g191 g198 g199 g200`），按主失败�
   而是图路召回本身不够。
 * 口径仍有一个共享组件偏置：`gold_200` 的条文锁定用了 bge-reranker，评测也用它。**留出的是题，不是组件**，
   所以这组数字应读作"题级留出"，不能读作完全独立的第三方评测。
+
+**独立评价路径（把共享精排整个摘掉）**：`python scripts/eval_retrieval.py --gold data/gold/gold_140_holdout.jsonl
+--no-rerank --no-llm --out data/eval_out/retrieval_holdout_140_no_rerank.json`。同一批 140 题、同一个图版本
+（`g963749014664`），融合只用加权 RRF（`COVERAGE_BONUS` 不变），结果：
+
+| 模式 | R@5 | all@5 | 中位延迟 |
+|---|---|---|---|
+| 纯文本 | 0.6893 | 0.4143 | 46 ms |
+| 纯图 | 0.4250 | 0.1857 | 42 ms |
+| 混合 + 路由 | 0.4286 | 0.1714 | 59 ms |
+
+配对 bootstrap（1000 次）：text − hybrid = **+26.07pt [19.29, 32.38]**，即**无精排时 hybrid 显著差于纯文本**；
+graph − hybrid = −0.36pt [−2.14, +1.55]，不显著。这组数字说明两件事，都和上面的偏置披露直接相关：
+
+1. 纯文本在完全不使用共享精排时仍有 R@5 0.6893 / all@5 0.4143，**不是靠精排把金标"喂"上去的**；
+2. 主表 hybrid 的 +1.07pt **依赖精排**：融合权重 0.55:0.45 与 `RERANK_CANDIDATES=25` 是按"精排前给候选"校准的，
+   摘掉精排后 10 条图路候选经加权 RRF 排到文本候选之前，hybrid 退化成图路水平。
+   所以主表结论只能读作"当前精排配置下的题级留出结果"，**不能读作与组件无关的增益**。
+   这条路径是组件消融，不是"更公平的评测器"——它测的是另一个系统（无交叉编码器）。
 
 ---
 
@@ -611,13 +633,13 @@ g181 g182 g183 g184 g185 g186 g188 g189 g191 g198 g199 g200`），按主失败�
 ```json
 {
   "ok": true,
-  "graph_backend": "networkx",
+  "graph_backend": "neo4j",
   "graph": {
-    "backend": "networkx",
+    "backend": "neo4j",
     "requested_backend": "auto",
     "graph_build_id": "g963749014664",
     "degraded": false,
-    "degraded_reason": "",
+    "degraded_reason": null,
     "nodes": 1799,
     "edges": 5632
   },
@@ -627,9 +649,14 @@ g181 g182 g183 g184 g185 g186 g188 g189 g191 g198 g199 g200`），按主失败�
 }
 ```
 
+（这是本机当前状态：Neo4j 容器在跑且 GraphMeta 与 manifest 一致。若 Neo4j 未启动，同一接口返回
+`backend="networkx"`、`degraded=true`、`degraded_reason="neo4j_unavailable: <detail>"`；
+版本不一致时 `auto` 也会降级并写明 `neo4j_graph_version_mismatch`，显式 `GRAPH_BACKEND=neo4j` 则直接报错。）
+
 图没建时 `backend=uninitialized`、`degraded=true`，接口仍返回 200，前端据此提示先跑 `build_graph.py`。
-`degraded_reason` 的取值是固定的：`networkx_manifest_missing`、`networkx_manifest_mismatch: <detail>`、
-`neo4j_manifest_missing`、`neo4j_manifest_mismatch: ...`、`neo4j_unreachable: ...`。
+`degraded_reason` 的取值是固定的：`networkx_manifest_missing`、`networkx_graph_has_no_build_id`、
+`networkx_manifest_mismatch: <detail>`、`neo4j_unavailable: <detail>`、
+`neo4j_graph_version_unknown: <detail>`、`neo4j_graph_version_mismatch: <detail>`。
 检索结果、`trace.jsonl`、缓存 key、评测 JSON 都带同一个 `graph_build_id`，任何数字都能追到具体图版本。
 
 ### 9.2 同步与流式是同一套回答 / 校验 / 修复逻辑
@@ -726,7 +753,7 @@ curl -N "http://127.0.0.1:8000/ask/stream?query=公司拖欠工资怎么办&tier
 ```bash
 uv sync --extra dev                                    # 1) 建环境（lock 固定版本）
 uv run python scripts/build_graph.py                   # 2) 建图 + 刷新 stats.json（约 15 秒）
-uv run python -m pytest tests -q                       # 3) 单元测试（115 项；仅 1 项 slow 图抽检需离线图镜像）
+uv run python -m pytest tests -q                       # 3) 单元测试（116 项；仅 1 项 slow 图抽检需离线图镜像）
 uv run python scripts/check_graph_parity.py            # 4) 图版本 + 双后端一致性（Neo4j 未启动则显式 skipped）
 uv run python scripts/check_stream_contract.py          # 5) 同步/流式契约（20 组，离线）
 ```
@@ -742,7 +769,7 @@ uv run python scripts/check_stream_contract.py          # 5) 同步/流式契约
 不依赖 `.venv\Scripts\` 这种 Windows 路径。
 
 > **已验证**：`git clone` 到全新目录（无 `.venv`、无 `data/graph`，全部从 `data/extracted` 重建），
-> 三条命令按序执行通过，图统计与本 README 逐位一致。单测 **115 项全部通过**。
+> 三条命令按序执行通过，图统计与本 README 逐位一致。单测 **116 项全部通过**。
 > 曾报红的 `tests/test_graph_sample.py` 已查清：`g26`/`g45` 的 `lease_contract→cc#733`
 > 是 gold 判为非必要的相关锁定（正文无「租赁合同」字面），不是丢边；测试已改为只对
 > `necessity=true` 的锁定条文要求图边，并把这两条登记为 `KNOWN_RELEVANCE_ONLY`（见 §12 局限 8）。
@@ -836,12 +863,11 @@ Neo4j 连接失败时自动回落 NetworkX 离线镜像，不阻塞任何评测�
    如 `non_compete_compensation → liquidated_damages`），已从「直接改 data/lexicon/requires.jsonl」
    改为写进种子 `GOLD_PATH_REQUIRES`，否则重建术语库会丢；这属于「按验收结果修数据」，
    有循环论证风险，已在此披露。
-8. **Neo4j 与当前 NetworkX 镜像不同步（已改为显式可见，不再静默）**：本机 Docker Desktop 起
-   `neo4j:5.26-community`，完成的是 10-31 重建**之前**的 1799 节点 / 5697 关系导入，3 条 Cypher 真跑出结果
-   （`data/eval_out/neo4j_cypher_runs.json`）；当前 NetworkX 镜像是 `g963749014664` / 5632 边，**Neo4j 未随重建重导**，
-   也没有 GraphMeta。现在启动时会比对 manifest：`auto` 模式降级回 NetworkX 并在 `/health.graph.degraded_reason`
-   写明 `neo4j_manifest_missing`，显式 `neo4j` 模式直接报错；`scripts/check_graph_parity.py` 会把 Neo4j 记为
-   `skipped` 而不是「一致」。所以旧 Cypher 结果只作历史证据，不能当作当前图的结论。
+8. **Neo4j 与 NetworkX 已对齐到同一图版本，但只在单机上验证过**：2026-11-11 用当前图源重导
+   `neo4j:5.26-community`（`g963749014664`，1799 节点 / 5632 关系，含 GraphMeta），
+   `scripts/check_graph_parity.py --require-neo4j` 六类 QueryPlan 全部 0 差异；启动时仍会比对 manifest，
+   `auto` 在 Neo4j 不可用/版本不一致时显式降级到同一版本的 NetworkX 镜像（`degraded_reason` 可查），
+   显式 `neo4j` 模式直接报错。未做集群、未压测并发，评测本身走 NetworkX 镜像以保持可复现。
    另：用当前图对 `gold_200` 做只读复算，原报的 4 处概念→条文缺失逐条复核为：
    `g26`/`g45` 的 `lease_contract→cc#733` 是 **gold 判为非必要的相关锁定**（733 讲租赁期限届满返还租赁物，
    正文无「租赁合同」，三票 `necessity=false`），本就不应要求 DEFINES 边；`g47` 已随 gold 重锁到
@@ -874,9 +900,12 @@ Neo4j 连接失败时自动回落 NetworkX 离线镜像，不阻塞任何评测�
 13. **答案层的图路贡献没有全量证据**：`graph_contribution.json` 的答案正确率只来自
     `ablation_holdout_60.json` 的 **60 题缓存离线结果（51.67%）**，其余 80 题没有可用的最终答案，
     只报检索/路径。不要把它写成「140 题端到端正确率」。
-14. **精排共享偏置仍未消除**：金标条文锁定与检索评测都用 bge-reranker-v2-m3，留出的是题不是组件。
-    `eval_retrieval.py --no-rerank` 提供了绕开精排的独立路径，`eval_graph_contribution.py` 也同时跑纯图路；
-    但两条路径都**没有**独立的人工复核样本，所以「提升」仍只能按题级留出解读。
+14. **精排共享偏置仍未消除，但已用组件消融量化**：金标条文锁定与检索评测都用 bge-reranker-v2-m3，留出的是题不是组件。
+    `eval_retrieval.py --no-rerank`（140 题）实测：纯文本 R@5 0.6893 / all@5 0.4143，纯图 0.4250 / 0.1857，
+    hybrid **0.4286 / 0.1714**，text − hybrid = **+26.07pt [19.29, 32.38]** 显著。
+    也就是说，**hybrid 的主表增益依赖精排**，摘掉共享组件后连纯文本都追不上（权重是按精排前候选校准的，
+    不是"图路本身就强"）。`eval_graph_contribution.py` 同时跑纯图路，答案层可逐条复核。
+    但两条路径都**没有**独立的人工复核样本，所以「提升」仍只能按题级留出 + 组件消融解读，不能读作第三方独立评测。
 
 ---
 
@@ -884,7 +913,7 @@ Neo4j 连接失败时自动回落 NetworkX 离线镜像，不阻塞任何评测�
 
 | 编号 | 验收项 | 状态 |
 |---|---|---|
-| B1 | 规模 / provenance / 3 条 Cypher | 规模（Article 1465 / Concept 281 / 边 5632，`g963749014664`）与 provenance 达标；**DEFINES 710 < 800 → 未达标**（机械误配 68/710=9.58%、211 条仅有 Kimi 预判（非人工）、严口径 559/710=78.7%，见 §3 与 §12 局限 3）；Cypher 已在 Docker Neo4j 真跑（3 条均有返回，落盘 JSON，对应重建前的旧图）；规则自洽性 100/100 只是代码与规则一致、不能当精度 |
+| B1 | 规模 / provenance / 3 条 Cypher | 规模（Article 1465 / Concept 281 / 边 5632，`g963749014664`）与 provenance 达标；**DEFINES 710 < 800 → 未达标**（机械误配 68/710=9.58%、211 条仅有 Kimi 预判（非人工）、严口径 559/710=78.7%，见 §3 与 §12 局限 3）；Cypher 已在 Docker Neo4j 真跑（3 条均有返回，落盘 JSON，`graph_build_id=g963749014664`）；规则自洽性 100/100 只是代码与规则一致、不能当精度 |
 | B2 | 200 条 / 路径 / 泄漏 / 必要性 / κ | 规模 200（100/66/34）、概念层必要性 195/200、条文层必要性 **173/200（≥170）**、κ **0.9473/0.9329/0.9856** 达标（κ 是「人定骨架 vs LLM 判读」，**非双人盲标**，见 §12 局限 5）；泄漏改用可解释口径（成句照抄 0/200）；路径原报 4 处缺失复核为 3 处非必要锁定 + **1 处真实语义缺口 `g48`**（见 §12 局限 8），27 条必要性失败已逐条说明 |
 | B3 | 三档对照 / hybrid +15pt / 路由 85% | 三档对照达标（19:14 用当前图重跑，text 0.7472 / graph 0.4389 / hybrid 0.7556，均 60 条 in-sample）；**+15pt（实测 +0.84pt）与路由 0.88（级联 0.7731，CI [0.7192, 0.8231]；gold-only 0.705）未达标**；140 条留出集复算 text 0.7583 / graph 0.4131 / hybrid 0.7691，**hybrid−text +1.07pt、CI [−0.83, +2.86] 含 0**（§5.1）；图路 2-hop 0.6111 / PPR 0.5917、融合精排最佳 0.7583（CI 含 0）同样如实列出 |
 | B4 | 槽位 / 20 脚本 / 继承 90% / 指代 5 条 / 重连 | 全部达标 |
@@ -900,7 +929,7 @@ Neo4j 连接失败时自动回落 NetworkX 离线镜像，不阻塞任何评测�
 > **边界先说清**：本节以及技术报告里的 LoRA SFT、DPO、vLLM/SGLang、量化，都是**离线实验**
 > （产物在实验仓库 `work/`，不在本仓库的 API/UI 主链上）。应用主链默认只通过 OpenAI 兼容端点调用托管模型，
 > 不加载本地权重，也不在请求路径里跑 vLLM。本地模型仅作为「可替换后端」接入：换三个环境变量即可，
-> 代码零改动。主链的可用性/降级逻辑由 §8.3 的错误分类与 §9 的流式语义保证，与这些实验无关。
+> 代码零改动。主链的可用性/降级逻辑由 §9.3 的错误分类与 §9.2 的流式语义保证，与这些实验无关。
 
 训练侧（LoRA SFT → badcase 补数据 → 重训）与应用侧（本仓库）原本是两个不相干的仓。
 这一节把它们接上：**把 A3 数据闭环的最终 adapter 合并进 Qwen2.5-1.5B，量化成 q4_K_M，

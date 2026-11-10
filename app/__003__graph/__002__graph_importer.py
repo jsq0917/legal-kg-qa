@@ -108,9 +108,15 @@ def import_all(clear: bool = False, extracted_dir: Path | None = None, lexicon_d
         log.info("%s: %d 行", label, total)
         return total
 
-    _run(ARTICLE_CYPHER, [dict(a, id=a["article_id"]) for a in articles], "Article")
+    _run(
+        ARTICLE_CYPHER,
+        # law_code 与 NetworkX 后端保持一致：由 article_id 前缀派生（articles.jsonl 里没有这个字段）。
+        [dict(a, id=a["article_id"], law_code=a["article_id"].split("#")[0]) for a in articles],
+        "Article",
+    )
     _run(CONCEPT_CYPHER, concepts, "Concept")
-    _run(SCENARIO_CYPHER, [dict(s, id=scenario_node_id(s["id"])) for s in scenarios], "Scenario")
+    # key 是场景的业务 id（不带 sc: 前缀），NetworkX 用它填 scenario_key。
+    _run(SCENARIO_CYPHER, [dict(s, id=scenario_node_id(s["id"]), key=s["id"]) for s in scenarios], "Scenario")
 
     by_type: dict[str, list[dict]] = {}
     for m in mentions:

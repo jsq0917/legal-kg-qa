@@ -48,7 +48,7 @@ class QueryPlan:
     name: PlanName
     params: dict[str, Any] = field(default_factory=dict)
 
-    def validate(self) -> "QueryPlan":
+    def validate(self) -> QueryPlan:
         if self.name not in ALLOWED_PLANS:
             raise ValueError(f"未授权的查询计划: {self.name}")
         rels = self.params.get("relations")
@@ -77,8 +77,8 @@ CYPHER_TEMPLATES: dict[str, str] = {
     "scenario_concepts": """
         MATCH (s:Scenario)-[r:APPLIES_TO]->(c:Concept)
         WHERE s.id IN $scenario_ids
-        RETURN s.id AS scenario_id, s.name AS scenario_name, c.id AS concept_id,
-               c.name AS concept_name, r.weight AS weight
+        RETURN s.id AS scenario_id, s.key AS scenario_key, s.name AS scenario_name,
+               c.id AS concept_id, c.name AS concept_name, r.weight AS weight
         ORDER BY scenario_id ASC, concept_id ASC
     """,
     "concept_neighbors": """
@@ -107,16 +107,17 @@ CYPHER_TEMPLATES: dict[str, str] = {
     "article_detail": """
         MATCH (a:Article)
         WHERE a.id IN $ids
-        RETURN a.id AS id, a.law_name AS law_name, a.article_no AS article_no,
+        RETURN a.id AS id, labels(a)[0] AS label, a.law_name AS law_name,
+               a.law_code AS law_code, a.article_no AS article_no,
                a.article_num AS article_num, a.chapter_path AS chapter_path,
-               a.content AS content
+               a.citation AS citation, a.content AS content, a.chars AS chars
         ORDER BY id ASC
     """,
     "concept_scenarios": """
         MATCH (s:Scenario)-[r:APPLIES_TO]->(c:Concept)
         WHERE c.id IN $concept_ids
-        RETURN s.id AS scenario_id, s.name AS scenario_name, c.id AS concept_id,
-               r.weight AS weight
+        RETURN s.id AS scenario_id, s.key AS scenario_key, s.name AS scenario_name,
+               c.id AS concept_id, r.weight AS weight
         ORDER BY weight DESC, scenario_id ASC, concept_id ASC LIMIT $limit
     """,
 }
@@ -132,6 +133,10 @@ def to_cypher(plan: QueryPlan, database: str = "neo4j") -> tuple[str, dict[str, 
     if template is None:
         raise ValueError(f"计划 {plan.name} 无 Cypher 模板")
     params = {k: v for k, v in plan.params.items() if k != "direction"}
+    # 场景节点在两种后端里都用 ``sc:`` 前缀做命名空间隔离；计划参数允许传业务 id，
+    # 在这里统一补前缀，避免 Neo4j 直查前缀 id 而 NetworkX 内部补前缀造成的语义漂移。
+    if params.get("scenario_ids"):
+        params["scenario_ids"] = [scenario_node_id(s) for s in params["scenario_ids"]]
     return template.strip(), params
 
 

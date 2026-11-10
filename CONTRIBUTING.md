@@ -18,7 +18,7 @@
 |---|---|---|---|
 | 0 | `git clone <repo> && cd LexWeave` | 仓库可公开访问 | <1 min |
 | 1 | `uv sync --extra dev --no-install-package torch` | 建环境（`uv.lock` 固定版本） | 2–6 min |
-| 2 | `uv run python scripts/build_graph.py` | 日志出现 `nodes 1799 / edges 5697 / DEFINES 819` | ~15 s |
+| 2 | `uv run python scripts/build_graph.py` | 日志出现 `graph_build_id=g963749014664`、`nodes 1799 / edges 5632 / DEFINES 710` | ~15 s |
 | 3 | `uv run python app/__001__ingest/__001__build_lexicon.py --check` | 无输出、退出码 0（术语库与种子一致） | <5 s |
 | 4 | `uv run python -m pytest -m "not slow" -q` | 全绿（数量随仓库演进） | ~10 s |
 | 5 | `uv run ruff check <你改的 py 文件>` | 0 error | <5 s |

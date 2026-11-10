@@ -28,8 +28,8 @@ body:
     id: expected
     attributes:
       label: 期望
-      description: 你按 README 的哪一句 / 哪个数认为它应该是什么？（写编号，如 README §3「nodes 1799 / edges 5697」）
-      placeholder: 期望输出 nodes 1799 / edges 5697；实际是 1736 / 4259。
+      description: 你按 README 的哪一句 / 哪个数认为它应该是什么？（写编号，如 README §3「nodes 1799 / edges 5632」）
+      placeholder: 期望输出 nodes 1799 / edges 5632（graph_build_id=g963749014664）；实际是 …
     validations:
       required: true
 

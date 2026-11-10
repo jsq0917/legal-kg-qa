@@ -13,7 +13,10 @@ from __future__ import annotations
 
 import argparse
 import json
+import pickle
+import shutil
 import sys
+import tempfile
 from pathlib import Path
 from typing import Any
 
@@ -110,6 +113,39 @@ def selftest_detector(nx_store: NetworkXGraphStore, plans: list[QueryPlan] | Non
     return {"detected": detected, "no_rows": no_rows, "missed": missed, "ok": not missed}
 
 
+def selftest_injected_edge(nx_store: NetworkXGraphStore, manifest_dir: Path | None = None) -> dict[str, Any]:
+    """真造一条差异边（拷一份图再加 REQUIRES），六类计划里必须至少一类报差异。
+
+    上一版只在行里加一个字段，证明的是「比较器能看出 dict 不同」，不是「能看出图变了」。
+    这里复制整张图后加节点/边并重新建索引，再跑同一批计划，要求比较器真的报出差异。
+    """
+    g = nx_store.g.copy()
+    # 用固定计划集里真的会查到的概念当起点，保证差异落在被比较的行上。
+    source = next((c for c in ("labor_relationship", "labor_dispatch") if c in g), "")
+    if not source:
+        return {"detected_plans": [], "ok": False, "reason": "固定计划里的概念节点都不存在"}
+    g.add_node("__injected_concept__", label="Concept", name="注入概念")
+    g.add_edge(
+        source,
+        "__injected_concept__",
+        key="REQUIRES:__injected__",
+        relation="REQUIRES",
+        confidence=0.5,
+    )
+    with tempfile.TemporaryDirectory() as td:
+        path = Path(td) / "tampered.pkl"
+        with open(path, "wb") as fh:
+            pickle.dump(g, fh)
+        # 拷一份 manifest 过去，避免临时图因为没有 manifest 触发无关的降级告警。
+        src = (Path(manifest_dir) if manifest_dir else Path("data/graph")) / "graph_manifest.json"
+        if src.exists():
+            shutil.copy(src, Path(td) / src.name)
+        tampered = NetworkXGraphStore(path)
+        diffs = compare_backends(nx_store, tampered)
+    detected = [name for name, v in diffs.items() if not v["ok"]]
+    return {"detected_plans": detected, "ok": bool(detected)}
+
+
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--out", default="data/eval_out/graph_parity.json")
@@ -142,6 +178,7 @@ def main() -> None:
         "version_diff": version_diff,
         "networkx": {k: nx_stats.get(k) for k in ("nodes", "edges", "labels", "relationships")},
         "detector_selftest": selftest_detector(nx_store),
+        "injected_edge_selftest": selftest_injected_edge(nx_store, settings.graph_dir),
         "neo4j": {"status": "skipped"},
         "plans": {},
     }
@@ -167,11 +204,13 @@ def main() -> None:
             neo4j_ok = False
 
     detector_ok = report["detector_selftest"]["ok"]
+    injected_ok = report["injected_edge_selftest"]["ok"]
     plans_ok = all(v["ok"] for v in report["plans"].values()) if report["plans"] else True
-    report["ok"] = not version_diff and detector_ok and plans_ok and (neo4j_ok or not args.require_neo4j)
+    report["ok"] = not version_diff and detector_ok and injected_ok and plans_ok and (neo4j_ok or not args.require_neo4j)
     report["checks"] = {
         "manifest_consistent": not version_diff,
         "detector_detects_injected_diff": detector_ok,
+        "detector_detects_injected_edge": injected_ok,
         "backends_consistent": plans_ok,
         "neo4j_required_met": neo4j_ok or not args.require_neo4j,
     }

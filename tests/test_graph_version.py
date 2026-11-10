@@ -195,3 +195,15 @@ def test_every_plan_is_executable(tmp_path, plan_name):
     build_and_save(extracted_dir=extracted, lexicon_dir=lexicon, out_path=out)
     rows = NetworkXGraphStore(out).execute(_plan(plan_name))
     assert isinstance(rows, list)
+
+
+def test_cypher_matches_networkx_row_contract():
+    """同一 QueryPlan 在两种后端必须返回同名字段：场景 id 统一补前缀，属性字段对齐。"""
+    from app.__003__graph.__000__schema import CYPHER_TEMPLATES, QueryPlan, to_cypher
+
+    _, params = to_cypher(QueryPlan("scenario_concepts", {"scenario_ids": ["contract", "sc:annual_leave"]}))
+    assert params["scenario_ids"] == ["sc:contract", "sc:annual_leave"]
+    for plan_name in ("scenario_concepts", "concept_scenarios"):
+        assert "AS scenario_key" in CYPHER_TEMPLATES[plan_name]
+    for field in ("law_code", "citation", "chars"):
+        assert f"a.{field} AS {field}" in CYPHER_TEMPLATES["article_detail"]

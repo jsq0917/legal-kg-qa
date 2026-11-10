@@ -33,7 +33,7 @@
 ```bash
 git clone <repo> && cd LexWeave
 uv sync --extra dev
-uv run python scripts/build_graph.py   # 期望 nodes 1799 / edges 5697
+uv run python scripts/build_graph.py   # 期望 graph_build_id=g963749014664 / nodes 1799 / edges 5632
 uv run python -m pytest -m "not slow" -q
 ```
 

@@ -32,15 +32,64 @@
     "missed": [],
     "ok": true
   },
-  "neo4j": {
-    "status": "unavailable",
-    "reason": "Neo4j 不可用"
+  "injected_edge_selftest": {
+    "detected_plans": [
+      "concept_neighbors"
+    ],
+    "ok": true
   },
-  "plans": {},
+  "neo4j": {
+    "status": "ok",
+    "graph_build_id": "g963749014664",
+    "stats": {
+      "nodes": 1799,
+      "edges": 5632,
+      "labels": {
+        "Article": 1465,
+        "Concept": 281,
+        "Scenario": 53
+      },
+      "relationships": {
+        "DEFINES": 710,
+        "REFERS_TO": 4119,
+        "APPLIES_TO": 291,
+        "REQUIRES": 230,
+        "SPECIAL_OF": 185,
+        "CITES": 97
+      }
+    }
+  },
+  "plans": {
+    "concept_articles": {
+      "ok": true,
+      "rows": 8
+    },
+    "scenario_concepts": {
+      "ok": true,
+      "rows": 14
+    },
+    "concept_neighbors": {
+      "ok": true,
+      "rows": 6
+    },
+    "article_cites": {
+      "ok": true,
+      "rows": 4
+    },
+    "concept_scenarios": {
+      "ok": true,
+      "rows": 2
+    },
+    "article_detail": {
+      "ok": true,
+      "rows": 3
+    }
+  },
   "ok": true,
   "checks": {
     "manifest_consistent": true,
     "detector_detects_injected_diff": true,
+    "detector_detects_injected_edge": true,
     "backends_consistent": true,
     "neo4j_required_met": true
   }
