@@ -11,7 +11,9 @@
 
 法律问答的难点不在“生成一段像法条的话”，而在“找对条文、说清依据、承认不知道”。本项目以民法典、劳动法、劳动合同法三部法律为语料，构建 Article–Concept–Scenario 三层图谱，并围绕三个可度量任务展开：给定问题检索必需条文（R@5）、判断问题复杂度以选择检索档位（三分类路由）、从条文抽取实体与关系（strict F1）。服务侧另有引用闸门、注入防护与人工挂起（HITL）。
 
-本文覆盖：图谱口径治理与重建、文本/图/混合检索与精排、规则+语义+LLM 级联路由、0.5B/1.5B/3B 抽取与 DPO、vLLM/SGLang 推理与量化、注入防护与 HITL。本文不覆盖：LLM 全量重跑消融、GPU 环境精排延迟、超过 400 条金标的 5pt 级差异判定、端到端答案质量的大规模人工评分、多租户与线上并发容量。所有实验的样本量都不足以支撑“稳定达标”的表述，正文只报点估计、区间与方向。
+本文覆盖：图谱口径治理与重建、文本/图/混合检索与精排、规则+语义+LLM 级联路由、0.5B/1.5B/3B 抽取与 DPO、vLLM/SGLang 推理与量化、注入防护与 HITL。
+
+**主链与离线实验的边界**：应用主链（`app/` + API/UI）只包含检索、路由、编排、闸门、HITL 与错误治理，默认通过 OpenAI 兼容端点调用托管模型；抽取模型训练、DPO 偏好对齐、vLLM/SGLang 推理与量化都在实验仓库 `work/` 下离线完成，**不作为服务依赖，也不在请求路径上运行**。本文第 5.4、5.5 节属于离线实验，引用时不要写成「线上系统用了 DPO/vLLM」。本文不覆盖：LLM 全量重跑消融、GPU 环境精排延迟、超过 400 条金标的 5pt 级差异判定、端到端答案质量的大规模人工评分、多租户与线上并发容量。所有实验的样本量都不足以支撑“稳定达标”的表述，正文只报点估计、区间与方向。
 
 ## 3. 系统架构
 
@@ -22,7 +24,7 @@
 | 语料 | 三部法律条文入库、清洗、编号 | `data/corpus/articles.jsonl`、`app/__001__ingest/__000__load_corpus.py` |
 | 图谱 | Article/Concept/Scenario 节点与六类边；规则抽取+人工边+推断边后处理 | `app/__003__graph/__001__networkx_store.py`、`scripts/build_graph.py`、`scripts/apply_gap_edges.py`、`data/graph/graph.json`、`data/graph/stats.json` |
 | 检索 | dense+BM25+RRF 文本路；实体链接+单跳/2-hop/PPR 图路；加权/RRF 融合；精排 | `app/__004__retrieval/__000__text_index.py`、`__001__entity_linker.py`、`__003__hybrid.py`、`graph_2hop.py`、`graph_ppr.py`、`__005__retriever.py` |
-| 抽取 | 规则抽取、边类型判定、四桶机械复核、DPO 偏好对齐 | `app/__002__extract/__003__edge_typing.py`、`scripts/check_defines_edges.py`、`work/dpo/extract/` |
+| 抽取 | 规则抽取、边类型判定、四桶机械复核（主链）；LoRA SFT / DPO 为离线实验 | `app/__002__extract/__003__edge_typing.py`、`scripts/check_defines_edges.py`（主链）；`work/dpo/extract/`（离线，不在请求路径上） |
 | 服务 | 路由、检索编排、五道引用闸门、API/UI、HITL 状态机与审计 | `app/__004__retrieval/__004__router.py`、`app/__007__agents/__002__flows.py`、`app/__008__api/__000__server.py`、`app/__006__hitl/__003__pipeline.py`、`__004__audit.py` |
 | 评测 | 检索、路由、多跳、融合、消融、金标、HITL 脚本 | `scripts/eval_retrieval.py`、`eval_router.py`、`eval_multihop.py`、`eval_hybrid_rerank.py`、`eval_ablation.py`、`check_gold.py`、`eval_hitl_ext.py` |
 
@@ -34,7 +36,13 @@
 
 **机械复核四桶。** DEFINES 边按概念串是否在条文原文中出现、以什么形态出现、是否落在定义式或分句主语位，分为四类：`absent`（完全不出现）、`derived_only`（仅派生形式出现）、`pending_semantic`（字面出现但无定义式/主语位机械证据）、`normal`（机械证据成立）。当前 710 条 DEFINES 的分布是 absent 68、derived_only 47、pending_semantic 211、normal 384，误配率 9.58%（68/710；只算规则边 63/705 = 8.94%）。清洗前同一口径的 absent 占比是 19.9%。`pending_semantic` 一律标注“待语义判定”，既不计入误配，也不当成人工结论；本项目的精度只走机械复核，不引用标注口径的数值。四桶里 `derived_only` 指只出现“权利人/义务人”这类派生形态，`normal` 才要求落在定义式或分句主语位；这条界线保证不同轮次复核可以逐条对齐。
 
-**金标构造与一致性。** 金标共 200 条，跳数分布 two_hop 100 / three_hop 66 / cross_law 34。双人标注的 Cohen's κ 为 0.9473 与 0.9329，复核者自身稳定性 κ 为 0.9856；条文层必要性通过 173/200。金标与 A1 test 的条文交集为 0，成句照抄 0/200，`gold_report.json` 的 `leakage_fail=0`。
+**金标构造与一致性。** 金标共 200 条，跳数分布 two_hop 100 / three_hop 66 / cross_law 34。
+构造分两步：**Pass A** 由项目作者逐条给定场景、概念链与意图（人给定的骨架）；
+**Pass B** 由 LLM 在「题面 + 候选条文（含同法干扰项）」上独立判必要性，跑两遍取多数票。
+报告中的 κ 0.9473 / 0.9329 / 0.9856 是 **Pass A 骨架 vs Pass B 模型判读**的一致度与两次 Pass B 的稳定性，
+**不是双人独立盲标，也不是标注者间一致性**；条文级 Pass B 与锁定条文用的精排模型相关，κ 会被抬高。
+条文层必要性通过 173/200。金标与 A1 test 的条文交集为 0，成句照抄 0/200，`gold_report.json` 的 `leakage_fail=0`。
+数据来源、标注主体、调参历史与已知偏置见 [`docs/data_card.md`](data_card.md)。
 
 **bootstrap 与配对。** 检索与路由用按题重采样的 bootstrap（检索 1000 次、路由 2000 次；融合对照为配对 1000 次，seed=20261031），报告 95% CI 而不是只报点估计。60 条样本下 1 条题约 1.67pp，二项标准误约 0.064，因此小于 2pp 的单点差异一律标注“噪声内”。
 
@@ -108,7 +116,10 @@ LLM 兜底触发率 **18.85%**（49/260），单次中位 558 ms、p90 967 ms，
 
 **局限。** 60 条 simple 是模板合成、与规则守卫同源，1.00 的 simple 召回是结构性结果，不代表真实短问。阈值 0.20 按“触发率<20%”先验定，敏感性表在 0.10–0.25 间波动 ±0.2–0.8pt，不宣称最优。语义层指标用 OOF，部署模型是全量 fit，两者差异未量化。LLM 延迟只在 10 条上测。反事实检索仅 20 条、无 CI，且 simple 档 top_k=3 与跳数效应混在一起。
 
-### 5.4 抽取与 DPO
+### 5.4 抽取与 DPO（离线实验，不接入应用主链）
+
+> 本节是 `work/dpo/extract/` 下的离线训练/评测，结论只用于「抽取模型选型」，不描述线上服务。
+> 主链的抽取仍是规则 + 词表 + 人工边，见 §3 的「抽取」行。
 
 **设置。** 抽取评测集 test60 为 60 条人工标注（与路由 gold_200 隔离，不混用）。规模对照 0.5B/1.5B/3B 均用 LoRA r=16、2 epoch、seed=42；3B 为 4bit QLoRA。DPO 用 500 对偏好数据：200 对基座负例 + 100 对缺实体 + 100 对关系方向翻转 + 100 对多余实体，β=0.1/0.5 两档；before 为同 session、同 fp16 路径复测的 SFT 0.4887/0.1233。
 
@@ -132,7 +143,10 @@ LLM 兜底触发率 **18.85%**（49/260），单次中位 558 ms、p90 967 ms，
 
 **局限。** test60 有 1 条与训练同文（train CC-0966 ↔ test CC-0960，完全一致），所有对外数字必须带这条脚注；60 条与 59 条两口径结论一致，但样本量小。偏好对正例来自 A1 train 的蒸馏标签而非人工标注，DPO 本质是在蒸馏分布内做偏好重排。无人类专家判分、单 seed、3B 为 4bit 训练与推理同口径。图见 [fig2_b6_bootstrap.png](figures/fig2_b6_bootstrap.png)。
 
-### 5.5 推理与量化
+### 5.5 推理与量化（离线基准，不接入应用主链）
+
+> 本节测的是独立推理引擎的吞吐/量化精度，用于回答「本地部署值不值」，**不改变线上调用方式**：
+> 应用主链默认走托管 API，只有显式改 `LLM_BASE_URL` 才会指向本地端点。
 
 **设置。** 单卡 RTX 4060 Laptop 8 GB；vLLM 0.32.0（Triton attention、enforce-eager、gpu-memory-utilization 0.60），SGLang 0.5.23；模型 Qwen2.5-0.5B-Instruct（推理）与 Qwen2.5-1.5B-Instruct（量化抽取）。量化 200 题共用同一份预计算检索上下文，temperature=0；fp16 档 199 题（1 题运行时失败）。
 

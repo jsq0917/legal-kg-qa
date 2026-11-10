@@ -130,8 +130,7 @@ class FakeLLM:
         if self.raises is not None:
             raise self.raises
         self.answer_calls += 1
-        for ch in self.answer_text:
-            yield ch
+        yield from self.answer_text
 
 
 class _Out:

@@ -187,7 +187,7 @@ class HitlPipeline:
         )
 
     # ---------------- 入口 ----------------
-    def start(self, query: str, mode: str = "hybrid", force_review: bool = False) -> dict[str, Any]:
+    def start(self, query: str, mode: str = "hybrid", force_review: bool = False, owner: str = "") -> dict[str, Any]:
         task_id = uuid.uuid4().hex[:10]
         retrieval = self.retriever.retrieve(query, mode=mode).as_dict()
 
@@ -231,6 +231,7 @@ class HitlPipeline:
                 created_at=now,
                 updated_at=now,
                 deadline_at=now + self.sla_seconds,
+                owner=owner,
             )
             self.checkpoints.save(ckpt)
             self._audit(
@@ -267,10 +268,14 @@ class HitlPipeline:
             "retrieval": retrieval,
         }
 
-    def resume(self, task_id: str, action: dict[str, Any], actor: str | None = None) -> dict[str, Any]:
+    def resume(
+        self, task_id: str, action: dict[str, Any], actor: str | None = None, client_id: str = ""
+    ) -> dict[str, Any]:
         ckpt = self.checkpoints.load(task_id)
         if ckpt is None:
             raise KeyError(f"找不到挂起任务 {task_id}")
+        if ckpt.owner and client_id and ckpt.owner != client_id:
+            raise PermissionError("该任务归属其他客户端")
         if ckpt.status == "completed" and ckpt.answer:
             return {
                 "task_id": task_id,
@@ -401,6 +406,7 @@ class HitlPipeline:
         mode: str = "hybrid",
         force_review: bool = False,
         actor: str = "user",
+        owner: str = "",
     ) -> dict[str, Any]:
         """多轮对话的一轮：槽位继承与追问沿用 B4 的规则，低置信时挂起整轮。
 
@@ -500,6 +506,7 @@ class HitlPipeline:
                 session_id=session_id,
                 turn_no=turn_no,
                 dialog_state=state.to_json(),
+                owner=owner,
             )
             self.checkpoints.save(ckpt)
             self._audit(

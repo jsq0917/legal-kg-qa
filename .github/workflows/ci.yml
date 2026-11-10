@@ -10,6 +10,11 @@ on:
     branches: [main]
   pull_request:
   workflow_dispatch:
+    inputs:
+      neo4j_parity:
+        description: "是否跑 Neo4j live parity（需要服务，单独手动触发）"
+        type: boolean
+        default: false
 
 permissions:
   contents: read
@@ -79,6 +84,22 @@ jobs:
         run: uv sync --extra dev --no-install-package torch
       - name: 建图（README §10.1 第 2 条命令）
         run: uv run python scripts/build_graph.py
+      - name: 图版本 manifest（同输入同 graph_build_id）
+        run: |
+          uv run python - <<'PY'
+          import json
+          from app.__003__graph.__005__version import read_manifest
+          m = read_manifest()
+          assert m, "缺 data/graph/graph_manifest.json"
+          assert m["graph_build_id"].startswith("g"), m
+          assert m["nodes"] > 0 and m["edges"] > 0, m
+          print("graph_build_id=%s nodes=%s edges=%s" % (m["graph_build_id"], m["nodes"], m["edges"]))
+          print(json.dumps(m["relationships"], ensure_ascii=False))
+          PY
+      - name: 图一致性（离线 fixture + 注入差异自检；Neo4j 未启动则显式 skipped）
+        run: uv run python scripts/check_graph_parity.py
+      - name: 同步/流式契约（fixture，不调付费 LLM）
+        run: uv run python scripts/check_stream_contract.py
       - name: 术语库一致性（种子 → jsonl，秒级、不写文件）
         run: uv run python app/__001__ingest/__001__build_lexicon.py --check
       - name: 单元测试（ruff 之外的回归面：闸门 / 槽位 / checkpoint / 术语库 / 注入）
@@ -114,3 +135,43 @@ jobs:
             exit 0
           fi
           uv run python scripts/run_all_evals.py --no-llm
+
+  neo4j-parity:
+    # 独立的手动任务：只有 workflow_dispatch 勾选 neo4j_parity 才启动服务。
+    # 平时这里显示 skipped，而不是伪装成「已通过」。
+    name: Neo4j live parity（手动；未启动服务则整体 skipped）
+    if: github.event_name == 'workflow_dispatch' && inputs.neo4j_parity
+    needs: test
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    services:
+      neo4j:
+        image: neo4j:5.26-community
+        env:
+          NEO4J_AUTH: neo4j/lexweave
+        ports:
+          - 7687:7687
+        options: >-
+          --health-cmd "wget -qO- http://localhost:7474 >/dev/null || exit 1"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 30
+    env:
+      NEO4J_URI: bolt://localhost:7687
+      NEO4J_USER: neo4j
+      NEO4J_PASSWORD: lexweave
+      GRAPH_BACKEND: auto
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v5
+        with:
+          version: "0.12.x"
+          python-version: "3.12"
+          enable-cache: true
+          cache-dependency-glob: uv.lock
+      - name: 安装依赖（不装 torch）
+        run: uv sync --extra dev --no-install-package torch
+      - name: 建 NetworkX 镜像并导入 Neo4j
+        run: uv run python scripts/build_graph.py --neo4j --clear
+      - name: 双后端一致性（必须真的比对，不得 skipped）
+        run: uv run python scripts/check_graph_parity.py --require-neo4j

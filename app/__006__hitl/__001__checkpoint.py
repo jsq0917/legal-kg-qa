@@ -47,6 +47,8 @@ class Checkpoint:
     session_id: str | None = None
     turn_no: int | None = None
     dialog_state: dict[str, Any] | None = None
+    #: 任务归属（`X-Client-Id`）。空串 = 本地演示，不校验归属。
+    owner: str = ""
 
     def to_json(self) -> dict[str, Any]:
         return asdict(self)

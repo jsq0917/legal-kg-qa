@@ -2,8 +2,8 @@
 
 ![license](https://img.shields.io/badge/license-MIT-5B9E7A)
 ![python](https://img.shields.io/badge/python-3.11%2B-4C7FB0)
-![tests](https://img.shields.io/badge/tests-79%20passed-5B9E7A)
-![edges](https://img.shields.io/badge/graph-1799%20nodes%20%2F%205826%20edges-8A94A0)
+![tests](https://img.shields.io/badge/tests-115%20passed-5B9E7A)
+![edges](https://img.shields.io/badge/graph-1799%20nodes%20%2F%205632%20edges-8A94A0)
 
 面向「大模型算法岗」求职的作品项目：把一份**纯检索式**的法律问答 demo，改成一套可复现、可量化、
 且**结论如实**的图谱 RAG + 多 Agent 系统。语料是三部法律（劳动合同法 98 条 / 劳动法 107 条 / 民法典 1260 条，
@@ -61,18 +61,30 @@ tests/                # 槽位、闸门、checkpoint 的单元测试（不依赖
 
 图模式：`Article`（1465）、`Concept`（281）、`Scenario`（53）；
 边 `APPLIES_TO / DEFINES / REFERS_TO / REQUIRES / SPECIAL_OF / CITES`，每条边带 `provenance`（`rule`/`regex`/`manual`）与
-`confidence`。图统计：**nodes 1799 / edges 5826**（DEFINES 710、REFERS_TO 4119、CITES 97、REQUIRES 422、SPECIAL_OF 187、APPLIES_TO 291），
+`confidence`。图统计（每一次都绑定同一个 `graph_build_id`）：**`g963749014664`，nodes 1799 / edges 5632**
+（DEFINES 710、REFERS_TO 4119、CITES 97、REQUIRES 230、SPECIAL_OF 185、APPLIES_TO 291），
 其中概念层三类边共 **706 条机械边**（APPLIES_TO 291 + REQUIRES 230 + SPECIAL_OF 185），另有 **194 条 `inferred=true`** 的推断边（REQUIRES 192 + SPECIAL_OF 2）；
 Article→Concept 侧 `DEFINES / REFERS_TO` 共 4829 条（DEFINES 705 条规则 + 5 条 `provenance=manual` 语义边，REFERS_TO 4119 条规则边）。
+`graph_build_id` 由内容哈希决定（源语料 + 抽取规则 + 术语库 + 边类型定义），同输入必得同 ID；
+`data/graph/graph_manifest.json` 与 pkl 同时落盘，`/health` 与所有评测 JSON 都带这个 ID。
+旧文档里的 5826 / REQUIRES 422 是重建前口径，已作废。
 
 `data/graph/stats.json` 由 `scripts/build_graph.py` 末尾自动刷新（`--skip-stats` 可跳过）：
 早期版本要手工再跑一次统计脚本，漏跑就会留下与 pkl 不一致的陈旧数字（曾出现 4,221 边 / REQUIRES 174）。
 统计口径固定读离线镜像 `data/graph/lexweave_graph.pkl`，不会因为 Neo4j 正在导入而写出空库数字。
 
-Neo4j 与 NetworkX 两套后端共享同一份 `QueryPlan`。本机 Docker Desktop 已启动 `neo4j:5.26-community`，
-`docker compose up -d --wait && .venv\Scripts\python.exe scripts\build_graph.py --neo4j --clear`
-完成过一次 1799 节点 / 5697 关系导入；**2026-10-31 图重建后 NetworkX 镜像已是 5826 边，Neo4j 未随重建重导**，因此 Cypher 结果仍是旧图的。
-README §3 的 3 条 Cypher 已在真实实例上跑过（原始输出见 `data/eval_out/neo4j_cypher_runs.json`）。Neo4j 连不上时自动回落 NetworkX 镜像，评测不中断。
+Neo4j 与 NetworkX 两套后端共享同一份 `QueryPlan`，也共享同一份图版本契约：
+导入时写 `(:GraphMeta {id:"__graph_meta__"})`，记下 `graph_build_id / content_hash / schema_version`；
+启动时与 manifest 比对，不一致时 `GRAPH_BACKEND=auto` 会**显式降级回 NetworkX**（`/health.graph.degraded_reason` 写明原因），
+显式 `GRAPH_BACKEND=neo4j` 则直接报错，不会静默拿旧图作答。
+
+当前状态：本机 Neo4j 里的数据是 2026-10-31 重建前的旧图（无 GraphMeta），因此 `auto` 模式下会降级到
+`g963749014664` 的 NetworkX 镜像；要让 Neo4j 生效，需重跑
+`docker compose up -d --wait && .venv\Scripts\python.exe scripts\build_graph.py --neo4j --clear`。
+离线一致性检查是一条命令：`python scripts/check_graph_parity.py`（固定查询计划集比对节点/边数、标签计数、关系计数与查询结果；
+Neo4j 不可用时明确记为 `skipped`，并用注入差异自检证明「检测器不是永远返回 0 差异」）。
+README §3 的 3 条 Cypher 已在真实实例上跑过（原始输出见 `data/eval_out/neo4j_cypher_runs.json`），但那批结果对应旧图，
+**不能当作当前 `g963749014664` 的结果引用**。
 
 ---
 
@@ -158,7 +170,9 @@ B7 把原来的 `mentions` 拆成两类边：`DEFINES`（定义式或对概念�
 **结论：710 条 `DEFINES` 没有可靠的语义精度单点估计，只能给区间**：
 机械误配 9.58% → 字面支撑率 90.4%；严口径 559/710 = 78.7%。**211 条 `pending_semantic` 只有 LLM 预判（25.1% 通过率），
 没有人工结论，所以既不能报「精度 X%」，也不能把 90.4% 或 25.1% 当语义精度**——要能写进论文/简历，
-得完成人工盲标，或至少完成 40 条真人抽检校准并如实标注为「LLM 判定 + 抽检一致率」。
+`pending_semantic` **不计入机械通过率**（既不算通过也不算误配），只单列占比。
+数据来源、标注主体、调参历史与已知偏置统一收在 [`docs/data_card.md`](docs/data_card.md)。
+要拿到可外推的语义精度，仍得完成人工盲标，或至少完成 40 条真人抽检校准并如实标注为「LLM 判定 + 抽检一致率」。
 
 **④ 规则自洽性（不是精度）**：`scripts/audit_defines.py` 默认模式用建边时的同一套正则
 （`_AFTER_CUE / _COPULA / _MODAL / _BAD_AFTER_ALIAS`、同一个 12 字窗口）再判一遍，**必然 100/100**；
@@ -256,9 +270,11 @@ g181 g182 g183 g184 g185 g186 g188 g189 g191 g198 g199 g200`），按主失败�
 
 口径：60 条 `gold_60`（30/20/10），**in-sample、无留出集**；二项标准误约 0.064，
 所以单点差异小于 0.02 不构成结论，下文一律附区间或标注「在噪声内」。
-本表是 2026-10-31 19:14 用当前图（5826 边）与当前词表重跑（`GRAPH_BACKEND=networkx` + `EMBEDDING_DEVICE=cpu`，
+本表是 2026-10-31 19:14 用当时图（5826 边）与当前词表重跑（`GRAPH_BACKEND=networkx` + `EMBEDDING_DEVICE=cpu`，
 日志首行 `图后端: networkx`），落盘 `data/eval_out/retrieval_recheck.json`；与 18:20 版本逐位一致，
 唯一变化是纯图 `all@5` 0.2333 → **0.2167**（1 条题，源于重建后的路径差异，复核见 §12 局限 8）。
+**该表尚未在 `g963749014664`（5632 边）上重跑**，引用时请连同图版本一起标注；
+140 条留出集的 §5.1 与图路贡献评估 §5.2 才是当前图口径。
 延迟列沿用干净环境（无并发）的 411 / 132 / 396 ms；本次重跑时同机还有量化基准与训练任务，
 实测 23260 / 1045 / 22254 ms（被抢占），故**不复测延迟**。
 
@@ -274,8 +290,10 @@ g181 g182 g183 g184 g185 g186 g188 g189 g191 g198 g199 g200`），按主失败�
   很难再拉出 15pt。分类型看（重跑实测）：二跳 0.8333→0.8500（+1.7pt）、三跳 0.7000→0.7167（+1.7pt）、
   跨法 0.5833→0.5500（−3.3pt）——**图在 2/3 跳上确有增益但幅度小，跨法还退了一点**（n=10，噪声占比最大）。
 * **纯图单跳弱是事实**：路径准确率 0.5694 高、R@5 只有 **0.4389**（区间约 0.32–0.55），
-  只有文本路的约 59%。图路依赖实体链接命中，问句里的口语说法（「押金」「裁员」）没有规范概念时直接落空，
-  这正是它单跳弱的原因。
+  只有文本路的约 59%。**这个 0.4389 是「图路单跳」的结果，不能替代二跳/三跳的结果**：
+  二跳是 0.6111、PPR 是 0.5917（见下一条），跨法是 0.2778–0.4722（§5.1）；
+  把 0.4389 写成「图路能力」会低估多跳路径，把它写成「2-hop 结果」则会高估单跳。图路依赖实体链接命中，
+  问句里的口语说法（「押金」「裁员」）没有规范概念时直接落空，这正是它单跳弱的原因。
 * **图路改造（`reports/graph_multihop.md`）**：2 跳 **0.6111**（CI [0.5222, 0.7000]）、
   PPR **0.5917**（damping 0.85，DEFINES 1.0 / REFERS_TO 0.7），均为 60 条 / in-sample / 无留出集，
   `all@5` 都是 0.3500。比单跳 0.4389 高 17.2pt / 15.3pt，**但仍低于文本路 0.7472**。
@@ -292,6 +310,10 @@ g181 g182 g183 g184 g185 g186 g188 g189 g191 g198 g199 g200`），按主失败�
   （LR 混淆 66/34、语义 69/31），靠阈值切不开，这是没到 0.88 的主因。
   标签口径：medium = `gold_200` 的 two_hop（100 条），complex = three_hop（66）+ cross_law（34），
   simple 是词典模板合成、**不是真实金标，结论单列**；n=260 与旧的 n=60 不可直接比。
+* **分母要说清**：路由评测的分母是 **260 题**（200 条真实金标 + 60 条词典模板合成的 simple 题）；
+  检索与图路评测的分母是 **200 / 60 / 140**（题池 / 开发集 / 题级留出）。
+  两者**不能互相替换**：260 里含合成题，0.7731 不能写成「200 条金标的路由准确率」；
+  反过来 140 条留出集也不能写成「260 题评测」。所有引用都带分母。
 * 延迟：图路 132 ms，文本路 411 ms（含 rerank），混合 396 ms（同一干净环境口径）。
 
 ---
@@ -329,6 +351,35 @@ g181 g182 g183 g184 g185 g186 g188 g189 g191 g198 g199 g200`），按主失败�
 
 ---
 
+### 5.2 图路真实贡献（140 条留出集，三层口径分开报）
+
+一条命令：`python scripts/eval_graph_contribution.py` → `data/eval_out/graph_contribution.{json,md}`。
+它不再用「hybrid 涨了一点」代替全部证据，而是逐题回答：文本路漏了什么、图路补回了什么、
+补回的条文是必要还是噪声、路径是否真的走通、最终答案是否正确。
+
+| 层 | 指标 | 值 | 95% CI | n |
+|---|---|---|---|---|
+| 检索 | 文本 hit@5（金标全中） | 0.5214 | [0.4392, 0.6025] | 140 |
+| 检索 | 纯图 hit@5 | 0.1857 | [0.1300, 0.2582] | 140 |
+| 检索 | hybrid hit@5 | 0.5286 | [0.4462, 0.6094] | 140 |
+| 路径 | 场景命中且概念链完整 | 0.1786 | [0.1240, 0.2503] | 140 |
+| 路径 | 其中场景命中 / 概念链召回 | 0.4071 / 0.6190 | — | 140 |
+| 答案 | grounded 且 must-cite 全中（离线缓存） | 0.5167 | [0.3931, 0.6383] | 60 |
+
+* **图路的真实贡献很小且很局部**：文本路失败的 67 题里，图路只补回 **4 题（5.97%）**；
+  图路独有候选 533 条中，**必要 21 条、相关但非必要 198 条、噪声 314 条**。
+  所以「图路提升了多跳能力」这句话只能限定在「少数实体链接失败/跨法题」，不能外推到整体。
+* **路径正确率是短板**：场景命中只有 40.7%，概念链完整只有 61.9%，两者同时满足只有 17.9%；
+  这解释了为什么图路检索命中低——不是排序差，是路径在实体链接阶段就断了。
+* **分桶**（命中率 hybrid）：二跳 0.7571（n=70）、三跳 0.4130（n=46）、跨法 0.3529（n=68）、
+  实体链接失败 0.5263（n=19）。跨法与三跳是主要缺口。
+* **答案层只覆盖 60 题**：取自 `ablation_holdout_60.json` 的缓存离线结果，**不是本次 live 重跑**；
+  其余 80 题只报检索/路径，不补造答案指标。
+* 失败样本、图路补齐样本、每条图路独有条文的判定都在 JSON 里（`failures` / `recoveries` / `graph_only_candidates`），
+  可直接逐条复核。
+
+---
+
 ## 6. B4 多轮槽位
 
 槽位：`monthly_wage / start_date / end_date / has_contract / work_years / city`；规则抽取（正则 + 中文数字），
@@ -363,8 +414,10 @@ g181 g182 g183 g184 g185 g186 g188 g189 g191 g198 g199 g200`），按主失败�
 * **A**：单链路图问答，无校验（编排 1 次 LLM）；
 * **B**：多 Agent（检索 / 规划 / 作答），无校验（编排 2 次 LLM）；
 * **C**：多 Agent + 五道确定性闸门（引用存在 / 引用在检索范围 / 路径支撑 / 证据跨度 / 低置信转人工）（编排 2 次 LLM）；
-* **A_gates**：单链路 + 五道闸门（T04 新增，仅用于 B6 消融、未进 API）。
-  它是唯一的「1 次编排调用 + 闸门」组合，用来回答「闸门收益是否依赖多 Agent 规划」。
+* **A_gates**：单链路 + 五道闸门（T04 新增）。它是「1 次编排调用 + 闸门」的唯一组合，
+  用来回答「闸门收益是否依赖多 Agent 规划」；**同时是 API / UI / 流式的默认档**
+  （`tier` 缺省即 `A_gates`）。四档走的是**同一套 `flows.py` 编排**：区别只在建图时连哪些节点，
+  闸门与修复逻辑完全共用 `pipeline.py` / `gates.py`，不存在「消融用的实现」和「线上用的实现」两套代码。
 
 | 指标 | A 单链路 | B 多 Agent | C 多 Agent + 五闸 | A_gates 单链路 + 五闸 |
 |---|---|---|---|---|
@@ -548,18 +601,134 @@ g181 g182 g183 g184 g185 g186 g188 g189 g191 g198 g199 g200`），按主失败�
 ```
 
 接口：`GET /health`、`GET /meta/laws`、`POST /retrieve`、`POST /ask`、`GET /ask/stream`（SSE 逐节点推送）、
-`POST /chat`、`GET /chat/{sid}/history`、`POST /hitl`、`GET /hitl`、`POST /hitl/{task_id}/resolve`。
+`POST /chat`、`GET /chat/{sid}/history`、`POST /hitl`、`GET /hitl`、`POST /hitl/{task_id}/resolve`、
+`POST /admin/cache/clear`（管理操作，见 §9.6）。
+
+### 9.1 健康检查：图版本、规模、后端、降级原因
+
+`GET /health` 的 `graph` 字段是唯一的运行期图身份来源：
+
+```json
+{
+  "ok": true,
+  "graph_backend": "networkx",
+  "graph": {
+    "backend": "networkx",
+    "requested_backend": "auto",
+    "graph_build_id": "g963749014664",
+    "degraded": false,
+    "degraded_reason": "",
+    "nodes": 1799,
+    "edges": 5632
+  },
+  "corpus_articles": 1465,
+  "admin": {"token_required": false, "mode": "local_demo",
+            "audit_path": "data/observability/admin_audit.jsonl"}
+}
+```
+
+图没建时 `backend=uninitialized`、`degraded=true`，接口仍返回 200，前端据此提示先跑 `build_graph.py`。
+`degraded_reason` 的取值是固定的：`networkx_manifest_missing`、`networkx_manifest_mismatch: <detail>`、
+`neo4j_manifest_missing`、`neo4j_manifest_mismatch: ...`、`neo4j_unreachable: ...`。
+检索结果、`trace.jsonl`、缓存 key、评测 JSON 都带同一个 `graph_build_id`，任何数字都能追到具体图版本。
+
+### 9.2 同步与流式是同一套回答 / 校验 / 修复逻辑
+
+业务逻辑全部在 [`pipeline.py`](file:///E:/project/LexWeave/app/__007__agents/__003__pipeline.py)：
+`plan_state / answer_sync / answer_tokens / check_gates / repair_state / after_check / deterministic_answer`。
+[`flows.py`](file:///E:/project/LexWeave/app/__007__agents/__002__flows.py) 只按档位连图，
+[`stream.py`](file:///E:/project/LexWeave/app/__008__api/__003__stream.py) 只负责事件顺序与生命周期——
+两条路径不存在各写一份 Prompt 或各做一套闸门的情况。
+
+SSE 事件 Schema（`EVENT_SCHEMA`，少字段即回归）：
+
+| 事件 | 必有字段 | 语义 |
+|---|---|---|
+| `meta` | `cache` | 请求开始；命中缓存时还会带 `graph_build_id/retrieval`，且不重跑检索 |
+| `plan` | `path_note, llm_calls` | 仅 B/C 档；缓存回放也补发，避免回放少一段 |
+| `token` | `text, draft, answer_version` | 正文增量；未过闸门时 `draft=true` |
+| `check` | `checks, grounded, tier, answer_version` | 五闸结果；C/A_gates 档才有 |
+| `superseded` | `answer_version, reason, failed_gates, next_version` | 修复触发：旧版本作废 |
+| `final` | `answer, citations, refused, checks, answer_version, superseded_versions` | **唯一可被当作最终答案的事件** |
+| `done` | 同 `final` + `cache, status` | 结束；`status ∈ ok/cancelled/timeout/error` |
+| `error` | `status, detail` | 异常收口（也保证不写成功缓存） |
+
+顺序约束：`meta → [plan] → token(draft) → check → (superseded → token(draft=false) → check)* → final → done`。
+闸门之前流出的正文一律 `draft=true`，**未校验正文不会被标记为最终答案**；修复发生时
+`answer_version` 递增并先发 `superseded`，不静默覆盖。版本号按实际修复次数递增（`1+attempts`）。
+
+```bash
+curl -N "http://127.0.0.1:8000/ask/stream?query=公司拖欠工资怎么办&tier=A_gates"
+```
+
+### 9.3 错误分类、重试边界与降级成因（LW-O3）
+
+`common/llm.py` 把上游异常归一成 11 类，只对可恢复错误重试：
+
+| 类别 | 是否重试 | 处理 |
+|---|---|---|
+| `no_key` | 否 | 直接走确定性答案，`degradation.reason=no_key` |
+| `auth`（401/403） | 否 | 换下一个 Key 重试一次；仍失败则降级 |
+| `quota`（402/余额） | 否 | 立即降级，不空转 |
+| `rate_limit`（429） / `timeout` / `5xx` / `network` | **是** | 指数退避 `LLM_RETRY_BACKOFF_S`，最多 `LLM_MAX_RETRIES` 次 |
+| `empty_output` | 是 | 思维链吃满 max_tokens 的常见表现；重试一次，仍空则降级 |
+| `json_parse` / `schema` | 否 | 交给调用方（如路由）用默认值，并记降级 |
+| `unknown` | 否 | 记降级，不猜 |
+
+* **换 Key 与换模型是两件事**：`auth` 只换 Key（`DEEPSEEK_API_KEY` 备用 Key），
+  主模型失败且配置了 `LLM_FALLBACK_MODEL` 才换模型；两者都记在 `last_meta` 与 trace 的 `degradation` 里。
+* **非幂等写操作不重试**：`chat_stream` 已经吐出内容后不再整段重试（避免重复输出），
+  缓存/checkpoint 写入也不在重试范围内。
+* **超时与取消**：`STREAM_TIMEOUT_S`（默认 120s）超时后发 `error(status="timeout")`；
+  客户端断开触发 `GeneratorExit`，记 `status="cancelled"`，**两者都不写成功答案、不写缓存**。
+* **降级 genesis 可追溯**：trace 的 `degradation={reason, detail, model}` 回答「这条答案为什么是模板」；
+  可能原因固定为 `no_key / upstream_error / invalid_output / low_confidence`。
+
+### 9.4 缓存：只缓存成功答案，且 key 带全部版本
+
+缓存 key 九字段：`query / mode / tier / llm / 模型版本 / 提示词版本 / 答案结构版本 / 校验策略版本 / 图版本`
+（`cache.py` 的 `PROMPT_VERSION / ANSWER_VERSION / POLICY_VERSION` + `graph_build_id`）。
+换模型、改 Prompt、改闸门策略、重建图都会自然失效，不会拿旧答案冒充新版本。
+只有 `status=ok` 的完整答案才写缓存；取消/超时/异常一律不写。回放时 `meta.cache="hit"`，
+`final` 与 `done` 的字段与首次生成逐字段一致（含 `answer_version`、`superseded_versions`、`graph_build_id`、`path_note`）。
+
+### 9.5 契约检查：一条命令比较同步与流式
+
+```bash
+.venv\Scripts\python.exe scripts\check_stream_contract.py
+# 20 组 = 5 个场景（正常/假条号修复/空检索拒答/低置信转人工/LLM 不可用）× 4 档
+```
+
+它逐字段比较 `answer / citations / refused / checks / answer_version / superseded_versions / graph_build_id / plan_present`，
+再校验 SSE 事件序列符合 §9.2 的 Schema；退出码 0/1 可直接作为发布门禁。
+默认 fixture 离线、不调付费 LLM；`--live` 只作冒烟（默认 `llm=False`，加 `--with-llm` 才会调 API）。
+
+### 9.6 访问控制：本地演示 vs 公开部署
+
+* **`ADMIN_TOKEN` 为空 = 本地演示**：管理操作放行，但 `/health.admin.mode="local_demo"`，
+  审计日志每条都记 `auth="local_demo"`，不假装已鉴权。
+* **设置 `ADMIN_TOKEN` 后**：`POST /hitl/{id}/resolve` 与 `POST /admin/cache/clear` 必须带
+  `X-Admin-Token`，否则 403；比对用 `secrets.compare_digest`，失败的尝试也会进审计。
+* **归属校验**：客户端可带 `X-Client-Id`；会话首次访问即绑定，换一个 Client-Id 访问返回 403；
+  HITL 任务记录 `owner`，resolve 时归属不符返回 403。不带 `X-Client-Id` 时保持单机演示行为。
+* **审计**：所有管理动作写 `data/observability/admin_audit.jsonl`
+  （`ts / action / target / client_id / auth / result`）。
+* **重建图**不暴露 HTTP 接口，只能跑 `scripts/build_graph.py`——公开部署时这本身就是一层保护。
+* **公开部署前仍缺**：真正的用户账号体系、TLS、反向代理限流（当前只有进程内令牌桶）。
+  不要把 `local_demo` 模式直接暴露到公网。
 
 ---
 
 ## 10. 复现命令
 
-### 10.1 三条命令跑通（干净环境，不需要模型、不需要 API key）
+### 10.1 五条命令跑通（干净环境，不需要模型、不需要 API key）
 
 ```bash
 uv sync --extra dev                                    # 1) 建环境（lock 固定版本）
 uv run python scripts/build_graph.py                   # 2) 建图 + 刷新 stats.json（约 15 秒）
-uv run python -m pytest tests -q                       # 3) 单元测试（76 项；仅 1 项 slow 图抽检需离线图镜像）
+uv run python -m pytest tests -q                       # 3) 单元测试（115 项；仅 1 项 slow 图抽检需离线图镜像）
+uv run python scripts/check_graph_parity.py            # 4) 图版本 + 双后端一致性（Neo4j 未启动则显式 skipped）
+uv run python scripts/check_stream_contract.py          # 5) 同步/流式契约（20 组，离线）
 ```
 
 > 想确认「术语库没有被手改过」，加一条（不写文件、秒级）：
@@ -568,18 +737,18 @@ uv run python -m pytest tests -q                       # 3) 单元测试（76 �
 > 这条是补上一个真实踩过的坑：P3 时曾把 10 个概念/23 条边直接写进 jsonl 而没回写种子，
 > 重建一次就少一批边，README 的数字却还停在旧构建上——`tests/test_lexicon.py` 也在守这件事。
 
-第 2 条跑完，日志里的 `nodes 1799 / edges 5826 / DEFINES 710` 应与本文 §2、§3 的数字逐位一致；
-若不一致，说明你的 `data/extracted` 与本仓库不同。`uv run` 自带环境切换，Linux / macOS 同样适用，
+第 2 条跑完，日志里的 `nodes 1799 / edges 5632 / DEFINES 710` 与 `graph_build_id` 应与本文 §2、§3 逐位一致；
+若不一致，说明你的 `data/extracted` 或术语库与本仓库不同。`uv run` 自带环境切换，Linux / macOS 同样适用，
 不依赖 `.venv\Scripts\` 这种 Windows 路径。
 
 > **已验证**：`git clone` 到全新目录（无 `.venv`、无 `data/graph`，全部从 `data/extracted` 重建），
-> 三条命令按序执行通过，图统计与本 README 逐位一致。单测 **79 项全部通过**。
+> 三条命令按序执行通过，图统计与本 README 逐位一致。单测 **115 项全部通过**。
 > 曾报红的 `tests/test_graph_sample.py` 已查清：`g26`/`g45` 的 `lease_contract→cc#733`
 > 是 gold 判为非必要的相关锁定（正文无「租赁合同」字面），不是丢边；测试已改为只对
 > `necessity=true` 的锁定条文要求图边，并把这两条登记为 `KNOWN_RELEVANCE_ONLY`（见 §12 局限 8）。
 
 **首次 `uv sync` 会装 CUDA 版 torch**（`sentence-transformers` 的传递依赖，3.5 GB / 本机约 9 分钟）。
-只想跑上面三条（建图 + 单测，都不 import 模型）可以省掉它：
+只想跑前三条（建图 + 单测，都不 import 模型）可以省掉它：
 
 ```bash
 uv sync --extra dev --no-install-package torch          # venv 明显更小，建图与单测同样通过（已验证）
@@ -667,10 +836,13 @@ Neo4j 连接失败时自动回落 NetworkX 离线镜像，不阻塞任何评测�
    如 `non_compete_compensation → liquidated_damages`），已从「直接改 data/lexicon/requires.jsonl」
    改为写进种子 `GOLD_PATH_REQUIRES`，否则重建术语库会丢；这属于「按验收结果修数据」，
    有循环论证风险，已在此披露。
-8. **Neo4j 与当前 NetworkX 镜像已不同步；路径缺失复核后只剩 1 处真实语义缺口**：本机 Docker Desktop 起
+8. **Neo4j 与当前 NetworkX 镜像不同步（已改为显式可见，不再静默）**：本机 Docker Desktop 起
    `neo4j:5.26-community`，完成的是 10-31 重建**之前**的 1799 节点 / 5697 关系导入，3 条 Cypher 真跑出结果
-   （`data/eval_out/neo4j_cypher_runs.json`）；当前 NetworkX 镜像已是 5826 边，**Neo4j 未随重建重导**，
-   所以 Cypher 结果对应旧图。另：用当前图对 `gold_200` 做只读复算，原报的 4 处概念→条文缺失逐条复核为：
+   （`data/eval_out/neo4j_cypher_runs.json`）；当前 NetworkX 镜像是 `g963749014664` / 5632 边，**Neo4j 未随重建重导**，
+   也没有 GraphMeta。现在启动时会比对 manifest：`auto` 模式降级回 NetworkX 并在 `/health.graph.degraded_reason`
+   写明 `neo4j_manifest_missing`，显式 `neo4j` 模式直接报错；`scripts/check_graph_parity.py` 会把 Neo4j 记为
+   `skipped` 而不是「一致」。所以旧 Cypher 结果只作历史证据，不能当作当前图的结论。
+   另：用当前图对 `gold_200` 做只读复算，原报的 4 处概念→条文缺失逐条复核为：
    `g26`/`g45` 的 `lease_contract→cc#733` 是 **gold 判为非必要的相关锁定**（733 讲租赁期限届满返还租赁物，
    正文无「租赁合同」，三票 `necessity=false`），本就不应要求 DEFINES 边；`g47` 已随 gold 重锁到
    `cc#1203`/`cc#1166` 且在图上；**唯一真实缺口是 `g48` `network_tort→cc#1194`**——条文必要，但正文写
@@ -694,6 +866,17 @@ Neo4j 连接失败时自动回落 NetworkX 离线镜像，不阻塞任何评测�
     已在 §8.1 拆成 `must-cite 召回 / 定长精度 / 超额引用率`，§8.2 的留出集进一步拆出
     `grounded_before_repair` 与越界引用条数：A_gates repair 前 0.8833 → 后 1.0000、越界 41 → 0，
     所以 **1.0000 不能当模型能力报，必须同时报 repair 前的 0.8833**。
+12. **图路的实际贡献很小，且路径在实体链接处断裂**：140 条留出集上，文本失败的 67 题里图路只补回 **4 题（5.97%）**；
+    图路独有候选 533 条中必要仅 21 条、噪声 314 条。路径正确率（场景命中且概念链完整）只有 **17.86%**，
+    其中场景命中 0.4071、概念链召回 0.6190。**所以「图路提升多跳能力」只能限定在少数跨法/链接失败题**，
+    不能外推到整体；原文「路径准确率 0.5694/0.6222」是不同口径（只看被引条文与概念的连接），
+    与这里的「场景+概念链完整」不可互换。
+13. **答案层的图路贡献没有全量证据**：`graph_contribution.json` 的答案正确率只来自
+    `ablation_holdout_60.json` 的 **60 题缓存离线结果（51.67%）**，其余 80 题没有可用的最终答案，
+    只报检索/路径。不要把它写成「140 题端到端正确率」。
+14. **精排共享偏置仍未消除**：金标条文锁定与检索评测都用 bge-reranker-v2-m3，留出的是题不是组件。
+    `eval_retrieval.py --no-rerank` 提供了绕开精排的独立路径，`eval_graph_contribution.py` 也同时跑纯图路；
+    但两条路径都**没有**独立的人工复核样本，所以「提升」仍只能按题级留出解读。
 
 ---
 
@@ -701,8 +884,8 @@ Neo4j 连接失败时自动回落 NetworkX 离线镜像，不阻塞任何评测�
 
 | 编号 | 验收项 | 状态 |
 |---|---|---|
-| B1 | 规模 / provenance / 3 条 Cypher | 规模（Article 1465 / Concept 281 / 边 5826）与 provenance 达标；**DEFINES 710 < 800 → 未达标**（机械误配 68/710=9.58%、211 条仅有 Kimi 预判（非人工）、严口径 559/710=78.7%，见 §3 与 §12 局限 3）；Cypher 已在 Docker Neo4j 真跑（3 条均有返回，落盘 JSON，对应重建前的旧图）；规则自洽性 100/100 只是代码与规则一致、不能当精度 |
-| B2 | 200 条 / 路径 / 泄漏 / 必要性 / κ | 规模 200（100/66/34）、概念层必要性 195/200、条文层必要性 **173/200（≥170）**、κ **0.9473/0.9329/0.9856** 达标；泄漏改用可解释口径（成句照抄 0/200）；**路径断点在重建后回退 4 处**（重建前为 0），27 条必要性失败已逐条说明 |
+| B1 | 规模 / provenance / 3 条 Cypher | 规模（Article 1465 / Concept 281 / 边 5632，`g963749014664`）与 provenance 达标；**DEFINES 710 < 800 → 未达标**（机械误配 68/710=9.58%、211 条仅有 Kimi 预判（非人工）、严口径 559/710=78.7%，见 §3 与 §12 局限 3）；Cypher 已在 Docker Neo4j 真跑（3 条均有返回，落盘 JSON，对应重建前的旧图）；规则自洽性 100/100 只是代码与规则一致、不能当精度 |
+| B2 | 200 条 / 路径 / 泄漏 / 必要性 / κ | 规模 200（100/66/34）、概念层必要性 195/200、条文层必要性 **173/200（≥170）**、κ **0.9473/0.9329/0.9856** 达标（κ 是「人定骨架 vs LLM 判读」，**非双人盲标**，见 §12 局限 5）；泄漏改用可解释口径（成句照抄 0/200）；路径原报 4 处缺失复核为 3 处非必要锁定 + **1 处真实语义缺口 `g48`**（见 §12 局限 8），27 条必要性失败已逐条说明 |
 | B3 | 三档对照 / hybrid +15pt / 路由 85% | 三档对照达标（19:14 用当前图重跑，text 0.7472 / graph 0.4389 / hybrid 0.7556，均 60 条 in-sample）；**+15pt（实测 +0.84pt）与路由 0.88（级联 0.7731，CI [0.7192, 0.8231]；gold-only 0.705）未达标**；140 条留出集复算 text 0.7583 / graph 0.4131 / hybrid 0.7691，**hybrid−text +1.07pt、CI [−0.83, +2.86] 含 0**（§5.1）；图路 2-hop 0.6111 / PPR 0.5917、融合精排最佳 0.7583（CI 含 0）同样如实列出 |
 | B4 | 槽位 / 20 脚本 / 继承 90% / 指代 5 条 / 重连 | 全部达标 |
 | B5 | 阈值挂起 / 三种修正 / 回流 / 3 条 E2E / 统计 | 全部达标 |
@@ -712,7 +895,12 @@ Neo4j 连接失败时自动回落 NetworkX 离线镜像，不阻塞任何评测�
 
 ---
 
-## 14. 本地模型 vs API 后端（A6 实测）
+## 14. 本地模型 vs API 后端（A6 实测，离线实验，不属于应用主链）
+
+> **边界先说清**：本节以及技术报告里的 LoRA SFT、DPO、vLLM/SGLang、量化，都是**离线实验**
+> （产物在实验仓库 `work/`，不在本仓库的 API/UI 主链上）。应用主链默认只通过 OpenAI 兼容端点调用托管模型，
+> 不加载本地权重，也不在请求路径里跑 vLLM。本地模型仅作为「可替换后端」接入：换三个环境变量即可，
+> 代码零改动。主链的可用性/降级逻辑由 §8.3 的错误分类与 §9 的流式语义保证，与这些实验无关。
 
 训练侧（LoRA SFT → badcase 补数据 → 重训）与应用侧（本仓库）原本是两个不相干的仓。
 这一节把它们接上：**把 A3 数据闭环的最终 adapter 合并进 Qwen2.5-1.5B，量化成 q4_K_M，

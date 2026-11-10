@@ -31,7 +31,6 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 
 from app.__007__agents.__000__state import normalize_tier  # noqa: E402
 from app.__007__agents.__003__pipeline import (  # noqa: E402
-    MAX_ATTEMPTS,
     after_check,
     answer_tokens,
     check_gates,

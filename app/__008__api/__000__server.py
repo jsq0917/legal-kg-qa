@@ -14,14 +14,17 @@
 
 from __future__ import annotations
 
+import os
+import secrets
 import sys
 import time
+from datetime import datetime
 from pathlib import Path
 from typing import Any
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 
-from fastapi import FastAPI, HTTPException, Query, Response
+from fastapi import FastAPI, HTTPException, Query, Request, Response
 from fastapi.responses import StreamingResponse
 from pydantic import BaseModel, Field
 
@@ -40,6 +43,7 @@ from app.__008__api.__005__trace import (  # noqa: E402
 from common import prompt_guard  # noqa: E402
 from common.llm import llm_status  # noqa: E402
 from common.logging_utils import get_logger  # noqa: E402
+from common.path_utils import append_jsonl  # noqa: E402
 from config import settings  # noqa: E402
 
 log = get_logger("api")
@@ -50,6 +54,40 @@ app = FastAPI(title="LexWeave", version="1.0.0", description="劳动法知识图
 app.add_middleware(RateLimitMiddleware)
 
 _MAX_ITEMS = 5
+
+#: 管理操作令牌。为空 = 本地演示模式，不校验（但不静默：/health 与审计日志都会标明）。
+ADMIN_TOKEN = os.getenv("ADMIN_TOKEN", "").strip()
+ADMIN_AUDIT_PATH = os.getenv("ADMIN_AUDIT_PATH", "data/observability/admin_audit.jsonl")
+
+
+def _client_id(request: Request) -> str:
+    return (request.headers.get("X-Client-Id") or "").strip()[:64]
+
+
+def _audit(action: str, request: Request, *, target: str = "", result: str = "ok", detail: str = "") -> None:
+    append_jsonl(
+        ADMIN_AUDIT_PATH,
+        {
+            "ts": datetime.now().astimezone().isoformat(timespec="seconds"),
+            "action": action,
+            "target": target,
+            "client_id": _client_id(request),
+            "auth": "token" if ADMIN_TOKEN else "local_demo",
+            "result": result,
+            "detail": detail[:200],
+        },
+    )
+
+
+def _require_admin(request: Request, action: str, target: str = "") -> None:
+    if not ADMIN_TOKEN:
+        _audit(action, request, target=target, result="allowed_local_demo")
+        return
+    supplied = request.headers.get("X-Admin-Token", "")
+    if not secrets.compare_digest(supplied, ADMIN_TOKEN):
+        _audit(action, request, target=target, result="denied")
+        raise HTTPException(status_code=403, detail="管理操作需要 X-Admin-Token")
+    _audit(action, request, target=target, result="ok")
 
 
 # --------------------------------------------------------------------------------
@@ -169,7 +207,20 @@ def health() -> dict[str, Any]:
         "graph": graph_health,
         "corpus_articles": len(ret.text.articles),
         "llm": llm_status(),
+        "admin": {
+            "token_required": bool(ADMIN_TOKEN),
+            "mode": "public" if ADMIN_TOKEN else "local_demo",
+            "audit_path": ADMIN_AUDIT_PATH,
+        },
     }
+
+
+@app.post("/admin/cache/clear")
+def admin_cache_clear(request: Request) -> dict[str, Any]:
+    _require_admin(request, "cache_clear")
+    n = int(get_cache().snapshot().get("entries", 0) or 0)
+    get_cache().clear()
+    return {"ok": True, "cleared": n}
 
 
 @app.get("/meta/laws")
@@ -397,14 +448,20 @@ def demo_off_domain(query: str = Query(default="离婚财产分割怎么办？",
 # B4：多轮
 # --------------------------------------------------------------------------------
 @app.post("/chat")
-def chat(req: ChatReq) -> dict[str, Any]:
+def chat(req: ChatReq, request: Request) -> dict[str, Any]:
     dm = _dialog()
     sid = req.session_id or dm.new_session()
+    if not dm.store.claim(sid, _client_id(request)):
+        raise HTTPException(status_code=403, detail="该会话归属其他客户端")
     return dm.handle(sid, req.text, mode=req.mode).as_dict()
 
 
 @app.get("/chat/{session_id}/history")
-def chat_history(session_id: str) -> dict[str, Any]:
+def chat_history(session_id: str, request: Request) -> dict[str, Any]:
+    owner = _dialog().store.owner_of(session_id)
+    cid = _client_id(request)
+    if owner and cid and owner != cid:
+        raise HTTPException(status_code=403, detail="该会话归属其他客户端")
     return {"session_id": session_id, "turns": _dialog().history(session_id)}
 
 
@@ -412,17 +469,22 @@ def chat_history(session_id: str) -> dict[str, Any]:
 # B5：人在环
 # --------------------------------------------------------------------------------
 @app.post("/hitl")
-def hitl_start(req: HitlStartReq) -> dict[str, Any]:
-    return _hitl().start(req.query, mode=req.mode, force_review=req.force_review)
+def hitl_start(req: HitlStartReq, request: Request) -> dict[str, Any]:
+    cid = _client_id(request)
+    _audit("hitl_start", request, target=req.query[:40])
+    return _hitl().start(req.query, mode=req.mode, force_review=req.force_review, owner=cid)
 
 
 @app.get("/hitl")
-def hitl_list(status: str | None = None) -> dict[str, Any]:
-    return {"pending": _hitl().pending(), "status_filter": status, "stats": _hitl().stats()}
+def hitl_list(request: Request, status: str | None = None) -> dict[str, Any]:
+    cid = _client_id(request)
+    pending = [t for t in _hitl().pending() if not (cid and t.get("owner") and t["owner"] != cid)]
+    return {"pending": pending, "status_filter": status, "stats": _hitl().stats()}
 
 
 @app.post("/hitl/{task_id}/resolve")
-def hitl_resolve(task_id: str, req: HitlResolveReq) -> dict[str, Any]:
+def hitl_resolve(task_id: str, req: HitlResolveReq, request: Request) -> dict[str, Any]:
+    _require_admin(request, "hitl_resolve", target=task_id)
     try:
         action = {"type": req.type}
         if req.article_ids:
@@ -431,9 +493,11 @@ def hitl_resolve(task_id: str, req: HitlResolveReq) -> dict[str, Any]:
             action["answer"] = req.answer
         if req.citations:
             action["citations"] = req.citations
-        return _hitl().resume(task_id, action)
+        return _hitl().resume(task_id, action, client_id=_client_id(request))
     except KeyError as exc:
         raise HTTPException(status_code=404, detail=str(exc)) from exc
+    except PermissionError as exc:
+        raise HTTPException(status_code=403, detail=str(exc)) from exc
     except ValueError as exc:
         raise HTTPException(status_code=400, detail=str(exc)) from exc
 

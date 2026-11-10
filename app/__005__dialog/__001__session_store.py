@@ -57,6 +57,39 @@ class SessionStore:
     def _init(self) -> None:
         with self._connect() as conn:
             conn.executescript(SCHEMA)
+            # 旧库没有 owner 列：补一列，空串表示「本地演示、不校验归属」。
+            cols = {r["name"] for r in conn.execute("PRAGMA table_info(sessions)").fetchall()}
+            if "owner" not in cols:
+                conn.execute("ALTER TABLE sessions ADD COLUMN owner TEXT NOT NULL DEFAULT ''")
+
+    # ---------------- 归属 ----------------
+    def claim(self, session_id: str, owner: str) -> bool:
+        """把会话绑到 owner；已被别人占用则返回 False。
+
+        空 owner（未启用客户端标识）永远返回 True，保持本地演示行为不变。
+        """
+        if not owner:
+            return True
+        with self._connect() as conn:
+            row = conn.execute("SELECT owner FROM sessions WHERE session_id=?", (session_id,)).fetchone()
+            if row is None:
+                # 先占位建行，后面 save_state 的 upsert 只更新 state_json，不会把 owner 冲掉。
+                conn.execute(
+                    "INSERT INTO sessions(session_id, state_json, owner) VALUES(?, '{}', ?)", (session_id, owner)
+                )
+                return True
+            if row["owner"] and row["owner"] != owner:
+                return False
+            conn.execute(
+                "UPDATE sessions SET owner=? WHERE session_id=? AND (owner IS NULL OR owner='')",
+                (owner, session_id),
+            )
+        return True
+
+    def owner_of(self, session_id: str) -> str:
+        with self._connect() as conn:
+            row = conn.execute("SELECT owner FROM sessions WHERE session_id=?", (session_id,)).fetchone()
+        return (row["owner"] if row else "") or ""
 
     # ---------------- 状态 ----------------
     def save_state(self, session_id: str, state: dict[str, Any]) -> None:
