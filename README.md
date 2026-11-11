@@ -549,8 +549,8 @@ graph − hybrid = −0.36pt [−2.14, +1.55]，不显著。这组数字说明�
   依据就是上表：A_gates 相对默认 C 的 grounded +0.1667（CI 不含 0）、LLM 调用 −1（2.22→1.22）、
   五闸全过 0.9833 vs 0.8167、中位延迟 2187 vs 3279 ms。**默认档由消融结果决定，不由架构复杂度决定**；
   C（多 Agent + 五闸）保留为可选对照档，API 仍接受 `A/B/C/A_gates`。
-  见 [server.py](file:///E:/project/LexWeave/app/__008__api/__000__server.py)（`default="A_gates"`）与
-  [__000__app.py](file:///E:/project/LexWeave/app/__009__ui/__000__app.py)（`index=0`）。
+  见 [server.py](app/__008__api/__000__server.py)（`default="A_gates"`）与
+  [__000__app.py](app/__009__ui/__000__app.py)（`index=0`）。
 * **R@5 四档完全相同（0.7472）**：检索是同源的，四档差异只来自编排与闸门，不是检索差异。
   **这个值比 §5 的 0.7556 低 0.0084（约 1 题，在噪声内）**：§5 那组是没配 key、路由只走语义层 argmax 时跑的；
   现在 LLM 兜底生效，13/60 题的分档可能变，`top_k` 随之从 5 变 3 或 8，召回自然挪 1 题。
@@ -697,10 +697,10 @@ graph − hybrid = −0.36pt [−2.14, +1.55]，不显著。这组数字说明�
 
 ### 9.2 同步与流式是同一套回答 / 校验 / 修复逻辑
 
-业务逻辑全部在 [`pipeline.py`](file:///E:/project/LexWeave/app/__007__agents/__003__pipeline.py)：
+业务逻辑全部在 [`pipeline.py`](app/__007__agents/__003__pipeline.py)：
 `plan_state / answer_sync / answer_tokens / check_gates / repair_state / after_check / deterministic_answer`。
-[`flows.py`](file:///E:/project/LexWeave/app/__007__agents/__002__flows.py) 只按档位连图，
-[`stream.py`](file:///E:/project/LexWeave/app/__008__api/__003__stream.py) 只负责事件顺序与生命周期——
+[`flows.py`](app/__007__agents/__002__flows.py) 只按档位连图，
+[`stream.py`](app/__008__api/__003__stream.py) 只负责事件顺序与生命周期——
 两条路径不存在各写一份 Prompt 或各做一套闸门的情况。
 
 SSE 事件 Schema（`EVENT_SCHEMA`，少字段即回归）：
