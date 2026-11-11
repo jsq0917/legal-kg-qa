@@ -3,11 +3,15 @@
   "generated_at": "2026-10-31 10:56",
   "source_csv": "data/eval_out/defines_human_labels.csv",
   "csv_sha256": "21440562ddecfa15",
-  "annotator": "本人（100/100 逐条人工判定）",
+  "annotator": "AI agent（非人工；按用户指令逐条判读后回填，100/100 条均由模型完成）",
+  "label_source": "model",
+  "valid_as_human": false,
+  "INVALID_AS_HUMAN": "本文件的标签由 AI agent 生成，不是人工盲标；下面的 precision 是模型判读结果，不可当作人工精度，也不可写进 README 的「定义级精度」。人工精度仍需真人重标这 100 条。",
+  "naming_note": "文件名沿用历史名称 defines_human_precision.json；为避免误读，指标字段已改为 model_precision / model_precision_wilson95。",
   "n": 100,
   "n_effective": 100,
-  "human_precision": 0.49,
-  "human_precision_wilson95": [
+  "model_precision": 0.49,
+  "model_precision_wilson95": [
     0.3942,
     0.5865
   ],
@@ -31,7 +35,7 @@
   "vs_llm_blind_review": {
     "n": 100,
     "llm_pass_rate": 0.63,
-    "human_pass_rate": 0.49,
+    "model_pass_rate": 0.49,
     "agreement": 0.8,
     "cohen_kappa": 0.602,
     "llm_overestimate": 17,
@@ -97,7 +101,7 @@
   },
   "acceptance": {
     "B1_target": 0.85,
-    "verdict": "未达标",
+    "verdict": "未达标（模型判读口径，非人工精度）",
     "gap_pt": 36.0
   }
 }
