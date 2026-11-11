@@ -135,7 +135,7 @@
 **更新（文档）**
 - `README.md`（§2 §3 §5 §8 §12 §13）
 - `reports/case_bank.md`、`reports/defines_guard.md`
-- `F:\大模型应用开发\个人简历\算法岗求职行动清单.md`（§1.3、§8、附录 A、T01/T11/T13 卡）
+- `<仓库外个人文档>`（§1.3、§8、附录 A、T01/T11/T13 卡；不在本仓库，路径已脱敏）
 
 **备份（未删除任何旧 JSON）**
 - `data/eval_out/retrieval_pre_recheck.json`（= 18:20 版；另有 `_backup_o_20261031/retrieval.20261031_182054.json`）

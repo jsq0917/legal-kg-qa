@@ -30,12 +30,12 @@ T27 / T29 验收逐条对照：
 
 | 文件 | 内容 |
 |---|---|
-| [__005__trace.py](file:///E:/project/LexWeave/app/__008__api/__005__trace.py) | 请求级账本：`contextvars` 传递、`Trace.finish` 派生字段、`measure_gate_ms`、jsonl 落盘、看板聚合 |
-| [__000__server.py](file:///E:/project/LexWeave/app/__008__api/__000__server.py) | `/ask` 接 trace + `X-Trace-Id`；新增 `/observability/summary`、`/observability/recent`、`/demo/guard`、`/demo/off-domain` |
-| [__000__app.py](file:///E:/project/LexWeave/app/__009__ui/__000__app.py) | 重写：6 个页签，新增可观测性页、演示场景页、trace 面板、引用锚点 |
-| [common/llm.py](file:///E:/project/LexWeave/common/llm.py) | 增加 `set_timing_hook`：成功调用后回报 `(elapsed_ms, prompt_tokens, completion_tokens)` |
-| [tests/test_trace.py](file:///E:/project/LexWeave/tests/test_trace.py) | 8 个口径测试：字段推导、实测/推导、缓存命中、钩子归账、成本、汇总 |
-| [docs/figures/demo_t27_t29.gif](file:///E:/project/LexWeave/docs/figures/demo_t27_t29.gif) | 60 秒演示录屏；同目录 4 张关键帧 PNG |
+| [__005__trace.py](../app/__008__api/__005__trace.py) | 请求级账本：`contextvars` 传递、`Trace.finish` 派生字段、`measure_gate_ms`、jsonl 落盘、看板聚合 |
+| [__000__server.py](../app/__008__api/__000__server.py) | `/ask` 接 trace + `X-Trace-Id`；新增 `/observability/summary`、`/observability/recent`、`/demo/guard`、`/demo/off-domain` |
+| [__000__app.py](../app/__009__ui/__000__app.py) | 重写：6 个页签，新增可观测性页、演示场景页、trace 面板、引用锚点 |
+| [common/llm.py](../common/llm.py) | 增加 `set_timing_hook`：成功调用后回报 `(elapsed_ms, prompt_tokens, completion_tokens)` |
+| [tests/test_trace.py](../tests/test_trace.py) | 8 个口径测试：字段推导、实测/推导、缓存命中、钩子归账、成本、汇总 |
+| [docs/figures/demo_t27_t29.gif](../docs/figures/demo_t27_t29.gif) | 60 秒演示录屏；同目录 4 张关键帧 PNG |
 
 `app/__007__agents/__002__flows.py`、`app/__007__agents/__001__gates.py`、检索器本任务均未改动；只在外部读 `state` 与调用纯函数。
 
@@ -194,7 +194,7 @@ T27 / T29 验收逐条对照：
 ```bash
 # API（真起服务，热态采集前先预热）
 .\.venv\Scripts\python.exe -m uvicorn app.__008__api.__000__server:app --host 127.0.0.1 --port 8010
-.\.venv\Scripts\python.exe "f:\大模型应用开发\算法岗冲刺\work\u-observability\collect.py"
+.\.venv\Scripts\python.exe "<EXTERNAL_SPRINT_ROOT>\work\u-observability\collect.py"
 
 # 看板
 curl "http://127.0.0.1:8010/observability/summary?limit=200"
@@ -204,7 +204,7 @@ curl "http://127.0.0.1:8010/observability/recent?n=20"
 .\.venv\Scripts\python.exe -m streamlit run app/__009__ui/__000__app.py --server.port 8501
 
 # 录屏重建（无头 Chrome 开 9222 后）
-.\.venv\Scripts\python.exe "f:\大模型应用开发\算法岗冲刺\work\u-observability\record_demo.py"
+.\.venv\Scripts\python.exe "<EXTERNAL_SPRINT_ROOT>\work\u-observability\record_demo.py"
 
 # 口径测试
 .\.venv\Scripts\python.exe -m pytest tests/test_trace.py -q   # 8 passed

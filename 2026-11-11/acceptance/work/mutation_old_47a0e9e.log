@@ -1,0 +1,74 @@
+F                                                                        [100%]
+================================== FAILURES ===================================
+__________ test_stream_survives_starlette_threadpool_context_switch ___________
+
+_env = [{'request_id': 'f69d37def9a1', 'ts': '2026-11-11T08:53:20.531+08:00', 'path': '/stream', 'query': '公司拖欠工资怎么办', ...}]
+
+    def test_stream_survives_starlette_threadpool_context_switch(_env):
+        """回归：Starlette 用 ``iterate_in_threadpool`` 逐次 ``next()`` 迭代同步生成器。
+    
+        每次 ``next()`` 都跑在线程池里、使用复制过的 Context。旧实现把 ``trace_request``
+        跨整个生成器：第一个 Context 里 set 的 ContextVar token，在结束时到另一个
+        Context reset，必然抛 ``ValueError: ... was created in a different Context``，
+        而且 trace 还先被写成 ok。这里走真实传输层机制复现。
+        """
+        import asyncio
+    
+        from starlette.concurrency import iterate_in_threadpool
+    
+        ret = _Retriever(RETRIEVAL)
+        gen = stream_mod.stream_answer(
+            "公司拖欠工资怎么办", "hybrid", "A_gates", ret, ARTICLE_INDEX, ART_CONCEPTS, use_llm=False
+        )
+    
+        async def consume() -> list[str]:
+            return [chunk async for chunk in iterate_in_threadpool(gen)]
+    
+>       raw = asyncio.run(consume())
+              ^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_stream_contract.py:224: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+<USER_HOME>\AppData\Roaming\uv\python\cpython-3.13-windows-x86_64-none\Lib\asyncio\runners.py:195: in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+<USER_HOME>\AppData\Roaming\uv\python\cpython-3.13-windows-x86_64-none\Lib\asyncio\runners.py:118: in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+<USER_HOME>\AppData\Roaming\uv\python\cpython-3.13-windows-x86_64-none\Lib\asyncio\base_events.py:725: in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+tests\test_stream_contract.py:222: in consume
+    return [chunk async for chunk in iterate_in_threadpool(gen)]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\.venv\Lib\site-packages\starlette\concurrency.py:57: in iterate_in_threadpool
+    yield await anyio.to_thread.run_sync(_next, as_iterator)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\.venv\Lib\site-packages\anyio\to_thread.py:65: in run_sync
+    return await get_async_backend().run_sync_in_worker_thread(
+..\..\..\..\.venv\Lib\site-packages\anyio\_backends\_asyncio.py:2706: in run_sync_in_worker_thread
+    return await future
+           ^^^^^^^^^^^^
+..\..\..\..\.venv\Lib\site-packages\anyio\_backends\_asyncio.py:1100: in run
+    result = context.run(func, *args)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\.venv\Lib\site-packages\starlette\concurrency.py:46: in _next
+    return next(iterator)
+           ^^^^^^^^^^^^^^
+app\__008__api\__003__stream.py:147: in stream_answer
+    with trace_request(
+<USER_HOME>\AppData\Roaming\uv\python\cpython-3.13-windows-x86_64-none\Lib\contextlib.py:148: in __exit__
+    next(self.gen)
+app\__008__api\__005__trace.py:238: in trace_request
+    reset_model_hook(model_token)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+token = <Token var=<ContextVar name='llm_model_hook' default=None at 0x00000200DB624B80> at 0x00000200DB65CD40>
+
+    def reset_model_hook(token) -> None:
+>       _MODEL_HOOK.reset(token)
+E       ValueError: <Token var=<ContextVar name='llm_model_hook' default=None at 0x00000200DB624B80> at 0x00000200DB65CD40> was created in a different Context
+
+common\llm.py:116: ValueError
+=========================== short test summary info ===========================
+FAILED tests/test_stream_contract.py::test_stream_survives_starlette_threadpool_context_switch - ValueError: <Token var=<ContextVar name='llm_model_hook' default=None at 0x00000200DB624B80> at 0x00000200DB65CD40> was created in a different Context

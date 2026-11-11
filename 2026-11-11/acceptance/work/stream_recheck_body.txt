@@ -1,0 +1,63 @@
+event: meta
+data: {"cache": "miss", "query": "试用期最长能约定多久？", "mode": "hybrid", "tier": "A_gates", "graph_build_id": "g963749014664", "retrieval": {"level": "simple", "top1_similarity": 0.7725, "coverage": 1.0, "low_confidence": false, "items": [{"article_id": "ll#21", "citation": "中华人民共和国劳动法第二十一条", "law_name": "中华人民共和国劳动法", "score": 1.0027, "source": "both", "coverage": 1.0, "path": ["probation_period", "ll#21"], "content": "劳动合同可以约定试用期。试用期最长不得超过六个月。"}, {"article_id": "lcl#19", "citation": "中华人民共和国劳动合同法第十九条", "law_name": "中华人民共和国劳动合同法", "score": 0.9862, "source": "both", "coverage": 1.0, "path": ["probation_period", "lcl#19"], "content": "劳动合同期限三个月以上不满一年的，试用期不得超过一个月；劳动合同期限一年以上不满三年的，试用期不得超过二个月；三年以上固定期限和无固定期限的劳动合同，试用期不得超过六个月。同一用人单位与同一劳动者只能约定一次试用期。以完成一定工作任务为期限的劳动合同或者劳动合同期限不满三个月的，不得约定试用期。试用期包含在劳动合同期限内。劳动合同仅约定试用期的，试用期不成立，该期限为劳动合同期限。"}, {"article_id": "cc#637", "citation": "中华人民共和国民法典第六百三十七条", "law_name": "中华人民共和国民法典", "score": 0.7851, "source": "both", "coverage": 1.0, "path": ["probation_period", "cc#637"], "content": "试用买卖的当事人可以约定标的物的试用期限。对试用期限没有约定或者约定不明确，依据本法第五百一十条的规定仍不能确定的，由出卖人确定。"}], "linked": {"concepts": [{"id": "probation_period", "name": "试用期", "score": 1.0, "method": "exact"}], "scenarios": []}, "graph_build_id": "g963749014664"}, "retrieval_ms": 20728.9}
+
+event: token
+data: {"text": "结论：根据中华人民共和国劳动法第二十一条（中华人", "draft": true, "answer_version": 1}
+
+event: token
+data: {"text": "民共和国劳动法），相关行为应按该条规定处理。\n依", "draft": true, "answer_version": 1}
+
+event: token
+data: {"text": "据：\n- 中华人民共和国劳动法第二十一条（中华人", "draft": true, "answer_version": 1}
+
+event: token
+data: {"text": "民共和国劳动法）：劳动合同可以约定试用期。试用期", "draft": true, "answer_version": 1}
+
+event: token
+data: {"text": "最长不得超过六个月。\n- 中华人民共和国劳动合同", "draft": true, "answer_version": 1}
+
+event: token
+data: {"text": "法第十九条（中华人民共和国劳动合同法）：劳动合同", "draft": true, "answer_version": 1}
+
+event: token
+data: {"text": "期限三个月以上不满一年的，试用期不得超过一个月；", "draft": true, "answer_version": 1}
+
+event: token
+data: {"text": "劳动合同期限一年以上不满三年的，试用期不得超过二", "draft": true, "answer_version": 1}
+
+event: token
+data: {"text": "个月；三年以上固定期限和无固定期限的劳动合同，试", "draft": true, "answer_version": 1}
+
+event: token
+data: {"text": "用期不得超过六个月。同一用人单位与同一劳动者只能", "draft": true, "answer_version": 1}
+
+event: token
+data: {"text": "约定一次试用期。以完成一定工作任务为期限的劳动合", "draft": true, "answer_version": 1}
+
+event: token
+data: {"text": "同或者劳动合同期限不满三个月的，不得约定试用期。", "draft": true, "answer_version": 1}
+
+event: token
+data: {"text": "试用期包含在劳动合同期限\n- 中华人民共和国民法", "draft": true, "answer_version": 1}
+
+event: token
+data: {"text": "典第六百三十七条（中华人民共和国民法典）：试用买", "draft": true, "answer_version": 1}
+
+event: token
+data: {"text": "卖的当事人可以约定标的物的试用期限。对试用期限没", "draft": true, "answer_version": 1}
+
+event: token
+data: {"text": "有约定或者约定不明确，依据本法第五百一十条的规定", "draft": true, "answer_version": 1}
+
+event: token
+data: {"text": "仍不能确定的，由出卖人确定。", "draft": true, "answer_version": 1}
+
+event: check
+data: {"checks": [{"gate": "cite_exists", "ok": true, "detail": "全部条号可查"}, {"gate": "cite_in_retrieval", "ok": true, "detail": "引用均在检索结果内"}, {"gate": "path_support", "ok": true, "detail": "coverage=1.00, 有图连接的被引条文=3/3"}, {"gate": "evidence_span", "ok": true, "detail": "依据均有原文片段"}, {"gate": "low_conf_handoff", "ok": true, "detail": "low_confidence=False, handoff=False"}], "grounded": true, "tier": "A_gates", "answer_version": 1}
+
+event: final
+data: {"answer": "结论：根据中华人民共和国劳动法第二十一条（中华人民共和国劳动法），相关行为应按该条规定处理。\n依据：\n- 中华人民共和国劳动法第二十一条（中华人民共和国劳动法）：劳动合同可以约定试用期。试用期最长不得超过六个月。\n- 中华人民共和国劳动合同法第十九条（中华人民共和国劳动合同法）：劳动合同期限三个月以上不满一年的，试用期不得超过一个月；劳动合同期限一年以上不满三年的，试用期不得超过二个月；三年以上固定期限和无固定期限的劳动合同，试用期不得超过六个月。同一用人单位与同一劳动者只能约定一次试用期。以完成一定工作任务为期限的劳动合同或者劳动合同期限不满三个月的，不得约定试用期。试用期包含在劳动合同期限\n- 中华人民共和国民法典第六百三十七条（中华人民共和国民法典）：试用买卖的当事人可以约定标的物的试用期限。对试用期限没有约定或者约定不明确，依据本法第五百一十条的规定仍不能确定的，由出卖人确定。", "citations": ["中华人民共和国劳动法第二十一条", "中华人民共和国劳动合同法第十九条", "中华人民共和国民法典第六百三十七条"], "refused": false, "checks": [{"gate": "cite_exists", "ok": true, "detail": "全部条号可查"}, {"gate": "cite_in_retrieval", "ok": true, "detail": "引用均在检索结果内"}, {"gate": "path_support", "ok": true, "detail": "coverage=1.00, 有图连接的被引条文=3/3"}, {"gate": "evidence_span", "ok": true, "detail": "依据均有原文片段"}, {"gate": "low_conf_handoff", "ok": true, "detail": "low_confidence=False, handoff=False"}], "answer_version": 1, "superseded_versions": [], "ttft_ms": 20729.6}
+
+event: done
+data: {"answer": "结论：根据中华人民共和国劳动法第二十一条（中华人民共和国劳动法），相关行为应按该条规定处理。\n依据：\n- 中华人民共和国劳动法第二十一条（中华人民共和国劳动法）：劳动合同可以约定试用期。试用期最长不得超过六个月。\n- 中华人民共和国劳动合同法第十九条（中华人民共和国劳动合同法）：劳动合同期限三个月以上不满一年的，试用期不得超过一个月；劳动合同期限一年以上不满三年的，试用期不得超过二个月；三年以上固定期限和无固定期限的劳动合同，试用期不得超过六个月。同一用人单位与同一劳动者只能约定一次试用期。以完成一定工作任务为期限的劳动合同或者劳动合同期限不满三个月的，不得约定试用期。试用期包含在劳动合同期限\n- 中华人民共和国民法典第六百三十七条（中华人民共和国民法典）：试用买卖的当事人可以约定标的物的试用期限。对试用期限没有约定或者约定不明确，依据本法第五百一十条的规定仍不能确定的，由出卖人确定。", "citations": ["中华人民共和国劳动法第二十一条", "中华人民共和国劳动合同法第十九条", "中华人民共和国民法典第六百三十七条"], "refused": false, "checks": [{"gate": "cite_exists", "ok": true, "detail": "全部条号可查"}, {"gate": "cite_in_retrieval", "ok": true, "detail": "引用均在检索结果内"}, {"gate": "path_support", "ok": true, "detail": "coverage=1.00, 有图连接的被引条文=3/3"}, {"gate": "evidence_span", "ok": true, "detail": "依据均有原文片段"}, {"gate": "low_conf_handoff", "ok": true, "detail": "low_confidence=False, handoff=False"}], "answer_version": 1, "superseded_versions": [], "ttft_ms": 20729.6, "total_ms": 20734.8, "cache": "miss", "status": "ok"}
+

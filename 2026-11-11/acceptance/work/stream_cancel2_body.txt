@@ -1,0 +1,48 @@
+event: meta
+data: {"cache": "miss", "query": "加班费的计算基数怎么确定？", "mode": "hybrid", "tier": "A_gates", "graph_build_id": "g963749014664", "retrieval": {"level": "simple", "top1_similarity": 0.6599, "coverage": 1.0, "low_confidence": false, "items": [{"article_id": "cc#201", "citation": "中华人民共和国民法典第二百零一条", "law_name": "中华人民共和国民法典", "score": 0.2379, "source": "text", "coverage": 0.0, "path": [], "content": "按照年、月、日计算期间的，开始的当日不计入，自下一日开始计算。按照小时计算期间的，自法律规定或者当事人约定的时间开始计算。"}, {"article_id": "cc#200", "citation": "中华人民共和国民法典第二百条", "law_name": "中华人民共和国民法典", "score": 0.137, "source": "text", "coverage": 0.0, "path": [], "content": "民法所称的期间按照公历年、月、日、小时计算。"}, {"article_id": "ll#37", "citation": "中华人民共和国劳动法第三十七条", "law_name": "中华人民共和国劳动法", "score": 0.0679, "source": "text", "coverage": 0.0, "path": [], "content": "对实行计件工作的劳动者，用人单位应当根据本法第三十六条规定的工时制度合理确定其劳动定额和计件报酬标准。"}], "linked": {"concepts": [{"id": "overtime_pay", "name": "加班工资", "score": 0.95, "method": "exact"}], "scenarios": [{"id": "overtime_pay_dispute", "name": "加班费争议", "score": 0.95, "method": "scenario"}]}, "graph_build_id": "g963749014664"}, "retrieval_ms": 216.2}
+
+event: token
+data: {"text": "结论：根据中华人民共和国民法典第二百零一条（中华", "draft": true, "answer_version": 1}
+
+event: token
+data: {"text": "人民共和国民法典），相关行为应按该条规定处理。\n", "draft": true, "answer_version": 1}
+
+event: token
+data: {"text": "依据：\n- 中华人民共和国民法典第二百零一条（中", "draft": true, "answer_version": 1}
+
+event: token
+data: {"text": "华人民共和国民法典）：按照年、月、日计算期间的，", "draft": true, "answer_version": 1}
+
+event: token
+data: {"text": "开始的当日不计入，自下一日开始计算。按照小时计算", "draft": true, "answer_version": 1}
+
+event: token
+data: {"text": "期间的，自法律规定或者当事人约定的时间开始计算。", "draft": true, "answer_version": 1}
+
+event: token
+data: {"text": "\n- 中华人民共和国民法典第二百条（中华人民共和", "draft": true, "answer_version": 1}
+
+event: token
+data: {"text": "国民法典）：民法所称的期间按照公历年、月、日、小", "draft": true, "answer_version": 1}
+
+event: token
+data: {"text": "时计算。\n- 中华人民共和国劳动法第三十七条（中", "draft": true, "answer_version": 1}
+
+event: token
+data: {"text": "华人民共和国劳动法）：对实行计件工作的劳动者，用", "draft": true, "answer_version": 1}
+
+event: token
+data: {"text": "人单位应当根据本法第三十六条规定的工时制度合理确", "draft": true, "answer_version": 1}
+
+event: token
+data: {"text": "定其劳动定额和计件报酬标准。", "draft": true, "answer_version": 1}
+
+event: check
+data: {"checks": [{"gate": "cite_exists", "ok": true, "detail": "全部条号可查"}, {"gate": "cite_in_retrieval", "ok": true, "detail": "引用均在检索结果内"}, {"gate": "path_support", "ok": true, "detail": "coverage=1.00, 有图连接的被引条文=0/3"}, {"gate": "evidence_span", "ok": true, "detail": "依据均有原文片段"}, {"gate": "low_conf_handoff", "ok": true, "detail": "low_confidence=False, handoff=False"}], "grounded": true, "tier": "A_gates", "answer_version": 1}
+
+event: final
+data: {"answer": "结论：根据中华人民共和国民法典第二百零一条（中华人民共和国民法典），相关行为应按该条规定处理。\n依据：\n- 中华人民共和国民法典第二百零一条（中华人民共和国民法典）：按照年、月、日计算期间的，开始的当日不计入，自下一日开始计算。按照小时计算期间的，自法律规定或者当事人约定的时间开始计算。\n- 中华人民共和国民法典第二百条（中华人民共和国民法典）：民法所称的期间按照公历年、月、日、小时计算。\n- 中华人民共和国劳动法第三十七条（中华人民共和国劳动法）：对实行计件工作的劳动者，用人单位应当根据本法第三十六条规定的工时制度合理确定其劳动定额和计件报酬标准。", "citations": ["中华人民共和国民法典第二百零一条", "中华人民共和国民法典第二百条", "中华人民共和国劳动法第三十七条"], "refused": false, "checks": [{"gate": "cite_exists", "ok": true, "detail": "全部条号可查"}, {"gate": "cite_in_retrieval", "ok": true, "detail": "引用均在检索结果内"}, {"gate": "path_support", "ok": true, "detail": "coverage=1.00, 有图连接的被引条文=0/3"}, {"gate": "evidence_span", "ok": true, "detail": "依据均有原文片段"}, {"gate": "low_conf_handoff", "ok": true, "detail": "low_confidence=False, handoff=False"}], "answer_version": 1, "superseded_versions": [], "ttft_ms": 216.6}
+
+event: done
+data: {"answer": "结论：根据中华人民共和国民法典第二百零一条（中华人民共和国民法典），相关行为应按该条规定处理。\n依据：\n- 中华人民共和国民法典第二百零一条（中华人民共和国民法典）：按照年、月、日计算期间的，开始的当日不计入，自下一日开始计算。按照小时计算期间的，自法律规定或者当事人约定的时间开始计算。\n- 中华人民共和国民法典第二百条（中华人民共和国民法典）：民法所称的期间按照公历年、月、日、小时计算。\n- 中华人民共和国劳动法第三十七条（中华人民共和国劳动法）：对实行计件工作的劳动者，用人单位应当根据本法第三十六条规定的工时制度合理确定其劳动定额和计件报酬标准。", "citations": ["中华人民共和国民法典第二百零一条", "中华人民共和国民法典第二百条", "中华人民共和国劳动法第三十七条"], "refused": false, "checks": [{"gate": "cite_exists", "ok": true, "detail": "全部条号可查"}, {"gate": "cite_in_retrieval", "ok": true, "detail": "引用均在检索结果内"}, {"gate": "path_support", "ok": true, "detail": "coverage=1.00, 有图连接的被引条文=0/3"}, {"gate": "evidence_span", "ok": true, "detail": "依据均有原文片段"}, {"gate": "low_conf_handoff", "ok": true, "detail": "low_confidence=False, handoff=False"}], "answer_version": 1, "superseded_versions": [], "ttft_ms": 216.6, "total_ms": 220.5, "cache": "miss", "status": "ok"}
+

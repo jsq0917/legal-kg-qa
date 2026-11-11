@@ -1,7 +1,7 @@
 # DEFINES 规模-精度取舍定稿（l / T02）
 
 > 2026-10-31 · 只读复核；不改 `__003__edge_typing.py` 判据、不重建 `data/graph/`、不改 `data/lexicon/`、不改 README 正文、不做 git 写操作、未起推理进程。
-> 机器可读结果：[defines_precision.json](file:///E:/project/LexWeave/data/eval_out/defines_precision.json)
+> 机器可读结果：[defines_precision.json](../data/eval_out/defines_precision.json)
 >
 > **2026-10-31 图重建后更新（整合步骤执行，本卡记录）**：C 方案已实际落地，默认图口径由 819 变为 **710**
 > （705 规则 + 5 人工），边 5697→5503（首次重建）→**5826**（吸收 `m` 的 194 条推断边后），

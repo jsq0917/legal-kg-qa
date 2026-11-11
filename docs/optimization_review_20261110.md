@@ -1,7 +1,7 @@
 # LexWeave 优化评估（算法岗求职视角）
 
 > 评估日期：2026-11-10
-> 评估对象：`E:\project\LexWeave`（KG-RAG 项目）及其在简历、技术档案、面试逐字稿中的表述
+> 评估对象：`LexWeave`（本仓库，KG-RAG 项目）及其在简历、技术档案、面试逐字稿中的表述
 > 评估原则：只以仓库内可复算产物为准；不把包装当优化；不为凑指标补无依据的边
 >
 > **历史快照（2026-11-10）**：本文记录当时状态。仓库可见性已于 2026-11-11 用 `gh repo view` 核实为 **public**（`jsq0917/legal-kg-qa`，`visibility=PUBLIC`）；下文“仓库仍为 private / 改为 Public”均为当时状态，不再作为当前结论。
@@ -26,7 +26,7 @@
 | P3 默认档改 A_gates | 完成 | API `default="A_gates"`、UI `index=0`；依据见 README §8 末条与 §8.2 |
 | P1 B3 留出集（140） | 完成 | `data/eval_out/retrieval_holdout_140.json`；hybrid−text +1.31pt，CI [−0.60, +3.21] 含 0（README §5.1） |
 | P1 B6 留出集（60 × 4 档） | 完成（当前版 436 次调用 / 300k tokens；上一版 432 / 298k） | `data/eval_out/ablation_holdout_60.json`（2026-11-11 重跑，自带 `graph_build_id`）、`ablation_holdout_60_pre_graphver.json`（无图版本字段的旧版）、`citation_metrics_holdout.json`；结论与两版差异见 README §8.2 |
-| 简历待改文案 | 完成（未改简历文件） | [resume_edit_list_20261110.md](file:///E:/project/LexWeave/docs/resume_edit_list_20261110.md) |
+| 简历待改文案 | 完成（未改简历文件） | [resume_edit_list_20261110.md](resume_edit_list_20261110.md) |
 
 ---
 

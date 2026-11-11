@@ -1,0 +1,1565 @@
+{
+  "mode": "fixture",
+  "versions": {
+    "model": "contract-fixture-model",
+    "prompt": "2026-11-11.1",
+    "policy": "gates-2026-11-11",
+    "answer_schema": 2,
+    "graph_build_id": "gcontract0000"
+  },
+  "tiers": [
+    "A",
+    "B",
+    "C",
+    "A_gates"
+  ],
+  "total": 20,
+  "failed": 0,
+  "ok": true,
+  "rows": [
+    {
+      "case": "grounded",
+      "tier": "A",
+      "sync_miss": {
+        "answer": "结论：工资应按月足额支付，拖欠部分可以要求补发。\n依据：\n- 中华人民共和国劳动法第五十条（劳动法）：工资应当以货币形式按月支付给劳动者本人。",
+        "citations": [
+          "中华人民共和国劳动法第五十条"
+        ],
+        "refused": false,
+        "checks": {},
+        "answer_version": 1,
+        "superseded_versions": [],
+        "graph_build_id": "gcontract0000",
+        "plan_present": false,
+        "cache": "miss"
+      },
+      "stream_miss": {
+        "answer": "结论：工资应按月足额支付，拖欠部分可以要求补发。\n依据：\n- 中华人民共和国劳动法第五十条（劳动法）：工资应当以货币形式按月支付给劳动者本人。",
+        "citations": [
+          "中华人民共和国劳动法第五十条"
+        ],
+        "refused": false,
+        "checks": {},
+        "answer_version": 1,
+        "superseded_versions": [],
+        "graph_build_id": "gcontract0000",
+        "plan_present": false,
+        "cache": "miss",
+        "status": "ok"
+      },
+      "stream_hit": {
+        "answer": "结论：工资应按月足额支付，拖欠部分可以要求补发。\n依据：\n- 中华人民共和国劳动法第五十条（劳动法）：工资应当以货币形式按月支付给劳动者本人。",
+        "citations": [
+          "中华人民共和国劳动法第五十条"
+        ],
+        "refused": false,
+        "checks": {},
+        "answer_version": 1,
+        "superseded_versions": [],
+        "graph_build_id": "gcontract0000",
+        "plan_present": false,
+        "cache": "hit",
+        "status": "ok"
+      },
+      "sync_hit": {
+        "answer": "结论：工资应按月足额支付，拖欠部分可以要求补发。\n依据：\n- 中华人民共和国劳动法第五十条（劳动法）：工资应当以货币形式按月支付给劳动者本人。",
+        "citations": [
+          "中华人民共和国劳动法第五十条"
+        ],
+        "refused": false,
+        "checks": {},
+        "answer_version": 1,
+        "superseded_versions": [],
+        "graph_build_id": "gcontract0000",
+        "plan_present": false,
+        "cache": "hit"
+      },
+      "diffs": {
+        "sync_vs_stream": {},
+        "stream_replay": {},
+        "cross_cache": {}
+      },
+      "schema_problems": []
+    },
+    {
+      "case": "grounded",
+      "tier": "B",
+      "sync_miss": {
+        "answer": "结论：工资应按月足额支付，拖欠部分可以要求补发。\n依据：\n- 中华人民共和国劳动法第五十条（劳动法）：工资应当以货币形式按月支付给劳动者本人。",
+        "citations": [
+          "中华人民共和国劳动法第五十条"
+        ],
+        "refused": false,
+        "checks": {},
+        "answer_version": 1,
+        "superseded_versions": [],
+        "graph_build_id": "gcontract0000",
+        "plan_present": true,
+        "cache": "miss"
+      },
+      "stream_miss": {
+        "answer": "结论：工资应按月足额支付，拖欠部分可以要求补发。\n依据：\n- 中华人民共和国劳动法第五十条（劳动法）：工资应当以货币形式按月支付给劳动者本人。",
+        "citations": [
+          "中华人民共和国劳动法第五十条"
+        ],
+        "refused": false,
+        "checks": {},
+        "answer_version": 1,
+        "superseded_versions": [],
+        "graph_build_id": "gcontract0000",
+        "plan_present": true,
+        "cache": "miss",
+        "status": "ok"
+      },
+      "stream_hit": {
+        "answer": "结论：工资应按月足额支付，拖欠部分可以要求补发。\n依据：\n- 中华人民共和国劳动法第五十条（劳动法）：工资应当以货币形式按月支付给劳动者本人。",
+        "citations": [
+          "中华人民共和国劳动法第五十条"
+        ],
+        "refused": false,
+        "checks": {},
+        "answer_version": 1,
+        "superseded_versions": [],
+        "graph_build_id": "gcontract0000",
+        "plan_present": true,
+        "cache": "hit",
+        "status": "ok"
+      },
+      "sync_hit": {
+        "answer": "结论：工资应按月足额支付，拖欠部分可以要求补发。\n依据：\n- 中华人民共和国劳动法第五十条（劳动法）：工资应当以货币形式按月支付给劳动者本人。",
+        "citations": [
+          "中华人民共和国劳动法第五十条"
+        ],
+        "refused": false,
+        "checks": {},
+        "answer_version": 1,
+        "superseded_versions": [],
+        "graph_build_id": "gcontract0000",
+        "plan_present": true,
+        "cache": "hit"
+      },
+      "diffs": {
+        "sync_vs_stream": {},
+        "stream_replay": {},
+        "cross_cache": {}
+      },
+      "schema_problems": []
+    },
+    {
+      "case": "grounded",
+      "tier": "C",
+      "sync_miss": {
+        "answer": "结论：工资应按月足额支付，拖欠部分可以要求补发。\n依据：\n- 中华人民共和国劳动法第五十条（劳动法）：工资应当以货币形式按月支付给劳动者本人。",
+        "citations": [
+          "中华人民共和国劳动法第五十条"
+        ],
+        "refused": false,
+        "checks": {
+          "cite_exists": true,
+          "cite_in_retrieval": true,
+          "path_support": true,
+          "evidence_span": true,
+          "low_conf_handoff": true
+        },
+        "answer_version": 1,
+        "superseded_versions": [],
+        "graph_build_id": "gcontract0000",
+        "plan_present": true,
+        "cache": "miss"
+      },
+      "stream_miss": {
+        "answer": "结论：工资应按月足额支付，拖欠部分可以要求补发。\n依据：\n- 中华人民共和国劳动法第五十条（劳动法）：工资应当以货币形式按月支付给劳动者本人。",
+        "citations": [
+          "中华人民共和国劳动法第五十条"
+        ],
+        "refused": false,
+        "checks": {
+          "cite_exists": true,
+          "cite_in_retrieval": true,
+          "path_support": true,
+          "evidence_span": true,
+          "low_conf_handoff": true
+        },
+        "answer_version": 1,
+        "superseded_versions": [],
+        "graph_build_id": "gcontract0000",
+        "plan_present": true,
+        "cache": "miss",
+        "status": "ok"
+      },
+      "stream_hit": {
+        "answer": "结论：工资应按月足额支付，拖欠部分可以要求补发。\n依据：\n- 中华人民共和国劳动法第五十条（劳动法）：工资应当以货币形式按月支付给劳动者本人。",
+        "citations": [
+          "中华人民共和国劳动法第五十条"
+        ],
+        "refused": false,
+        "checks": {
+          "cite_exists": true,
+          "cite_in_retrieval": true,
+          "path_support": true,
+          "evidence_span": true,
+          "low_conf_handoff": true
+        },
+        "answer_version": 1,
+        "superseded_versions": [],
+        "graph_build_id": "gcontract0000",
+        "plan_present": true,
+        "cache": "hit",
+        "status": "ok"
+      },
+      "sync_hit": {
+        "answer": "结论：工资应按月足额支付，拖欠部分可以要求补发。\n依据：\n- 中华人民共和国劳动法第五十条（劳动法）：工资应当以货币形式按月支付给劳动者本人。",
+        "citations": [
+          "中华人民共和国劳动法第五十条"
+        ],
+        "refused": false,
+        "checks": {
+          "cite_exists": true,
+          "cite_in_retrieval": true,
+          "path_support": true,
+          "evidence_span": true,
+          "low_conf_handoff": true
+        },
+        "answer_version": 1,
+        "superseded_versions": [],
+        "graph_build_id": "gcontract0000",
+        "plan_present": true,
+        "cache": "hit"
+      },
+      "diffs": {
+        "sync_vs_stream": {},
+        "stream_replay": {},
+        "cross_cache": {}
+      },
+      "schema_problems": []
+    },
+    {
+      "case": "grounded",
+      "tier": "A_gates",
+      "sync_miss": {
+        "answer": "结论：工资应按月足额支付，拖欠部分可以要求补发。\n依据：\n- 中华人民共和国劳动法第五十条（劳动法）：工资应当以货币形式按月支付给劳动者本人。",
+        "citations": [
+          "中华人民共和国劳动法第五十条"
+        ],
+        "refused": false,
+        "checks": {
+          "cite_exists": true,
+          "cite_in_retrieval": true,
+          "path_support": true,
+          "evidence_span": true,
+          "low_conf_handoff": true
+        },
+        "answer_version": 1,
+        "superseded_versions": [],
+        "graph_build_id": "gcontract0000",
+        "plan_present": false,
+        "cache": "miss"
+      },
+      "stream_miss": {
+        "answer": "结论：工资应按月足额支付，拖欠部分可以要求补发。\n依据：\n- 中华人民共和国劳动法第五十条（劳动法）：工资应当以货币形式按月支付给劳动者本人。",
+        "citations": [
+          "中华人民共和国劳动法第五十条"
+        ],
+        "refused": false,
+        "checks": {
+          "cite_exists": true,
+          "cite_in_retrieval": true,
+          "path_support": true,
+          "evidence_span": true,
+          "low_conf_handoff": true
+        },
+        "answer_version": 1,
+        "superseded_versions": [],
+        "graph_build_id": "gcontract0000",
+        "plan_present": false,
+        "cache": "miss",
+        "status": "ok"
+      },
+      "stream_hit": {
+        "answer": "结论：工资应按月足额支付，拖欠部分可以要求补发。\n依据：\n- 中华人民共和国劳动法第五十条（劳动法）：工资应当以货币形式按月支付给劳动者本人。",
+        "citations": [
+          "中华人民共和国劳动法第五十条"
+        ],
+        "refused": false,
+        "checks": {
+          "cite_exists": true,
+          "cite_in_retrieval": true,
+          "path_support": true,
+          "evidence_span": true,
+          "low_conf_handoff": true
+        },
+        "answer_version": 1,
+        "superseded_versions": [],
+        "graph_build_id": "gcontract0000",
+        "plan_present": false,
+        "cache": "hit",
+        "status": "ok"
+      },
+      "sync_hit": {
+        "answer": "结论：工资应按月足额支付，拖欠部分可以要求补发。\n依据：\n- 中华人民共和国劳动法第五十条（劳动法）：工资应当以货币形式按月支付给劳动者本人。",
+        "citations": [
+          "中华人民共和国劳动法第五十条"
+        ],
+        "refused": false,
+        "checks": {
+          "cite_exists": true,
+          "cite_in_retrieval": true,
+          "path_support": true,
+          "evidence_span": true,
+          "low_conf_handoff": true
+        },
+        "answer_version": 1,
+        "superseded_versions": [],
+        "graph_build_id": "gcontract0000",
+        "plan_present": false,
+        "cache": "hit"
+      },
+      "diffs": {
+        "sync_vs_stream": {},
+        "stream_replay": {},
+        "cross_cache": {}
+      },
+      "schema_problems": []
+    },
+    {
+      "case": "repair_fake_citation",
+      "tier": "A",
+      "sync_miss": {
+        "answer": "结论：根据劳动合同法第九十九条处理。\n依据：\n- 劳动合同法第九十九条（劳动合同法）：不存在的条文",
+        "citations": [
+          "中华人民共和国劳动法第五十条"
+        ],
+        "refused": false,
+        "checks": {},
+        "answer_version": 1,
+        "superseded_versions": [],
+        "graph_build_id": "gcontract0000",
+        "plan_present": false,
+        "cache": "miss"
+      },
+      "stream_miss": {
+        "answer": "结论：根据劳动合同法第九十九条处理。\n依据：\n- 劳动合同法第九十九条（劳动合同法）：不存在的条文",
+        "citations": [
+          "中华人民共和国劳动法第五十条"
+        ],
+        "refused": false,
+        "checks": {},
+        "answer_version": 1,
+        "superseded_versions": [],
+        "graph_build_id": "gcontract0000",
+        "plan_present": false,
+        "cache": "miss",
+        "status": "ok"
+      },
+      "stream_hit": {
+        "answer": "结论：根据劳动合同法第九十九条处理。\n依据：\n- 劳动合同法第九十九条（劳动合同法）：不存在的条文",
+        "citations": [
+          "中华人民共和国劳动法第五十条"
+        ],
+        "refused": false,
+        "checks": {},
+        "answer_version": 1,
+        "superseded_versions": [],
+        "graph_build_id": "gcontract0000",
+        "plan_present": false,
+        "cache": "hit",
+        "status": "ok"
+      },
+      "sync_hit": {
+        "answer": "结论：根据劳动合同法第九十九条处理。\n依据：\n- 劳动合同法第九十九条（劳动合同法）：不存在的条文",
+        "citations": [
+          "中华人民共和国劳动法第五十条"
+        ],
+        "refused": false,
+        "checks": {},
+        "answer_version": 1,
+        "superseded_versions": [],
+        "graph_build_id": "gcontract0000",
+        "plan_present": false,
+        "cache": "hit"
+      },
+      "diffs": {
+        "sync_vs_stream": {},
+        "stream_replay": {},
+        "cross_cache": {}
+      },
+      "schema_problems": []
+    },
+    {
+      "case": "repair_fake_citation",
+      "tier": "B",
+      "sync_miss": {
+        "answer": "结论：根据劳动合同法第九十九条处理。\n依据：\n- 劳动合同法第九十九条（劳动合同法）：不存在的条文",
+        "citations": [
+          "中华人民共和国劳动法第五十条"
+        ],
+        "refused": false,
+        "checks": {},
+        "answer_version": 1,
+        "superseded_versions": [],
+        "graph_build_id": "gcontract0000",
+        "plan_present": true,
+        "cache": "miss"
+      },
+      "stream_miss": {
+        "answer": "结论：根据劳动合同法第九十九条处理。\n依据：\n- 劳动合同法第九十九条（劳动合同法）：不存在的条文",
+        "citations": [
+          "中华人民共和国劳动法第五十条"
+        ],
+        "refused": false,
+        "checks": {},
+        "answer_version": 1,
+        "superseded_versions": [],
+        "graph_build_id": "gcontract0000",
+        "plan_present": true,
+        "cache": "miss",
+        "status": "ok"
+      },
+      "stream_hit": {
+        "answer": "结论：根据劳动合同法第九十九条处理。\n依据：\n- 劳动合同法第九十九条（劳动合同法）：不存在的条文",
+        "citations": [
+          "中华人民共和国劳动法第五十条"
+        ],
+        "refused": false,
+        "checks": {},
+        "answer_version": 1,
+        "superseded_versions": [],
+        "graph_build_id": "gcontract0000",
+        "plan_present": true,
+        "cache": "hit",
+        "status": "ok"
+      },
+      "sync_hit": {
+        "answer": "结论：根据劳动合同法第九十九条处理。\n依据：\n- 劳动合同法第九十九条（劳动合同法）：不存在的条文",
+        "citations": [
+          "中华人民共和国劳动法第五十条"
+        ],
+        "refused": false,
+        "checks": {},
+        "answer_version": 1,
+        "superseded_versions": [],
+        "graph_build_id": "gcontract0000",
+        "plan_present": true,
+        "cache": "hit"
+      },
+      "diffs": {
+        "sync_vs_stream": {},
+        "stream_replay": {},
+        "cross_cache": {}
+      },
+      "schema_problems": []
+    },
+    {
+      "case": "repair_fake_citation",
+      "tier": "C",
+      "sync_miss": {
+        "answer": "结论：根据中华人民共和国劳动法第五十条（劳动法），相关行为应按该条规定处理。\n推理链路：先核中华人民共和国劳动法第五十条。\n依据：\n- 中华人民共和国劳动法第五十条（劳动法）：工资应当以货币形式按月支付给劳动者本人。不得克扣或者无故拖欠劳动者的工资。",
+        "citations": [
+          "中华人民共和国劳动法第五十条"
+        ],
+        "refused": false,
+        "checks": {
+          "cite_exists": true,
+          "cite_in_retrieval": true,
+          "path_support": true,
+          "evidence_span": true,
+          "low_conf_handoff": true
+        },
+        "answer_version": 2,
+        "superseded_versions": [
+          1
+        ],
+        "graph_build_id": "gcontract0000",
+        "plan_present": true,
+        "cache": "miss"
+      },
+      "stream_miss": {
+        "answer": "结论：根据中华人民共和国劳动法第五十条（劳动法），相关行为应按该条规定处理。\n推理链路：先核中华人民共和国劳动法第五十条。\n依据：\n- 中华人民共和国劳动法第五十条（劳动法）：工资应当以货币形式按月支付给劳动者本人。不得克扣或者无故拖欠劳动者的工资。",
+        "citations": [
+          "中华人民共和国劳动法第五十条"
+        ],
+        "refused": false,
+        "checks": {
+          "cite_exists": true,
+          "cite_in_retrieval": true,
+          "path_support": true,
+          "evidence_span": true,
+          "low_conf_handoff": true
+        },
+        "answer_version": 2,
+        "superseded_versions": [
+          1
+        ],
+        "graph_build_id": "gcontract0000",
+        "plan_present": true,
+        "cache": "miss",
+        "status": "ok"
+      },
+      "stream_hit": {
+        "answer": "结论：根据中华人民共和国劳动法第五十条（劳动法），相关行为应按该条规定处理。\n推理链路：先核中华人民共和国劳动法第五十条。\n依据：\n- 中华人民共和国劳动法第五十条（劳动法）：工资应当以货币形式按月支付给劳动者本人。不得克扣或者无故拖欠劳动者的工资。",
+        "citations": [
+          "中华人民共和国劳动法第五十条"
+        ],
+        "refused": false,
+        "checks": {
+          "cite_exists": true,
+          "cite_in_retrieval": true,
+          "path_support": true,
+          "evidence_span": true,
+          "low_conf_handoff": true
+        },
+        "answer_version": 2,
+        "superseded_versions": [
+          1
+        ],
+        "graph_build_id": "gcontract0000",
+        "plan_present": true,
+        "cache": "hit",
+        "status": "ok"
+      },
+      "sync_hit": {
+        "answer": "结论：根据中华人民共和国劳动法第五十条（劳动法），相关行为应按该条规定处理。\n推理链路：先核中华人民共和国劳动法第五十条。\n依据：\n- 中华人民共和国劳动法第五十条（劳动法）：工资应当以货币形式按月支付给劳动者本人。不得克扣或者无故拖欠劳动者的工资。",
+        "citations": [
+          "中华人民共和国劳动法第五十条"
+        ],
+        "refused": false,
+        "checks": {
+          "cite_exists": true,
+          "cite_in_retrieval": true,
+          "path_support": true,
+          "evidence_span": true,
+          "low_conf_handoff": true
+        },
+        "answer_version": 2,
+        "superseded_versions": [
+          1
+        ],
+        "graph_build_id": "gcontract0000",
+        "plan_present": true,
+        "cache": "hit"
+      },
+      "diffs": {
+        "sync_vs_stream": {},
+        "stream_replay": {},
+        "cross_cache": {}
+      },
+      "schema_problems": []
+    },
+    {
+      "case": "repair_fake_citation",
+      "tier": "A_gates",
+      "sync_miss": {
+        "answer": "结论：根据中华人民共和国劳动法第五十条（劳动法），相关行为应按该条规定处理。\n依据：\n- 中华人民共和国劳动法第五十条（劳动法）：工资应当以货币形式按月支付给劳动者本人。不得克扣或者无故拖欠劳动者的工资。",
+        "citations": [
+          "中华人民共和国劳动法第五十条"
+        ],
+        "refused": false,
+        "checks": {
+          "cite_exists": true,
+          "cite_in_retrieval": true,
+          "path_support": true,
+          "evidence_span": true,
+          "low_conf_handoff": true
+        },
+        "answer_version": 2,
+        "superseded_versions": [
+          1
+        ],
+        "graph_build_id": "gcontract0000",
+        "plan_present": false,
+        "cache": "miss"
+      },
+      "stream_miss": {
+        "answer": "结论：根据中华人民共和国劳动法第五十条（劳动法），相关行为应按该条规定处理。\n依据：\n- 中华人民共和国劳动法第五十条（劳动法）：工资应当以货币形式按月支付给劳动者本人。不得克扣或者无故拖欠劳动者的工资。",
+        "citations": [
+          "中华人民共和国劳动法第五十条"
+        ],
+        "refused": false,
+        "checks": {
+          "cite_exists": true,
+          "cite_in_retrieval": true,
+          "path_support": true,
+          "evidence_span": true,
+          "low_conf_handoff": true
+        },
+        "answer_version": 2,
+        "superseded_versions": [
+          1
+        ],
+        "graph_build_id": "gcontract0000",
+        "plan_present": false,
+        "cache": "miss",
+        "status": "ok"
+      },
+      "stream_hit": {
+        "answer": "结论：根据中华人民共和国劳动法第五十条（劳动法），相关行为应按该条规定处理。\n依据：\n- 中华人民共和国劳动法第五十条（劳动法）：工资应当以货币形式按月支付给劳动者本人。不得克扣或者无故拖欠劳动者的工资。",
+        "citations": [
+          "中华人民共和国劳动法第五十条"
+        ],
+        "refused": false,
+        "checks": {
+          "cite_exists": true,
+          "cite_in_retrieval": true,
+          "path_support": true,
+          "evidence_span": true,
+          "low_conf_handoff": true
+        },
+        "answer_version": 2,
+        "superseded_versions": [
+          1
+        ],
+        "graph_build_id": "gcontract0000",
+        "plan_present": false,
+        "cache": "hit",
+        "status": "ok"
+      },
+      "sync_hit": {
+        "answer": "结论：根据中华人民共和国劳动法第五十条（劳动法），相关行为应按该条规定处理。\n依据：\n- 中华人民共和国劳动法第五十条（劳动法）：工资应当以货币形式按月支付给劳动者本人。不得克扣或者无故拖欠劳动者的工资。",
+        "citations": [
+          "中华人民共和国劳动法第五十条"
+        ],
+        "refused": false,
+        "checks": {
+          "cite_exists": true,
+          "cite_in_retrieval": true,
+          "path_support": true,
+          "evidence_span": true,
+          "low_conf_handoff": true
+        },
+        "answer_version": 2,
+        "superseded_versions": [
+          1
+        ],
+        "graph_build_id": "gcontract0000",
+        "plan_present": false,
+        "cache": "hit"
+      },
+      "diffs": {
+        "sync_vs_stream": {},
+        "stream_replay": {},
+        "cross_cache": {}
+      },
+      "schema_problems": []
+    },
+    {
+      "case": "refuse_empty_items",
+      "tier": "A",
+      "sync_miss": {
+        "answer": "没有检索到直接相关的法条，无法给出有依据的结论，建议补充事实或转人工。",
+        "citations": [],
+        "refused": true,
+        "checks": {},
+        "answer_version": 1,
+        "superseded_versions": [],
+        "graph_build_id": "gcontract0000",
+        "plan_present": false,
+        "cache": "miss"
+      },
+      "stream_miss": {
+        "answer": "没有检索到直接相关的法条，无法给出有依据的结论，建议补充事实或转人工。",
+        "citations": [],
+        "refused": true,
+        "checks": {},
+        "answer_version": 1,
+        "superseded_versions": [],
+        "graph_build_id": "gcontract0000",
+        "plan_present": false,
+        "cache": "miss",
+        "status": "ok"
+      },
+      "stream_hit": {
+        "answer": "没有检索到直接相关的法条，无法给出有依据的结论，建议补充事实或转人工。",
+        "citations": [],
+        "refused": true,
+        "checks": {},
+        "answer_version": 1,
+        "superseded_versions": [],
+        "graph_build_id": "gcontract0000",
+        "plan_present": false,
+        "cache": "hit",
+        "status": "ok"
+      },
+      "sync_hit": {
+        "answer": "没有检索到直接相关的法条，无法给出有依据的结论，建议补充事实或转人工。",
+        "citations": [],
+        "refused": true,
+        "checks": {},
+        "answer_version": 1,
+        "superseded_versions": [],
+        "graph_build_id": "gcontract0000",
+        "plan_present": false,
+        "cache": "hit"
+      },
+      "diffs": {
+        "sync_vs_stream": {},
+        "stream_replay": {},
+        "cross_cache": {}
+      },
+      "schema_problems": []
+    },
+    {
+      "case": "refuse_empty_items",
+      "tier": "B",
+      "sync_miss": {
+        "answer": "没有检索到直接相关的法条，无法给出有依据的结论，建议补充事实或转人工。",
+        "citations": [],
+        "refused": true,
+        "checks": {},
+        "answer_version": 1,
+        "superseded_versions": [],
+        "graph_build_id": "gcontract0000",
+        "plan_present": true,
+        "cache": "miss"
+      },
+      "stream_miss": {
+        "answer": "没有检索到直接相关的法条，无法给出有依据的结论，建议补充事实或转人工。",
+        "citations": [],
+        "refused": true,
+        "checks": {},
+        "answer_version": 1,
+        "superseded_versions": [],
+        "graph_build_id": "gcontract0000",
+        "plan_present": true,
+        "cache": "miss",
+        "status": "ok"
+      },
+      "stream_hit": {
+        "answer": "没有检索到直接相关的法条，无法给出有依据的结论，建议补充事实或转人工。",
+        "citations": [],
+        "refused": true,
+        "checks": {},
+        "answer_version": 1,
+        "superseded_versions": [],
+        "graph_build_id": "gcontract0000",
+        "plan_present": true,
+        "cache": "hit",
+        "status": "ok"
+      },
+      "sync_hit": {
+        "answer": "没有检索到直接相关的法条，无法给出有依据的结论，建议补充事实或转人工。",
+        "citations": [],
+        "refused": true,
+        "checks": {},
+        "answer_version": 1,
+        "superseded_versions": [],
+        "graph_build_id": "gcontract0000",
+        "plan_present": true,
+        "cache": "hit"
+      },
+      "diffs": {
+        "sync_vs_stream": {},
+        "stream_replay": {},
+        "cross_cache": {}
+      },
+      "schema_problems": []
+    },
+    {
+      "case": "refuse_empty_items",
+      "tier": "C",
+      "sync_miss": {
+        "answer": "没有检索到直接相关的法条，无法给出有依据的结论，建议补充事实或转人工。",
+        "citations": [],
+        "refused": true,
+        "checks": {
+          "cite_exists": true,
+          "cite_in_retrieval": true,
+          "path_support": false,
+          "evidence_span": false,
+          "low_conf_handoff": true
+        },
+        "answer_version": 3,
+        "superseded_versions": [
+          1,
+          2
+        ],
+        "graph_build_id": "gcontract0000",
+        "plan_present": true,
+        "cache": "miss"
+      },
+      "stream_miss": {
+        "answer": "没有检索到直接相关的法条，无法给出有依据的结论，建议补充事实或转人工。",
+        "citations": [],
+        "refused": true,
+        "checks": {
+          "cite_exists": true,
+          "cite_in_retrieval": true,
+          "path_support": false,
+          "evidence_span": false,
+          "low_conf_handoff": true
+        },
+        "answer_version": 3,
+        "superseded_versions": [
+          1,
+          2
+        ],
+        "graph_build_id": "gcontract0000",
+        "plan_present": true,
+        "cache": "miss",
+        "status": "ok"
+      },
+      "stream_hit": {
+        "answer": "没有检索到直接相关的法条，无法给出有依据的结论，建议补充事实或转人工。",
+        "citations": [],
+        "refused": true,
+        "checks": {
+          "cite_exists": true,
+          "cite_in_retrieval": true,
+          "path_support": false,
+          "evidence_span": false,
+          "low_conf_handoff": true
+        },
+        "answer_version": 3,
+        "superseded_versions": [
+          1,
+          2
+        ],
+        "graph_build_id": "gcontract0000",
+        "plan_present": true,
+        "cache": "hit",
+        "status": "ok"
+      },
+      "sync_hit": {
+        "answer": "没有检索到直接相关的法条，无法给出有依据的结论，建议补充事实或转人工。",
+        "citations": [],
+        "refused": true,
+        "checks": {
+          "cite_exists": true,
+          "cite_in_retrieval": true,
+          "path_support": false,
+          "evidence_span": false,
+          "low_conf_handoff": true
+        },
+        "answer_version": 3,
+        "superseded_versions": [
+          1,
+          2
+        ],
+        "graph_build_id": "gcontract0000",
+        "plan_present": true,
+        "cache": "hit"
+      },
+      "diffs": {
+        "sync_vs_stream": {},
+        "stream_replay": {},
+        "cross_cache": {}
+      },
+      "schema_problems": []
+    },
+    {
+      "case": "refuse_empty_items",
+      "tier": "A_gates",
+      "sync_miss": {
+        "answer": "没有检索到直接相关的法条，无法给出有依据的结论，建议补充事实或转人工。",
+        "citations": [],
+        "refused": true,
+        "checks": {
+          "cite_exists": true,
+          "cite_in_retrieval": true,
+          "path_support": false,
+          "evidence_span": false,
+          "low_conf_handoff": true
+        },
+        "answer_version": 3,
+        "superseded_versions": [
+          1,
+          2
+        ],
+        "graph_build_id": "gcontract0000",
+        "plan_present": false,
+        "cache": "miss"
+      },
+      "stream_miss": {
+        "answer": "没有检索到直接相关的法条，无法给出有依据的结论，建议补充事实或转人工。",
+        "citations": [],
+        "refused": true,
+        "checks": {
+          "cite_exists": true,
+          "cite_in_retrieval": true,
+          "path_support": false,
+          "evidence_span": false,
+          "low_conf_handoff": true
+        },
+        "answer_version": 3,
+        "superseded_versions": [
+          1,
+          2
+        ],
+        "graph_build_id": "gcontract0000",
+        "plan_present": false,
+        "cache": "miss",
+        "status": "ok"
+      },
+      "stream_hit": {
+        "answer": "没有检索到直接相关的法条，无法给出有依据的结论，建议补充事实或转人工。",
+        "citations": [],
+        "refused": true,
+        "checks": {
+          "cite_exists": true,
+          "cite_in_retrieval": true,
+          "path_support": false,
+          "evidence_span": false,
+          "low_conf_handoff": true
+        },
+        "answer_version": 3,
+        "superseded_versions": [
+          1,
+          2
+        ],
+        "graph_build_id": "gcontract0000",
+        "plan_present": false,
+        "cache": "hit",
+        "status": "ok"
+      },
+      "sync_hit": {
+        "answer": "没有检索到直接相关的法条，无法给出有依据的结论，建议补充事实或转人工。",
+        "citations": [],
+        "refused": true,
+        "checks": {
+          "cite_exists": true,
+          "cite_in_retrieval": true,
+          "path_support": false,
+          "evidence_span": false,
+          "low_conf_handoff": true
+        },
+        "answer_version": 3,
+        "superseded_versions": [
+          1,
+          2
+        ],
+        "graph_build_id": "gcontract0000",
+        "plan_present": false,
+        "cache": "hit"
+      },
+      "diffs": {
+        "sync_vs_stream": {},
+        "stream_replay": {},
+        "cross_cache": {}
+      },
+      "schema_problems": []
+    },
+    {
+      "case": "low_conf_handoff",
+      "tier": "A",
+      "sync_miss": {
+        "answer": "结论：根据中华人民共和国劳动法第五十条（劳动法），相关行为应按该条规定处理。\n依据：\n- 中华人民共和国劳动法第五十条（劳动法）：工资应当以货币形式按月支付给劳动者本人。不得克扣或者无故拖欠劳动者的工资。",
+        "citations": [
+          "中华人民共和国劳动法第五十条"
+        ],
+        "refused": false,
+        "checks": {},
+        "answer_version": 1,
+        "superseded_versions": [],
+        "graph_build_id": "gcontract0000",
+        "plan_present": false,
+        "cache": "miss"
+      },
+      "stream_miss": {
+        "answer": "结论：根据中华人民共和国劳动法第五十条（劳动法），相关行为应按该条规定处理。\n依据：\n- 中华人民共和国劳动法第五十条（劳动法）：工资应当以货币形式按月支付给劳动者本人。不得克扣或者无故拖欠劳动者的工资。",
+        "citations": [
+          "中华人民共和国劳动法第五十条"
+        ],
+        "refused": false,
+        "checks": {},
+        "answer_version": 1,
+        "superseded_versions": [],
+        "graph_build_id": "gcontract0000",
+        "plan_present": false,
+        "cache": "miss",
+        "status": "ok"
+      },
+      "stream_hit": {
+        "answer": "结论：根据中华人民共和国劳动法第五十条（劳动法），相关行为应按该条规定处理。\n依据：\n- 中华人民共和国劳动法第五十条（劳动法）：工资应当以货币形式按月支付给劳动者本人。不得克扣或者无故拖欠劳动者的工资。",
+        "citations": [
+          "中华人民共和国劳动法第五十条"
+        ],
+        "refused": false,
+        "checks": {},
+        "answer_version": 1,
+        "superseded_versions": [],
+        "graph_build_id": "gcontract0000",
+        "plan_present": false,
+        "cache": "hit",
+        "status": "ok"
+      },
+      "sync_hit": {
+        "answer": "结论：根据中华人民共和国劳动法第五十条（劳动法），相关行为应按该条规定处理。\n依据：\n- 中华人民共和国劳动法第五十条（劳动法）：工资应当以货币形式按月支付给劳动者本人。不得克扣或者无故拖欠劳动者的工资。",
+        "citations": [
+          "中华人民共和国劳动法第五十条"
+        ],
+        "refused": false,
+        "checks": {},
+        "answer_version": 1,
+        "superseded_versions": [],
+        "graph_build_id": "gcontract0000",
+        "plan_present": false,
+        "cache": "hit"
+      },
+      "diffs": {
+        "sync_vs_stream": {},
+        "stream_replay": {},
+        "cross_cache": {}
+      },
+      "schema_problems": []
+    },
+    {
+      "case": "low_conf_handoff",
+      "tier": "B",
+      "sync_miss": {
+        "answer": "结论：根据中华人民共和国劳动法第五十条（劳动法），相关行为应按该条规定处理。\n推理链路：先看 中华人民共和国劳动法第五十条\n依据：\n- 中华人民共和国劳动法第五十条（劳动法）：工资应当以货币形式按月支付给劳动者本人。不得克扣或者无故拖欠劳动者的工资。",
+        "citations": [
+          "中华人民共和国劳动法第五十条"
+        ],
+        "refused": false,
+        "checks": {},
+        "answer_version": 1,
+        "superseded_versions": [],
+        "graph_build_id": "gcontract0000",
+        "plan_present": true,
+        "cache": "miss"
+      },
+      "stream_miss": {
+        "answer": "结论：根据中华人民共和国劳动法第五十条（劳动法），相关行为应按该条规定处理。\n推理链路：先看 中华人民共和国劳动法第五十条\n依据：\n- 中华人民共和国劳动法第五十条（劳动法）：工资应当以货币形式按月支付给劳动者本人。不得克扣或者无故拖欠劳动者的工资。",
+        "citations": [
+          "中华人民共和国劳动法第五十条"
+        ],
+        "refused": false,
+        "checks": {},
+        "answer_version": 1,
+        "superseded_versions": [],
+        "graph_build_id": "gcontract0000",
+        "plan_present": true,
+        "cache": "miss",
+        "status": "ok"
+      },
+      "stream_hit": {
+        "answer": "结论：根据中华人民共和国劳动法第五十条（劳动法），相关行为应按该条规定处理。\n推理链路：先看 中华人民共和国劳动法第五十条\n依据：\n- 中华人民共和国劳动法第五十条（劳动法）：工资应当以货币形式按月支付给劳动者本人。不得克扣或者无故拖欠劳动者的工资。",
+        "citations": [
+          "中华人民共和国劳动法第五十条"
+        ],
+        "refused": false,
+        "checks": {},
+        "answer_version": 1,
+        "superseded_versions": [],
+        "graph_build_id": "gcontract0000",
+        "plan_present": true,
+        "cache": "hit",
+        "status": "ok"
+      },
+      "sync_hit": {
+        "answer": "结论：根据中华人民共和国劳动法第五十条（劳动法），相关行为应按该条规定处理。\n推理链路：先看 中华人民共和国劳动法第五十条\n依据：\n- 中华人民共和国劳动法第五十条（劳动法）：工资应当以货币形式按月支付给劳动者本人。不得克扣或者无故拖欠劳动者的工资。",
+        "citations": [
+          "中华人民共和国劳动法第五十条"
+        ],
+        "refused": false,
+        "checks": {},
+        "answer_version": 1,
+        "superseded_versions": [],
+        "graph_build_id": "gcontract0000",
+        "plan_present": true,
+        "cache": "hit"
+      },
+      "diffs": {
+        "sync_vs_stream": {},
+        "stream_replay": {},
+        "cross_cache": {}
+      },
+      "schema_problems": []
+    },
+    {
+      "case": "low_conf_handoff",
+      "tier": "C",
+      "sync_miss": {
+        "answer": "该问题检索证据不足（top1 相似度与图路径覆盖均偏低），无法确定结论，建议补充材料或转人工复核。\n结论：根据中华人民共和国劳动法第五十条（劳动法），相关行为应按该条规定处理。\n推理链路：先看 中华人民共和国劳动法第五十条\n依据：\n- 中华人民共和国劳动法第五十条（劳动法）：工资应当以货币形式按月支付给劳动者本人。不得克扣或者无故拖欠劳动者的工资。",
+        "citations": [
+          "中华人民共和国劳动法第五十条"
+        ],
+        "refused": true,
+        "checks": {
+          "cite_exists": true,
+          "cite_in_retrieval": true,
+          "path_support": true,
+          "evidence_span": true,
+          "low_conf_handoff": true
+        },
+        "answer_version": 2,
+        "superseded_versions": [
+          1
+        ],
+        "graph_build_id": "gcontract0000",
+        "plan_present": true,
+        "cache": "miss"
+      },
+      "stream_miss": {
+        "answer": "该问题检索证据不足（top1 相似度与图路径覆盖均偏低），无法确定结论，建议补充材料或转人工复核。\n结论：根据中华人民共和国劳动法第五十条（劳动法），相关行为应按该条规定处理。\n推理链路：先看 中华人民共和国劳动法第五十条\n依据：\n- 中华人民共和国劳动法第五十条（劳动法）：工资应当以货币形式按月支付给劳动者本人。不得克扣或者无故拖欠劳动者的工资。",
+        "citations": [
+          "中华人民共和国劳动法第五十条"
+        ],
+        "refused": true,
+        "checks": {
+          "cite_exists": true,
+          "cite_in_retrieval": true,
+          "path_support": true,
+          "evidence_span": true,
+          "low_conf_handoff": true
+        },
+        "answer_version": 2,
+        "superseded_versions": [
+          1
+        ],
+        "graph_build_id": "gcontract0000",
+        "plan_present": true,
+        "cache": "miss",
+        "status": "ok"
+      },
+      "stream_hit": {
+        "answer": "该问题检索证据不足（top1 相似度与图路径覆盖均偏低），无法确定结论，建议补充材料或转人工复核。\n结论：根据中华人民共和国劳动法第五十条（劳动法），相关行为应按该条规定处理。\n推理链路：先看 中华人民共和国劳动法第五十条\n依据：\n- 中华人民共和国劳动法第五十条（劳动法）：工资应当以货币形式按月支付给劳动者本人。不得克扣或者无故拖欠劳动者的工资。",
+        "citations": [
+          "中华人民共和国劳动法第五十条"
+        ],
+        "refused": true,
+        "checks": {
+          "cite_exists": true,
+          "cite_in_retrieval": true,
+          "path_support": true,
+          "evidence_span": true,
+          "low_conf_handoff": true
+        },
+        "answer_version": 2,
+        "superseded_versions": [
+          1
+        ],
+        "graph_build_id": "gcontract0000",
+        "plan_present": true,
+        "cache": "hit",
+        "status": "ok"
+      },
+      "sync_hit": {
+        "answer": "该问题检索证据不足（top1 相似度与图路径覆盖均偏低），无法确定结论，建议补充材料或转人工复核。\n结论：根据中华人民共和国劳动法第五十条（劳动法），相关行为应按该条规定处理。\n推理链路：先看 中华人民共和国劳动法第五十条\n依据：\n- 中华人民共和国劳动法第五十条（劳动法）：工资应当以货币形式按月支付给劳动者本人。不得克扣或者无故拖欠劳动者的工资。",
+        "citations": [
+          "中华人民共和国劳动法第五十条"
+        ],
+        "refused": true,
+        "checks": {
+          "cite_exists": true,
+          "cite_in_retrieval": true,
+          "path_support": true,
+          "evidence_span": true,
+          "low_conf_handoff": true
+        },
+        "answer_version": 2,
+        "superseded_versions": [
+          1
+        ],
+        "graph_build_id": "gcontract0000",
+        "plan_present": true,
+        "cache": "hit"
+      },
+      "diffs": {
+        "sync_vs_stream": {},
+        "stream_replay": {},
+        "cross_cache": {}
+      },
+      "schema_problems": []
+    },
+    {
+      "case": "low_conf_handoff",
+      "tier": "A_gates",
+      "sync_miss": {
+        "answer": "该问题检索证据不足（top1 相似度与图路径覆盖均偏低），无法确定结论，建议补充材料或转人工复核。\n结论：根据中华人民共和国劳动法第五十条（劳动法），相关行为应按该条规定处理。\n依据：\n- 中华人民共和国劳动法第五十条（劳动法）：工资应当以货币形式按月支付给劳动者本人。不得克扣或者无故拖欠劳动者的工资。",
+        "citations": [
+          "中华人民共和国劳动法第五十条"
+        ],
+        "refused": true,
+        "checks": {
+          "cite_exists": true,
+          "cite_in_retrieval": true,
+          "path_support": true,
+          "evidence_span": true,
+          "low_conf_handoff": true
+        },
+        "answer_version": 2,
+        "superseded_versions": [
+          1
+        ],
+        "graph_build_id": "gcontract0000",
+        "plan_present": false,
+        "cache": "miss"
+      },
+      "stream_miss": {
+        "answer": "该问题检索证据不足（top1 相似度与图路径覆盖均偏低），无法确定结论，建议补充材料或转人工复核。\n结论：根据中华人民共和国劳动法第五十条（劳动法），相关行为应按该条规定处理。\n依据：\n- 中华人民共和国劳动法第五十条（劳动法）：工资应当以货币形式按月支付给劳动者本人。不得克扣或者无故拖欠劳动者的工资。",
+        "citations": [
+          "中华人民共和国劳动法第五十条"
+        ],
+        "refused": true,
+        "checks": {
+          "cite_exists": true,
+          "cite_in_retrieval": true,
+          "path_support": true,
+          "evidence_span": true,
+          "low_conf_handoff": true
+        },
+        "answer_version": 2,
+        "superseded_versions": [
+          1
+        ],
+        "graph_build_id": "gcontract0000",
+        "plan_present": false,
+        "cache": "miss",
+        "status": "ok"
+      },
+      "stream_hit": {
+        "answer": "该问题检索证据不足（top1 相似度与图路径覆盖均偏低），无法确定结论，建议补充材料或转人工复核。\n结论：根据中华人民共和国劳动法第五十条（劳动法），相关行为应按该条规定处理。\n依据：\n- 中华人民共和国劳动法第五十条（劳动法）：工资应当以货币形式按月支付给劳动者本人。不得克扣或者无故拖欠劳动者的工资。",
+        "citations": [
+          "中华人民共和国劳动法第五十条"
+        ],
+        "refused": true,
+        "checks": {
+          "cite_exists": true,
+          "cite_in_retrieval": true,
+          "path_support": true,
+          "evidence_span": true,
+          "low_conf_handoff": true
+        },
+        "answer_version": 2,
+        "superseded_versions": [
+          1
+        ],
+        "graph_build_id": "gcontract0000",
+        "plan_present": false,
+        "cache": "hit",
+        "status": "ok"
+      },
+      "sync_hit": {
+        "answer": "该问题检索证据不足（top1 相似度与图路径覆盖均偏低），无法确定结论，建议补充材料或转人工复核。\n结论：根据中华人民共和国劳动法第五十条（劳动法），相关行为应按该条规定处理。\n依据：\n- 中华人民共和国劳动法第五十条（劳动法）：工资应当以货币形式按月支付给劳动者本人。不得克扣或者无故拖欠劳动者的工资。",
+        "citations": [
+          "中华人民共和国劳动法第五十条"
+        ],
+        "refused": true,
+        "checks": {
+          "cite_exists": true,
+          "cite_in_retrieval": true,
+          "path_support": true,
+          "evidence_span": true,
+          "low_conf_handoff": true
+        },
+        "answer_version": 2,
+        "superseded_versions": [
+          1
+        ],
+        "graph_build_id": "gcontract0000",
+        "plan_present": false,
+        "cache": "hit"
+      },
+      "diffs": {
+        "sync_vs_stream": {},
+        "stream_replay": {},
+        "cross_cache": {}
+      },
+      "schema_problems": []
+    },
+    {
+      "case": "llm_unavailable",
+      "tier": "A",
+      "sync_miss": {
+        "answer": "结论：根据中华人民共和国劳动法第五十条（劳动法），相关行为应按该条规定处理。\n依据：\n- 中华人民共和国劳动法第五十条（劳动法）：工资应当以货币形式按月支付给劳动者本人。不得克扣或者无故拖欠劳动者的工资。",
+        "citations": [
+          "中华人民共和国劳动法第五十条"
+        ],
+        "refused": false,
+        "checks": {},
+        "answer_version": 1,
+        "superseded_versions": [],
+        "graph_build_id": "gcontract0000",
+        "plan_present": false,
+        "cache": "miss"
+      },
+      "stream_miss": {
+        "answer": "结论：根据中华人民共和国劳动法第五十条（劳动法），相关行为应按该条规定处理。\n依据：\n- 中华人民共和国劳动法第五十条（劳动法）：工资应当以货币形式按月支付给劳动者本人。不得克扣或者无故拖欠劳动者的工资。",
+        "citations": [
+          "中华人民共和国劳动法第五十条"
+        ],
+        "refused": false,
+        "checks": {},
+        "answer_version": 1,
+        "superseded_versions": [],
+        "graph_build_id": "gcontract0000",
+        "plan_present": false,
+        "cache": "miss",
+        "status": "ok"
+      },
+      "stream_hit": {
+        "answer": "结论：根据中华人民共和国劳动法第五十条（劳动法），相关行为应按该条规定处理。\n依据：\n- 中华人民共和国劳动法第五十条（劳动法）：工资应当以货币形式按月支付给劳动者本人。不得克扣或者无故拖欠劳动者的工资。",
+        "citations": [
+          "中华人民共和国劳动法第五十条"
+        ],
+        "refused": false,
+        "checks": {},
+        "answer_version": 1,
+        "superseded_versions": [],
+        "graph_build_id": "gcontract0000",
+        "plan_present": false,
+        "cache": "hit",
+        "status": "ok"
+      },
+      "sync_hit": {
+        "answer": "结论：根据中华人民共和国劳动法第五十条（劳动法），相关行为应按该条规定处理。\n依据：\n- 中华人民共和国劳动法第五十条（劳动法）：工资应当以货币形式按月支付给劳动者本人。不得克扣或者无故拖欠劳动者的工资。",
+        "citations": [
+          "中华人民共和国劳动法第五十条"
+        ],
+        "refused": false,
+        "checks": {},
+        "answer_version": 1,
+        "superseded_versions": [],
+        "graph_build_id": "gcontract0000",
+        "plan_present": false,
+        "cache": "hit"
+      },
+      "diffs": {
+        "sync_vs_stream": {},
+        "stream_replay": {},
+        "cross_cache": {}
+      },
+      "schema_problems": []
+    },
+    {
+      "case": "llm_unavailable",
+      "tier": "B",
+      "sync_miss": {
+        "answer": "结论：根据中华人民共和国劳动法第五十条（劳动法），相关行为应按该条规定处理。\n推理链路：先看 中华人民共和国劳动法第五十条\n依据：\n- 中华人民共和国劳动法第五十条（劳动法）：工资应当以货币形式按月支付给劳动者本人。不得克扣或者无故拖欠劳动者的工资。",
+        "citations": [
+          "中华人民共和国劳动法第五十条"
+        ],
+        "refused": false,
+        "checks": {},
+        "answer_version": 1,
+        "superseded_versions": [],
+        "graph_build_id": "gcontract0000",
+        "plan_present": true,
+        "cache": "miss"
+      },
+      "stream_miss": {
+        "answer": "结论：根据中华人民共和国劳动法第五十条（劳动法），相关行为应按该条规定处理。\n推理链路：先看 中华人民共和国劳动法第五十条\n依据：\n- 中华人民共和国劳动法第五十条（劳动法）：工资应当以货币形式按月支付给劳动者本人。不得克扣或者无故拖欠劳动者的工资。",
+        "citations": [
+          "中华人民共和国劳动法第五十条"
+        ],
+        "refused": false,
+        "checks": {},
+        "answer_version": 1,
+        "superseded_versions": [],
+        "graph_build_id": "gcontract0000",
+        "plan_present": true,
+        "cache": "miss",
+        "status": "ok"
+      },
+      "stream_hit": {
+        "answer": "结论：根据中华人民共和国劳动法第五十条（劳动法），相关行为应按该条规定处理。\n推理链路：先看 中华人民共和国劳动法第五十条\n依据：\n- 中华人民共和国劳动法第五十条（劳动法）：工资应当以货币形式按月支付给劳动者本人。不得克扣或者无故拖欠劳动者的工资。",
+        "citations": [
+          "中华人民共和国劳动法第五十条"
+        ],
+        "refused": false,
+        "checks": {},
+        "answer_version": 1,
+        "superseded_versions": [],
+        "graph_build_id": "gcontract0000",
+        "plan_present": true,
+        "cache": "hit",
+        "status": "ok"
+      },
+      "sync_hit": {
+        "answer": "结论：根据中华人民共和国劳动法第五十条（劳动法），相关行为应按该条规定处理。\n推理链路：先看 中华人民共和国劳动法第五十条\n依据：\n- 中华人民共和国劳动法第五十条（劳动法）：工资应当以货币形式按月支付给劳动者本人。不得克扣或者无故拖欠劳动者的工资。",
+        "citations": [
+          "中华人民共和国劳动法第五十条"
+        ],
+        "refused": false,
+        "checks": {},
+        "answer_version": 1,
+        "superseded_versions": [],
+        "graph_build_id": "gcontract0000",
+        "plan_present": true,
+        "cache": "hit"
+      },
+      "diffs": {
+        "sync_vs_stream": {},
+        "stream_replay": {},
+        "cross_cache": {}
+      },
+      "schema_problems": []
+    },
+    {
+      "case": "llm_unavailable",
+      "tier": "C",
+      "sync_miss": {
+        "answer": "结论：根据中华人民共和国劳动法第五十条（劳动法），相关行为应按该条规定处理。\n推理链路：先看 中华人民共和国劳动法第五十条\n依据：\n- 中华人民共和国劳动法第五十条（劳动法）：工资应当以货币形式按月支付给劳动者本人。不得克扣或者无故拖欠劳动者的工资。",
+        "citations": [
+          "中华人民共和国劳动法第五十条"
+        ],
+        "refused": false,
+        "checks": {
+          "cite_exists": true,
+          "cite_in_retrieval": true,
+          "path_support": true,
+          "evidence_span": true,
+          "low_conf_handoff": true
+        },
+        "answer_version": 1,
+        "superseded_versions": [],
+        "graph_build_id": "gcontract0000",
+        "plan_present": true,
+        "cache": "miss"
+      },
+      "stream_miss": {
+        "answer": "结论：根据中华人民共和国劳动法第五十条（劳动法），相关行为应按该条规定处理。\n推理链路：先看 中华人民共和国劳动法第五十条\n依据：\n- 中华人民共和国劳动法第五十条（劳动法）：工资应当以货币形式按月支付给劳动者本人。不得克扣或者无故拖欠劳动者的工资。",
+        "citations": [
+          "中华人民共和国劳动法第五十条"
+        ],
+        "refused": false,
+        "checks": {
+          "cite_exists": true,
+          "cite_in_retrieval": true,
+          "path_support": true,
+          "evidence_span": true,
+          "low_conf_handoff": true
+        },
+        "answer_version": 1,
+        "superseded_versions": [],
+        "graph_build_id": "gcontract0000",
+        "plan_present": true,
+        "cache": "miss",
+        "status": "ok"
+      },
+      "stream_hit": {
+        "answer": "结论：根据中华人民共和国劳动法第五十条（劳动法），相关行为应按该条规定处理。\n推理链路：先看 中华人民共和国劳动法第五十条\n依据：\n- 中华人民共和国劳动法第五十条（劳动法）：工资应当以货币形式按月支付给劳动者本人。不得克扣或者无故拖欠劳动者的工资。",
+        "citations": [
+          "中华人民共和国劳动法第五十条"
+        ],
+        "refused": false,
+        "checks": {
+          "cite_exists": true,
+          "cite_in_retrieval": true,
+          "path_support": true,
+          "evidence_span": true,
+          "low_conf_handoff": true
+        },
+        "answer_version": 1,
+        "superseded_versions": [],
+        "graph_build_id": "gcontract0000",
+        "plan_present": true,
+        "cache": "hit",
+        "status": "ok"
+      },
+      "sync_hit": {
+        "answer": "结论：根据中华人民共和国劳动法第五十条（劳动法），相关行为应按该条规定处理。\n推理链路：先看 中华人民共和国劳动法第五十条\n依据：\n- 中华人民共和国劳动法第五十条（劳动法）：工资应当以货币形式按月支付给劳动者本人。不得克扣或者无故拖欠劳动者的工资。",
+        "citations": [
+          "中华人民共和国劳动法第五十条"
+        ],
+        "refused": false,
+        "checks": {
+          "cite_exists": true,
+          "cite_in_retrieval": true,
+          "path_support": true,
+          "evidence_span": true,
+          "low_conf_handoff": true
+        },
+        "answer_version": 1,
+        "superseded_versions": [],
+        "graph_build_id": "gcontract0000",
+        "plan_present": true,
+        "cache": "hit"
+      },
+      "diffs": {
+        "sync_vs_stream": {},
+        "stream_replay": {},
+        "cross_cache": {}
+      },
+      "schema_problems": []
+    },
+    {
+      "case": "llm_unavailable",
+      "tier": "A_gates",
+      "sync_miss": {
+        "answer": "结论：根据中华人民共和国劳动法第五十条（劳动法），相关行为应按该条规定处理。\n依据：\n- 中华人民共和国劳动法第五十条（劳动法）：工资应当以货币形式按月支付给劳动者本人。不得克扣或者无故拖欠劳动者的工资。",
+        "citations": [
+          "中华人民共和国劳动法第五十条"
+        ],
+        "refused": false,
+        "checks": {
+          "cite_exists": true,
+          "cite_in_retrieval": true,
+          "path_support": true,
+          "evidence_span": true,
+          "low_conf_handoff": true
+        },
+        "answer_version": 1,
+        "superseded_versions": [],
+        "graph_build_id": "gcontract0000",
+        "plan_present": false,
+        "cache": "miss"
+      },
+      "stream_miss": {
+        "answer": "结论：根据中华人民共和国劳动法第五十条（劳动法），相关行为应按该条规定处理。\n依据：\n- 中华人民共和国劳动法第五十条（劳动法）：工资应当以货币形式按月支付给劳动者本人。不得克扣或者无故拖欠劳动者的工资。",
+        "citations": [
+          "中华人民共和国劳动法第五十条"
+        ],
+        "refused": false,
+        "checks": {
+          "cite_exists": true,
+          "cite_in_retrieval": true,
+          "path_support": true,
+          "evidence_span": true,
+          "low_conf_handoff": true
+        },
+        "answer_version": 1,
+        "superseded_versions": [],
+        "graph_build_id": "gcontract0000",
+        "plan_present": false,
+        "cache": "miss",
+        "status": "ok"
+      },
+      "stream_hit": {
+        "answer": "结论：根据中华人民共和国劳动法第五十条（劳动法），相关行为应按该条规定处理。\n依据：\n- 中华人民共和国劳动法第五十条（劳动法）：工资应当以货币形式按月支付给劳动者本人。不得克扣或者无故拖欠劳动者的工资。",
+        "citations": [
+          "中华人民共和国劳动法第五十条"
+        ],
+        "refused": false,
+        "checks": {
+          "cite_exists": true,
+          "cite_in_retrieval": true,
+          "path_support": true,
+          "evidence_span": true,
+          "low_conf_handoff": true
+        },
+        "answer_version": 1,
+        "superseded_versions": [],
+        "graph_build_id": "gcontract0000",
+        "plan_present": false,
+        "cache": "hit",
+        "status": "ok"
+      },
+      "sync_hit": {
+        "answer": "结论：根据中华人民共和国劳动法第五十条（劳动法），相关行为应按该条规定处理。\n依据：\n- 中华人民共和国劳动法第五十条（劳动法）：工资应当以货币形式按月支付给劳动者本人。不得克扣或者无故拖欠劳动者的工资。",
+        "citations": [
+          "中华人民共和国劳动法第五十条"
+        ],
+        "refused": false,
+        "checks": {
+          "cite_exists": true,
+          "cite_in_retrieval": true,
+          "path_support": true,
+          "evidence_span": true,
+          "low_conf_handoff": true
+        },
+        "answer_version": 1,
+        "superseded_versions": [],
+        "graph_build_id": "gcontract0000",
+        "plan_present": false,
+        "cache": "hit"
+      },
+      "diffs": {
+        "sync_vs_stream": {},
+        "stream_replay": {},
+        "cross_cache": {}
+      },
+      "schema_problems": []
+    }
+  ]
+}

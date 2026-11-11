@@ -1,0 +1,5 @@
+08:57:33 | WARNING | lexweave.api.stream | 流式生成失败，回落确定性答案：no key
+08:57:33 | WARNING | lexweave.api.stream | 流式生成失败，回落确定性答案：no key
+08:57:33 | WARNING | lexweave.api.stream | 流式生成失败，回落确定性答案：no key
+08:57:33 | WARNING | lexweave.api.stream | 流式生成失败，回落确定性答案：no key
+[fixture] 20 组用例，失败 0；graph=gcontract0000 → data/eval_out/stream_contract.json

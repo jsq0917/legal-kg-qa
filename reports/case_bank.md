@@ -155,7 +155,7 @@ cd F:/大模型应用开发/算法岗冲刺/work/a3-data-loop
   --articles ../a1-lora-sft/data/articles_all.jsonl --tag regress_v1
 
 # B2 条文层必要性（会连本机 Neo4j，约 5 秒）
-cd E:/project/LexWeave
+cd <仓库根>  # 切回主仓库（上文在 F: 的冲刺目录里执行）
 ./.venv/Scripts/python.exe scripts/check_gold.py `
   --gold-file data/gold/gold_60.jsonl --out data/eval_out/gold60_check.json
 

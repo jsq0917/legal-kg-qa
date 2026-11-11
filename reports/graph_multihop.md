@@ -127,12 +127,12 @@
 ## 7. 复现
 
 ```powershell
-cd E:\project\LexWeave
+cd <仓库根>
 $env:EMBEDDING_DEVICE='cpu'; $env:GRAPH_BACKEND='networkx'
 # 只算，不写 retrieval.json
-E:\project\LexWeave\.venv\Scripts\python.exe scripts\eval_multihop.py --with-baseline --raw C:\tmp\multihop_raw.json
+.\.venv\Scripts\python.exe scripts\eval_multihop.py --with-baseline --raw tmp\multihop_raw.json
 # 追加两档（自动备份 retrieval.json 到 data/eval_out/_backup_n_20261031/）
-E:\project\LexWeave\.venv\Scripts\python.exe scripts\eval_multihop.py --append
+.\.venv\Scripts\python.exe scripts\eval_multihop.py --append
 ```
 
 金标口径：`data/gold/gold_60.jsonl`（未换）。指标口径与 `scripts/eval_retrieval.py` 一致：`recall@5 = |金标必需条文 ∩ top5| / |金标必需条文|`；`path_recall = |linker 概念 ∩ 金标概念链| / |链|`。

@@ -1,0 +1,48 @@
+INFO:     Started server process [30896]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:8010 (Press CTRL+C to quit)
+08:51:36 | INFO    | lexweave.neo4j | Neo4j 已连接: bolt://localhost:7687 db=neo4j
+08:51:36 | INFO    | lexweave.graph_store | 图后端: neo4j (g963749014664)
+INFO:     127.0.0.1:54559 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64591 - "GET /ask/stream?query=%E8%AF%95%E7%94%A8%E6%9C%9F%E6%9C%80%E9%95%BF%E8%83%BD%E7%BA%A6%E5%AE%9A%E5%A4%9A%E4%B9%85%EF%BC%9F&mode=hybrid&tier=A_gates&llm=false HTTP/1.1" 200 OK
+08:51:43 | INFO    | lexweave.embedding | 加载 dense 模型 BAAI/bge-large-zh-v1.5 -> <EXTERNAL_TCM_ROOT>\04-模型\bge-large-zh-v1.5
+
+Loading weights:   0%|          | 0/391 [00:00<?, ?it/s]
+Loading weights:  11%|█▏        | 44/391 [00:00<00:00, 348.45it/s]
+Loading weights:  22%|██▏       | 85/391 [00:00<00:00, 379.26it/s]
+Loading weights:  32%|███▏      | 124/391 [00:00<00:00, 376.66it/s]
+Loading weights:  41%|████▏     | 162/391 [00:00<00:00, 370.19it/s]
+Loading weights:  51%|█████▏    | 201/391 [00:00<00:00, 361.85it/s]
+Loading weights:  61%|██████    | 239/391 [00:00<00:00, 367.44it/s]
+Loading weights:  71%|███████   | 278/391 [00:00<00:00, 373.28it/s]
+Loading weights:  81%|████████  | 316/391 [00:00<00:00, 366.10it/s]
+Loading weights:  90%|█████████ | 353/391 [00:00<00:00, 353.91it/s]
+Loading weights: 100%|██████████| 391/391 [00:01<00:00, 368.49it/s]
+<REPO_ROOT>\common\embedding_model.py:97: FutureWarning: The `get_sentence_embedding_dimension` method has been renamed to `get_embedding_dimension`.
+  self.dim = int(self.model.get_sentence_embedding_dimension())
+08:51:58 | INFO    | lexweave.embedding | 加载 dense 模型 BAAI/bge-m3 -> <USER_HOME>\.cache\huggingface\hub\models--BAAI--bge-m3
+
+Loading weights:   0%|          | 0/391 [00:00<?, ?it/s]
+Loading weights:  13%|█▎        | 49/391 [00:00<00:00, 383.50it/s]
+Loading weights:  89%|████████▉ | 349/391 [00:00<00:00, 1737.72it/s]
+Loading weights: 100%|██████████| 391/391 [00:00<00:00, 1593.13it/s]
+<REPO_ROOT>\common\embedding_model.py:97: FutureWarning: The `get_sentence_embedding_dimension` method has been renamed to `get_embedding_dimension`.
+  self.dim = int(self.model.get_sentence_embedding_dimension())
+08:52:00 | INFO    | lexweave.embedding | 加载 rerank 模型 BAAI/bge-reranker-v2-m3 -> <LOCAL_MODEL_DIR>\bge-reranker-v2-m3
+
+Loading weights:   0%|          | 0/393 [00:00<?, ?it/s]
+Loading weights:   2%|▏         | 9/393 [00:00<00:06, 54.90it/s]
+Loading weights:  13%|█▎        | 53/393 [00:00<00:01, 219.02it/s]
+Loading weights:  23%|██▎       | 89/393 [00:00<00:01, 265.09it/s]
+Loading weights:  31%|███       | 122/393 [00:00<00:01, 268.35it/s]
+Loading weights:  40%|████      | 159/393 [00:00<00:00, 294.00it/s]
+Loading weights:  50%|████▉     | 195/393 [00:00<00:00, 290.80it/s]
+Loading weights:  60%|█████▉    | 235/393 [00:00<00:00, 321.83it/s]
+Loading weights:  69%|██████▉   | 273/393 [00:00<00:00, 327.64it/s]
+Loading weights:  78%|███████▊  | 307/393 [00:01<00:00, 322.50it/s]
+Loading weights:  88%|████████▊ | 345/393 [00:01<00:00, 335.70it/s]
+Loading weights:  97%|█████████▋| 380/393 [00:01<00:00, 337.19it/s]
+Loading weights: 100%|██████████| 393/393 [00:01<00:00, 301.66it/s]
+INFO:     127.0.0.1:54166 - "GET /ask/stream?query=%E7%BB%8F%E6%B5%8E%E8%A1%A5%E5%81%BF%E9%87%91%E6%8C%89%E4%BB%80%E4%B9%88%E6%A0%87%E5%87%86%E8%AE%A1%E7%AE%97%EF%BC%9F&mode=hybrid&tier=A_gates&llm=false HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54171 - "GET /ask/stream?query=%E5%8A%A0%E7%8F%AD%E8%B4%B9%E7%9A%84%E8%AE%A1%E7%AE%97%E5%9F%BA%E6%95%B0%E6%80%8E%E4%B9%88%E7%A1%AE%E5%AE%9A%EF%BC%9F&mode=hybrid&tier=A_gates&llm=false HTTP/1.1" 200 OK

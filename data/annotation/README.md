@@ -138,7 +138,7 @@ print(n_yes, n_no, n_unknown, precision, ci)
 **判定结果**：211/211 全覆盖、无重复；成立 **53** 条（25.1%，Wilson 95% CI 19.8–31.4%）、
 不成立 158 条、无法判断 **0** 条；`basis` 全是 S/N，**D 为 0**。
 
-**质量结论（详见 [`docs/kimi_annotation_audit_20261110.md`](file:///E:/project/LexWeave/docs/kimi_annotation_audit_20261110.md)）**：
+**质量结论（详见 [`docs/kimi_annotation_audit_20261110.md`](../../docs/kimi_annotation_audit_20261110.md)）**：
 
 - 4/211 条 `evidence` 不是原文连续子串（1 条串用了邻条 `cc#613` 的措辞），说明证据字段不可直接采信；
 - 53 条成立全部来自 `role=主语/主语中心语`，标签几乎完全由句法角色门控；

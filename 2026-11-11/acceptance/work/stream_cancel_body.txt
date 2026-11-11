@@ -1,0 +1,93 @@
+event: meta
+data: {"cache": "miss", "query": "经济补偿金按什么标准计算？", "mode": "hybrid", "tier": "A_gates", "graph_build_id": "g963749014664", "retrieval": {"level": "simple", "top1_similarity": 0.7048, "coverage": 1.0, "low_confidence": false, "items": [{"article_id": "lcl#47", "citation": "中华人民共和国劳动合同法第四十七条", "law_name": "中华人民共和国劳动合同法", "score": 0.9944, "source": "both", "coverage": 1.0, "path": ["sc:severance_calculation", "severance", "severance_standard", "wage", "lcl#47"], "content": "经济补偿按劳动者在本单位工作的年限，每满一年支付一个月工资的标准向劳动者支付。六个月以上不满一年的，按一年计算；不满六个月的，向劳动者支付半个月工资的经济补偿。劳动者月工资高于用人单位所在直辖市、设区的市级人民政府公布的本地区上年度职工月平均工资三倍的，向其支付经济补偿的标准按职工月平均工资三倍的数额支付，向其支付经济补偿的年限最高不超过十二年。本条所称月工资是指劳动者在劳动合同解除或者终止前十二个月的平均工资。"}, {"article_id": "lcl#97", "citation": "中华人民共和国劳动合同法第九十七条", "law_name": "中华人民共和国劳动合同法", "score": 0.4483, "source": "both", "coverage": 1.0, "path": ["sc:severance_calculation", "labor_relationship", "severance", "lcl#97"], "content": "本法施行前已依法订立且在本法施行之日存续的劳动合同，继续履行；本法第十四条第二款第三项规定连续订立固定期限劳动合同的次数，自本法施行后续订固定期限劳动合同时开始计算。本法施行前已建立劳动关系，尚未订立书面劳动合同的，应当自本法施行之日起一个月内订立。本法施行之日存续的劳动合同在本法施行后解除或者终止，依照本法第四十六条规定应当支付经济补偿的，经济补偿年限自本法施行之日起计算；本法施行前按照当时有关规定，用人单位应当向劳动者支付经济补偿的，按照当时有关规定执行。"}, {"article_id": "lcl#85", "citation": "中华人民共和国劳动合同法第八十五条", "law_name": "中华人民共和国劳动合同法", "score": 0.2935, "source": "both", "coverage": 1.0, "path": ["sc:severance_calculation", "severance", "wage", "lcl#85"], "content": "用人单位有下列情形之一的，由劳动行政部门责令限期支付劳动报酬、加班费或者经济补偿；劳动报酬低于当地最低工资标准的，应当支付其差额部分；逾期不支付的，责令用人单位按应付金额百分之五十以上百分之一百以下的标准向劳动者加付赔偿金：（一）未按照劳动合同的约定或者国家规定及时足额支付劳动者劳动报酬的；（二）低于当地最低工资标准支付劳动者工资的；（三）安排加班不支付加班费的；（四）解除或者终止劳动合同，未依照本法规定向劳动者支付经济补偿的。"}], "linked": {"concepts": [{"id": "severance", "name": "经济补偿", "score": 1.0, "method": "exact"}], "scenarios": [{"id": "severance_calculation", "name": "经济补偿计算", "score": 0.95, "method": "scenario"}]}, "graph_build_id": "g963749014664"}, "retrieval_ms": 239.5}
+
+event: token
+data: {"text": "结论：根据中华人民共和国劳动合同法第四十七条（中", "draft": true, "answer_version": 1}
+
+event: token
+data: {"text": "华人民共和国劳动合同法），相关行为应按该条规定处", "draft": true, "answer_version": 1}
+
+event: token
+data: {"text": "理。\n依据：\n- 中华人民共和国劳动合同法第四十", "draft": true, "answer_version": 1}
+
+event: token
+data: {"text": "七条（中华人民共和国劳动合同法）：经济补偿按劳动", "draft": true, "answer_version": 1}
+
+event: token
+data: {"text": "者在本单位工作的年限，每满一年支付一个月工资的标", "draft": true, "answer_version": 1}
+
+event: token
+data: {"text": "准向劳动者支付。六个月以上不满一年的，按一年计算", "draft": true, "answer_version": 1}
+
+event: token
+data: {"text": "；不满六个月的，向劳动者支付半个月工资的经济补偿", "draft": true, "answer_version": 1}
+
+event: token
+data: {"text": "。劳动者月工资高于用人单位所在直辖市、设区的市级", "draft": true, "answer_version": 1}
+
+event: token
+data: {"text": "人民政府公布的本地区上年度职工月平均工资三倍的，", "draft": true, "answer_version": 1}
+
+event: token
+data: {"text": "向其支付经济补偿的标准按职工月平均工资三倍的数额", "draft": true, "answer_version": 1}
+
+event: token
+data: {"text": "支付，向其支付经济\n- 中华人民共和国劳动合同法", "draft": true, "answer_version": 1}
+
+event: token
+data: {"text": "第九十七条（中华人民共和国劳动合同法）：本法施行", "draft": true, "answer_version": 1}
+
+event: token
+data: {"text": "前已依法订立且在本法施行之日存续的劳动合同，继续", "draft": true, "answer_version": 1}
+
+event: token
+data: {"text": "履行；本法第十四条第二款第三项规定连续订立固定期", "draft": true, "answer_version": 1}
+
+event: token
+data: {"text": "限劳动合同的次数，自本法施行后续订固定期限劳动合", "draft": true, "answer_version": 1}
+
+event: token
+data: {"text": "同时开始计算。本法施行前已建立劳动关系，尚未订立", "draft": true, "answer_version": 1}
+
+event: token
+data: {"text": "书面劳动合同的，应当自本法施行之日起一个月内订立", "draft": true, "answer_version": 1}
+
+event: token
+data: {"text": "。本法施行之日存续的劳动合同在本法施行后解除或者", "draft": true, "answer_version": 1}
+
+event: token
+data: {"text": "终止，依照本法第四十六条\n- 中华人民共和国劳动", "draft": true, "answer_version": 1}
+
+event: token
+data: {"text": "合同法第八十五条（中华人民共和国劳动合同法）：用", "draft": true, "answer_version": 1}
+
+event: token
+data: {"text": "人单位有下列情形之一的，由劳动行政部门责令限期支", "draft": true, "answer_version": 1}
+
+event: token
+data: {"text": "付劳动报酬、加班费或者经济补偿；劳动报酬低于当地", "draft": true, "answer_version": 1}
+
+event: token
+data: {"text": "最低工资标准的，应当支付其差额部分；逾期不支付的", "draft": true, "answer_version": 1}
+
+event: token
+data: {"text": "，责令用人单位按应付金额百分之五十以上百分之一百", "draft": true, "answer_version": 1}
+
+event: token
+data: {"text": "以下的标准向劳动者加付赔偿金：（一）未按照劳动合", "draft": true, "answer_version": 1}
+
+event: token
+data: {"text": "同的约定或者国家规定及时足额支付劳动者劳动报酬的", "draft": true, "answer_version": 1}
+
+event: token
+data: {"text": "；（二）低于当地最低工资标准支", "draft": true, "answer_version": 1}
+
+event: check
+data: {"checks": [{"gate": "cite_exists", "ok": true, "detail": "全部条号可查"}, {"gate": "cite_in_retrieval", "ok": true, "detail": "引用均在检索结果内"}, {"gate": "path_support", "ok": true, "detail": "coverage=1.00, 有图连接的被引条文=3/3"}, {"gate": "evidence_span", "ok": true, "detail": "依据均有原文片段"}, {"gate": "low_conf_handoff", "ok": true, "detail": "low_confidence=False, handoff=False"}], "grounded": true, "tier": "A_gates", "answer_version": 1}
+
+event: final
+data: {"answer": "结论：根据中华人民共和国劳动合同法第四十七条（中华人民共和国劳动合同法），相关行为应按该条规定处理。\n依据：\n- 中华人民共和国劳动合同法第四十七条（中华人民共和国劳动合同法）：经济补偿按劳动者在本单位工作的年限，每满一年支付一个月工资的标准向劳动者支付。六个月以上不满一年的，按一年计算；不满六个月的，向劳动者支付半个月工资的经济补偿。劳动者月工资高于用人单位所在直辖市、设区的市级人民政府公布的本地区上年度职工月平均工资三倍的，向其支付经济补偿的标准按职工月平均工资三倍的数额支付，向其支付经济\n- 中华人民共和国劳动合同法第九十七条（中华人民共和国劳动合同法）：本法施行前已依法订立且在本法施行之日存续的劳动合同，继续履行；本法第十四条第二款第三项规定连续订立固定期限劳动合同的次数，自本法施行后续订固定期限劳动合同时开始计算。本法施行前已建立劳动关系，尚未订立书面劳动合同的，应当自本法施行之日起一个月内订立。本法施行之日存续的劳动合同在本法施行后解除或者终止，依照本法第四十六条\n- 中华人民共和国劳动合同法第八十五条（中华人民共和国劳动合同法）：用人单位有下列情形之一的，由劳动行政部门责令限期支付劳动报酬、加班费或者经济补偿；劳动报酬低于当地最低工资标准的，应当支付其差额部分；逾期不支付的，责令用人单位按应付金额百分之五十以上百分之一百以下的标准向劳动者加付赔偿金：（一）未按照劳动合同的约定或者国家规定及时足额支付劳动者劳动报酬的；（二）低于当地最低工资标准支", "citations": ["中华人民共和国劳动合同法第四十七条", "中华人民共和国劳动合同法第九十七条", "中华人民共和国劳动合同法第八十五条"], "refused": false, "checks": [{"gate": "cite_exists", "ok": true, "detail": "全部条号可查"}, {"gate": "cite_in_retrieval", "ok": true, "detail": "引用均在检索结果内"}, {"gate": "path_support", "ok": true, "detail": "coverage=1.00, 有图连接的被引条文=3/3"}, {"gate": "evidence_span", "ok": true, "detail": "依据均有原文片段"}, {"gate": "low_conf_handoff", "ok": true, "detail": "low_confidence=False, handoff=False"}], "answer_version": 1, "superseded_versions": [], "ttft_ms": 240.1}
+
+event: done
+data: {"answer": "结论：根据中华人民共和国劳动合同法第四十七条（中华人民共和国劳动合同法），相关行为应按该条规定处理。\n依据：\n- 中华人民共和国劳动合同法第四十七条（中华人民共和国劳动合同法）：经济补偿按劳动者在本单位工作的年限，每满一年支付一个月工资的标准向劳动者支付。六个月以上不满一年的，按一年计算；不满六个月的，向劳动者支付半个月工资的经济补偿。劳动者月工资高于用人单位所在直辖市、设区的市级人民政府公布的本地区上年度职工月平均工资三倍的，向其支付经济补偿的标准按职工月平均工资三倍的数额支付，向其支付经济\n- 中华人民共和国劳动合同法第九十七条（中华人民共和国劳动合同法）：本法施行前已依法订立且在本法施行之日存续的劳动合同，继续履行；本法第十四条第二款第三项规定连续订立固定期限劳动合同的次数，自本法施行后续订固定期限劳动合同时开始计算。本法施行前已建立劳动关系，尚未订立书面劳动合同的，应当自本法施行之日起一个月内订立。本法施行之日存续的劳动合同在本法施行后解除或者终止，依照本法第四十六条\n- 中华人民共和国劳动合同法第八十五条（中华人民共和国劳动合同法）：用人单位有下列情形之一的，由劳动行政部门责令限期支付劳动报酬、加班费或者经济补偿；劳动报酬低于当地最低工资标准的，应当支付其差额部分；逾期不支付的，责令用人单位按应付金额百分之五十以上百分之一百以下的标准向劳动者加付赔偿金：（一）未按照劳动合同的约定或者国家规定及时足额支付劳动者劳动报酬的；（二）低于当地最低工资标准支", "citations": ["中华人民共和国劳动合同法第四十七条", "中华人民共和国劳动合同法第九十七条", "中华人民共和国劳动合同法第八十五条"], "refused": false, "checks": [{"gate": "cite_exists", "ok": true, "detail": "全部条号可查"}, {"gate": "cite_in_retrieval", "ok": true, "detail": "引用均在检索结果内"}, {"gate": "path_support", "ok": true, "detail": "coverage=1.00, 有图连接的被引条文=3/3"}, {"gate": "evidence_span", "ok": true, "detail": "依据均有原文片段"}, {"gate": "low_conf_handoff", "ok": true, "detail": "low_confidence=False, handoff=False"}], "answer_version": 1, "superseded_versions": [], "ttft_ms": 240.1, "total_ms": 246.8, "cache": "miss", "status": "ok"}
+

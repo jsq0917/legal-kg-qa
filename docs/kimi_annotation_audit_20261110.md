@@ -3,7 +3,7 @@
 > 日期：2026-11-10
 > 对象：`data/annotation/kimi_batch_211_parsed.csv`（211 条 `pending_semantic` 的 LLM 判定）
 > 性质：**LLM 判定（Kimi-K3.1-Pro），不是人工标注，不是真实语义精度**
-> 关联：[`data/annotation/README.md`](file:///E:/project/LexWeave/data/annotation/README.md)、README §3、[`optimization_review_20261110.md`](file:///E:/project/LexWeave/docs/optimization_review_20261110.md) P7
+> 关联：[`data/annotation/README.md`](../data/annotation/README.md)、README §3、[`optimization_review_20261110.md`](optimization_review_20261110.md) P7
 
 ---
 

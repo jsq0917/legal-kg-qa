@@ -24,11 +24,11 @@
 
 | 文件 | 内容 |
 |---|---|
-| [__001__ratelimit.py](file:///E:/project/LexWeave/app/__008__api/__001__ratelimit.py) | 令牌桶 + 纯 ASGI 中间件，IP 与 `X-API-Key` 双维度 |
-| [__002__cache.py](file:///E:/project/LexWeave/app/__008__api/__002__cache.py) | 进程内 LRU + TTL 响应缓存，key 六字段 sha256 |
-| [__003__stream.py](file:///E:/project/LexWeave/app/__008__api/__003__stream.py) | SSE 逐 token 生成器 + 五闸末尾校验 + 缓存回放 |
-| [__004__bench.py](file:///E:/project/LexWeave/app/__008__api/__004__bench.py) | 可复现基准：真起 uvicorn，测 TTFT / 缓存 / 并发 / 429 |
-| [__000__server.py](file:///E:/project/LexWeave/app/__008__api/__000__server.py) | `/ask` 接缓存、`/ask/stream` 改逐 token、新增 `/cache/stats` 与 `/rate-limit/stats` |
+| [__001__ratelimit.py](../app/__008__api/__001__ratelimit.py) | 令牌桶 + 纯 ASGI 中间件，IP 与 `X-API-Key` 双维度 |
+| [__002__cache.py](../app/__008__api/__002__cache.py) | 进程内 LRU + TTL 响应缓存，key 六字段 sha256 |
+| [__003__stream.py](../app/__008__api/__003__stream.py) | SSE 逐 token 生成器 + 五闸末尾校验 + 缓存回放 |
+| [__004__bench.py](../app/__008__api/__004__bench.py) | 可复现基准：真起 uvicorn，测 TTFT / 缓存 / 并发 / 429 |
+| [__000__server.py](../app/__008__api/__000__server.py) | `/ask` 接缓存、`/ask/stream` 改逐 token、新增 `/cache/stats` 与 `/rate-limit/stats` |
 
 `app/__007__agents/__002__flows.py`、`config.py`、tier 默认值、图配置均未改动；只读调用 `run_gates`、`ANSWER_SYSTEM`、`_deterministic_answer`、`_fmt_items`。
 

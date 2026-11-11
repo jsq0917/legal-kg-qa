@@ -1,0 +1,355 @@
+INFO:     Started server process [38508]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:8010 (Press CTRL+C to quit)
+07:55:45 | INFO    | lexweave.neo4j | Neo4j 已连接: bolt://localhost:7687 db=neo4j
+07:55:45 | INFO    | lexweave.graph_store | 图后端: neo4j (g963749014664)
+INFO:     127.0.0.1:64809 - "GET /health HTTP/1.1" 200 OK
+07:55:54 | INFO    | lexweave.embedding | 加载 dense 模型 BAAI/bge-large-zh-v1.5 -> <EXTERNAL_TCM_ROOT>\04-模型\bge-large-zh-v1.5
+
+Loading weights:   0%|          | 0/391 [00:00<?, ?it/s]
+Loading weights:  12%|█▏        | 45/391 [00:00<00:00, 386.20it/s]
+Loading weights:  23%|██▎       | 91/391 [00:00<00:00, 404.90it/s]
+Loading weights:  34%|███▍      | 133/391 [00:00<00:00, 400.89it/s]
+Loading weights:  45%|████▍     | 175/391 [00:00<00:00, 393.89it/s]
+Loading weights:  56%|█████▋    | 220/391 [00:00<00:00, 402.50it/s]
+Loading weights:  67%|██████▋   | 261/391 [00:00<00:00, 390.29it/s]
+Loading weights:  77%|███████▋  | 301/391 [00:00<00:00, 373.82it/s]
+Loading weights:  88%|████████▊ | 346/391 [00:00<00:00, 380.54it/s]
+Loading weights:  98%|█████████▊| 385/391 [00:00<00:00, 376.89it/s]
+Loading weights: 100%|██████████| 391/391 [00:00<00:00, 391.30it/s]
+<REPO_ROOT>\common\embedding_model.py:97: FutureWarning: The `get_sentence_embedding_dimension` method has been renamed to `get_embedding_dimension`.
+  self.dim = int(self.model.get_sentence_embedding_dimension())
+07:56:08 | INFO    | lexweave.embedding | 加载 dense 模型 BAAI/bge-m3 -> <USER_HOME>\.cache\huggingface\hub\models--BAAI--bge-m3
+
+Loading weights:   0%|          | 0/391 [00:00<?, ?it/s]
+Loading weights:  28%|██▊       | 109/391 [00:00<00:00, 1086.56it/s]
+Loading weights: 100%|██████████| 391/391 [00:00<00:00, 2050.82it/s]
+<REPO_ROOT>\common\embedding_model.py:97: FutureWarning: The `get_sentence_embedding_dimension` method has been renamed to `get_embedding_dimension`.
+  self.dim = int(self.model.get_sentence_embedding_dimension())
+07:56:11 | INFO    | lexweave.embedding | 加载 rerank 模型 BAAI/bge-reranker-v2-m3 -> <LOCAL_MODEL_DIR>\bge-reranker-v2-m3
+
+Loading weights:   0%|          | 0/393 [00:00<?, ?it/s]
+Loading weights:   1%|          | 2/393 [00:00<01:59,  3.28it/s]
+Loading weights:   2%|▏         | 9/393 [00:00<00:25, 15.13it/s]
+Loading weights:  12%|█▏        | 47/393 [00:00<00:03, 87.07it/s]
+Loading weights:  20%|██        | 79/393 [00:00<00:02, 137.08it/s]
+Loading weights:  30%|███       | 119/393 [00:01<00:01, 195.47it/s]
+Loading weights:  41%|████      | 161/393 [00:01<00:00, 244.84it/s]
+Loading weights:  50%|█████     | 197/393 [00:01<00:00, 272.82it/s]
+Loading weights:  59%|█████▉    | 233/393 [00:01<00:00, 286.96it/s]
+Loading weights:  68%|██████▊   | 269/393 [00:01<00:00, 305.45it/s]
+Loading weights:  78%|███████▊  | 305/393 [00:01<00:00, 305.99it/s]
+Loading weights:  86%|████████▌ | 338/393 [00:01<00:00, 309.48it/s]
+Loading weights:  94%|█████████▍| 371/393 [00:01<00:00, 304.91it/s]
+Loading weights: 100%|██████████| 393/393 [00:01<00:00, 209.28it/s]
+INFO:     127.0.0.1:64811 - "POST /ask HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64830 - "POST /ask HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64833 - "GET /ask/stream?query=%E8%AF%95%E7%94%A8%E6%9C%9F%E6%9C%80%E9%95%BF%E8%83%BD%E7%BA%A6%E5%AE%9A%E5%A4%9A%E4%B9%85%EF%BC%9F&mode=hybrid&tier=A_gates&llm=false HTTP/1.1" 200 OK
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "<REPO_ROOT>\.venv\Lib\site-packages\uvicorn\protocols\http\httptools_impl.py", line 422, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        self.scope, self.receive, self.send
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "<REPO_ROOT>\.venv\Lib\site-packages\uvicorn\middleware\proxy_headers.py", line 63, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<REPO_ROOT>\.venv\Lib\site-packages\fastapi\applications.py", line 1194, in __call__
+    await super().__call__(scope, receive, send)
+  File "<REPO_ROOT>\.venv\Lib\site-packages\starlette\applications.py", line 96, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "<REPO_ROOT>\.venv\Lib\site-packages\starlette\middleware\errors.py", line 186, in __call__
+    raise exc
+  File "<REPO_ROOT>\.venv\Lib\site-packages\starlette\middleware\errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "<REPO_ROOT>\.venv\Lib\site-packages\fastapi\telemetry\_asgi.py", line 151, in __call__
+    await self.app(scope, receive, send)
+  File "<REPO_ROOT>\app\__008__api\__001__ratelimit.py", line 244, in __call__
+    await self.app(scope, receive, send)
+  File "<REPO_ROOT>\.venv\Lib\site-packages\starlette\middleware\exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "<REPO_ROOT>\.venv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "<REPO_ROOT>\.venv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "<REPO_ROOT>\.venv\Lib\site-packages\fastapi\middleware\asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "<REPO_ROOT>\.venv\Lib\site-packages\starlette\routing.py", line 683, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "<REPO_ROOT>\.venv\Lib\site-packages\fastapi\routing.py", line 2811, in app
+    await route.handle(scope, receive, send)
+  File "<REPO_ROOT>\.venv\Lib\site-packages\fastapi\routing.py", line 1330, in handle
+    await super().handle(scope, receive, send)
+  File "<REPO_ROOT>\.venv\Lib\site-packages\starlette\routing.py", line 289, in handle
+    await self.app(scope, receive, send)
+  File "<REPO_ROOT>\.venv\Lib\site-packages\fastapi\routing.py", line 166, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "<REPO_ROOT>\.venv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "<REPO_ROOT>\.venv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "<REPO_ROOT>\.venv\Lib\site-packages\fastapi\routing.py", line 153, in app
+    await response(scope, receive, send)
+  File "<REPO_ROOT>\.venv\Lib\site-packages\starlette\responses.py", line 278, in __call__
+    async with create_collapsing_task_group() as task_group:
+               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "<USER_HOME>\AppData\Roaming\uv\python\cpython-3.13-windows-x86_64-none\Lib\contextlib.py", line 235, in __aexit__
+    await self.gen.athrow(value)
+  File "<REPO_ROOT>\.venv\Lib\site-packages\starlette\_utils.py", line 112, in create_collapsing_task_group
+    raise exc from exc.__cause__ or context
+  File "<REPO_ROOT>\.venv\Lib\site-packages\anyio\_core\_tasks.py", line 327, in _run_coro
+    retval = await self._coro
+             ^^^^^^^^^^^^^^^^
+  File "<REPO_ROOT>\.venv\Lib\site-packages\starlette\responses.py", line 281, in wrap
+    await func()
+  File "<REPO_ROOT>\.venv\Lib\site-packages\starlette\responses.py", line 255, in stream_response
+    async for chunk in self.body_iterator:
+    ...<2 lines>...
+        await send({"type": "http.response.body", "body": chunk, "more_body": True})
+  File "<REPO_ROOT>\.venv\Lib\site-packages\starlette\concurrency.py", line 57, in iterate_in_threadpool
+    yield await anyio.to_thread.run_sync(_next, as_iterator)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<REPO_ROOT>\.venv\Lib\site-packages\anyio\to_thread.py", line 65, in run_sync
+    return await get_async_backend().run_sync_in_worker_thread(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        func, args, abandon_on_cancel=abandon_on_cancel, limiter=limiter
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "<REPO_ROOT>\.venv\Lib\site-packages\anyio\_backends\_asyncio.py", line 2706, in run_sync_in_worker_thread
+    return await future
+           ^^^^^^^^^^^^
+  File "<REPO_ROOT>\.venv\Lib\site-packages\anyio\_backends\_asyncio.py", line 1100, in run
+    result = context.run(func, *args)
+  File "<REPO_ROOT>\.venv\Lib\site-packages\starlette\concurrency.py", line 46, in _next
+    return next(iterator)
+  File "<REPO_ROOT>\app\__008__api\__003__stream.py", line 147, in stream_answer
+    with trace_request(
+         ~~~~~~~~~~~~~^
+        "/stream",
+        ^^^^^^^^^^
+    ...<6 lines>...
+        graph_build_id=graph_build_id,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ) as tr:
+    ^
+  File "<USER_HOME>\AppData\Roaming\uv\python\cpython-3.13-windows-x86_64-none\Lib\contextlib.py", line 148, in __exit__
+    next(self.gen)
+    ~~~~^^^^^^^^^^
+  File "<REPO_ROOT>\app\__008__api\__005__trace.py", line 238, in trace_request
+    reset_model_hook(model_token)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "<REPO_ROOT>\common\llm.py", line 116, in reset_model_hook
+    _MODEL_HOOK.reset(token)
+    ~~~~~~~~~~~~~~~~~^^^^^^^
+ValueError: <Token var=<ContextVar name='llm_model_hook' default=None at 0x00000200B3E62D40> at 0x00000201ED3B3B40> was created in a different Context
+INFO:     127.0.0.1:64834 - "GET /ask/stream?query=%E8%AF%95%E7%94%A8%E6%9C%9F%E6%9C%80%E9%95%BF%E8%83%BD%E7%BA%A6%E5%AE%9A%E5%A4%9A%E4%B9%85&mode=hybrid&tier=A&llm=false HTTP/1.1" 200 OK
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "<REPO_ROOT>\.venv\Lib\site-packages\uvicorn\protocols\http\httptools_impl.py", line 422, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        self.scope, self.receive, self.send
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "<REPO_ROOT>\.venv\Lib\site-packages\uvicorn\middleware\proxy_headers.py", line 63, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<REPO_ROOT>\.venv\Lib\site-packages\fastapi\applications.py", line 1194, in __call__
+    await super().__call__(scope, receive, send)
+  File "<REPO_ROOT>\.venv\Lib\site-packages\starlette\applications.py", line 96, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "<REPO_ROOT>\.venv\Lib\site-packages\starlette\middleware\errors.py", line 186, in __call__
+    raise exc
+  File "<REPO_ROOT>\.venv\Lib\site-packages\starlette\middleware\errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "<REPO_ROOT>\.venv\Lib\site-packages\fastapi\telemetry\_asgi.py", line 151, in __call__
+    await self.app(scope, receive, send)
+  File "<REPO_ROOT>\app\__008__api\__001__ratelimit.py", line 244, in __call__
+    await self.app(scope, receive, send)
+  File "<REPO_ROOT>\.venv\Lib\site-packages\starlette\middleware\exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "<REPO_ROOT>\.venv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "<REPO_ROOT>\.venv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "<REPO_ROOT>\.venv\Lib\site-packages\fastapi\middleware\asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "<REPO_ROOT>\.venv\Lib\site-packages\starlette\routing.py", line 683, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "<REPO_ROOT>\.venv\Lib\site-packages\fastapi\routing.py", line 2811, in app
+    await route.handle(scope, receive, send)
+  File "<REPO_ROOT>\.venv\Lib\site-packages\fastapi\routing.py", line 1330, in handle
+    await super().handle(scope, receive, send)
+  File "<REPO_ROOT>\.venv\Lib\site-packages\starlette\routing.py", line 289, in handle
+    await self.app(scope, receive, send)
+  File "<REPO_ROOT>\.venv\Lib\site-packages\fastapi\routing.py", line 166, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "<REPO_ROOT>\.venv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "<REPO_ROOT>\.venv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "<REPO_ROOT>\.venv\Lib\site-packages\fastapi\routing.py", line 153, in app
+    await response(scope, receive, send)
+  File "<REPO_ROOT>\.venv\Lib\site-packages\starlette\responses.py", line 278, in __call__
+    async with create_collapsing_task_group() as task_group:
+               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "<USER_HOME>\AppData\Roaming\uv\python\cpython-3.13-windows-x86_64-none\Lib\contextlib.py", line 235, in __aexit__
+    await self.gen.athrow(value)
+  File "<REPO_ROOT>\.venv\Lib\site-packages\starlette\_utils.py", line 112, in create_collapsing_task_group
+    raise exc from exc.__cause__ or context
+  File "<REPO_ROOT>\.venv\Lib\site-packages\anyio\_core\_tasks.py", line 327, in _run_coro
+    retval = await self._coro
+             ^^^^^^^^^^^^^^^^
+  File "<REPO_ROOT>\.venv\Lib\site-packages\starlette\responses.py", line 281, in wrap
+    await func()
+  File "<REPO_ROOT>\.venv\Lib\site-packages\starlette\responses.py", line 255, in stream_response
+    async for chunk in self.body_iterator:
+    ...<2 lines>...
+        await send({"type": "http.response.body", "body": chunk, "more_body": True})
+  File "<REPO_ROOT>\.venv\Lib\site-packages\starlette\concurrency.py", line 57, in iterate_in_threadpool
+    yield await anyio.to_thread.run_sync(_next, as_iterator)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<REPO_ROOT>\.venv\Lib\site-packages\anyio\to_thread.py", line 65, in run_sync
+    return await get_async_backend().run_sync_in_worker_thread(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        func, args, abandon_on_cancel=abandon_on_cancel, limiter=limiter
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "<REPO_ROOT>\.venv\Lib\site-packages\anyio\_backends\_asyncio.py", line 2706, in run_sync_in_worker_thread
+    return await future
+           ^^^^^^^^^^^^
+  File "<REPO_ROOT>\.venv\Lib\site-packages\anyio\_backends\_asyncio.py", line 1100, in run
+    result = context.run(func, *args)
+  File "<REPO_ROOT>\.venv\Lib\site-packages\starlette\concurrency.py", line 46, in _next
+    return next(iterator)
+  File "<REPO_ROOT>\app\__008__api\__003__stream.py", line 147, in stream_answer
+    with trace_request(
+         ~~~~~~~~~~~~~^
+        "/stream",
+        ^^^^^^^^^^
+    ...<6 lines>...
+        graph_build_id=graph_build_id,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ) as tr:
+    ^
+  File "<USER_HOME>\AppData\Roaming\uv\python\cpython-3.13-windows-x86_64-none\Lib\contextlib.py", line 148, in __exit__
+    next(self.gen)
+    ~~~~^^^^^^^^^^
+  File "<REPO_ROOT>\app\__008__api\__005__trace.py", line 238, in trace_request
+    reset_model_hook(model_token)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "<REPO_ROOT>\common\llm.py", line 116, in reset_model_hook
+    _MODEL_HOOK.reset(token)
+    ~~~~~~~~~~~~~~~~~^^^^^^^
+ValueError: <Token var=<ContextVar name='llm_model_hook' default=None at 0x00000200B3E62D40> at 0x000002025FD2FE40> was created in a different Context
+INFO:     127.0.0.1:62436 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62437 - "GET /ask/stream?query=%E8%AF%95%E7%94%A8%E6%9C%9F%E6%9C%80%E9%95%BF%E8%83%BD%E7%BA%A6%E5%AE%9A%E5%A4%9A%E4%B9%85&mode=hybrid&tier=A_gates&llm=false HTTP/1.1" 200 OK
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "<REPO_ROOT>\.venv\Lib\site-packages\uvicorn\protocols\http\httptools_impl.py", line 422, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        self.scope, self.receive, self.send
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "<REPO_ROOT>\.venv\Lib\site-packages\uvicorn\middleware\proxy_headers.py", line 63, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<REPO_ROOT>\.venv\Lib\site-packages\fastapi\applications.py", line 1194, in __call__
+    await super().__call__(scope, receive, send)
+  File "<REPO_ROOT>\.venv\Lib\site-packages\starlette\applications.py", line 96, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "<REPO_ROOT>\.venv\Lib\site-packages\starlette\middleware\errors.py", line 186, in __call__
+    raise exc
+  File "<REPO_ROOT>\.venv\Lib\site-packages\starlette\middleware\errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "<REPO_ROOT>\.venv\Lib\site-packages\fastapi\telemetry\_asgi.py", line 151, in __call__
+    await self.app(scope, receive, send)
+  File "<REPO_ROOT>\app\__008__api\__001__ratelimit.py", line 244, in __call__
+    await self.app(scope, receive, send)
+  File "<REPO_ROOT>\.venv\Lib\site-packages\starlette\middleware\exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "<REPO_ROOT>\.venv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "<REPO_ROOT>\.venv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "<REPO_ROOT>\.venv\Lib\site-packages\fastapi\middleware\asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "<REPO_ROOT>\.venv\Lib\site-packages\starlette\routing.py", line 683, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "<REPO_ROOT>\.venv\Lib\site-packages\fastapi\routing.py", line 2811, in app
+    await route.handle(scope, receive, send)
+  File "<REPO_ROOT>\.venv\Lib\site-packages\fastapi\routing.py", line 1330, in handle
+    await super().handle(scope, receive, send)
+  File "<REPO_ROOT>\.venv\Lib\site-packages\starlette\routing.py", line 289, in handle
+    await self.app(scope, receive, send)
+  File "<REPO_ROOT>\.venv\Lib\site-packages\fastapi\routing.py", line 166, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "<REPO_ROOT>\.venv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "<REPO_ROOT>\.venv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "<REPO_ROOT>\.venv\Lib\site-packages\fastapi\routing.py", line 153, in app
+    await response(scope, receive, send)
+  File "<REPO_ROOT>\.venv\Lib\site-packages\starlette\responses.py", line 278, in __call__
+    async with create_collapsing_task_group() as task_group:
+               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "<USER_HOME>\AppData\Roaming\uv\python\cpython-3.13-windows-x86_64-none\Lib\contextlib.py", line 235, in __aexit__
+    await self.gen.athrow(value)
+  File "<REPO_ROOT>\.venv\Lib\site-packages\starlette\_utils.py", line 112, in create_collapsing_task_group
+    raise exc from exc.__cause__ or context
+  File "<REPO_ROOT>\.venv\Lib\site-packages\anyio\_core\_tasks.py", line 327, in _run_coro
+    retval = await self._coro
+             ^^^^^^^^^^^^^^^^
+  File "<REPO_ROOT>\.venv\Lib\site-packages\starlette\responses.py", line 281, in wrap
+    await func()
+  File "<REPO_ROOT>\.venv\Lib\site-packages\starlette\responses.py", line 255, in stream_response
+    async for chunk in self.body_iterator:
+    ...<2 lines>...
+        await send({"type": "http.response.body", "body": chunk, "more_body": True})
+  File "<REPO_ROOT>\.venv\Lib\site-packages\starlette\concurrency.py", line 57, in iterate_in_threadpool
+    yield await anyio.to_thread.run_sync(_next, as_iterator)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<REPO_ROOT>\.venv\Lib\site-packages\anyio\to_thread.py", line 65, in run_sync
+    return await get_async_backend().run_sync_in_worker_thread(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        func, args, abandon_on_cancel=abandon_on_cancel, limiter=limiter
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "<REPO_ROOT>\.venv\Lib\site-packages\anyio\_backends\_asyncio.py", line 2706, in run_sync_in_worker_thread
+    return await future
+           ^^^^^^^^^^^^
+  File "<REPO_ROOT>\.venv\Lib\site-packages\anyio\_backends\_asyncio.py", line 1100, in run
+    result = context.run(func, *args)
+  File "<REPO_ROOT>\.venv\Lib\site-packages\starlette\concurrency.py", line 46, in _next
+    return next(iterator)
+  File "<REPO_ROOT>\app\__008__api\__003__stream.py", line 147, in stream_answer
+    with trace_request(
+         ~~~~~~~~~~~~~^
+        "/stream",
+        ^^^^^^^^^^
+    ...<6 lines>...
+        graph_build_id=graph_build_id,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ) as tr:
+    ^
+  File "<USER_HOME>\AppData\Roaming\uv\python\cpython-3.13-windows-x86_64-none\Lib\contextlib.py", line 148, in __exit__
+    next(self.gen)
+    ~~~~^^^^^^^^^^
+  File "<REPO_ROOT>\app\__008__api\__005__trace.py", line 238, in trace_request
+    reset_model_hook(model_token)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "<REPO_ROOT>\common\llm.py", line 116, in reset_model_hook
+    _MODEL_HOOK.reset(token)
+    ~~~~~~~~~~~~~~~~~^^^^^^^
+ValueError: <Token var=<ContextVar name='llm_model_hook' default=None at 0x00000200B3E62D40> at 0x000002025FD41580> was created in a different Context
+INFO:     127.0.0.1:62441 - "GET /health HTTP/1.1" 200 OK

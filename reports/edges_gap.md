@@ -1,6 +1,6 @@
 # 概念层补边报告（m 任务 / T10）：577 → 706
 
-> 生成日期 2026-10-31｜主工程 `E:\project\LexWeave`｜补前基数 REQUIRES 196 / SPECIAL_OF 183 / APPLIES_TO 198
+> 生成日期 2026-10-31｜主工程 本仓库根｜补前基数 REQUIRES 196 / SPECIAL_OF 183 / APPLIES_TO 198
 > 本文所有数字均可由 §9 的命令复算；~~R@5 只给预期方向，标注为「预期」，不是实测。~~
 > **2026-10-31 16:40 已由整合步骤进图并实测，R@5 见 §14（0.4417 → 0.4389）。**
 
@@ -281,13 +281,13 @@ APPLIES_TO 覆盖 31 个场景，涉及 94 个 gold 用例。
 
 ```powershell
 # 1) 一致性检查（应输出「术语库与种子一致」）
-& 'E:\project\LexWeave\.venv\Scripts\python.exe' 'app\__001__ingest\__001__build_lexicon.py' --check   # cwd=E:\project\LexWeave
+& '.venv\Scripts\python.exe' 'app\__001__ingest\__001__build_lexicon.py' --check   # cwd=仓库根
 # 2) 机械复核 129 条新增边（应输出 added_total=129, mech_verified_total=129, failed=[]）
-& 'E:\project\LexWeave\.venv\Scripts\python.exe' 'F:\大模型应用开发\算法岗冲刺\work\m\verify_edges.py'
+& '.venv\Scripts\python.exe' 'F:\大模型应用开发\算法岗冲刺\work\m\verify_edges.py'
 # 3) 缺口清单（before/after）
 python 'F:\大模型应用开发\算法岗冲刺\work\m\gap_targets.py' out.json after
 # 4) 边数与密度
-python -c "import json,collections;r=[json.loads(l) for l in open(r'E:\project\LexWeave\data\lexicon\requires.jsonl',encoding='utf-8')];s=[json.loads(l) for l in open(r'E:\project\LexWeave\data\lexicon\special_of.jsonl',encoding='utf-8')];c=[json.loads(l) for l in open(r'E:\project\LexWeave\data\lexicon\scenarios.jsonl',encoding='utf-8')];n=len(r)+len(s)+sum(len(x['concepts']) for x in c);print(n, len(r), len(s), sum(len(x['concepts']) for x in c), round(n/281,3))"
+python -c "import json,collections;r=[json.loads(l) for l in open(r'data\lexicon\requires.jsonl',encoding='utf-8')];s=[json.loads(l) for l in open(r'data\lexicon\special_of.jsonl',encoding='utf-8')];c=[json.loads(l) for l in open(r'data\lexicon\scenarios.jsonl',encoding='utf-8')];n=len(r)+len(s)+sum(len(x['concepts']) for x in c);print(n, len(r), len(s), sum(len(x['concepts']) for x in c), round(n/281,3))"
 ```
 
 ## 10. 哪些数是命令复核的，哪些是预期
@@ -606,7 +606,7 @@ GPU：`nvidia-smi` 显示另一会话占用（6344 MiB / 39%），本流程全�
 
 ### 14.5 备份
 
-`E:\project\LexWeave\data\graph\_backup_20261031_m\`：`graph/graph.json`（sha256 `0440882d42da…`）、
+`data\graph\_backup_20261031_m\`：`graph/graph.json`（sha256 `0440882d42da…`）、
 `graph/lexweave_graph.pkl`（`fc45938a505c…`）、`graph/stats.json`（`32a75f6a23dd…`）、
 `eval_out/retrieval_post_rebuild.json`（`1519c56df3ef…`）。`retrieval.json` 与 `retrieval_post_rebuild.json`
 均未被覆盖。

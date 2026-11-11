@@ -122,13 +122,13 @@
 ## 8. 复现
 
 ```powershell
-cd E:\project\LexWeave
+cd <仓库根>
 $env:EMBEDDING_DEVICE='cpu'; $env:GRAPH_BACKEND='networkx'
 # 只算，不写 retrieval.json（约 21 分钟，CPU 精排占绝大部分）
-E:\project\LexWeave\.venv\Scripts\python.exe scripts\eval_hybrid_rerank.py `
+.\.venv\Scripts\python.exe scripts\eval_hybrid_rerank.py `
   --raw data/eval_out/hybrid_rerank_raw.json
 # 出图（读取 retrieval.json#results.hybrid_rerank）
-E:\project\LexWeave\.venv\Scripts\python.exe scripts\make_figures.py
+.\.venv\Scripts\python.exe scripts\make_figures.py
 ```
 
 指标口径与 `scripts/eval_retrieval.py` 一致：`recall@5 = |金标必需条文 ∩ top5| / |金标必需条文|`，`all@5` 为是否全中，延迟为单题端到端。

@@ -1,0 +1,7 @@
+INFO:     Started server process [28456]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:8010 (Press CTRL+C to quit)
+08:14:56 | INFO    | lexweave.neo4j | Neo4j 已连接: bolt://localhost:7687 db=neo4j
+08:14:56 | INFO    | lexweave.graph_store | 图后端: neo4j (g963749014664)
+INFO:     127.0.0.1:62545 - "GET /health HTTP/1.1" 200 OK

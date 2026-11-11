@@ -1,0 +1,58 @@
+{
+  "graph_build_id": "g963749014664",
+  "manifest_present": true,
+  "version_diff": {},
+  "networkx": {
+    "nodes": 1799,
+    "edges": 5632,
+    "labels": {
+      "Article": 1465,
+      "Concept": 281,
+      "Scenario": 53
+    },
+    "relationships": {
+      "REFERS_TO": 4119,
+      "DEFINES": 710,
+      "CITES": 97,
+      "REQUIRES": 230,
+      "SPECIAL_OF": 185,
+      "APPLIES_TO": 291
+    }
+  },
+  "detector_selftest": {
+    "detected": [
+      "concept_articles",
+      "scenario_concepts",
+      "concept_neighbors",
+      "concept_neighbors",
+      "article_cites",
+      "concept_scenarios",
+      "article_detail"
+    ],
+    "no_rows": [],
+    "missed": [],
+    "ok": true
+  },
+  "injected_edge_selftest": {
+    "detected_plans": [
+      "concept_neighbors"
+    ],
+    "ok": true
+  },
+  "neo4j": {
+    "status": "unavailable",
+    "reason": "Neo4j 不可用"
+  },
+  "stats_diff": {},
+  "plans": {},
+  "ok": true,
+  "checks": {
+    "manifest_consistent": true,
+    "detector_detects_injected_diff": true,
+    "detector_detects_injected_edge": true,
+    "backends_stats_match": true,
+    "backends_consistent": true,
+    "neo4j_live": false,
+    "neo4j_required_met": true
+  }
+}

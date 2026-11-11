@@ -1,6 +1,6 @@
 # 法律领域 KG-RAG 技术报告
 
-> 版本：v1.0｜日期：2026-11-02｜主工程：`E:\project\LexWeave`｜冲刺实验：`F:\大模型应用开发\算法岗冲刺`
+> 版本：v1.0｜日期：2026-11-02｜主工程：本仓库根｜冲刺实验：`F:\大模型应用开发\算法岗冲刺`（仓库外，只读产物）
 > 性质：面向作品集与面试的正式技术报告。所有数字标注口径与产物路径；不重跑评测、不改任何评测产物。
 >
 > **口径对齐（2026-11-11 追加）**：本报告正文的检索数字均为 **60 条 in-sample**（`gold_60`），用来说明机制；
@@ -214,14 +214,14 @@ HITL：3 条域内挂起-恢复 + 2 条域外拒答；挂起 23 h 恢复 answer 
 主工程命令（CPU、无 LLM；开跑前 `nvidia-smi` 确认无推理进程）：
 
 ```powershell
-cd E:\project\LexWeave
+cd <仓库根>
 $env:EMBEDDING_DEVICE='cpu'; $env:GRAPH_BACKEND='networkx'
 
 # 1) 机械复核：期望 all.n=710、absent=68、derived_only=47、pending_semantic=211、normal=384、absent_rate=0.0958
 .\.venv\Scripts\python.exe scripts\check_defines_edges.py --baseline data/eval_out/defines_human_labels.csv --dump-rows --json data/eval_out/defines_edges_check_post_rebuild.json
 
 # 2) 多跳：期望 graph 0.4389、graph_2hop 0.6111、graph_ppr 0.5917
-.\.venv\Scripts\python.exe scripts\eval_multihop.py --with-baseline --raw C:\tmp\multihop_raw.json
+.\.venv\Scripts\python.exe scripts\eval_multihop.py --with-baseline --raw tmp\multihop_raw.json
 
 # 3) 融合四格：期望 0.7222 / 0.7528 / 0.7056 / 0.7583
 .\.venv\Scripts\python.exe scripts\eval_hybrid_rerank.py --raw data/eval_out/hybrid_rerank_raw.json

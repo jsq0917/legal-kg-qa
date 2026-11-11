@@ -779,7 +779,7 @@ def render_report(payload: dict) -> str:
         "## 5. 可复现命令",
         "",
         "```powershell",
-        "cd E:\\project\\LexWeave",
+        "cd <仓库根>",
         "$env:EMBEDDING_DEVICE='cpu'",
         ".\\venv\\Scripts\\python.exe scripts\\eval_cross_domain.py --tcm-root E:\\AI大模型开发\\中医药知识图谱 --out data\\eval_out\\cross_domain.json --report reports\\cross_domain.md",
         "```",

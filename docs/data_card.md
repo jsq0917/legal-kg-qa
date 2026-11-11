@@ -1,7 +1,7 @@
 # 数据卡：LexWeave 金标与评测集
 
 本文件说明 `data/gold/` 下各数据集的**来源、标注主体、用途、调参历史与已知偏置**。
-文中数量都可由 [`scripts/make_holdout.py`](file:///e:/project/LexWeave/scripts/make_holdout.py)
+文中数量都可由 [`scripts/make_holdout.py`](../scripts/make_holdout.py)
 与下列命令复算；不可复算或没有人工结论的指标一律标注「不可用」。
 
 ## 1. 语料
