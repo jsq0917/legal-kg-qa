@@ -45,6 +45,8 @@ from common.path_utils import read_jsonl, write_json  # noqa: E402
 log = get_logger("eval_graph_contribution")
 
 TOP_K = 5
+TEXT_POOL_K = 30  # 与 HybridRetriever 的文本候选池一致（见 __003__hybrid.py）
+GRAPH_POOL_K = 10  # 与 HybridRetriever 的图候选池一致
 ANSWER_CACHE = "data/eval_out/ablation_holdout_60.json"
 
 
@@ -114,6 +116,18 @@ def evaluate_one(
     }
     tops = {mode: o.article_ids[:TOP_K] for mode, o in outs.items()}
     hybrid = outs["hybrid"]
+    # 统一候选池口径：hybrid 内部是 text top30 ∪ graph top10（见 __003__hybrid.py），
+    # 所以「图路独有候选」必须排除整个文本候选池，而不是只排除 text top5。
+    text_pool = {
+        h.article_id
+        for h in retriever.text.search(q["question"], top_k=TEXT_POOL_K, use_rerank=False)
+    }
+    graph_pool = {
+        h.article_id
+        for h in retriever.graph.retrieve(
+            q["question"], top_k=GRAPH_POOL_K, hops=hybrid.decision.hops, use_cites=True
+        ).hits
+    }
     linked_concepts = {c.id for c in hybrid.linking.concepts}
     linked_scenarios = {s.id for s in hybrid.linking.scenarios}
 
@@ -125,9 +139,17 @@ def evaluate_one(
     graph_hit = gold <= set(graph_top)
     hybrid_hit = gold <= set(hybrid_top)
     text_failed = not text_hit
-    recovered = text_failed and hybrid_hit
+    hybrid_recovered = text_failed and hybrid_hit
+    missing_in_text = sorted(gold - set(text_top))
+    # 真正由图路救回：文本前 5 漏掉的金标，既不在文本候选池，又确实落在图路 top5。
+    graph_rescued = (
+        hybrid_recovered
+        and bool(missing_in_text)
+        and all(a in graph_top for a in missing_in_text)
+        and all(a not in text_pool for a in missing_in_text)
+    )
 
-    graph_only = [a for a in dict.fromkeys(graph_top + hybrid_top) if a not in set(text_top)]
+    graph_only = [a for a in dict.fromkeys(graph_top + hybrid_top) if a not in text_pool]
     verdicts: list[dict[str, Any]] = []
     for aid in graph_only:
         if aid in gold:
@@ -144,7 +166,11 @@ def evaluate_one(
                 "in_gold": aid in gold,
                 "graph_coverage": round(float(getattr(item, "coverage", 0.0)), 4) if item else 0.0,
                 "path": list(getattr(item, "path", []))[:6] if item else [],
-                "in_text_candidates": aid in set(text_top),
+                "in_text_pool": aid in text_pool,
+                # 兼容旧复算脚本：历史字段名，语义已升级为「在文本 top30 候选池」。
+                "in_text_candidates": aid in text_pool,
+                "in_graph_pool": aid in graph_pool,
+                "in_graph_top5": aid in graph_top,
             }
         )
 
@@ -169,7 +195,13 @@ def evaluate_one(
         "graph_hit@5": graph_hit,
         "hybrid_hit@5": hybrid_hit,
         "text_failed": text_failed,
-        "text_failed_graph_recovered": recovered,
+        "text_failed_hybrid_recovered": hybrid_recovered,
+        "text_failed_graph_rescued": graph_rescued,
+        # 兼容历史产物/复算脚本的字段名：它实际表示 hybrid 补回，不是图路独有救回。
+        "text_failed_graph_recovered": hybrid_recovered,
+        "text_pool_hits": sorted(gold & text_pool),
+        "graph_pool_hits": sorted(gold & graph_pool),
+        "missing_in_text": missing_in_text,
         "path_scenario_hit": scenario_hit,
         "path_concept_recall": round(concept_hit, 4),
         "path_ok": path_ok,
@@ -229,9 +261,11 @@ def summarize(rows: list[dict], answer_by_id: dict[str, dict]) -> dict[str, Any]
             "path_ok": bool_rate([r["path_ok"] for r in subset]),
             "path_scenario_hit": bool_rate([r["path_scenario_hit"] for r in subset]),
             "path_concept_recall": rate([r["path_concept_recall"] for r in subset]),
-            "text_failed_graph_recovered": bool_rate([r["text_failed_graph_recovered"] for r in subset]),
+            "text_failed_hybrid_recovered": bool_rate([r["text_failed_hybrid_recovered"] for r in subset]),
+            "text_failed_graph_rescued": bool_rate([r["text_failed_graph_rescued"] for r in subset]),
             "text_failed_n": sum(1 for r in subset if r["text_failed"]),
-            "recovered_n": sum(1 for r in subset if r["text_failed_graph_recovered"]),
+            "recovered_n": sum(1 for r in subset if r["text_failed_hybrid_recovered"]),
+            "rescued_n": sum(1 for r in subset if r["text_failed_graph_rescued"]),
             "graph_only_candidates": {
                 "total": len(candidates),
                 "necessary": sum(1 for c in candidates if c["verdict"] == "necessary"),
@@ -290,25 +324,31 @@ def build_markdown(report: dict) -> str:
     row("路径正确率（场景命中且概念链完整）", o["path_ok"])
     row("其中：场景命中", o["path_scenario_hit"])
     row("其中：概念链召回", o["path_concept_recall"])
-    row("文本失败→图路补齐率", o["text_failed_graph_recovered"])
+    row("文本失败→hybrid 补回率", o["text_failed_hybrid_recovered"])
+    row("其中：真正图路救回率", o["text_failed_graph_rescued"])
     row("答案正确率（离线缓存）", o["answer_correct"])
     lines += [
         "",
-        f"- 文本失败 {o['text_failed_n']} 题，其中图路补齐 {o['recovered_n']} 题。",
+        f"- 文本失败 {o['text_failed_n']} 题，其中 hybrid 补回 {o['recovered_n']} 题；"
+        f"真正由图路救回 **{o['rescued_n']} 题**"
+        "（缺失金标既不在文本 top30 候选池，又落在图路 top5）。",
         f"- 图路独有候选 {o['graph_only_candidates']['total']} 条：必要 "
         f"{o['graph_only_candidates']['necessary']}、相关非必要 "
         f"{o['graph_only_candidates']['relevant_not_necessary']}、噪声 "
-        f"{o['graph_only_candidates']['noise']}。",
+        f"{o['graph_only_candidates']['noise']}。"
+        "候选口径已排除 **文本 top30 候选池**（与 hybrid 内部一致）；"
+        "旧口径只排除 text top5，会把文本候选池内的条文误算成图路独有，数字显著偏高。",
         "",
         "## 分桶",
         "",
-        "| 桶 | n | 文本 hit@5 | hybrid hit@5 | 路径正确 | 图路补齐 | 答案正确(缓存) |",
-        "| --- | --- | --- | --- | --- | --- | --- |",
+        "| 桶 | n | 文本 hit@5 | hybrid hit@5 | 路径正确 | hybrid 补回 | 其中图路救回 | 答案正确(缓存) |",
+        "| --- | --- | --- | --- | --- | --- | --- | --- |",
     ]
     for name, b in report["by_bucket"].items():
         lines.append(
             f"| {name} | {b['n']} | {b['text_hit@5']['mean']} | {b['hybrid_hit@5']['mean']} | "
-            f"{b['path_ok']['mean']} | {b['text_failed_graph_recovered']['mean']} | {b['answer_correct']['mean']} |"
+            f"{b['path_ok']['mean']} | {b['text_failed_hybrid_recovered']['mean']} | "
+            f"{b['text_failed_graph_rescued']['mean']} | {b['answer_correct']['mean']} |"
         )
     lines += [
         "",
@@ -329,7 +369,9 @@ def build_markdown(report: dict) -> str:
         "",
         "## 样本",
         "",
-        f"- 图路补齐案例：`recoveries` 共 {len(report['recoveries'])} 条（含文本漏掉的金标与图路径）。",
+        f"- hybrid 补回案例：`hybrid_recoveries` 共 {len(report['hybrid_recoveries'])} 条；"
+        f"其中真正图路救回 `graph_rescues` 共 {len(report['graph_rescues'])} 条"
+        "（缺失金标不在文本 top30、且在图路 top5）。",
         f"- hybrid 仍未命中：`failures` 共 {len(report['failures'])} 条，每条带 `failure_reason`。",
         f"- 图路独有条文清单：`graph_only_candidates` 共 {len(report['graph_only_candidates'])} 条。",
         f"- 答案层只有 {answered}/{report['n']} 题可用（缓存离线 B6），"
@@ -399,19 +441,23 @@ def main(argv: list[str] | None = None) -> int:
             log.info("已评估 %d/%d", i, len(gold))
 
     summary = summarize(rows, answers)
-    recoveries = [
+    hybrid_recoveries = [
         {
             "id": r["id"],
             "question": next(q["question"] for q in gold if q["id"] == r["id"]),
             "text_top5": r["text_top5"],
             "hybrid_top5": r["hybrid_top5"],
             "text_failed_on": sorted(set(next(q["expected_articles"] for q in gold if q["id"] == r["id"])) - set(r["text_top5"])),
+            "missing_in_text": r["missing_in_text"],
+            "graph_pool_hits": r["graph_pool_hits"],
+            "graph_rescued": r["text_failed_graph_rescued"],
             "graph_paths": {c["article_id"]: c["path"] for c in r["graph_only_candidates"] if c["in_gold"]},
             "text_top1_similarity": r["text_top1_similarity"],
         }
         for r in rows
-        if r["text_failed_graph_recovered"]
+        if r["text_failed_hybrid_recovered"]
     ]
+    graph_rescues = [x for x in hybrid_recoveries if x["graph_rescued"]]
     failures = [
         {
             "id": r["id"],
@@ -449,8 +495,20 @@ def main(argv: list[str] | None = None) -> int:
         "use_rerank": not args.no_rerank,
         "answer_layer_available": bool(answers),
         "answer_layer_note": "答案层来自缓存离线 B6 结果，仅覆盖 gold_60_holdout 的 60 题；其余题只报检索/路径。",
+        "schema_notes": {
+            "candidate_pool": f"text top{TEXT_POOL_K} ∪ graph top{GRAPH_POOL_K}，与 hybrid 内部候选池一致；"
+            "图路独有候选已排除整个文本候选池。",
+            "text_failed_graph_recovered": "历史字段名，实际含义是「文本 top5 失败但 hybrid 命中」，"
+            "不等于图路独有救回；新代码请读 text_failed_hybrid_recovered。",
+            "text_failed_graph_rescued": "真正图路救回：hybrid 命中，且缺失金标都不在文本候选池、都在图路 top5。",
+            "superseded_numbers": "旧口径只排除 text top5，会高估图路贡献（532 候选 / 22 必要 / 4 救回）；"
+            "本产物按统一候选池重算。",
+            "recoveries": "recoveries 是 hybrid_recoveries 的兼容别名；逐条带 graph_rescued 标记。",
+        },
         **summary,
-        "recoveries": recoveries,
+        "recoveries": hybrid_recoveries,
+        "hybrid_recoveries": hybrid_recoveries,
+        "graph_rescues": graph_rescues,
         "failures": failures,
         "graph_only_candidates": candidates,
         "rows": rows,
@@ -466,7 +524,8 @@ def main(argv: list[str] | None = None) -> int:
         f"[graph-contribution] n={report['n']} graph={report['versions']['graph_build_id']}\n"
         f"  文本 hit@5={o['text_hit@5']['mean']} hybrid hit@5={o['hybrid_hit@5']['mean']} "
         f"路径正确={o['path_ok']['mean']}\n"
-        f"  文本失败={o['text_failed_n']} 图路补齐={o['recovered_n']} "
+        f"  文本失败={o['text_failed_n']} hybrid 补回={o['recovered_n']} "
+        f"真正图路救回={o['rescued_n']} "
         f"图路独有候选={o['graph_only_candidates']['total']}"
         f"（必要 {o['graph_only_candidates']['necessary']}）\n"
         f"  → {out} / {md}"
