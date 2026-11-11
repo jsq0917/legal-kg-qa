@@ -208,6 +208,26 @@ class Trace:
 
 
 @contextmanager
+def trace_scope(trace: Trace) -> Iterator[Trace]:
+    """把已有 trace 绑定到**当前**同步上下文（set/reset 必须同进同出）。
+
+    流式生成器由 FastAPI 在线程池里逐次 ``next()`` 迭代，每次调用都跑在复制过的
+    Context 里；跨 ``yield`` 持有 ContextVar token 会在结束时到另一个 Context 复位，
+    抛 ``ValueError: ... created in a different Context``。因此流式路径不在这里长期绑定，
+    而是由迭代器在**每一次** ``next()`` 内部进出 :func:`trace_scope`。
+    """
+    token = _CURRENT.set(trace)
+    hook_token = set_degradation_hook(trace.record_degradation)
+    model_token = set_model_hook(_record_actual_model)
+    try:
+        yield trace
+    finally:
+        reset_model_hook(model_token)
+        reset_degradation_hook(hook_token)
+        _CURRENT.reset(token)
+
+
+@contextmanager
 def trace_request(
     path: str,
     *,
@@ -229,15 +249,8 @@ def trace_request(
         model=model,
         graph_build_id=graph_build_id,
     )
-    token = _CURRENT.set(trace)
-    hook_token = set_degradation_hook(trace.record_degradation)
-    model_token = set_model_hook(_record_actual_model)
-    try:
+    with trace_scope(trace):
         yield trace
-    finally:
-        reset_model_hook(model_token)
-        reset_degradation_hook(hook_token)
-        _CURRENT.reset(token)
 
 
 def _record_actual_model(model: str | None, degraded_reason: str | None = None) -> None:

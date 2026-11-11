@@ -102,6 +102,8 @@ jobs:
         run: uv run python scripts/check_stream_contract.py
       - name: 术语库一致性（种子 → jsonl，秒级、不写文件）
         run: uv run python app/__001__ingest/__001__build_lexicon.py --check
+      - name: 流式 ContextVar 回归（/ask/stream 跨 Context 复位）
+        run: uv run python -m pytest tests/test_stream_contract.py::test_stream_survives_starlette_threadpool_context_switch -q
       - name: 单元测试（ruff 之外的回归面：闸门 / 槽位 / checkpoint / 术语库 / 注入）
         run: uv run python -m pytest -m "not slow" -q
 

@@ -40,15 +40,9 @@ from app.__007__agents.__003__pipeline import (  # noqa: E402
     repair_state,
 )
 from app.__008__api.__002__cache import get_cache, make_key, model_version  # noqa: E402
-from app.__008__api.__005__trace import trace_request, write_trace  # noqa: E402
+from app.__008__api.__005__trace import Trace, trace_scope, write_trace  # noqa: E402
 from common import prompt_guard  # noqa: E402
-from common.llm import (
-    LLMDisabled,
-    LLMError,
-    classify_error,
-    llm_status,
-    report_degradation,
-)  # noqa: E402
+from common.llm import LLMDisabled, LLMError, classify_error, llm_status  # noqa: E402
 from common.logging_utils import get_logger  # noqa: E402
 
 log = get_logger("api.stream")
@@ -116,6 +110,32 @@ def _summary(retrieval: dict[str, Any], top_n: int = 5) -> dict[str, Any]:
     }
 
 
+class _TracedStream:
+    """逐次 ``next()`` 绑定 trace，避免 ContextVar token 跨 Context 复位。
+
+    FastAPI 在线程池里迭代同步生成器，每次 ``next()`` 都跑在复制过的 Context 里。
+    若在生成器体内 set、结束时（另一个 Context）reset，就会抛
+    ``ValueError: ... was created in a different Context``；把绑定放进 ``__next__``
+    后 set/reset 永远同进同出。
+    """
+
+    def __init__(self, iterator: _Iterator[str], trace: Trace) -> None:
+        self._iterator = iterator
+        self._trace = trace
+
+    def __iter__(self) -> _TracedStream:
+        return self
+
+    def __next__(self) -> str:
+        with trace_scope(self._trace):
+            return next(self._iterator)
+
+    def close(self) -> None:
+        close = getattr(self._iterator, "close", None)
+        if callable(close):
+            close()
+
+
 def stream_answer(
     query: str,
     mode: str,
@@ -125,7 +145,7 @@ def stream_answer(
     art_concepts: dict[str, set[str]],
     use_llm: bool = True,
 ) -> _Iterator[str]:
-    """SSE 生成器。同步生成器由 FastAPI 在线程池里迭代，不阻塞事件循环。"""
+    """构造 SSE 流；生成逻辑在 :func:`_stream_body`，trace 绑定在每次 ``next()`` 内。"""
     tier_u = normalize_tier(tier)
     want_llm = bool(use_llm) and bool(llm_status()["enabled"])
     guard = prompt_guard.guard_enabled()
@@ -134,7 +154,47 @@ def stream_answer(
         graph_build_id = retriever.graph.store.graph_build_id
     except Exception:
         pass
-    key = make_key(query, mode, tier_u, want_llm, model_version(), guard, graph_build_id=graph_build_id)
+    trace = Trace(
+        "/stream",
+        query=query,
+        tier=tier_u,
+        mode=mode,
+        cache="miss",
+        llm_enabled=want_llm,
+        model=model_version(),
+        graph_build_id=graph_build_id,
+    )
+    body = _stream_body(
+        trace,
+        query=query,
+        mode=mode,
+        tier_u=tier_u,
+        want_llm=want_llm,
+        retriever=retriever,
+        article_index=article_index,
+        art_concepts=art_concepts,
+        guard=guard,
+        graph_build_id=graph_build_id,
+    )
+    return _TracedStream(body, trace)
+
+
+def _stream_body(
+    tr: Trace,
+    *,
+    query: str,
+    mode: str,
+    tier_u: str,
+    want_llm: bool,
+    retriever: Any,
+    article_index: dict[str, dict],
+    art_concepts: dict[str, set[str]],
+    guard: bool,
+    graph_build_id: str,
+) -> _Iterator[str]:
+    key = make_key(
+        query, mode, tier_u, want_llm, model_version(), guard, graph_build_id=graph_build_id
+    )
     cache = get_cache()
     t0 = time.perf_counter()
     status = "ok"
@@ -144,213 +204,203 @@ def stream_answer(
     def elapsed_ms() -> float:
         return round((time.perf_counter() - t0) * 1000, 1)
 
-    with trace_request(
-        "/stream",
-        query=query,
-        tier=tier_u,
-        mode=mode,
-        cache="miss",
-        llm_enabled=want_llm,
-        model=model_version(),
-        graph_build_id=graph_build_id,
-    ) as tr:
-        try:
-            hit = cache.get(key)
-            if hit is not None:
-                cache_state = "hit"
-                state["retrieval"] = hit.get("retrieval") or {}
-                state["graph_build_id"] = (
-                    hit.get("graph_build_id") or state["retrieval"].get("graph_build_id") or graph_build_id
-                )
-                checks = hit.get("checks") or []
-                version = hit.get("answer_version", 1)
-                path_note = hit.get("path_note", "")
-                yield sse(
-                    "meta",
-                    {
-                        "cache": "hit",
-                        "graph_build_id": state["graph_build_id"],
-                        "retrieval": hit.get("retrieval"),
-                        "retrieval_ms": 0.0,
-                    },
-                )
-                if path_note and tier_u in ("B", "C"):
-                    state["path_note"] = path_note
-                    yield sse("plan", {"path_note": path_note, "llm_calls": 0, "cached": True})
-                first_token: float | None = None
-                for piece in _chunks(hit.get("answer", "")):
-                    if first_token is None:
-                        first_token = elapsed_ms()
-                    yield sse("token", {"text": piece, "draft": False, "answer_version": version})
-                if checks:
-                    yield sse(
-                        "check",
-                        {"checks": checks, "grounded": all(c["ok"] for c in checks), "tier": tier_u, "answer_version": version},
-                    )
-                final = {
-                    "answer": hit.get("answer", ""),
-                    "citations": hit.get("citations", []),
-                    "refused": hit.get("refused", False),
-                    "checks": checks,
-                    "answer_version": version,
-                    "superseded_versions": hit.get("superseded_versions", []),
-                    "graph_build_id": state["graph_build_id"],
-                }
-                state.update(final)
-                yield sse("final", {**final, "ttft_ms": first_token if first_token is not None else elapsed_ms()})
-                yield sse(
-                    "done",
-                    {
-                        **final,
-                        "ttft_ms": first_token if first_token is not None else elapsed_ms(),
-                        "total_ms": elapsed_ms(),
-                        "cache": "hit",
-                        "status": "ok",
-                    },
-                )
-                return
-
-            retrieval = retriever.retrieve(query, mode=mode).as_dict()
-            state["retrieval"] = retrieval
-            graph_build_id = retrieval.get("graph_build_id") or graph_build_id
-            tr.record_retrieval(retrieval.get("latency_ms"))
+    try:
+        hit = cache.get(key)
+        if hit is not None:
+            cache_state = "hit"
+            state["retrieval"] = hit.get("retrieval") or {}
+            state["graph_build_id"] = (
+                hit.get("graph_build_id") or state["retrieval"].get("graph_build_id") or graph_build_id
+            )
+            checks = hit.get("checks") or []
+            version = hit.get("answer_version", 1)
+            path_note = hit.get("path_note", "")
             yield sse(
                 "meta",
                 {
-                    "cache": "miss",
-                    "query": query,
-                    "mode": mode,
-                    "tier": tier_u,
-                    "graph_build_id": graph_build_id,
-                    "retrieval": _summary(retrieval),
-                    "retrieval_ms": retrieval.get("latency_ms"),
+                    "cache": "hit",
+                    "graph_build_id": state["graph_build_id"],
+                    "retrieval": hit.get("retrieval"),
+                    "retrieval_ms": 0.0,
                 },
             )
-
-            # ---- plan（与 /ask 同档位一致）----
-            path_note = ""
-            if tier_u in ("B", "C"):
-                res = plan_state(query, retrieval, ask_llm=want_llm)
-                path_note = res["path_note"]
+            if path_note and tier_u in ("B", "C"):
                 state["path_note"] = path_note
-                yield sse("plan", {"path_note": path_note, "llm_calls": res["llm_calls"]})
-
-            # ---- 生成 v1（草稿）----
-            items = retrieval.get("items", [])[:4]
-            first_token_ms: float | None = None
-            parts: list[str] = []
-            if want_llm and items:
-                try:
-                    for tok in answer_tokens(query, retrieval, path_note):
-                        if first_token_ms is None:
-                            first_token_ms = elapsed_ms()
-                        if (time.perf_counter() - t0) > STREAM_TIMEOUT_S:
-                            raise TimeoutError(f"stream 超过 {STREAM_TIMEOUT_S:.0f}s")
-                        parts.append(tok)
-                        yield sse("token", {"text": tok, "draft": tier_u in ("C", "A_gates"), "answer_version": 1})
-                except (LLMDisabled, LLMError) as exc:
-                    report_degradation(getattr(exc, "kind", "no_key"), str(exc), model_version())
-                    log.warning("流式生成失败，回落确定性答案：%s", exc)
-                except TimeoutError:
-                    raise
-            answer = "".join(parts).strip()
-            if not answer:
-                answer = deterministic_answer(query, retrieval, path_note)
-                for piece in _chunks(answer):
-                    if first_token_ms is None:
-                        first_token_ms = elapsed_ms()
-                    yield sse("token", {"text": piece, "draft": tier_u in ("C", "A_gates"), "answer_version": 1})
-
-            # ---- 校验 →（修复 → 复检）*，与 flows 的有环图同构 ----
-            version = 1
-            superseded: list[int] = []
-            attempts = 0
-            checks: list[dict] = []
-            while tier_u in ("C", "A_gates"):
-                checks = check_gates(answer, retrieval, article_index, art_concepts)
+                yield sse("plan", {"path_note": path_note, "llm_calls": 0, "cached": True})
+            first_token: float | None = None
+            for piece in _chunks(hit.get("answer", "")):
+                if first_token is None:
+                    first_token = elapsed_ms()
+                yield sse("token", {"text": piece, "draft": False, "answer_version": version})
+            if checks:
                 yield sse(
                     "check",
-                    {
-                        "checks": checks,
-                        "grounded": all(c["ok"] for c in checks),
-                        "tier": tier_u,
-                        "answer_version": version,
-                    },
+                    {"checks": checks, "grounded": all(c["ok"] for c in checks), "tier": tier_u, "answer_version": version},
                 )
-                if after_check(checks, attempts) != "repair":
-                    break
-                failed = [c["gate"] for c in checks if not c["ok"]]
-                superseded.append(version)
-                yield sse(
-                    "superseded",
-                    {
-                        "answer_version": version,
-                        "reason": "gate_repair",
-                        "failed_gates": failed,
-                        "next_version": version + 1,
-                    },
-                )
-                res = repair_state(
-                    query=query,
-                    retrieval=retrieval,
-                    checks=checks,
-                    path_note=path_note,
-                    art_concepts=art_concepts,
-                    prior_answer=answer,
-                    attempts=attempts,
-                )
-                attempts = res["attempts"]
-                answer = res["answer"]
-                version += 1
-                for piece in _chunks(answer):
-                    # 修复后的正文同样要等下一轮 check 通过才算终稿，这里只能是草稿。
-                    yield sse("token", {"text": piece, "draft": True, "answer_version": version})
-
-            refused = is_refused(answer)
             final = {
-                "answer": answer,
-                "citations": [i.get("citation") for i in items],
-                "refused": refused,
+                "answer": hit.get("answer", ""),
+                "citations": hit.get("citations", []),
+                "refused": hit.get("refused", False),
                 "checks": checks,
                 "answer_version": version,
-                "superseded_versions": superseded,
+                "superseded_versions": hit.get("superseded_versions", []),
+                "graph_build_id": state["graph_build_id"],
             }
             state.update(final)
-            yield sse(
-                "final",
-                {**final, "ttft_ms": first_token_ms if first_token_ms is not None else elapsed_ms()},
-            )
-
-            cache.set(
-                key,
-                {
-                    **final,
-                    "tier": tier_u,
-                    "graph_build_id": graph_build_id,
-                    "path_note": path_note,
-                    "retrieval": _summary(retrieval),
-                },
-            )
+            yield sse("final", {**final, "ttft_ms": first_token if first_token is not None else elapsed_ms()})
             yield sse(
                 "done",
                 {
                     **final,
-                    "ttft_ms": first_token_ms if first_token_ms is not None else elapsed_ms(),
+                    "ttft_ms": first_token if first_token is not None else elapsed_ms(),
                     "total_ms": elapsed_ms(),
-                    "cache": "miss",
+                    "cache": "hit",
                     "status": "ok",
                 },
             )
-        except GeneratorExit:
-            status = "cancelled"
-            log.info("客户端断开，流式请求取消（不写缓存、不记成功）")
-            raise
-        except TimeoutError as exc:
-            status = "timeout"
-            yield sse("error", {"status": "timeout", "detail": str(exc)})
-        except Exception as exc:  # 兜底：任何异常都不能被记成 ok
-            status = "error"
-            log.warning("流式请求失败: %s", exc)
-            yield sse("error", {"status": "error", "kind": classify_error(exc), "detail": str(exc)[:200]})
-        finally:
-            write_trace(tr.finish(state, cache=cache_state, status=status))
+            return
+
+        retrieval = retriever.retrieve(query, mode=mode).as_dict()
+        state["retrieval"] = retrieval
+        graph_build_id = retrieval.get("graph_build_id") or graph_build_id
+        tr.record_retrieval(retrieval.get("latency_ms"))
+        yield sse(
+            "meta",
+            {
+                "cache": "miss",
+                "query": query,
+                "mode": mode,
+                "tier": tier_u,
+                "graph_build_id": graph_build_id,
+                "retrieval": _summary(retrieval),
+                "retrieval_ms": retrieval.get("latency_ms"),
+            },
+        )
+
+        # ---- plan（与 /ask 同档位一致）----
+        path_note = ""
+        if tier_u in ("B", "C"):
+            res = plan_state(query, retrieval, ask_llm=want_llm)
+            path_note = res["path_note"]
+            state["path_note"] = path_note
+            yield sse("plan", {"path_note": path_note, "llm_calls": res["llm_calls"]})
+
+        # ---- 生成 v1（草稿）----
+        items = retrieval.get("items", [])[:4]
+        first_token_ms: float | None = None
+        parts: list[str] = []
+        if want_llm and items:
+            try:
+                for tok in answer_tokens(query, retrieval, path_note):
+                    if first_token_ms is None:
+                        first_token_ms = elapsed_ms()
+                    if (time.perf_counter() - t0) > STREAM_TIMEOUT_S:
+                        raise TimeoutError(f"stream 超过 {STREAM_TIMEOUT_S:.0f}s")
+                    parts.append(tok)
+                    yield sse("token", {"text": tok, "draft": tier_u in ("C", "A_gates"), "answer_version": 1})
+            except (LLMDisabled, LLMError) as exc:
+                tr.record_degradation(getattr(exc, "kind", "no_key"), str(exc), model_version())
+                log.warning("流式生成失败，回落确定性答案：%s", exc)
+            except TimeoutError:
+                raise
+        answer = "".join(parts).strip()
+        if not answer:
+            answer = deterministic_answer(query, retrieval, path_note)
+            for piece in _chunks(answer):
+                if first_token_ms is None:
+                    first_token_ms = elapsed_ms()
+                yield sse("token", {"text": piece, "draft": tier_u in ("C", "A_gates"), "answer_version": 1})
+
+        # ---- 校验 →（修复 → 复检）*，与 flows 的有环图同构 ----
+        version = 1
+        superseded: list[int] = []
+        attempts = 0
+        checks: list[dict] = []
+        while tier_u in ("C", "A_gates"):
+            checks = check_gates(answer, retrieval, article_index, art_concepts)
+            yield sse(
+                "check",
+                {
+                    "checks": checks,
+                    "grounded": all(c["ok"] for c in checks),
+                    "tier": tier_u,
+                    "answer_version": version,
+                },
+            )
+            if after_check(checks, attempts) != "repair":
+                break
+            failed = [c["gate"] for c in checks if not c["ok"]]
+            superseded.append(version)
+            yield sse(
+                "superseded",
+                {
+                    "answer_version": version,
+                    "reason": "gate_repair",
+                    "failed_gates": failed,
+                    "next_version": version + 1,
+                },
+            )
+            res = repair_state(
+                query=query,
+                retrieval=retrieval,
+                checks=checks,
+                path_note=path_note,
+                art_concepts=art_concepts,
+                prior_answer=answer,
+                attempts=attempts,
+            )
+            attempts = res["attempts"]
+            answer = res["answer"]
+            version += 1
+            for piece in _chunks(answer):
+                # 修复后的正文同样要等下一轮 check 通过才算终稿，这里只能是草稿。
+                yield sse("token", {"text": piece, "draft": True, "answer_version": version})
+
+        refused = is_refused(answer)
+        final = {
+            "answer": answer,
+            "citations": [i.get("citation") for i in items],
+            "refused": refused,
+            "checks": checks,
+            "answer_version": version,
+            "superseded_versions": superseded,
+        }
+        state.update(final)
+        yield sse(
+            "final",
+            {**final, "ttft_ms": first_token_ms if first_token_ms is not None else elapsed_ms()},
+        )
+
+        cache.set(
+            key,
+            {
+                **final,
+                "tier": tier_u,
+                "graph_build_id": graph_build_id,
+                "path_note": path_note,
+                "retrieval": _summary(retrieval),
+            },
+        )
+        yield sse(
+            "done",
+            {
+                **final,
+                "ttft_ms": first_token_ms if first_token_ms is not None else elapsed_ms(),
+                "total_ms": elapsed_ms(),
+                "cache": "miss",
+                "status": "ok",
+            },
+        )
+    except GeneratorExit:
+        status = "cancelled"
+        log.info("客户端断开，流式请求取消（不写缓存、不记成功）")
+        raise
+    except TimeoutError as exc:
+        status = "timeout"
+        yield sse("error", {"status": "timeout", "detail": str(exc)})
+    except Exception as exc:  # 兜底：任何异常都不能被记成 ok
+        status = "error"
+        log.warning("流式请求失败: %s", exc)
+        yield sse("error", {"status": "error", "kind": classify_error(exc), "detail": str(exc)[:200]})
+    finally:
+        write_trace(tr.finish(state, cache=cache_state, status=status))

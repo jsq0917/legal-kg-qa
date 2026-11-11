@@ -73,8 +73,7 @@ class _FakeLLM:
 
     def chat_stream(self, messages, *, max_tokens=480, temperature=0.0):
         self.calls += 1
-        for ch in self.text:
-            yield ch
+        yield from self.text
 
     def try_chat(self, messages, default="", **kwargs):
         self.calls += 1
@@ -202,6 +201,33 @@ def test_client_disconnect_is_cancelled_and_not_cached(monkeypatch):
     assert get_cache().get(key) is None
 
 
+def test_stream_survives_starlette_threadpool_context_switch(_env):
+    """回归：Starlette 用 ``iterate_in_threadpool`` 逐次 ``next()`` 迭代同步生成器。
+
+    每次 ``next()`` 都跑在线程池里、使用复制过的 Context。旧实现把 ``trace_request``
+    跨整个生成器：第一个 Context 里 set 的 ContextVar token，在结束时到另一个
+    Context reset，必然抛 ``ValueError: ... was created in a different Context``，
+    而且 trace 还先被写成 ok。这里走真实传输层机制复现。
+    """
+    import asyncio
+
+    from starlette.concurrency import iterate_in_threadpool
+
+    ret = _Retriever(RETRIEVAL)
+    gen = stream_mod.stream_answer(
+        "公司拖欠工资怎么办", "hybrid", "A_gates", ret, ARTICLE_INDEX, ART_CONCEPTS, use_llm=False
+    )
+
+    async def consume() -> list[str]:
+        return [chunk async for chunk in iterate_in_threadpool(gen)]
+
+    raw = asyncio.run(consume())
+    events = _events(raw)
+    assert dict(events)["done"]["status"] == "ok"
+    assert "error" not in [name for name, _ in events]
+    assert _env[-1]["status"] == "ok"
+
+
 def test_sse_events_follow_schema():
     events = _run_stream("A_gates")
     assert stream_mod.schema_errors(events) == []
@@ -218,13 +244,14 @@ def test_multi_repair_versions_align_across_paths():
     assert sync["superseded_versions"] == final["superseded_versions"] == [1, 2]
 
 
-def test_stream_error_status_is_not_ok(monkeypatch):
+def test_stream_error_status_is_not_ok(monkeypatch, _env):
     class Boom(_Retriever):
         def retrieve(self, query, mode="hybrid"):
             raise RuntimeError("检索炸了")
 
     events = _run_stream("A_gates", Boom(RETRIEVAL))
     assert dict(events)["error"]["status"] == "error"
+    assert _env[-1]["status"] == "error"
 
 
 def test_cache_key_separates_graph_and_policy_versions():
