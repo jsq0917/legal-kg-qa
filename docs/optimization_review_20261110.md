@@ -3,6 +3,8 @@
 > 评估日期：2026-11-10
 > 评估对象：`E:\project\LexWeave`（KG-RAG 项目）及其在简历、技术档案、面试逐字稿中的表述
 > 评估原则：只以仓库内可复算产物为准；不把包装当优化；不为凑指标补无依据的边
+>
+> **历史快照（2026-11-10）**：本文记录当时状态。仓库可见性已于 2026-11-11 用 `gh repo view` 核实为 **public**（`jsq0917/legal-kg-qa`，`visibility=PUBLIC`）；下文“仓库仍为 private / 改为 Public”均为当时状态，不再作为当前结论。
 
 ---
 
@@ -41,7 +43,7 @@
 | 5 | "泄漏 **0**" | 只有"最长连续公共子串 <10 字"口径是 0/200；README §4 同时给出 5% 二元组严口径 **184/200 超标** | 不带定语就是误导；面试官若看过 `gold_200.json` 会追问 | 改成："成句照抄 0/200；5% 二元组口径不可达（184/200 超标），两个口径都留在产物里" |
 | 6 | "vLLM 连续批处理 c1→c16 **70.05→697.17 tok/s（9.95×）**；注入攻击 **ASR 20%→5%**" 挂在 KG 项目下 | 产物分别在 `work/a2-inference-bench/results/`、`work/parallel-run/T28/reports/`；本仓没有 vLLM 服务代码、没有训练代码；`data/security/` 只有 20 条题面（`injection_20.jsonl`），**没有评测 JSON**。且 ASR 那组里"越权索取 25%→25% 未降"被简历隐去 | 面试官问"代码在哪 / 能跑给我看吗"时无法在本仓复现；只报降的那一半属于选择性披露 | 二选一：① 移到独立的"推理部署 / 安全"项目条目，附对应仓链接与完整 ASR 分类；② 从 KG 项目删除。KG 项目改用 README §14 的 A6 三臂对照（本地 LoRA / 基座 / DeepSeek：cite_precision 29.1/26.0/33.6，每千次 ¥0.10 vs ¥1.42，repair 触发 95%/100%/46.7%）——这组数字在本仓 README 有完整口径 |
 | 7 | "误配代理 **19.9% → 9.58%**" | 数字本身对，但 19.9% 是 819 边口径，9.58% 是 710 边口径；下降里有一部分来自 **90 条别名孤儿边被删除**，不是判据变准 | 被问"怎么降的"时必须能说清，否则像调口径 | 补一句："其中 90 条是 T01 清洗后失去字面支撑的孤儿别名边，删边贡献了一部分降幅；判据本身只从 19.9% 降到 8.94%（705 条规则边）" |
-| 8 | 简历放 `github.com/jsq0917`；README A4 写"仓库仍为 private" | 本地工作区有 **60+ 个已修改文件、80+ 个未跟踪文件**（含 `gold_200.jsonl`、`ablation.json`、`cross_domain.json`、`.github/`），远端仍停在 `754f0a5` | 面试官点开仓库看到的是旧数字；"可复算"直接失效 | 分批 commit + push，GitHub 改为 Public；`.github/` 里的 CI 若未完成先删掉或补完 |
+| 8 | 简历放 `github.com/jsq0917`；README A4 写"仓库仍为 private"（2026-11-11 核实为误：仓库实际为 public） | 本地工作区有 **60+ 个已修改文件、80+ 个未跟踪文件**（含 `gold_200.jsonl`、`ablation.json`、`cross_domain.json`、`.github/`），远端仍停在 `754f0a5` | 面试官点开仓库看到的是旧数字；"可复算"直接失效 | 分批 commit + push（仓库已 public，无需再改可见性）；`.github/` 里的 CI 若未完成先删掉或补完 |
 | 9 | README 徽章 "75 passed / 1 red" | 实跑确认仍有 1 项红：`test_graph_sample.py` 的 g26/g45 `lease_contract -> cc#733` | 仓库"红着交"是减分项；且这是 README 已承认的 4 处路径回退之一 | 优先修边/重锁条文；短期至少 `xfail(reason="10-31 重建已知回退，见 README §12.8")`，不要留裸红 |
 
 **这一节的面试讲法**：不要试图解释"旧数字也对"。统一口径为："我之前报过一版被后续修复作废的数字，现在仓库里 `ablation.json` 是唯一交付口径；我把它改回来了，并且把作废版本单独留存、标明不能相减。" 这句话本身就是加分项。
@@ -74,12 +76,12 @@
 
 **现状问题**
 - 见第 1 节 9 条。
-- 远端仓库停在旧 commit，本地最新产物全部未提交；README 自己说仓库还是 private。
+- 远端仓库停在旧 commit，本地最新产物全部未提交；README 当时写「仓库仍为 private」（2026-11-11 已核实为误，仓库实际为 public）。
 
 **具体改法**
 1. 按第 1 节表格逐条改简历、技术档案、逐字稿；统一以 `ablation.json`、`ablation_legacy_gate.json` 为唯一 B6 口径。
 2. 把 `data/eval_out/` 里被 README 引用的产物全部纳入版本控制（`gold_200.json`、`ablation*.json`、`cross_domain.json`、`defines_*`）。
-3. 分批 commit（建议按 B2/B3/B6/图/安全 分开），push，GitHub 改 Public。
+3. 分批 commit（建议按 B2/B3/B6/图/安全 分开），push（仓库已于 2026-11-11 核实为 public，无需再改可见性）。
 4. 修 g26/g45 的 `lease_contract -> cc#733` 边，或明确 xfail。
 5. 重新导入一次 Neo4j，消除"Neo4j 是 5697 关系旧图"的口径分歧（`docker compose up -d --wait && python scripts/build_graph.py --neo4j --clear`）。
 
@@ -344,7 +346,7 @@
 ## 4. 建议执行顺序
 
 **第一周（防守 + 严谨性，几乎不花钱）**
-1. P0 全部：改口径、commit、push、Public、灭红灯、Neo4j 重导。
+1. P0 全部：改口径、commit、push、Public（2026-11-11 已核实为 public）、灭红灯、Neo4j 重导。
 2. P2 指标拆分（离线，复用 `ablation.json#rows[*].citations`）。
 3. P3 默认档位改 A_gates。
 
