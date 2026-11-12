@@ -35,3 +35,9 @@ logs/
 data/observability/
 data/eval_out/_backup_*/
 docs/figures/_backup_*/
+
+# ---------- 个人资料与面试准备（不进仓库） ----------
+docs/resume_plan_*.md
+docs/resume_edit_list_*.md
+docs/dehumanization_plan_*.md
+reports/interview_bank.md
